@@ -1,6 +1,6 @@
-# Email Templates
+# Free Email Templates!
 
-This project provides modern and minimalist email templates built with HTML and CSS. The templates are designed for sending emails, specifically focusing on a purchase confirmation email.
+Unlock a collection of free, professional, and responsive HTML email templates perfect for any business need! Download now to elevate your email game effortlessly.
 
 ## Setup Instructions
 
