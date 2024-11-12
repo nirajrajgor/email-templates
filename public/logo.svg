@@ -1,0 +1,45 @@
+<svg
+        width="250"
+        height="200"
+        viewBox="0 0 250 200"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- Envelope icon -->
+        <rect
+          x="25"
+          y="60"
+          width="150"
+          height="100"
+          fill="#4285F4"
+          rx="10"
+          ry="10"
+        />
+        <polygon points="25,60 100,120 175,60" fill="#FFFFFF" opacity="0.8" />
+        <polygon points="25,160 100,100 175,160" fill="#357ABD" opacity="0.9" />
+
+        <!-- Document icon overlay -->
+        <rect
+          x="120"
+          y="35"
+          width="50"
+          height="70"
+          fill="#FFFFFF"
+          rx="5"
+          ry="5"
+        />
+        <rect x="125" y="50" width="40" height="8" fill="#4285F4" />
+        <rect x="125" y="65" width="40" height="8" fill="#4285F4" />
+        <rect x="125" y="80" width="40" height="8" fill="#4285F4" />
+
+        <!-- "ET" Text beside the icon -->
+        <text
+          x="190"
+          y="125"
+          font-family="Arial, sans-serif"
+          font-size="48"
+          fill="#4285F4"
+          font-weight="bold"
+        >
+          ET
+        </text>
+</svg>
