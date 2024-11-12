@@ -2,14 +2,14 @@
   "name": "email-templates",
   "description": "Unlock a collection of free, professional, and responsive HTML email templates perfect for any business need! Download now to elevate your email game effortlessly.",
   "private": true,
-  "homepage": "https://nirajrajgor.github.io/email-templates",
+  "homepage": "https://nirajrajgor.github.io/email-templates/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "vite build && gh-pages -d dist"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
