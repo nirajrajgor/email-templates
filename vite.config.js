@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 import { sync } from "glob";
 
 export default defineConfig({
+  base: "/email-templates/",
   build: {
     rollupOptions: {
       input: [
