@@ -1,6 +1,15 @@
-# Free Email Templates!
+# Free Email Templates - Download Instantly, No Signups Required!
 
 Unlock a collection of free, professional, and responsive HTML email templates perfect for any business need! Download now to elevate your email game effortlessly.
+
+You can access the deployed templates at [https://nirajrajgor.github.io/email-templates/](https://nirajrajgor.github.io/email-templates/). No signup or registration is required; you can download the templates directly with just one click of a button!
+
+## Available Templates
+
+- Ecommerce Order Emailer
+- Product Confirmation Template
+- Purchase Confirmation Template
+- More templates are coming soon! Stay tuned for updates.
 
 ## Setup Instructions
 
@@ -20,6 +29,10 @@ Unlock a collection of free, professional, and responsive HTML email templates p
    ```bash
    npm run dev
    ```
+
+# Support Our Project
+
+If you find these templates useful, please consider starring the repository! Your support is greatly appreciated!
 
 ## Disclaimer
 
