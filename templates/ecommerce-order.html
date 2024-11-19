@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Confirmation</title>
+    <style type="text/css">
+      /* Reset styles */
+      body,
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #fff5f0;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      /* Email client specific styles */
+      .ExternalClass {
+        width: 100%;
+      }
+      .ExternalClass,
+      .ExternalClass p,
+      .ExternalClass span,
+      .ExternalClass font,
+      .ExternalClass td,
+      .ExternalClass div {
+        line-height: 100%;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      img {
+        -ms-interpolation-mode: bicubic;
+      }
+    </style>
+  </head>
+  <body style="margin: 0; padding: 32px 16px; background-color: #fff5f0">
+    <!-- Main Container -->
+    <table
+      role="presentation"
+      align="center"
+      cellpadding="0"
+      cellspacing="0"
+      width="100%"
+      style="
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 16px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      "
+    >
+      <!-- Header -->
+      <tr>
+        <td style="padding: 24px 32px">
+          <table
+            role="presentation"
+            width="100%"
+            cellpadding="0"
+            cellspacing="0"
+          >
+            <tr>
+              <td>
+                <img src="/acme.png" alt="acme" style="height: 24px" />
+              </td>
+              <td style="text-align: right">
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="display: inline-block"
+                >
+                  <tr>
+                    <td style="padding-left: 24px">
+                      <a
+                        href="#"
+                        style="
+                          color: #1a1a1a;
+                          text-decoration: none;
+                          font-size: 14px;
+                        "
+                        >Store</a
+                      >
+                    </td>
+                    <td style="padding-left: 24px">
+                      <a
+                        href="#"
+                        style="
+                          color: #1a1a1a;
+                          text-decoration: none;
+                          font-size: 14px;
+                        "
+                        >Guide</a
+                      >
+                    </td>
+                    <td style="padding-left: 24px">
+                      <a
+                        href="#"
+                        style="
+                          color: #1a1a1a;
+                          text-decoration: none;
+                          font-size: 14px;
+                        "
+                        >About</a
+                      >
+                    </td>
+                    <td style="padding-left: 24px">
+                      <a
+                        href="#"
+                        style="
+                          color: #1a1a1a;
+                          text-decoration: none;
+                          font-size: 14px;
+                        "
+                        >Services</a
+                      >
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Main Content -->
+      <tr>
+        <td style="padding: 48px 32px">
+          <table
+            role="presentation"
+            width="100%"
+            cellpadding="0"
+            cellspacing="0"
+          >
+            <!-- Order Confirmation Header -->
+            <tr>
+              <td style="text-align: center; padding-bottom: 32px">
+                <h1
+                  style="
+                    font-size: 32px;
+                    font-weight: 600;
+                    color: #1a1a1a;
+                    margin-bottom: 16px;
+                  "
+                >
+                  Hooray! Your order has been confirmed.
+                </h1>
+                <p style="font-size: 15px; line-height: 1.5; color: #4a4a4a">
+                  The [Company Name] will commence work on this immediately.<br />
+                  You'll receive an email notification once it's shipped.
+                </p>
+              </td>
+            </tr>
+
+            <!-- Progress Tracker -->
+            <tr>
+              <td align="center">
+                <!-- Main container table -->
+                <table
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  style="max-width: 600px; width: 100%; padding: 20px"
+                >
+                  <tr>
+                    <!-- Order Confirmed -->
+                    <td
+                      align="center"
+                      style="width: 0%; text-align: center; max-width: 40px"
+                    >
+                      <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td style="padding: 0">
+                            <div
+                              style="
+                                width: 40px;
+                                height: 40px;
+                                background-color: #ec6d63;
+                                border-radius: 50%;
+                                text-align: center;
+                                line-height: 34px; /* Centering the image vertically */
+                              "
+                            >
+                              <img
+                                src="https://img.icons8.com/ios-filled/50/ffffff/checkmark.png"
+                                alt="Confirmed"
+                                width="20"
+                                height="20"
+                                style="
+                                  display: inline-block;
+                                  vertical-align: middle;
+                                "
+                              />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding-top: 8px">
+                            <span
+                              style="
+                                font-family: Arial, sans-serif;
+                                font-size: 14px;
+                                color: #333333;
+                              "
+                              >Confirmed</span
+                            >
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+
+                    <!-- Divider Line between Order Confirmed and Shipped -->
+                    <td
+                      align="center"
+                      style="
+                        width: 10%;
+                        text-align: center;
+                        vertical-align: baseline;
+                      "
+                    >
+                      <div
+                        style="
+                          border-top: 2px solid #333333;
+                          width: 100%;
+                          height: 2px;
+                          margin-top: 20px;
+                        "
+                      ></div>
+                    </td>
+
+                    <!-- Shipped -->
+                    <td
+                      align="center"
+                      style="width: 0%; text-align: center; max-width: 44px"
+                    >
+                      <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td style="padding: 0; text-align: center">
+                            <div
+                              style="
+                                width: 40px;
+                                height: 40px;
+                                border: 2px solid #333333;
+                                border-radius: 50%;
+                                text-align: center;
+                                line-height: 34px; /* Centering the image vertically */
+                              "
+                            >
+                              <img
+                                src="https://img.icons8.com/ios-filled/50/333333/truck.png"
+                                alt="Shipped"
+                                width="20"
+                                height="20"
+                                style="
+                                  display: inline-block;
+                                  vertical-align: middle;
+                                "
+                              />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding-top: 8px">
+                            <span
+                              style="
+                                font-family: Arial, sans-serif;
+                                font-size: 14px;
+                                color: #333333;
+                              "
+                              >Shipped</span
+                            >
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+
+                    <!-- Divider Line between Shipped and Expected Delivered -->
+                    <td
+                      align="center"
+                      style="
+                        width: 10%;
+                        text-align: center;
+                        vertical-align: baseline;
+                      "
+                    >
+                      <div
+                        style="
+                          border-top: 2px solid #333333;
+                          width: 100%;
+                          height: 2px;
+                          margin-top: 20px;
+                        "
+                      ></div>
+                    </td>
+
+                    <!-- Expected Delivered -->
+                    <td
+                      align="center"
+                      style="width: 0%; text-align: center; max-width: 50px"
+                    >
+                      <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td style="padding: 0">
+                            <div
+                              style="
+                                width: 40px;
+                                height: 40px;
+                                border: 2px solid #333333;
+                                border-radius: 50%;
+                                text-align: center;
+                                line-height: 34px; /* Centering the image vertically */
+                              "
+                            >
+                              <img
+                                src="https://img.icons8.com/ios-filled/50/333333/order-completed.png"
+                                alt="Expected Delivered"
+                                width="20"
+                                height="20"
+                                style="
+                                  display: inline-block;
+                                  vertical-align: middle;
+                                "
+                              />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding-top: 8px">
+                            <span
+                              style="
+                                font-family: Arial, sans-serif;
+                                font-size: 14px;
+                                color: #333333;
+                              "
+                              >Delivered</span
+                            >
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- View Order Button -->
+            <tr>
+              <td style="text-align: center; padding: 32px 0">
+                <a
+                  href="#"
+                  style="
+                    display: inline-block;
+                    padding: 12px 24px;
+                    background: #ff4d4d;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 24px;
+                    font-size: 15px;
+                    font-weight: 500;
+                  "
+                  >View Your Order</a
+                >
+                <p
+                  style="
+                    margin-top: 24px;
+                    font-size: 14px;
+                    color: #4a4a4a;
+                    line-height: 1.5;
+                  "
+                >
+                  Expected delivery timelines. Contact the seller for any
+                  order-related<br />
+                  inquiries. More information is available.
+                </p>
+              </td>
+            </tr>
+
+            <!-- Order Details Section -->
+            <tr>
+              <td style="padding-top: 48px">
+                <h2
+                  style="
+                    font-size: 24px;
+                    font-weight: 600;
+                    color: #1a1a1a;
+                    margin-bottom: 8px;
+                  "
+                >
+                  Order details
+                </h2>
+                <p style="font-size: 14px; color: #4a4a4a; margin-bottom: 24px">
+                  Confirmation number: #6200600
+                </p>
+
+                <!-- Product Item -->
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="margin-bottom: 24px"
+                >
+                  <tr>
+                    <td width="80">
+                      <img
+                        src="/apple-watch-ai-gen.webp"
+                        alt="T-shirt"
+                        style="
+                          width: 80px;
+                          height: 80px;
+                          border-radius: 8px;
+                          object-fit: cover;
+                        "
+                      />
+                    </td>
+                    <td
+                      style="
+                        padding-left: 16px;
+                        font-size: 14px;
+                        color: #4a4a4a;
+                        line-height: 1.5;
+                      "
+                    >
+                      Transaction ID: 1806790905<br />
+                      QTY: SET OF 3<br />
+                      Color: Blue<br />
+                      Quantity: 1
+                    </td>
+                    <td
+                      style="
+                        text-align: right;
+                        font-weight: 600;
+                        color: #1a1a1a;
+                      "
+                    >
+                      $16.85
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Price Summary -->
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="border-top: 1px solid #e8e8e8"
+                >
+                  <tr>
+                    <td
+                      style="
+                        text-align: left;
+                        padding-right: 20px;
+                        padding-top: 16px;
+                        vertical-align: top;
+                      "
+                    >
+                      <h3
+                        style="
+                          font-size: 16px;
+                          font-weight: 600;
+                          color: #1a1a1a;
+                          margin-bottom: 8px;
+                        "
+                      >
+                        Shipping Address
+                      </h3>
+                      <p
+                        style="
+                          font-size: 14px;
+                          color: #4a4a4a;
+                          line-height: 1.5;
+                        "
+                      >
+                        John Doe<br />
+                        123 Main St.<br />
+                        Springfield, IL 62701<br />
+                        United States
+                      </p>
+                    </td>
+                    <td style="text-align: right; vertical-align: top">
+                      <h3
+                        style="
+                          font-size: 16px;
+                          font-weight: 600;
+                          color: #1a1a1a;
+                          margin-bottom: 8px;
+                          padding-top: 16px;
+                        "
+                      >
+                        Paid with Card
+                      </h3>
+                      <table
+                        role="presentation"
+                        cellpadding="0"
+                        cellspacing="0"
+                        style="margin-left: auto; margin-top: 15px"
+                      >
+                        <tr>
+                          <td
+                            style="
+                              padding: 4px 24px 4px 0;
+                              font-size: 14px;
+                              color: #4a4a4a;
+                            "
+                          >
+                            Subtotal
+                          </td>
+                          <td style="font-size: 14px; color: #1a1a1a">
+                            $16.85
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            style="
+                              padding: 4px 24px 4px 0;
+                              font-size: 14px;
+                              color: #4a4a4a;
+                            "
+                          >
+                            Sales tax
+                          </td>
+                          <td style="font-size: 14px; color: #1a1a1a">$1.50</td>
+                        </tr>
+                        <tr>
+                          <td
+                            style="
+                              padding: 4px 24px 4px 0;
+                              font-size: 14px;
+                              color: #4a4a4a;
+                            "
+                          >
+                            Shipping
+                          </td>
+                          <td style="font-size: 14px; color: #1a1a1a">$8.12</td>
+                        </tr>
+                        <tr>
+                          <td
+                            style="
+                              padding: 16px 24px 4px 0;
+                              font-size: 14px;
+                              font-weight: 600;
+                              color: #1a1a1a;
+                            "
+                          >
+                            Total (1 item)
+                          </td>
+                          <td
+                            style="
+                              padding-top: 16px;
+                              font-size: 14px;
+                              font-weight: 600;
+                              color: #1a1a1a;
+                            "
+                          >
+                            $26.47
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Contact Options -->
+      <tr>
+        <td style="padding: 48px 32px; background-color: #f8f8f8">
+          <table
+            role="presentation"
+            width="100%"
+            cellpadding="0"
+            cellspacing="0"
+          >
+            <tr>
+              <td width="33%" style="text-align: center">
+                <div style="font-size: 24px; margin-bottom: 8px">💬</div>
+                <h3
+                  style="font-size: 16px; font-weight: 600; margin-bottom: 4px"
+                >
+                  Chat
+                </h3>
+                <p style="font-size: 14px; color: #4a4a4a">Sureorder.com</p>
+              </td>
+              <td width="33%" style="text-align: center">
+                <div style="font-size: 24px; margin-bottom: 8px">📞</div>
+                <h3
+                  style="font-size: 16px; font-weight: 600; margin-bottom: 4px"
+                >
+                  Call
+                </h3>
+                <p style="font-size: 14px; color: #4a4a4a">1 (999) 928-2938</p>
+              </td>
+              <td width="33%" style="text-align: center">
+                <div style="font-size: 24px; margin-bottom: 8px">✉️</div>
+                <h3
+                  style="font-size: 16px; font-weight: 600; margin-bottom: 4px"
+                >
+                  Email
+                </h3>
+                <p style="font-size: 14px; color: #4a4a4a">
+                  Sureorder@gmail.com
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Bag Size Section -->
+      <tr>
+        <td style="padding: 48px 32px; background-color: #ffd6c4">
+          <h2
+            style="
+              font-size: 24px;
+              font-weight: 600;
+              color: #1a1a1a;
+              margin-bottom: 16px;
+            "
+          >
+            Have Questions About Your Watch Size?
+          </h2>
+          <p
+            style="
+              font-size: 15px;
+              line-height: 1.5;
+              color: #4a4a4a;
+              margin-bottom: 24px;
+            "
+          >
+            We've updated our watch size! If you're wondering about the amount
+            of offer<br />
+            you're receiving or how this change enhances your Trade experience,
+            check out our FAQs!
+          </p>
+          <div style="width: 100%; overflow: hidden">
+            <div style="float: left; margin-right: 20px">
+              <a
+                href="#"
+                style="
+                  display: inline-block;
+                  padding: 12px 24px;
+                  background: #ff4d4d;
+                  color: white;
+                  text-decoration: none;
+                  border-radius: 24px;
+                  font-size: 15px;
+                  font-weight: 500;
+                "
+                >Read FAQs</a
+              >
+            </div>
+            <div style="float: right">
+              <img
+                src="/size-chart.webp"
+                alt="Clothes rack"
+                style="width: 100%; max-width: 200px; border-radius: 8px"
+              />
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <!-- Free Shipping Section -->
+      <tr>
+        <td style="padding: 48px 32px; text-align: center">
+          <h2
+            style="
+              font-size: 24px;
+              font-weight: 600;
+              color: #1a1a1a;
+              margin-bottom: 16px;
+            "
+          >
+            Exciting news: Enjoy free shipping on next order!
+          </h2>
+          <p
+            style="
+              font-size: 15px;
+              line-height: 1.5;
+              color: #4a4a4a;
+              margin-bottom: 24px;
+            "
+          >
+            Want to enhance your shopping experience? Enjoy complimentary <br />
+            shipping on your next order as a special treat!
+          </p>
+          <a
+            href="#"
+            style="
+              display: inline-block;
+              padding: 12px 24px;
+              background: #ff4d4d;
+              color: white;
+              text-decoration: none;
+              border-radius: 24px;
+              font-size: 15px;
+              font-weight: 500;
+            "
+            >Shop Now</a
+          >
+        </td>
+      </tr>
+
+      <!-- Footer -->
+      <tr>
+        <td
+          style="
+            padding: 48px 32px;
+            text-align: center;
+            background-color: #1a1a1a;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+          "
+        >
+          <table
+            role="presentation"
+            width="100%"
+            cellpadding="0"
+            cellspacing="0"
+          >
+            <tr>
+              <td style="text-align: center; padding-bottom: 32px">
+                <a
+                  href="#"
+                  style="
+                    color: white;
+                    text-decoration: none;
+                    margin: 0 12px;
+                    font-size: 14px;
+                  "
+                  >Facebook</a
+                >
+                <a
+                  href="#"
+                  style="
+                    color: white;
+                    text-decoration: none;
+                    margin: 0 12px;
+                    font-size: 14px;
+                  "
+                  >Twitter</a
+                >
+                <a
+                  href="#"
+                  style="
+                    color: white;
+                    text-decoration: none;
+                    margin: 0 12px;
+                    font-size: 14px;
+                  "
+                  >Instagram</a
+                >
+                <a
+                  href="#"
+                  style="
+                    color: white;
+                    text-decoration: none;
+                    margin: 0 12px;
+                    font-size: 14px;
+                  "
+                  >Pinterest</a
+                >
+              </td>
+            </tr>
+            <tr>
+              <td
+                style="
+                  text-align: center;
+                  color: #999999;
+                  font-size: 12px;
+                  line-height: 1.5;
+                "
+              >
+                © Acme Inc. All Rights Reserved.<br />
+                123 Main St., Springfield, IL 62701<br /><br />
+                Prefer not to receive these emails anymore?
+                <a href="#" style="color: #999999; text-decoration: underline"
+                  >Unsubscribe here.</a
+                >
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
