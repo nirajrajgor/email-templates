@@ -9,6 +9,7 @@ You can access the deployed templates at [https://nirajrajgor.github.io/email-te
 - Ecommerce Order Emailer
 - Product Confirmation Template
 - Purchase Confirmation Template
+- Promotional Offer Template
 - More templates are coming soon! Stay tuned for updates.
 
 ## Setup Instructions
