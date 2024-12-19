@@ -6,10 +6,12 @@ You can access the deployed templates at [https://nirajrajgor.github.io/email-te
 
 ## Available Templates
 
-- Ecommerce Order Emailer
-- Product Confirmation Template
-- Purchase Confirmation Template
-- Promotional Offer Template
+- [Ecommerce Order Emailer](https://nirajrajgor.github.io/email-templates/ecommerce-order)
+- [Product Confirmation Template](https://nirajrajgor.github.io/email-templates/product-confirmation)  
+- [Purchase Confirmation Template](https://nirajrajgor.github.io/email-templates/purchase-confirmation)
+- [Promotional Offer Template](https://nirajrajgor.github.io/email-templates/promotional-offer)
+- [Shopping Deals Email Template](https://nirajrajgor.github.io/email-templates/shopping-deals)
+
 - More templates are coming soon! Stay tuned for updates.
 
 ## Setup Instructions
