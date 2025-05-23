@@ -13,6 +13,7 @@ You can access the deployed templates at [https://nirajrajgor.github.io/email-te
 - [Shopping Deals Email Template](https://nirajrajgor.github.io/email-templates/templates/shopping-deals)
 - [Gift Decor Email Template](https://nirajrajgor.github.io/email-templates/templates/gift-decor)
 - [Product Announcements Email Template](https://nirajrajgor.github.io/email-templates/templates/product-announcements.html)
+- [AI Newsletter Email Template](https://nirajrajgor.github.io/email-templates/templates/ai-newsletter)
 
 - More templates are coming soon! Stay tuned for updates.
 
@@ -41,4 +42,4 @@ If you find these templates useful, please consider starring the repository! You
 
 ## Disclaimer
 
-The content of the invoice template is dummy and does not mean anything. It is used as a placeholder text. Any brand name or price amount added is purely for placeholder purpose.
+All content in these templates is for demonstration purposes only. Brand names, prices, and other details are placeholder text. Images are used solely for preview and illustration purposes.
