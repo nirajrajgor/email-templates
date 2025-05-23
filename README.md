@@ -12,6 +12,7 @@ You can access the deployed templates at [https://nirajrajgor.github.io/email-te
 - [Promotional Offer Template](https://nirajrajgor.github.io/email-templates/templates/promotional-offer)
 - [Shopping Deals Email Template](https://nirajrajgor.github.io/email-templates/templates/shopping-deals)
 - [Gift Decor Email Template](https://nirajrajgor.github.io/email-templates/templates/gift-decor)
+- [Product Announcements Email Template](https://nirajrajgor.github.io/email-templates/templates/product-announcements.html)
 
 - More templates are coming soon! Stay tuned for updates.
 
