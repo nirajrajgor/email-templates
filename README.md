@@ -14,6 +14,7 @@ You can access the deployed templates at [https://nirajrajgor.github.io/email-te
 - [Gift Decor Email Template](https://nirajrajgor.github.io/email-templates/templates/gift-decor)
 - [Product Announcements Email Template](https://nirajrajgor.github.io/email-templates/templates/product-announcements.html)
 - [AI Newsletter Email Template](https://nirajrajgor.github.io/email-templates/templates/ai-newsletter)
+- [Music Event Email Template](https://nirajrajgor.github.io/email-templates/templates/music-event-promotion)
 
 - More templates are coming soon! Stay tuned for updates.
 
