@@ -5,6 +5,13 @@
   "homepage": "https://nirajrajgor.github.io/email-templates/",
   "version": "0.0.0",
   "type": "module",
+  "keywords": [
+    "html email",
+    "email templates",
+    "responsive email",
+    "gh-pages",
+    "open source"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/generate-seo.cjs",
