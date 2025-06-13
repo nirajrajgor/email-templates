@@ -11,8 +11,9 @@ const PUBLISHER_NAME = "Niraj Rajgor";
 
 function toUrl(filePath) {
   const relative = path.relative(DIST_DIR, filePath).replace(/\\/g, "/");
-  if (relative === "index.html") return BASE_URL;
-  return `${BASE_URL}${relative}`;
+  // Collapse any trailing "index.html" so sub-folders map to a clean URL.
+  const clean = relative.replace(/index\.html$/i, "");
+  return `${BASE_URL}${clean}`;
 }
 
 function injectSeo(htmlPath) {
