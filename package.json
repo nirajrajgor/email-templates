@@ -7,9 +7,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-seo.cjs",
     "preview": "vite preview",
-    "deploy": "vite build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
@@ -17,6 +17,7 @@
     "glob": "^11.0.0",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
+    "cheerio": "^1.0.0-rc.12",
     "vite": "^5.4.10"
   },
   "dependencies": {
