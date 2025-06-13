@@ -8,9 +8,8 @@
 
 1. [Live Demo](#live-demo)
 2. [Available Templates](#available-templates)
-3. [Screenshots](#screenshots)
-4. [Setup](#setup-instructions)
-5. [License](#license)
+3. [Setup](#setup-instructions)
+4. [License](#license)
 
 ---
 
@@ -37,20 +36,6 @@ No signup required—download with a single click!
 - [Music Event Email Template](https://nirajrajgor.github.io/email-templates/templates/music-event-promotion)
 
 - More templates are coming soon! Stay tuned for updates.
-
-## Screenshots
-
-| Template              | Preview                                                                    |
-| --------------------- | -------------------------------------------------------------------------- |
-| Ecommerce Order       | ![Ecommerce Order Emailer preview](public/ecommerce-order-emailer.jpg)     |
-| Product Confirmation  | ![Product Confirmation preview](public/product-confirm-preview.png)        |
-| Purchase Confirmation | ![Purchase Confirmation preview](public/purchase-confirm-preview.png)      |
-| Promotional Offer     | ![Promotional Offer preview](public/promotional-offer-preview.png)         |
-| Shopping Deals        | ![Shopping Deals preview](public/shopping-deals-preview.png)               |
-| Gift Decor            | ![Gift Decor preview](public/gift-decor-preview.jpg)                       |
-| Product Announcements | ![Product Announcements preview](public/product-announcements-preview.png) |
-| AI Newsletter         | ![AI Newsletter preview](public/ai-newsletter-preview.jpg)                 |
-| Music Event Promotion | ![Music Event Promotion preview](public/music-event-promotion-preview.png) |
 
 ## Setup Instructions
 
