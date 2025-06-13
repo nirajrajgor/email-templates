@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const glob = require("glob");
 const cheerio = require("cheerio");
+const sizeOf = require("image-size");
 
 // === CONFIG ===
 const BASE_URL = "https://nirajrajgor.github.io/email-templates/";
@@ -59,6 +60,60 @@ function injectSeo(htmlPath) {
         jsonLd
       )}</script>`
     );
+  }
+
+  // Improve <img> tags: width, height, decoding="async"
+  $("img").each((_, img) => {
+    const $img = $(img);
+    if (!$img.attr("width") || !$img.attr("height")) {
+      let src = $img.attr("src") || "";
+      if (src.startsWith("/")) src = src.substring(1);
+      const imgPath = path.join(DIST_DIR, src);
+      if (fs.existsSync(imgPath)) {
+        try {
+          const dim = sizeOf(imgPath);
+          if (dim && dim.width && dim.height) {
+            $img.attr("width", dim.width);
+            $img.attr("height", dim.height);
+          }
+        } catch (_) {}
+      }
+    }
+    if (!$img.attr("decoding")) $img.attr("decoding", "async");
+  });
+
+  // Twitter meta tags (summary_large_image)
+  const existingTwitter = $('meta[name="twitter:card"]').length;
+  if (!existingTwitter) {
+    const title =
+      $('meta[property="og:title"]').attr("content") ||
+      $("title").text().trim();
+    const desc =
+      $('meta[property="og:description"]').attr("content") ||
+      $('meta[name="description"]').attr("content") ||
+      "";
+    let image = $('meta[property="og:image"]').attr("content");
+    if (!image) {
+      // fallback: first image in document
+      const firstImg = $("img").first().attr("src");
+      if (firstImg) image = firstImg;
+    }
+    if (image && !/^https?:/.test(image)) {
+      image = image.startsWith("/")
+        ? `${BASE_URL}${image.substring(1)}`
+        : `${canonicalUrl}${image}`;
+    }
+    $("head").append(
+      `\n    <meta name="twitter:card" content="summary_large_image" />`
+    );
+    $("head").append(`\n    <meta name="twitter:title" content="${title}" />`);
+    $("head").append(
+      `\n    <meta name="twitter:description" content="${desc}" />`
+    );
+    if (image)
+      $("head").append(
+        `\n    <meta name="twitter:image" content="${image}" />`
+      );
   }
 
   fs.writeFileSync(htmlPath, $.html(), "utf8");

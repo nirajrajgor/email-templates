@@ -18,6 +18,7 @@
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
     "cheerio": "^1.0.0-rc.12",
+    "image-size": "^1.0.2",
     "vite": "^5.4.10"
   },
   "dependencies": {
