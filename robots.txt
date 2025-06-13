@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nirajrajgor.github.io/email-templates/sitemap.xml
