@@ -8,9 +8,7 @@
   "keywords": [
     "html email",
     "email templates",
-    "responsive email",
-    "gh-pages",
-    "open source"
+    "responsive email"
   ],
   "scripts": {
     "dev": "vite",

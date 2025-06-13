@@ -81,7 +81,7 @@ All content in these templates is for demonstration purposes only. Brand names, 
 
 ## Keywords
 
-HTML email templates • responsive email • free email template • TailwindCSS email • newsletter design
+HTML email templates • responsive email • free email template • newsletter design
 
 ## License
 
