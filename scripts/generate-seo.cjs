@@ -10,6 +10,55 @@ const DIST_DIR = path.resolve(__dirname, "..", "dist");
 const CHANGE_FREQ = "weekly";
 const PUBLISHER_NAME = "Niraj Rajgor";
 
+// Template metadata for custom lastmod dates and images
+const TEMPLATE_METADATA = {
+  "purchase-confirmation.html": {
+    lastmod: "2024-11-08",
+    image: "purchase-confirm-preview.png",
+    title: "Purchase Confirmation Email Template",
+  },
+  "product-confirmation.html": {
+    lastmod: "2024-11-08",
+    image: "product-confirm-preview.png",
+    title: "Product Confirmation Email Template",
+  },
+  "ecommerce-order.html": {
+    lastmod: "2024-11-18",
+    image: "ecommerce-order-emailer.jpg",
+    title: "Ecommerce Order Email Template",
+  },
+  "promotional-offer.html": {
+    lastmod: "2024-11-20",
+    image: "promotional-offer-preview.png",
+    title: "Promotional Offer Email Template",
+  },
+  "shopping-deals.html": {
+    lastmod: "2024-12-09",
+    image: "shopping-deals-preview.png",
+    title: "Shopping Deals Email Template",
+  },
+  "gift-decor.html": {
+    lastmod: "2025-01-06",
+    image: "gift-decor-preview.jpg",
+    title: "Gift Decor Email Template",
+  },
+  "product-announcements.html": {
+    lastmod: "2025-05-22",
+    image: "product-announcements-preview.png",
+    title: "Product Announcements Email Template",
+  },
+  "ai-newsletter.html": {
+    lastmod: "2025-02-22",
+    image: "ai-newsletter-preview.jpg",
+    title: "AI Newsletter Email Template",
+  },
+  "music-event-promotion.html": {
+    lastmod: "2025-05-28",
+    image: "music-event-promotion-preview.png",
+    title: "Music Event Promotion Email Template",
+  },
+};
+
 function toUrl(filePath) {
   const relative = path.relative(DIST_DIR, filePath).replace(/\\/g, "/");
   // Collapse any trailing "index.html" so sub-folders map to a clean URL.
@@ -121,13 +170,115 @@ function injectSeo(htmlPath) {
 
 function buildSitemap(urls) {
   const today = new Date().toISOString().split("T")[0];
-  const items = urls
-    .map(
-      (u) =>
-        `  <url>\n    <loc>${u}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${CHANGE_FREQ}</changefreq>\n  </url>`
-    )
+
+  // Sort URLs to put main page first, then templates
+  const sortedUrls = urls.sort((a, b) => {
+    if (a === BASE_URL) return -1;
+    if (b === BASE_URL) return 1;
+    return a.localeCompare(b);
+  });
+
+  // Separate main pages from templates
+  const mainPages = [];
+  const templatePages = [];
+
+  sortedUrls.forEach((url) => {
+    if (url.includes("/templates/")) {
+      templatePages.push(url);
+    } else {
+      mainPages.push(url);
+    }
+  });
+
+  // Generate XML for main pages
+  const mainPageItems = mainPages
+    .map((url) => {
+      const isMainPage = url === BASE_URL;
+      let urlXml = `  <url>
+    <loc>${url}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>`;
+
+      if (isMainPage) {
+        urlXml += `
+    <image:image>
+      <image:loc>${BASE_URL}logo.svg</image:loc>
+      <image:title>Email Templates Logo</image:title>
+    </image:image>`;
+      }
+
+      urlXml += `
+  </url>`;
+      return urlXml;
+    })
     .join("\n");
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${items}\n</urlset>`;
+
+  // Generate XML for template pages
+  const templateItems = templatePages
+    .map((url) => {
+      const fileName = path.basename(url);
+      const metadata = TEMPLATE_METADATA[fileName];
+      const lastmod = metadata ? metadata.lastmod : today;
+
+      let urlXml = `  <url>
+    <loc>${url}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>`;
+
+      if (metadata && metadata.image) {
+        urlXml += `
+    <image:image>
+      <image:loc>${BASE_URL}${metadata.image}</image:loc>
+      <image:title>${metadata.title}</image:title>
+    </image:image>`;
+      }
+
+      urlXml += `
+  </url>`;
+      return urlXml;
+    })
+    .join("\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Main Pages -->
+${mainPageItems}
+
+  <!-- Email Templates -->
+${templateItems}
+
+</urlset>`;
+}
+
+function buildRobots() {
+  return `User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: ${BASE_URL}sitemap.xml
+
+# Block access to certain file types
+Disallow: /*.json$
+Disallow: /*.config.*$
+Disallow: /node_modules/
+Disallow: /.git/
+
+# Allow all CSS, JS, and image files
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.gif$
+
+# Allow HTML files
+Allow: /*.html$`;
 }
 
 function run() {
@@ -145,16 +296,16 @@ function run() {
     urls.push(toUrl(fullPath));
   });
 
-  // Sitemap
+  // Enhanced Sitemap with metadata
   const sitemap = buildSitemap(urls);
   fs.writeFileSync(path.join(DIST_DIR, "sitemap.xml"), sitemap, "utf8");
 
-  // Robots.txt
-  const robots = `User-agent: *\nAllow: /\nSitemap: ${BASE_URL}sitemap.xml`;
+  // Enhanced Robots.txt with detailed rules
+  const robots = buildRobots();
   fs.writeFileSync(path.join(DIST_DIR, "robots.txt"), robots, "utf8");
 
   console.log(
-    "SEO assets generated: sitemap.xml, robots.txt, canonical tags, JSON-LD"
+    "Enhanced SEO assets generated: sitemap.xml (with image metadata), robots.txt (with detailed rules), canonical tags, JSON-LD"
   );
 }
 
