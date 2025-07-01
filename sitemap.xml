@@ -1,58 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Main Pages -->
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/</loc>
     <lastmod>2025-07-01</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/logo.svg</image:loc>
+      <image:title>Email Templates Logo</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/google559114339d6e2eb0.html</loc>
     <lastmod>2025-07-01</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
+
+  <!-- Email Templates -->
   <url>
-    <loc>https://nirajrajgor.github.io/email-templates/templates/shopping-deals.html</loc>
-    <lastmod>2025-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://nirajrajgor.github.io/email-templates/templates/purchase-confirmation.html</loc>
-    <lastmod>2025-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://nirajrajgor.github.io/email-templates/templates/promotional-offer.html</loc>
-    <lastmod>2025-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://nirajrajgor.github.io/email-templates/templates/product-confirmation.html</loc>
-    <lastmod>2025-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://nirajrajgor.github.io/email-templates/templates/product-announcements.html</loc>
-    <lastmod>2025-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://nirajrajgor.github.io/email-templates/templates/music-event-promotion.html</loc>
-    <lastmod>2025-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://nirajrajgor.github.io/email-templates/templates/gift-decor.html</loc>
-    <lastmod>2025-07-01</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/ai-newsletter.html</loc>
+    <lastmod>2025-02-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/ai-newsletter-preview.jpg</image:loc>
+      <image:title>AI Newsletter Email Template</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/templates/ecommerce-order.html</loc>
-    <lastmod>2025-07-01</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2024-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/ecommerce-order-emailer.jpg</image:loc>
+      <image:title>Ecommerce Order Email Template</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://nirajrajgor.github.io/email-templates/templates/ai-newsletter.html</loc>
-    <lastmod>2025-07-01</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/gift-decor.html</loc>
+    <lastmod>2025-01-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/gift-decor-preview.jpg</image:loc>
+      <image:title>Gift Decor Email Template</image:title>
+    </image:image>
   </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/music-event-promotion.html</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/music-event-promotion-preview.png</image:loc>
+      <image:title>Music Event Promotion Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/product-announcements.html</loc>
+    <lastmod>2025-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/product-announcements-preview.png</image:loc>
+      <image:title>Product Announcements Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/product-confirmation.html</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/product-confirm-preview.png</image:loc>
+      <image:title>Product Confirmation Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/promotional-offer.html</loc>
+    <lastmod>2024-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/promotional-offer-preview.png</image:loc>
+      <image:title>Promotional Offer Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/purchase-confirmation.html</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/purchase-confirm-preview.png</image:loc>
+      <image:title>Purchase Confirmation Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/shopping-deals.html</loc>
+    <lastmod>2024-12-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/shopping-deals-preview.png</image:loc>
+      <image:title>Shopping Deals Email Template</image:title>
+    </image:image>
+  </url>
+
 </urlset>
