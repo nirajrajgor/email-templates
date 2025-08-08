@@ -57,6 +57,11 @@ const TEMPLATE_METADATA = {
     image: "music-event-promotion-preview.png",
     title: "Music Event Promotion Email Template",
   },
+  "password-reset.html": {
+    lastmod: "2025-08-07",
+    image: "password-reset-preview.png",
+    title: "Password Reset Email Template",
+  },
 };
 
 function toUrl(filePath) {
