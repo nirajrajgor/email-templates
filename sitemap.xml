@@ -5,7 +5,7 @@
   <!-- Main Pages -->
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/</loc>
-    <lastmod>2025-07-31</lastmod>
+    <lastmod>2025-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -53,6 +53,16 @@
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/music-event-promotion-preview.png</image:loc>
       <image:title>Music Event Promotion Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/password-reset.html</loc>
+    <lastmod>2025-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/password-reset-preview.png</image:loc>
+      <image:title>Password Reset Email Template</image:title>
     </image:image>
   </url>
   <url>
