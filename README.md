@@ -34,6 +34,7 @@ No signup required—download with a single click!
 - [Product Announcements Email Template](https://nirajrajgor.github.io/email-templates/templates/product-announcements.html)
 - [AI Newsletter Email Template](https://nirajrajgor.github.io/email-templates/templates/ai-newsletter)
 - [Music Event Email Template](https://nirajrajgor.github.io/email-templates/templates/music-event-promotion)
+- [Password Reset Email Template](https://nirajrajgor.github.io/email-templates/templates/password-reset)
 
 - More templates are coming soon! Stay tuned for updates.
 
