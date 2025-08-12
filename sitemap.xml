@@ -23,9 +23,13 @@
   <!-- Email Templates -->
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/templates/abandoned-cart.html</loc>
-    <lastmod>2025-08-12</lastmod>
+    <lastmod>2025-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/abandoned-cart-preview.png</image:loc>
+      <image:title>Abandoned Cart HTML Email Template</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/templates/ai-newsletter.html</loc>
