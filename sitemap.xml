@@ -5,7 +5,7 @@
   <!-- Main Pages -->
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/</loc>
-    <lastmod>2025-08-08</lastmod>
+    <lastmod>2025-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -13,8 +13,20 @@
       <image:title>Email Templates Logo</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/google559114339d6e2eb0.html</loc>
+    <lastmod>2025-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 
   <!-- Email Templates -->
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/abandoned-cart.html</loc>
+    <lastmod>2025-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/templates/ai-newsletter.html</loc>
     <lastmod>2025-02-22</lastmod>
