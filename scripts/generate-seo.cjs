@@ -62,6 +62,11 @@ const TEMPLATE_METADATA = {
     image: "password-reset-preview.png",
     title: "Password Reset Email Template",
   },
+  "abandoned-cart.html": {
+    lastmod: "2025-08-11",
+    image: "abandoned-cart-preview.png",
+    title: "Abandoned Cart HTML Email Template",
+  },
 };
 
 function toUrl(filePath) {
