@@ -36,6 +36,7 @@ No signup required—download with a single click!
 - [Music Event Email Template](https://nirajrajgor.github.io/email-templates/templates/music-event-promotion)
 - [Password Reset Email Template](https://nirajrajgor.github.io/email-templates/templates/password-reset)
 - [Abandoned Cart Email Template](https://nirajrajgor.github.io/email-templates/templates/abandoned-cart)
+- [Welcome / Onboarding Email Template](https://nirajrajgor.github.io/email-templates/templates/welcome-onboarding)
 
 - More templates are coming soon! Stay tuned for updates.
 
