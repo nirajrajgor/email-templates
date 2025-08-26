@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verify Your Account | HTML Email Template</title>
+    <meta
+      name="description"
+      content="Minimal and distinctive account verification email with unique typography-focused design."
+    />
+    <style type="text/css">
+      a[x-apple-data-detectors],
+      #MessageViewBody a,
+      a[href^="tel"],
+      a[href^="sms"] {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-weight: inherit !important;
+      }
+      @media only screen and (max-width: 600px) {
+        .sm-block {
+          display: block !important;
+          width: 100% !important;
+        }
+        .sm-w-full {
+          width: 100% !important;
+        }
+        .sm-px-16 {
+          padding-left: 16px !important;
+          padding-right: 16px !important;
+        }
+        .sm-text-center {
+          text-align: center !important;
+        }
+        .sm-text-left {
+          text-align: left !important;
+        }
+        .sm-justify-center {
+          justify-content: center !important;
+        }
+        .sm-flex-col {
+          flex-direction: column !important;
+        }
+      }
+    </style>
+    <!--[if mso]>
+      <style type="text/css">
+        body,
+        table,
+        td {
+          font-family: Arial, Helvetica, sans-serif !important;
+        }
+        a {
+          text-decoration: none;
+        }
+      </style>
+    <![endif]-->
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #fafaf9;
+      mso-line-height-rule: exactly;
+      font-family: Arial, Helvetica, sans-serif;
+    "
+    bgcolor="#fafaf9"
+  >
+    <!-- Preheader (hidden) -->
+    <div
+      style="
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        mso-hide: all;
+      "
+    >
+      Account verification required • Link expires in 24 hours
+    </div>
+
+    <!-- Main Container -->
+    <table
+      role="presentation"
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+      width="100%"
+      style="
+        background-color: #fafaf9;
+        font-family: Arial, Helvetica, sans-serif;
+      "
+      bgcolor="#fafaf9"
+    >
+      <tr>
+        <td align="center" style="padding: 60px 20px">
+          <!-- Content Container -->
+          <table
+            role="presentation"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            width="520"
+            style="
+              width: 100%;
+              max-width: 520px;
+              background-color: #ffffff;
+              border: 1px solid #e5e5e5;
+            "
+          >
+            <!-- Minimal Header -->
+            <tr>
+              <td style="padding: 50px 40px 30px 40px; text-align: center">
+                <!-- Company Logo -->
+                <img
+                  src="https://nirajrajgor.github.io/email-templates/acme.png"
+                  alt="Acme"
+                  width="80"
+                  height="30"
+                  style="
+                    display: block;
+                    height: auto;
+                    border: 0;
+                    outline: none;
+                    text-decoration: none;
+                    margin: 0 auto 30px auto;
+                  "
+                />
+
+                <!-- Minimal Divider -->
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  width="60"
+                  style="margin: 0 auto 30px auto"
+                >
+                  <tr>
+                    <td
+                      style="
+                        height: 2px;
+                        background-color: #d4a574;
+                        border-radius: 1px;
+                      "
+                    ></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Main Content -->
+            <tr>
+              <td style="padding: 0 40px 30px 40px">
+                <!-- Greeting -->
+                <h1
+                  style="
+                    margin: 0 0 25px 0;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 28px;
+                    font-weight: normal;
+                    color: #2c1810;
+                    line-height: 1.3;
+                    text-align: center;
+                    letter-spacing: -0.3px;
+                  "
+                >
+                  Hello {{firstName}},
+                </h1>
+
+                <!-- Main Message -->
+                <p
+                  style="
+                    margin: 0 0 30px 0;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 17px;
+                    color: #5c4b37;
+                    line-height: 1.7;
+                    text-align: center;
+                  "
+                >
+                  Welcome to Acme. Before you begin exploring all that we have
+                  to offer, we need to verify your email address to ensure
+                  account security.
+                </p>
+
+                <!-- Unique CTA Design -->
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  width="100%"
+                  style="margin-bottom: 35px"
+                >
+                  <tr>
+                    <td align="center">
+                      <!-- CTA Container -->
+                      <table
+                        role="presentation"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0"
+                        style="
+                          border: 2px solid #d4a574;
+                          border-radius: 8px;
+                          overflow: hidden;
+                        "
+                      >
+                        <tr>
+                          <td
+                            style="
+                              background-color: #d4a574;
+                              padding: 20px 30px;
+                              text-align: center;
+                            "
+                          >
+                            <a
+                              href="{{verificationUrl}}"
+                              style="
+                                display: block;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size: 16px;
+                                font-weight: bold;
+                                color: #2c1810;
+                                text-decoration: none;
+                                letter-spacing: 1px;
+                                text-transform: uppercase;
+                              "
+                            >
+                              Verify Account
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Alternative Text -->
+                <p
+                  style="
+                    margin: 0 0 25px 0;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 15px;
+                    color: #8b7355;
+                    line-height: 1.6;
+                    text-align: center;
+                  "
+                >
+                  If the button doesn't work, copy and paste this link into your
+                  browser:
+                </p>
+
+                <!-- Link Display -->
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  width="100%"
+                  style="margin-bottom: 30px"
+                >
+                  <tr>
+                    <td align="center">
+                      <div
+                        style="
+                          background-color: #f9f6f1;
+                          border-left: 4px solid #d4a574;
+                          padding: 15px 20px;
+                          font-family: 'Courier New', monospace;
+                          font-size: 13px;
+                          color: #8b7355;
+                          word-break: break-all;
+                          text-align: left;
+                        "
+                      >
+                        {{verificationUrl}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Unique Info Section -->
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  width="100%"
+                  style="margin-bottom: 35px"
+                >
+                  <tr>
+                    <td>
+                      <!-- Info Items -->
+                      <table
+                        role="presentation"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0"
+                        width="100%"
+                      >
+                        <tr>
+                          <td
+                            width="50%"
+                            style="padding-right: 10px; vertical-align: top"
+                          >
+                            <div
+                              style="
+                                background-color: #f9f6f1;
+                                border-radius: 6px;
+                                padding: 20px 15px;
+                                text-align: center;
+                                border: 1px solid #e8e3dd;
+                              "
+                            >
+                              <div
+                                style="
+                                  font-size: 24px;
+                                  margin-bottom: 8px;
+                                  color: #d4a574;
+                                "
+                              >
+                                ⏱️
+                              </div>
+                              <div
+                                style="
+                                  font-family: Arial, Helvetica, sans-serif;
+                                  font-size: 12px;
+                                  color: #8b7355;
+                                  margin-bottom: 5px;
+                                  font-weight: bold;
+                                  text-transform: uppercase;
+                                  letter-spacing: 0.5px;
+                                "
+                              >
+                                Expires In
+                              </div>
+                              <div
+                                style="
+                                  font-family: Arial, Helvetica, sans-serif;
+                                  font-size: 16px;
+                                  color: #2c1810;
+                                  font-weight: bold;
+                                "
+                              >
+                                24 Hours
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            width="50%"
+                            style="padding-left: 10px; vertical-align: top"
+                          >
+                            <div
+                              style="
+                                background-color: #f9f6f1;
+                                border-radius: 6px;
+                                padding: 20px 15px;
+                                text-align: center;
+                                border: 1px solid #e8e3dd;
+                              "
+                            >
+                              <div
+                                style="
+                                  font-size: 24px;
+                                  margin-bottom: 8px;
+                                  color: #d4a574;
+                                "
+                              >
+                                🔐
+                              </div>
+                              <div
+                                style="
+                                  font-family: Arial, Helvetica, sans-serif;
+                                  font-size: 12px;
+                                  color: #8b7355;
+                                  margin-bottom: 5px;
+                                  font-weight: bold;
+                                  text-transform: uppercase;
+                                  letter-spacing: 0.5px;
+                                "
+                              >
+                                Security
+                              </div>
+                              <div
+                                style="
+                                  font-family: Arial, Helvetica, sans-serif;
+                                  font-size: 16px;
+                                  color: #2c1810;
+                                  font-weight: bold;
+                                "
+                              >
+                                One-time link
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Support Section -->
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  width="100%"
+                >
+                  <tr>
+                    <td align="center" style="padding-top: 20px">
+                      <p
+                        style="
+                          margin: 0 0 10px 0;
+                          font-family: Arial, Helvetica, sans-serif;
+                          font-size: 14px;
+                          color: #8b7355;
+                          line-height: 1.5;
+                        "
+                      >
+                        Questions? Contact our
+                        <a
+                          href="{{contactUrl}}"
+                          style="
+                            color: #d4a574;
+                            text-decoration: underline;
+                            font-weight: bold;
+                          "
+                        >
+                          support team
+                        </a>
+                      </p>
+                      <p
+                        style="
+                          margin: 0;
+                          font-family: Arial, Helvetica, sans-serif;
+                          font-size: 12px;
+                          color: #a8998a;
+                          line-height: 1.4;
+                        "
+                      >
+                        Sent to {{email}} on {{date}}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Minimal Footer -->
+            <tr>
+              <td
+                style="
+                  background-color: #f9f6f1;
+                  padding: 25px 40px;
+                  border-top: 1px solid #e8e3dd;
+                "
+              >
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  width="100%"
+                >
+                  <tr>
+                    <td align="center">
+                      <!-- Footer Links -->
+                      <p
+                        style="
+                          margin: 0;
+                          font-family: Arial, Helvetica, sans-serif;
+                          font-size: 11px;
+                          color: #a8998a;
+                          line-height: 1.5;
+                          text-align: center;
+                        "
+                      >
+                        <a
+                          href="{{privacyUrl}}"
+                          style="
+                            color: #a8998a;
+                            text-decoration: underline;
+                            margin-right: 12px;
+                          "
+                        >
+                          Privacy
+                        </a>
+                        <a
+                          href="{{termsUrl}}"
+                          style="
+                            color: #a8998a;
+                            text-decoration: underline;
+                            margin-right: 12px;
+                          "
+                        >
+                          Terms
+                        </a>
+                        <a
+                          href="{{unsubscribeUrl}}"
+                          style="color: #a8998a; text-decoration: underline"
+                        >
+                          Unsubscribe
+                        </a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
