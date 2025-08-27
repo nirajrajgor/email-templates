@@ -72,7 +72,7 @@
       bgcolor="#fafaf9"
     >
       <tr>
-        <td align="center" style="padding: 30px 10px">
+        <td align="center" style="padding: 30px 10px" width="100%">
           <!-- Content Container -->
           <table
             role="presentation"
@@ -86,7 +86,6 @@
               background-color: #ffffff;
               border: 1px solid #e5e5e5;
               border-collapse: collapse;
-              margin: 0 auto;
             "
             align="center"
           >
@@ -94,20 +93,31 @@
             <tr>
               <td style="padding: 30px 20px 20px 20px; text-align: center">
                 <!-- Company Logo -->
-                <img
-                  src="https://nirajrajgor.github.io/email-templates/acme.png"
-                  alt="Acme"
-                  width="80"
-                  height="30"
-                  style="
-                    display: block;
-                    height: auto;
-                    border: 0;
-                    outline: none;
-                    text-decoration: none;
-                    margin: 0 auto 30px auto;
-                  "
-                />
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td align="center" width="100%">
+                      <img
+                        src="https://nirajrajgor.github.io/email-templates/acme.png"
+                        alt="Acme"
+                        width="80"
+                        height="30"
+                        style="
+                          display: block;
+                          height: auto;
+                          border: 0;
+                          outline: none;
+                          text-decoration: none;
+                        "
+                      />
+                    </td>
+                  </tr>
+                </table>
+                <!-- spacer: 30px under logo -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td height="30" style="line-height: 30px; font-size: 0">&nbsp;</td>
+                  </tr>
+                </table>
 
                 <!-- Minimal Divider -->
                 <table
@@ -116,7 +126,7 @@
                   cellspacing="0"
                   border="0"
                   width="60"
-                  style="margin: 0 auto 30px auto"
+                  align="center"
                 >
                   <tr>
                     <td
@@ -128,16 +138,21 @@
                     ></td>
                   </tr>
                 </table>
+                <!-- spacer: 30px under divider -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td height="30" style="line-height: 30px; font-size: 0">&nbsp;</td>
+                  </tr>
+                </table>
               </td>
             </tr>
 
             <!-- Main Content -->
             <tr>
-              <td style="padding: 0 20px 20px 20px">
+              <td style="padding: 0 20px 20px 20px" width="100%">
                 <!-- Greeting -->
                 <h1
                   style="
-                    margin: 0 0 20px 0;
                     font-family: Arial, Helvetica, sans-serif;
                     font-size: 28px;
                     font-weight: normal;
@@ -149,11 +164,16 @@
                 >
                   Hello {{firstName}},
                 </h1>
+                <!-- spacer: 20px under h1 -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td height="20" style="line-height: 20px; font-size: 0">&nbsp;</td>
+                  </tr>
+                </table>
 
                 <!-- Main Message -->
                 <p
                   style="
-                    margin: 0 0 25px 0;
                     font-family: Arial, Helvetica, sans-serif;
                     font-size: 17px;
                     color: #5c4b37;
@@ -165,6 +185,12 @@
                   to offer, we need to verify your email address to ensure
                   account security.
                 </p>
+                <!-- spacer: 25px under intro paragraph -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td height="25" style="line-height: 25px; font-size: 0">&nbsp;</td>
+                  </tr>
+                </table>
 
                 <!-- Bulletproof CTA -->
                 <table
@@ -173,10 +199,9 @@
                   cellspacing="0"
                   border="0"
                   width="100%"
-                  style="margin-bottom: 25px; table-layout: fixed"
                 >
                   <tr>
-                    <td align="center" style="text-align: center">
+                    <td align="center" style="text-align: center" width="100%">
                       <!--[if mso]>
                         <v:roundrect
                           xmlns:v="urn:schemas-microsoft-com:vml"
@@ -214,7 +239,6 @@
                         border="0"
                         align="center"
                         style="
-                          margin: 0 auto;
                           border-collapse: separate;
                           border: 2px solid #d4a574;
                           border-radius: 8px;
@@ -249,11 +273,16 @@
                     </td>
                   </tr>
                 </table>
+                <!-- spacer: 25px under CTA -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td height="25" style="line-height: 25px; font-size: 0">&nbsp;</td>
+                  </tr>
+                </table>
 
                 <!-- Alternative Text -->
                 <p
                   style="
-                    margin: 0 0 20px 0;
                     font-family: Arial, Helvetica, sans-serif;
                     font-size: 15px;
                     color: #8b7355;
@@ -264,6 +293,12 @@
                   If the button doesn't work, copy and paste this link into your
                   browser:
                 </p>
+                <!-- spacer: 20px under helper copy -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td height="20" style="line-height: 20px; font-size: 0">&nbsp;</td>
+                  </tr>
+                </table>
 
                 <!-- Link Display -->
                 <table
@@ -272,10 +307,9 @@
                   cellspacing="0"
                   border="0"
                   width="100%"
-                  style="margin-bottom: 20px"
                 >
                   <tr>
-                    <td align="center">
+                    <td align="center" width="100%">
                       <!-- Avoid border-based overflow on mobile by using a colored cell -->
                       <table
                         role="presentation"
@@ -313,6 +347,12 @@
                     </td>
                   </tr>
                 </table>
+                <!-- spacer: 20px under link block -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td height="20" style="line-height: 20px; font-size: 0">&nbsp;</td>
+                  </tr>
+                </table>
 
                 <!-- Info Section - Fluid 50/50 columns (no fixed width, no spacer) -->
                 <table
@@ -321,29 +361,32 @@
                   cellspacing="0"
                   border="0"
                   width="100%"
-                  style="margin-bottom: 25px; border-collapse: collapse"
+                  style="border-collapse: collapse"
                 >
                   <tr>
                     <!-- Left card (50%) -->
-                    <td width="50%" valign="top" style="padding-right: 8px;">
-                      <table
-                        role="presentation"
-                        cellpadding="0"
-                        cellspacing="0"
-                        border="0"
-                        width="100%"
-                        style="
-                          background-color: #f9f6f1;
-                          border-radius: 6px;
-                          border: 1px solid #e8e3dd;
-                        "
-                      >
+                    <td width="50%" valign="top">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td style="padding-right: 8px;" width="100%">
+                            <table
+                              role="presentation"
+                              cellpadding="0"
+                              cellspacing="0"
+                              border="0"
+                              width="100%"
+                              style="
+                                background-color: #f9f6f1;
+                                border-radius: 6px;
+                                border: 1px solid #e8e3dd;
+                              "
+                            >
                         <tr>
                           <td style="padding: 20px 10px; text-align: center">
                             <div
                               style="
                                 font-size: 24px;
-                                margin-bottom: 8px;
+                                padding-bottom: 8px;
                                 color: #d4a574;
                               "
                             >
@@ -354,7 +397,7 @@
                                 font-family: Arial, Helvetica, sans-serif;
                                 font-size: 12px;
                                 color: #8b7355;
-                                margin-bottom: 5px;
+                                padding-bottom: 5px;
                                 font-weight: bold;
                                 text-transform: uppercase;
                                 letter-spacing: 0.5px;
@@ -374,28 +417,34 @@
                             </div>
                           </td>
                         </tr>
+                            </table>
+                          </td>
+                        </tr>
                       </table>
                     </td>
                     <!-- Right card (50%) -->
-                    <td width="50%" valign="top" style="padding-left: 8px;">
-                      <table
-                        role="presentation"
-                        cellpadding="0"
-                        cellspacing="0"
-                        border="0"
-                        width="100%"
-                        style="
-                          background-color: #f9f6f1;
-                          border-radius: 6px;
-                          border: 1px solid #e8e3dd;
-                        "
-                      >
+                    <td width="50%" valign="top">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td style="padding-left: 8px;" width="100%">
+                            <table
+                              role="presentation"
+                              cellpadding="0"
+                              cellspacing="0"
+                              border="0"
+                              width="100%"
+                              style="
+                                background-color: #f9f6f1;
+                                border-radius: 6px;
+                                border: 1px solid #e8e3dd;
+                              "
+                            >
                         <tr>
                           <td style="padding: 20px 10px; text-align: center">
                             <div
                               style="
                                 font-size: 24px;
-                                margin-bottom: 8px;
+                                padding-bottom: 8px;
                                 color: #d4a574;
                               "
                             >
@@ -406,7 +455,7 @@
                                 font-family: Arial, Helvetica, sans-serif;
                                 font-size: 12px;
                                 color: #8b7355;
-                                margin-bottom: 5px;
+                                padding-bottom: 5px;
                                 font-weight: bold;
                                 text-transform: uppercase;
                                 letter-spacing: 0.5px;
@@ -426,8 +475,17 @@
                             </div>
                           </td>
                         </tr>
+                            </table>
+                          </td>
+                        </tr>
                       </table>
                     </td>
+                  </tr>
+                </table>
+                <!-- spacer: 25px under info cards -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td height="25" style="line-height: 25px; font-size: 0">&nbsp;</td>
                   </tr>
                 </table>
 
@@ -440,10 +498,9 @@
                   width="100%"
                 >
                   <tr>
-                    <td align="center" style="padding-top: 15px">
+                    <td align="center" style="padding-top: 15px" width="100%">
                       <p
                         style="
-                          margin: 0 0 10px 0;
                           font-family: Arial, Helvetica, sans-serif;
                           font-size: 14px;
                           color: #8b7355;
@@ -462,6 +519,12 @@
                           support team
                         </a>
                       </p>
+                      <!-- spacer: 10px between support lines -->
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td height="10" style="line-height: 10px; font-size: 0">&nbsp;</td>
+                        </tr>
+                      </table>
                       <p
                         style="
                           margin: 0;
@@ -496,7 +559,7 @@
                   width="100%"
                 >
                   <tr>
-                    <td align="center">
+                    <td align="center" width="100%">
                       <!-- Footer Links -->
                       <p
                         style="
@@ -513,7 +576,8 @@
                           style="
                             color: #a8998a;
                             text-decoration: underline;
-                            margin-right: 12px;
+                            padding-right: 12px;
+                            display: inline-block;
                           "
                         >
                           Privacy
@@ -523,7 +587,8 @@
                           style="
                             color: #a8998a;
                             text-decoration: underline;
-                            margin-right: 12px;
+                            padding-right: 12px;
+                            display: inline-block;
                           "
                         >
                           Terms
