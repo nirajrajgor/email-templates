@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="x-apple-disable-message-reformatting" />
     <title>Verify Your Account | HTML Email Template</title>
     <meta
       name="description"
@@ -16,31 +17,6 @@
         color: inherit !important;
         text-decoration: none !important;
         font-weight: inherit !important;
-      }
-      @media only screen and (max-width: 600px) {
-        .sm-block {
-          display: block !important;
-          width: 100% !important;
-        }
-        .sm-w-full {
-          width: 100% !important;
-        }
-        .sm-px-16 {
-          padding-left: 16px !important;
-          padding-right: 16px !important;
-        }
-        .sm-text-center {
-          text-align: center !important;
-        }
-        .sm-text-left {
-          text-align: left !important;
-        }
-        .sm-justify-center {
-          justify-content: center !important;
-        }
-        .sm-flex-col {
-          flex-direction: column !important;
-        }
       }
     </style>
     <!--[if mso]>
@@ -63,6 +39,8 @@
       background-color: #fafaf9;
       mso-line-height-rule: exactly;
       font-family: Arial, Helvetica, sans-serif;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
     "
     bgcolor="#fafaf9"
   >
@@ -94,24 +72,27 @@
       bgcolor="#fafaf9"
     >
       <tr>
-        <td align="center" style="padding: 60px 20px">
+        <td align="center" style="padding: 30px 10px">
           <!-- Content Container -->
           <table
             role="presentation"
             cellpadding="0"
             cellspacing="0"
             border="0"
-            width="520"
+            width="100%"
             style="
               width: 100%;
               max-width: 520px;
               background-color: #ffffff;
               border: 1px solid #e5e5e5;
+              border-collapse: collapse;
+              margin: 0 auto;
             "
+            align="center"
           >
             <!-- Minimal Header -->
             <tr>
-              <td style="padding: 50px 40px 30px 40px; text-align: center">
+              <td style="padding: 30px 20px 20px 20px; text-align: center">
                 <!-- Company Logo -->
                 <img
                   src="https://nirajrajgor.github.io/email-templates/acme.png"
@@ -152,11 +133,11 @@
 
             <!-- Main Content -->
             <tr>
-              <td style="padding: 0 40px 30px 40px">
+              <td style="padding: 0 20px 20px 20px">
                 <!-- Greeting -->
                 <h1
                   style="
-                    margin: 0 0 25px 0;
+                    margin: 0 0 20px 0;
                     font-family: Arial, Helvetica, sans-serif;
                     font-size: 28px;
                     font-weight: normal;
@@ -172,7 +153,7 @@
                 <!-- Main Message -->
                 <p
                   style="
-                    margin: 0 0 30px 0;
+                    margin: 0 0 25px 0;
                     font-family: Arial, Helvetica, sans-serif;
                     font-size: 17px;
                     color: #5c4b37;
@@ -185,48 +166,78 @@
                   account security.
                 </p>
 
-                <!-- Unique CTA Design -->
+                <!-- Bulletproof CTA -->
                 <table
                   role="presentation"
                   cellpadding="0"
                   cellspacing="0"
                   border="0"
                   width="100%"
-                  style="margin-bottom: 35px"
+                  style="margin-bottom: 25px; table-layout: fixed"
                 >
                   <tr>
-                    <td align="center">
-                      <!-- CTA Container -->
+                    <td align="center" style="text-align: center">
+                      <!--[if mso]>
+                        <v:roundrect
+                          xmlns:v="urn:schemas-microsoft-com:vml"
+                          xmlns:w="urn:schemas-microsoft-com:office:word"
+                          href="{{verificationUrl}}"
+                          style="
+                            height: 48px;
+                            v-text-anchor: middle;
+                            width: 280px;
+                          "
+                          arcsize="12%"
+                          strokecolor="#d4a574"
+                          fillcolor="#d4a574"
+                        >
+                          <w:anchorlock />
+                          <center
+                            style="
+                              color: #2c1810;
+                              font-family: Arial, Helvetica, sans-serif;
+                              font-size: 16px;
+                              letter-spacing: 1px;
+                              text-transform: uppercase;
+                              font-weight: bold;
+                            "
+                          >
+                            Verify Account
+                          </center>
+                        </v:roundrect>
+                      <![endif]-->
+                      <!--[if !mso]> -->
                       <table
                         role="presentation"
                         cellpadding="0"
                         cellspacing="0"
                         border="0"
+                        align="center"
                         style="
+                          margin: 0 auto;
+                          border-collapse: separate;
                           border: 2px solid #d4a574;
                           border-radius: 8px;
-                          overflow: hidden;
+                          background-color: #d4a574;
                         "
                       >
                         <tr>
-                          <td
-                            style="
-                              background-color: #d4a574;
-                              padding: 20px 30px;
-                              text-align: center;
-                            "
-                          >
+                          <td align="center" valign="middle">
                             <a
                               href="{{verificationUrl}}"
                               style="
-                                display: block;
+                                color: #2c1810;
+                                display: inline-block;
                                 font-family: Arial, Helvetica, sans-serif;
                                 font-size: 16px;
                                 font-weight: bold;
-                                color: #2c1810;
-                                text-decoration: none;
                                 letter-spacing: 1px;
+                                line-height: 18px;
+                                text-align: center;
+                                text-decoration: none;
                                 text-transform: uppercase;
+                                padding: 16px 24px;
+                                white-space: nowrap;
                               "
                             >
                               Verify Account
@@ -234,6 +245,7 @@
                           </td>
                         </tr>
                       </table>
+                      <!--<![endif]-->
                     </td>
                   </tr>
                 </table>
@@ -241,7 +253,7 @@
                 <!-- Alternative Text -->
                 <p
                   style="
-                    margin: 0 0 25px 0;
+                    margin: 0 0 20px 0;
                     font-family: Arial, Helvetica, sans-serif;
                     font-size: 15px;
                     color: #8b7355;
@@ -260,140 +272,161 @@
                   cellspacing="0"
                   border="0"
                   width="100%"
-                  style="margin-bottom: 30px"
+                  style="margin-bottom: 20px"
                 >
                   <tr>
                     <td align="center">
-                      <div
-                        style="
-                          background-color: #f9f6f1;
-                          border-left: 4px solid #d4a574;
-                          padding: 15px 20px;
-                          font-family: 'Courier New', monospace;
-                          font-size: 13px;
-                          color: #8b7355;
-                          word-break: break-all;
-                          text-align: left;
-                        "
-                      >
-                        {{verificationUrl}}
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-
-                <!-- Unique Info Section -->
-                <table
-                  role="presentation"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
-                  style="margin-bottom: 35px"
-                >
-                  <tr>
-                    <td>
-                      <!-- Info Items -->
+                      <!-- Avoid border-based overflow on mobile by using a colored cell -->
                       <table
                         role="presentation"
                         cellpadding="0"
                         cellspacing="0"
                         border="0"
                         width="100%"
+                        style="
+                          background-color: #f9f6f1;
+                          border-collapse: collapse;
+                        "
                       >
                         <tr>
                           <td
-                            width="50%"
-                            style="padding-right: 10px; vertical-align: top"
+                            width="4"
+                            bgcolor="#d4a574"
+                            style="font-size: 0; line-height: 0"
                           >
-                            <div
-                              style="
-                                background-color: #f9f6f1;
-                                border-radius: 6px;
-                                padding: 20px 15px;
-                                text-align: center;
-                                border: 1px solid #e8e3dd;
-                              "
-                            >
-                              <div
-                                style="
-                                  font-size: 24px;
-                                  margin-bottom: 8px;
-                                  color: #d4a574;
-                                "
-                              >
-                                ⏱️
-                              </div>
-                              <div
-                                style="
-                                  font-family: Arial, Helvetica, sans-serif;
-                                  font-size: 12px;
-                                  color: #8b7355;
-                                  margin-bottom: 5px;
-                                  font-weight: bold;
-                                  text-transform: uppercase;
-                                  letter-spacing: 0.5px;
-                                "
-                              >
-                                Expires In
-                              </div>
-                              <div
-                                style="
-                                  font-family: Arial, Helvetica, sans-serif;
-                                  font-size: 16px;
-                                  color: #2c1810;
-                                  font-weight: bold;
-                                "
-                              >
-                                24 Hours
-                              </div>
-                            </div>
+                            &nbsp;
                           </td>
                           <td
-                            width="50%"
-                            style="padding-left: 10px; vertical-align: top"
+                            style="
+                              padding: 15px 20px;
+                              font-family: 'Courier New', monospace;
+                              font-size: 13px;
+                              color: #8b7355;
+                              word-break: break-all;
+                              text-align: left;
+                            "
                           >
+                            {{verificationUrl}}
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Info Section - Side by side (robust ghost table, fixed widths) -->
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  width="100%"
+                  style="margin-bottom: 25px; border-collapse: collapse"
+                >
+                  <tr>
+                    <!-- Left card (240px) -->
+                    <td width="240" valign="top">
+                      <table
+                        role="presentation"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0"
+                        width="100%"
+                        style="
+                          background-color: #f9f6f1;
+                          border-radius: 6px;
+                          border: 1px solid #e8e3dd;
+                        "
+                      >
+                        <tr>
+                          <td style="padding: 20px 10px; text-align: center">
                             <div
                               style="
-                                background-color: #f9f6f1;
-                                border-radius: 6px;
-                                padding: 20px 15px;
-                                text-align: center;
-                                border: 1px solid #e8e3dd;
+                                font-size: 24px;
+                                margin-bottom: 8px;
+                                color: #d4a574;
                               "
                             >
-                              <div
-                                style="
-                                  font-size: 24px;
-                                  margin-bottom: 8px;
-                                  color: #d4a574;
-                                "
-                              >
-                                🔐
-                              </div>
-                              <div
-                                style="
-                                  font-family: Arial, Helvetica, sans-serif;
-                                  font-size: 12px;
-                                  color: #8b7355;
-                                  margin-bottom: 5px;
-                                  font-weight: bold;
-                                  text-transform: uppercase;
-                                  letter-spacing: 0.5px;
-                                "
-                              >
-                                Security
-                              </div>
-                              <div
-                                style="
-                                  font-family: Arial, Helvetica, sans-serif;
-                                  font-size: 16px;
-                                  color: #2c1810;
-                                  font-weight: bold;
-                                "
-                              >
-                                One-time link
-                              </div>
+                              ⏱️
+                            </div>
+                            <div
+                              style="
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size: 12px;
+                                color: #8b7355;
+                                margin-bottom: 5px;
+                                font-weight: bold;
+                                text-transform: uppercase;
+                                letter-spacing: 0.5px;
+                              "
+                            >
+                              Expires In
+                            </div>
+                            <div
+                              style="
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size: 16px;
+                                color: #2c1810;
+                                font-weight: bold;
+                              "
+                            >
+                              24 Hours
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <!-- Spacer (16px) -->
+                    <td width="16" style="font-size: 0; line-height: 0">
+                      &nbsp;
+                    </td>
+                    <!-- Right card (240px) -->
+                    <td width="240" valign="top">
+                      <table
+                        role="presentation"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0"
+                        width="100%"
+                        style="
+                          background-color: #f9f6f1;
+                          border-radius: 6px;
+                          border: 1px solid #e8e3dd;
+                        "
+                      >
+                        <tr>
+                          <td style="padding: 20px 10px; text-align: center">
+                            <div
+                              style="
+                                font-size: 24px;
+                                margin-bottom: 8px;
+                                color: #d4a574;
+                              "
+                            >
+                              🔐
+                            </div>
+                            <div
+                              style="
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size: 12px;
+                                color: #8b7355;
+                                margin-bottom: 5px;
+                                font-weight: bold;
+                                text-transform: uppercase;
+                                letter-spacing: 0.5px;
+                              "
+                            >
+                              Security
+                            </div>
+                            <div
+                              style="
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size: 16px;
+                                color: #2c1810;
+                                font-weight: bold;
+                              "
+                            >
+                              One-time link
                             </div>
                           </td>
                         </tr>
@@ -411,7 +444,7 @@
                   width="100%"
                 >
                   <tr>
-                    <td align="center" style="padding-top: 20px">
+                    <td align="center" style="padding-top: 15px">
                       <p
                         style="
                           margin: 0 0 10px 0;
@@ -455,7 +488,7 @@
               <td
                 style="
                   background-color: #f9f6f1;
-                  padding: 25px 40px;
+                  padding: 20px 20px;
                   border-top: 1px solid #e8e3dd;
                 "
               >
