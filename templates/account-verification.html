@@ -231,71 +231,30 @@
                 </table>
 
                 <!-- Bulletproof CTA -->
-                <table
-                  role="presentation"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
-                >
-                  <tr>
-                    <td align="center" style="text-align: center" width="100%">
-                      <!--[if mso]>
-                        <v:roundrect
-                          xmlns:v="urn:schemas-microsoft-com:vml"
-                          xmlns:w="urn:schemas-microsoft-com:office:word"
-                          href="{{verificationUrl}}"
-                          style="
-                            height: 48px;
-                            v-text-anchor: middle;
-                            width: 280px;
-                          "
-                          arcsize="12%"
-                          strokecolor="#d4a574"
-                          fillcolor="#d4a574"
-                        >
-                          <w:anchorlock />
-                          <center
-                            style="
-                              color: #2c1810;
-                              font-family: Arial, Helvetica, sans-serif;
-                              font-size: 16px;
-                              letter-spacing: 1px;
-                              text-transform: uppercase;
-                              font-weight: bold;
-                            "
-                          >
-                            Verify Account
-                          </center>
-                        </v:roundrect>
-                      <![endif]-->
-                      <!--[if !mso]> -->
-                      <a
-                        href="{{verificationUrl}}"
-                        style="
-                          color: #2c1810;
-                          display: inline-block;
-                          font-family: Arial, Helvetica, sans-serif;
-                          font-size: 16px;
-                          font-weight: bold;
-                          letter-spacing: 1px;
-                          line-height: 18px;
-                          text-align: center;
-                          text-decoration: none;
-                          text-transform: uppercase;
-                          padding: 16px 24px;
-                          white-space: nowrap;
-                          background-color: #d4a574;
-                          border: 2px solid #d4a574;
-                          border-radius: 8px;
-                        "
-                      >
-                        Verify Account
-                      </a>
-                      <!--<![endif]-->
-                    </td>
-                  </tr>
-                </table>
+                <div style="text-align: center">
+                  <a
+                    href="{{verificationUrl}}"
+                    style="
+                      color: #2c1810;
+                      display: inline-block;
+                      font-family: Arial, Helvetica, sans-serif;
+                      font-size: 16px;
+                      font-weight: bold;
+                      letter-spacing: 1px;
+                      line-height: 18px;
+                      text-align: center;
+                      text-decoration: none;
+                      text-transform: uppercase;
+                      padding: 16px 24px;
+                      white-space: nowrap;
+                      background-color: #d4a574;
+                      border: 2px solid #d4a574;
+                      border-radius: 8px;
+                    "
+                  >
+                    Verify Account
+                  </a>
+                </div>
                 <!-- spacer: 25px under CTA -->
                 <table
                   role="presentation"
@@ -340,45 +299,19 @@
                 </table>
 
                 <!-- Link Display -->
-                <table
-                  role="presentation"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
+                <p
+                  style="
+                    padding: 15px 20px;
+                    font-family: 'Courier New', monospace;
+                    font-size: 13px;
+                    color: #8b7355;
+                    word-break: break-all;
+                    background-color: #f9f6f1;
+                    border-left: 4px solid #d4a574;
+                  "
                 >
-                  <tr>
-                    <td align="center" width="100%">
-                      <table
-                        role="presentation"
-                        cellpadding="0"
-                        cellspacing="0"
-                        border="0"
-                        width="100%"
-                        style="
-                          background-color: #f9f6f1;
-                          border-left: 4px solid #d4a574;
-                          border-collapse: collapse;
-                        "
-                      >
-                        <tr>
-                          <td
-                            style="
-                              padding: 15px 20px;
-                              font-family: 'Courier New', monospace;
-                              font-size: 13px;
-                              color: #8b7355;
-                              word-break: break-all;
-                              text-align: left;
-                            "
-                          >
-                            {{verificationUrl}}
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
+                  {{verificationUrl}}
+                </p>
                 <!-- spacer: 20px under link block -->
                 <table
                   role="presentation"
