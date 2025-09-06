@@ -68,16 +68,11 @@
       style="
         background-color: #fafaf9;
         font-family: Arial, Helvetica, sans-serif;
-        width: 100% !important;
       "
       bgcolor="#fafaf9"
     >
       <tr>
-        <td
-          align="center"
-          style="padding: 30px 10px; width: 100% !important"
-          width="100%"
-        >
+        <td align="center" style="padding: 30px 10px" width="100%">
           <!-- Content Container -->
           <table
             role="presentation"
@@ -86,11 +81,12 @@
             border="0"
             width="100%"
             style="
-              width: 100% !important;
+              width: 100%;
               max-width: 520px;
               background-color: #ffffff;
               border: 1px solid #e5e5e5;
               border-collapse: collapse;
+              margin: 0 auto;
             "
             align="center"
           >
@@ -106,7 +102,7 @@
                   width="100%"
                 >
                   <tr>
-                    <td align="center" width="100%">
+                    <td align="center" width="100%" style="text-align: center">
                       <img
                         src="https://nirajrajgor.github.io/email-templates/acme.png"
                         alt="Acme"
@@ -114,6 +110,7 @@
                         height="30"
                         style="
                           display: block;
+                          margin: 0 auto;
                           height: auto;
                           border: 0;
                           outline: none;
@@ -146,6 +143,7 @@
                   border="0"
                   width="60"
                   align="center"
+                  style="margin: 0 auto"
                 >
                   <tr>
                     <td
@@ -176,10 +174,7 @@
 
             <!-- Main Content -->
             <tr>
-              <td
-                style="padding: 0 20px 20px 20px; width: 100% !important"
-                width="100%"
-              >
+              <td style="padding: 0 20px 20px 20px" width="100%">
                 <!-- Greeting -->
                 <h1
                   style="
@@ -342,7 +337,12 @@
                   cellspacing="0"
                   border="0"
                   width="100%"
-                  style="border-collapse: collapse; width: 100% !important"
+                  class="info-cards-table"
+                  style="
+                    border-collapse: collapse;
+                    table-layout: fixed;
+                    width: inherit;
+                  "
                 >
                   <tr>
                     <!-- Left card (50%) -->
@@ -355,7 +355,7 @@
                         width="100%"
                       >
                         <tr>
-                          <td style="padding-right: 8px" width="100%">
+                          <td style="padding: 0 8px 0 0" width="100%">
                             <table
                               role="presentation"
                               cellpadding="0"
@@ -421,7 +421,7 @@
                         width="100%"
                       >
                         <tr>
-                          <td style="padding-left: 8px" width="100%">
+                          <td style="padding: 0 0 0 8px" width="100%">
                             <table
                               role="presentation"
                               cellpadding="0"
@@ -501,14 +501,12 @@
                   cellspacing="0"
                   border="0"
                   width="100%"
-                  style="width: 100% !important"
                 >
                   <tr>
                     <td
                       align="center"
-                      style="padding-top: 15px"
+                      style="padding-top: 15px; text-align: center"
                       width="100%"
-                      style="text-align: center; width: 100% !important"
                     >
                       <p
                         style="
@@ -516,7 +514,6 @@
                           font-size: 14px;
                           color: #8b7355;
                           line-height: 1.5;
-                          text-align: center;
                         "
                       >
                         Questions? Contact our
@@ -580,14 +577,9 @@
                   cellspacing="0"
                   border="0"
                   width="100%"
-                  style="width: 100% !important"
                 >
                   <tr>
-                    <td
-                      align="center"
-                      width="100%"
-                      style="text-align: center; width: 100% !important"
-                    >
+                    <td align="center" width="100%" style="text-align: center">
                       <!-- Footer Links -->
                       <a
                         href="{{privacyUrl}}"
