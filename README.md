@@ -32,10 +32,11 @@ No signup required—download with a single click!
 - [Shopping Deals Email Template](https://nirajrajgor.github.io/email-templates/templates/shopping-deals)
 - [Gift Decor Email Template](https://nirajrajgor.github.io/email-templates/templates/gift-decor)
 - [Product Announcements Email Template](https://nirajrajgor.github.io/email-templates/templates/product-announcements.html)
-- [AI Newsletter Email Template](https://nirajrajgor.github.io/email-templates/templates/ai-newsletter)
-- [Music Event Email Template](https://nirajrajgor.github.io/email-templates/templates/music-event-promotion)
-- [Password Reset Email Template](https://nirajrajgor.github.io/email-templates/templates/password-reset)
-- [Abandoned Cart Email Template](https://nirajrajgor.github.io/email-templates/templates/abandoned-cart)
+- [AI Newsletter HTML Email Template](https://nirajrajgor.github.io/email-templates/templates/ai-newsletter)
+- [Music Event HTML Email Template](https://nirajrajgor.github.io/email-templates/templates/music-event-promotion)
+- [Password Reset HTML Email Template](https://nirajrajgor.github.io/email-templates/templates/password-reset)
+- [Abandoned Cart HTML Email Template](https://nirajrajgor.github.io/email-templates/templates/abandoned-cart)
+- [Account Verification HTMl Email Template](https://nirajrajgor.github.io/email-templates/templates/account-verification)
 
 - More templates are coming soon! Stay tuned for updates.
 
