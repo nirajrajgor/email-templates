@@ -25,32 +25,32 @@ const TEMPLATE_METADATA = {
   "ecommerce-order.html": {
     lastmod: "2024-11-18",
     image: "ecommerce-order-emailer.jpg",
-    title: "Ecommerce Order Email Template",
+    title: "Ecommerce Order HTML Email Template",
   },
   "promotional-offer.html": {
     lastmod: "2024-11-20",
     image: "promotional-offer-preview.png",
-    title: "Promotional Offer Email Template",
+    title: "Promotional Offer HTML Email Template",
   },
   "shopping-deals.html": {
     lastmod: "2024-12-09",
     image: "shopping-deals-preview.png",
-    title: "Shopping Deals Email Template",
+    title: "Shopping Deals HTML Email Template",
   },
   "gift-decor.html": {
     lastmod: "2025-01-06",
     image: "gift-decor-preview.jpg",
-    title: "Gift Decor Email Template",
+    title: "Gift Decor HTML Email Template",
   },
   "product-announcements.html": {
     lastmod: "2025-05-22",
     image: "product-announcements-preview.png",
-    title: "Product Announcements Email Template",
+    title: "Product Announcements HTML Email Template",
   },
   "ai-newsletter.html": {
     lastmod: "2025-02-22",
     image: "ai-newsletter-preview.jpg",
-    title: "AI Newsletter Email Template",
+    title: "AI Newsletter HTML Email Template",
   },
   "music-event-promotion.html": {
     lastmod: "2025-05-28",
@@ -60,12 +60,17 @@ const TEMPLATE_METADATA = {
   "password-reset.html": {
     lastmod: "2025-08-07",
     image: "password-reset-preview.png",
-    title: "Password Reset Email Template",
+    title: "Password Reset HTML Email Template",
   },
   "abandoned-cart.html": {
     lastmod: "2025-08-11",
     image: "abandoned-cart-preview.png",
     title: "Abandoned Cart HTML Email Template",
+  },
+  "account-verification.html": {
+    lastmod: "2025-09-08",
+    image: "account-verification-preview.png",
+    title: "Account Verification HTML Email Template",
   },
 };
 
