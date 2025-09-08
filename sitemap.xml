@@ -5,7 +5,7 @@
   <!-- Main Pages -->
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/</loc>
-    <lastmod>2025-08-12</lastmod>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -15,7 +15,7 @@
   </url>
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/google559114339d6e2eb0.html</loc>
-    <lastmod>2025-08-12</lastmod>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -32,13 +32,23 @@
     </image:image>
   </url>
   <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/account-verification.html</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/account-verification-preview.png</image:loc>
+      <image:title>Account Verification HTML Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://nirajrajgor.github.io/email-templates/templates/ai-newsletter.html</loc>
     <lastmod>2025-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/ai-newsletter-preview.jpg</image:loc>
-      <image:title>AI Newsletter Email Template</image:title>
+      <image:title>AI Newsletter HTML Email Template</image:title>
     </image:image>
   </url>
   <url>
@@ -48,7 +58,7 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/ecommerce-order-emailer.jpg</image:loc>
-      <image:title>Ecommerce Order Email Template</image:title>
+      <image:title>Ecommerce Order HTML Email Template</image:title>
     </image:image>
   </url>
   <url>
@@ -58,7 +68,7 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/gift-decor-preview.jpg</image:loc>
-      <image:title>Gift Decor Email Template</image:title>
+      <image:title>Gift Decor HTML Email Template</image:title>
     </image:image>
   </url>
   <url>
@@ -78,7 +88,7 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/password-reset-preview.png</image:loc>
-      <image:title>Password Reset Email Template</image:title>
+      <image:title>Password Reset HTML Email Template</image:title>
     </image:image>
   </url>
   <url>
@@ -88,7 +98,7 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/product-announcements-preview.png</image:loc>
-      <image:title>Product Announcements Email Template</image:title>
+      <image:title>Product Announcements HTML Email Template</image:title>
     </image:image>
   </url>
   <url>
@@ -108,7 +118,7 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/promotional-offer-preview.png</image:loc>
-      <image:title>Promotional Offer Email Template</image:title>
+      <image:title>Promotional Offer HTML Email Template</image:title>
     </image:image>
   </url>
   <url>
@@ -128,7 +138,7 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/shopping-deals-preview.png</image:loc>
-      <image:title>Shopping Deals Email Template</image:title>
+      <image:title>Shopping Deals HTML Email Template</image:title>
     </image:image>
   </url>
 
