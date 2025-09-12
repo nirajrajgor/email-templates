@@ -2,6 +2,7 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import { sync } from "glob";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
 export default defineConfig({
   base: "/email-templates/",
@@ -13,4 +14,9 @@ export default defineConfig({
       ],
     },
   },
+  plugins: [
+    ViteImageOptimizer({
+      /* pass your config */
+    }),
+  ],
 });
