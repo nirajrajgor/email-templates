@@ -5,13 +5,19 @@
   <!-- Main Pages -->
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/</loc>
-    <lastmod>2025-09-16</lastmod>
+    <lastmod>2025-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/logo.svg</image:loc>
       <image:title>Email Templates Logo</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/google559114339d6e2eb0.html</loc>
+    <lastmod>2025-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
 
   <!-- Email Templates -->
@@ -133,6 +139,16 @@
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/shopping-deals-preview.png</image:loc>
       <image:title>Shopping Deals HTML Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/welcome-onboarding.html</loc>
+    <lastmod>2025-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/welcome-onboarding-preview.png</image:loc>
+      <image:title>Welcome Onboarding HTML Email Template</image:title>
     </image:image>
   </url>
 
