@@ -72,6 +72,11 @@ const TEMPLATE_METADATA = {
     image: "account-verification-preview.png",
     title: "Account Verification HTML Email Template",
   },
+  "welcome-onboarding.html": {
+    lastmod: "2025-09-19",
+    image: "welcome-onboarding-preview.png",
+    title: "Welcome Onboarding HTML Email Template",
+  },
 };
 
 function toUrl(filePath) {
