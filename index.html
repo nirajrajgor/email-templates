@@ -1165,5 +1165,78 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      (function () {
+        const reduce =
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce) return;
+
+        const cards = document.querySelectorAll("main article.wrapper");
+        cards.forEach((card) => {
+          const container = card.querySelector('div[class*="aspect-[4/5]"]');
+          if (!container) return;
+          const img = container.querySelector("img");
+          if (!img) return;
+
+          // Make image taller than container so we can reveal lower parts
+          img.classList.remove("h-full", "object-contain");
+          img.classList.add("h-auto");
+          container.style.overflow = "hidden";
+
+          // Constant scroll speed in px/s for a predictable experience
+          const SCROLL_SPEED = 110;
+          let cleanupTimer;
+          const startScroll = () => {
+            if (!img.complete) {
+              img.addEventListener("load", startScroll, { once: true });
+              return;
+            }
+
+            const cw = container.clientWidth;
+            const ch = container.clientHeight;
+            if (!cw || !ch) return;
+
+            const iw = img.naturalWidth;
+            const ih = img.naturalHeight;
+            let displayedH = 0;
+
+            if (iw && ih) {
+              const scale = cw / iw;
+              displayedH = ih * scale;
+            } else {
+              displayedH = img.getBoundingClientRect().height;
+            }
+
+            const delta = Math.max(0, displayedH - ch);
+            if (delta < 8) return; // tiny overflow; skip
+
+            const duration = delta / SCROLL_SPEED;
+            img.style.willChange = "transform";
+            img.style.transition = `transform ${duration}s linear`;
+            img.style.transform = `translateY(-${delta}px)`;
+          };
+
+          const resetScroll = () => {
+            img.style.transition = "transform .6s ease-out";
+            img.style.transform = "translateY(0)";
+            clearTimeout(cleanupTimer);
+            cleanupTimer = setTimeout(() => {
+              img.style.willChange = "auto";
+            }, 700);
+          };
+
+          container.addEventListener("mouseenter", startScroll);
+          container.addEventListener("mouseleave", resetScroll);
+          container.addEventListener("touchstart", startScroll, {
+            passive: true,
+          });
+          container.addEventListener("touchend", resetScroll, {
+            passive: true,
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
