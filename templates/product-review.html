@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Review Request | Email Template</title>
+    <title>Product Review Request | HTML Email Template</title>
     <meta
       name="description"
       content="General product review request with order context, single CTA, and transparent 5% incentive disclosure. Built with email-safe HTML/CSS."
@@ -110,7 +110,7 @@
                     text-align: center;
                   "
                 >
-                  How was your purchase?
+                  Hi John, how was your purchase?
                 </h1>
                 <p
                   style="
@@ -128,48 +128,212 @@
               </td>
             </tr>
 
-            <!-- Product visual + meta -->
+            <!-- Products summary (max 3) -->
             <tr>
-              <td align="center" style="padding: 22px 28px 0 28px">
-                <img
-                  src="/apple-watch-ai-gen.webp"
-                  alt="Apple Watch Ultra 2"
-                  width="120"
-                  height="120"
+              <td style="padding: 22px 28px 0 28px">
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
                   style="
-                    display: block;
-                    border: 0;
-                    outline: none;
-                    line-height: 100%;
+                    border: 1px solid #e5e7eb;
                     border-radius: 12px;
-                    margin: 0 auto;
+                    background: #f9fafb;
                   "
-                />
-                <p
-                  style="
-                    margin: 12px 0 0 0;
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-                      Roboto, Arial, sans-serif;
-                    font-size: 15px;
-                    color: #111827;
-                    text-align: center;
-                    font-weight: 700;
-                  "
+                  bgcolor="#f9fafb"
                 >
-                  Apple Watch Ultra 2
-                </p>
-                <p
-                  style="
-                    margin: 4px 0 0 0;
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-                      Roboto, Arial, sans-serif;
-                    font-size: 13px;
-                    color: #6b7280;
-                    text-align: center;
-                  "
-                >
-                  Hi John • Order #123456 • Delivered Sep 08, 2025
-                </p>
+                  <tr>
+                    <td style="padding: 14px">
+                      <!-- Item 1 -->
+                      <table
+                        role="presentation"
+                        width="100%"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0"
+                        style="margin: 0 0 12px 0"
+                      >
+                        <tr>
+                          <td
+                            width="64"
+                            valign="top"
+                            style="padding-right: 12px"
+                          >
+                            <img
+                              src="/apple-watch-ai-gen.webp"
+                              alt="Apple Watch Ultra 2"
+                              width="64"
+                              height="64"
+                              style="
+                                display: block;
+                                border: 0;
+                                outline: none;
+                                line-height: 100%;
+                                border-radius: 10px;
+                              "
+                            />
+                          </td>
+                          <td
+                            valign="top"
+                            style="
+                              font-family: -apple-system, BlinkMacSystemFont,
+                                'Segoe UI', Roboto, Arial, sans-serif;
+                              color: #111827;
+                            "
+                          >
+                            <p
+                              style="
+                                margin: 0;
+                                font-size: 15px;
+                                font-weight: 700;
+                              "
+                            >
+                              Apple Watch Ultra 2
+                            </p>
+                            <p
+                              style="
+                                margin: 2px 0 0 0;
+                                font-size: 12px;
+                                color: #6b7280;
+                              "
+                            >
+                              Order #123456 • Delivered Sep 08, 2025
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                      <!-- Item 2 -->
+                      <table
+                        role="presentation"
+                        width="100%"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0"
+                        style="margin: 0 0 12px 0"
+                      >
+                        <tr>
+                          <td
+                            width="64"
+                            valign="top"
+                            style="padding-right: 12px"
+                          >
+                            <img
+                              src="/shoe-graphic.png"
+                              alt="Running Shoes"
+                              width="64"
+                              height="64"
+                              style="
+                                display: block;
+                                border: 0;
+                                outline: none;
+                                line-height: 100%;
+                                border-radius: 10px;
+                              "
+                            />
+                          </td>
+                          <td
+                            valign="top"
+                            style="
+                              font-family: -apple-system, BlinkMacSystemFont,
+                                'Segoe UI', Roboto, Arial, sans-serif;
+                              color: #111827;
+                            "
+                          >
+                            <p
+                              style="
+                                margin: 0;
+                                font-size: 15px;
+                                font-weight: 700;
+                              "
+                            >
+                              Running Shoes
+                            </p>
+                            <p
+                              style="
+                                margin: 2px 0 0 0;
+                                font-size: 12px;
+                                color: #6b7280;
+                              "
+                            >
+                              Order #123456 • Delivered Sep 08, 2025
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                      <!-- Item 3 -->
+                      <table
+                        role="presentation"
+                        width="100%"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0"
+                      >
+                        <tr>
+                          <td
+                            width="64"
+                            valign="top"
+                            style="padding-right: 12px"
+                          >
+                            <img
+                              src="/cupcake-ai-gen.webp"
+                              alt="Cupcake Gift Box"
+                              width="64"
+                              height="64"
+                              style="
+                                display: block;
+                                border: 0;
+                                outline: none;
+                                line-height: 100%;
+                                border-radius: 10px;
+                              "
+                            />
+                          </td>
+                          <td
+                            valign="top"
+                            style="
+                              font-family: -apple-system, BlinkMacSystemFont,
+                                'Segoe UI', Roboto, Arial, sans-serif;
+                              color: #111827;
+                            "
+                          >
+                            <p
+                              style="
+                                margin: 0;
+                                font-size: 15px;
+                                font-weight: 700;
+                              "
+                            >
+                              Cupcake Gift Box
+                            </p>
+                            <p
+                              style="
+                                margin: 2px 0 0 0;
+                                font-size: 12px;
+                                color: #6b7280;
+                              "
+                            >
+                              Order #123456 • Delivered Sep 08, 2025
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                      <!-- More count (show only if items > 3) -->
+                      <p
+                        style="
+                          margin: 10px 0 0 0;
+                          font-family: -apple-system, BlinkMacSystemFont,
+                            'Segoe UI', Roboto, Arial, sans-serif;
+                          font-size: 13px;
+                          color: #6b7280;
+                        "
+                      >
+                        +2 more items
+                      </p>
+                    </td>
+                  </tr>
+                </table>
               </td>
             </tr>
 
