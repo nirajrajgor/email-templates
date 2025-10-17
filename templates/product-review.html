@@ -41,20 +41,6 @@
     "
     bgcolor="#f3f4f6"
   >
-    <!-- Preheader (hidden) -->
-    <div
-      style="
-        display: none;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        visibility: hidden;
-        mso-hide: all;
-      "
-    >
-      10% OFF on review, valid 30 days.
-    </div>
-
     <!-- Outer wrapper -->
     <table
       role="presentation"
@@ -66,7 +52,35 @@
       style="background-color: #f3f4f6"
     >
       <tr>
-        <td align="center" style="padding: 40px 16px">
+        <td align="center" style="padding: 20px 16px">
+          <!-- Deal strip above card -->
+          <table
+            role="presentation"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            width="600"
+            style="width: 100%; max-width: 600px"
+          >
+            <tr>
+              <td
+                align="center"
+                style="
+                  background-color: #ecfdf5;
+                  border: 1px solid #a7f3d0;
+                  border-bottom: 0;
+                  border-radius: 16px 16px 0 0;
+                  padding: 8px 12px;
+                  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                    Roboto, Arial, sans-serif;
+                  font-size: 13px;
+                  color: #065f46;
+                "
+              >
+                10% OFF on review • Valid 30 days
+              </td>
+            </tr>
+          </table>
           <!-- Container -->
           <table
             role="presentation"
@@ -78,7 +92,7 @@
               width: 100%;
               max-width: 600px;
               background-color: #ffffff;
-              border-radius: 16px;
+              border-radius: 0 0 16px 16px;
               border: 1px solid #e5e7eb;
             "
             bgcolor="#ffffff"
@@ -195,7 +209,7 @@
                             </p>
                             <p
                               style="
-                                margin: 2px 0 0 0;
+                                margin: 4px 0 0 0;
                                 font-size: 12px;
                                 color: #6b7280;
                               "
@@ -253,7 +267,7 @@
                             </p>
                             <p
                               style="
-                                margin: 2px 0 0 0;
+                                margin: 4px 0 0 0;
                                 font-size: 12px;
                                 color: #6b7280;
                               "
@@ -310,7 +324,7 @@
                             </p>
                             <p
                               style="
-                                margin: 2px 0 0 0;
+                                margin: 4px 0 0 0;
                                 font-size: 12px;
                                 color: #6b7280;
                               "
@@ -391,23 +405,6 @@
               </td>
             </tr>
 
-            <!-- Incentive (concise, transparent) -->
-            <tr>
-              <td align="center" style="padding: 10px 20px 0 20px">
-                <p
-                  style="
-                    margin: 0;
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-                      Roboto, Arial, sans-serif;
-                    font-size: 13px;
-                    color: #065f46;
-                  "
-                >
-                  10% off on review • valid 30 days
-                </p>
-              </td>
-            </tr>
-
             <!-- Fallback link -->
             <tr>
               <td align="center" style="padding: 16px 20px 0 20px">
@@ -456,7 +453,9 @@
                     color: #6b7280;
                   "
                 >
-                  <a href="#" style="color: #6b7280; text-decoration: underline">Unsubscribe</a>
+                  <a href="#" style="color: #6b7280; text-decoration: underline"
+                    >Unsubscribe</a
+                  >
                 </p>
               </td>
             </tr>
