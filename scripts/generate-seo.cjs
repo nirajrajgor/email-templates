@@ -77,6 +77,11 @@ const TEMPLATE_METADATA = {
     image: "welcome-onboarding-preview.png",
     title: "Welcome Onboarding HTML Email Template",
   },
+  "product-review.html": {
+    lastmod: "2025-10-22",
+    image: "product-review-preview.png",
+    title: "Product Review HTML Email Template",
+  },
 };
 
 function toUrl(filePath) {
