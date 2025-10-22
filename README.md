@@ -38,6 +38,7 @@ No signup required—download with a single click!
 - [Abandoned Cart HTML Email Template](https://nirajrajgor.github.io/email-templates/templates/abandoned-cart)
 - [Account Verification HTMl Email Template](https://nirajrajgor.github.io/email-templates/templates/account-verification)
 - [Welcome Onboarding HTMl Email Template](https://nirajrajgor.github.io/email-templates/templates/welcome-onboarding)
+- [Product Review HTMl Email Template](https://nirajrajgor.github.io/email-templates/templates/product-review)
 
 - More templates are coming soon! Stay tuned for updates.
 
