@@ -83,7 +83,7 @@ const TEMPLATE_METADATA = {
     title: "Product Review HTML Email Template",
   },
   "reengagement.html": {
-    lastmod: "2025-01-16",
+    lastmod: "2025-01-19",
     image: "reengagement-preview.png",
     title: "Re-engagement HTML Email Template",
   },
