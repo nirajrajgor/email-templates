@@ -82,6 +82,11 @@ const TEMPLATE_METADATA = {
     image: "product-review-preview.png",
     title: "Product Review HTML Email Template",
   },
+  "reengagement.html": {
+    lastmod: "2025-01-19",
+    image: "reengagement-preview.png",
+    title: "Re-engagement HTML Email Template",
+  },
 };
 
 function toUrl(filePath) {
