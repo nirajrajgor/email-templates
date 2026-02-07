@@ -72,6 +72,11 @@ const TEMPLATE_METADATA = {
     image: "account-verification-preview.png",
     title: "Account Verification HTML Email Template",
   },
+  "account-billing-update.html": {
+    lastmod: "2026-02-07",
+    image: "account-billing-update-preview.png",
+    title: "Account & Billing Update Email Template",
+  },
   "welcome-onboarding.html": {
     lastmod: "2025-09-19",
     image: "welcome-onboarding-preview.png",
@@ -136,8 +141,8 @@ function injectSeo(htmlPath) {
         };
     $("head").append(
       `\n    <script type="application/ld+json">${JSON.stringify(
-        jsonLd
-      )}</script>`
+        jsonLd,
+      )}</script>`,
     );
   }
 
@@ -183,15 +188,15 @@ function injectSeo(htmlPath) {
         : `${canonicalUrl}${image}`;
     }
     $("head").append(
-      `\n    <meta name="twitter:card" content="summary_large_image" />`
+      `\n    <meta name="twitter:card" content="summary_large_image" />`,
     );
     $("head").append(`\n    <meta name="twitter:title" content="${title}" />`);
     $("head").append(
-      `\n    <meta name="twitter:description" content="${desc}" />`
+      `\n    <meta name="twitter:description" content="${desc}" />`,
     );
     if (image)
       $("head").append(
-        `\n    <meta name="twitter:image" content="${image}" />`
+        `\n    <meta name="twitter:image" content="${image}" />`,
       );
   }
 
@@ -335,7 +340,7 @@ function run() {
   fs.writeFileSync(path.join(DIST_DIR, "robots.txt"), robots, "utf8");
 
   console.log(
-    "Enhanced SEO assets generated: sitemap.xml (with image metadata), robots.txt (with detailed rules), canonical tags, JSON-LD"
+    "Enhanced SEO assets generated: sitemap.xml (with image metadata), robots.txt (with detailed rules), canonical tags, JSON-LD",
   );
 }
 
