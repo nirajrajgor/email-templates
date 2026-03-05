@@ -36,10 +36,11 @@ No signup required—download with a single click!
 - [Music Event HTML Email Template](https://nirajrajgor.github.io/email-templates/templates/music-event-promotion)
 - [Password Reset HTML Email Template](https://nirajrajgor.github.io/email-templates/templates/password-reset)
 - [Abandoned Cart HTML Email Template](https://nirajrajgor.github.io/email-templates/templates/abandoned-cart)
-- [Account Verification HTMl Email Template](https://nirajrajgor.github.io/email-templates/templates/account-verification)
+- [Account Verification HTML Email Template](https://nirajrajgor.github.io/email-templates/templates/account-verification)
 - [Welcome Onboarding HTMl Email Template](https://nirajrajgor.github.io/email-templates/templates/welcome-onboarding)
 - [Product Review HTMl Email Template](https://nirajrajgor.github.io/email-templates/templates/product-review)
 - [Re-engagement HTML Email Template](https://nirajrajgor.github.io/email-templates/templates/reengagement)
+- [Account Billing Update HTML Email Template](https://nirajrajgor.github.io/email-templates/templates/account-billing-update)
 
 - More templates are coming soon! Stay tuned for updates.
 

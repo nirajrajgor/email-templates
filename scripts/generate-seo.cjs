@@ -72,6 +72,11 @@ const TEMPLATE_METADATA = {
     image: "account-verification-preview.png",
     title: "Account Verification HTML Email Template",
   },
+  "account-billing-update.html": {
+    lastmod: "2026-03-04",
+    image: "account-billing-update-preview.png",
+    title: "Account & Billing Update HTML Email Template",
+  },
   "welcome-onboarding.html": {
     lastmod: "2025-09-19",
     image: "welcome-onboarding-preview.png",
@@ -94,6 +99,15 @@ function toUrl(filePath) {
   // Collapse any trailing "index.html" so sub-folders map to a clean URL.
   const clean = relative.replace(/index\.html$/i, "");
   return `${BASE_URL}${clean}`;
+}
+
+function escapeXml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 }
 
 function injectSeo(htmlPath) {
@@ -136,8 +150,8 @@ function injectSeo(htmlPath) {
         };
     $("head").append(
       `\n    <script type="application/ld+json">${JSON.stringify(
-        jsonLd
-      )}</script>`
+        jsonLd,
+      )}</script>`,
     );
   }
 
@@ -183,15 +197,15 @@ function injectSeo(htmlPath) {
         : `${canonicalUrl}${image}`;
     }
     $("head").append(
-      `\n    <meta name="twitter:card" content="summary_large_image" />`
+      `\n    <meta name="twitter:card" content="summary_large_image" />`,
     );
     $("head").append(`\n    <meta name="twitter:title" content="${title}" />`);
     $("head").append(
-      `\n    <meta name="twitter:description" content="${desc}" />`
+      `\n    <meta name="twitter:description" content="${desc}" />`,
     );
     if (image)
       $("head").append(
-        `\n    <meta name="twitter:image" content="${image}" />`
+        `\n    <meta name="twitter:image" content="${image}" />`,
       );
   }
 
@@ -225,15 +239,15 @@ function buildSitemap(urls) {
     .map((url) => {
       const isMainPage = url === BASE_URL;
       let urlXml = `  <url>
-    <loc>${url}</loc>
-    <lastmod>${today}</lastmod>
+    <loc>${escapeXml(url)}</loc>
+    <lastmod>${escapeXml(today)}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>`;
 
       if (isMainPage) {
         urlXml += `
     <image:image>
-      <image:loc>${BASE_URL}logo.svg</image:loc>
+      <image:loc>${escapeXml(`${BASE_URL}logo.svg`)}</image:loc>
       <image:title>Email Templates Logo</image:title>
     </image:image>`;
       }
@@ -252,16 +266,16 @@ function buildSitemap(urls) {
       const lastmod = metadata ? metadata.lastmod : today;
 
       let urlXml = `  <url>
-    <loc>${url}</loc>
-    <lastmod>${lastmod}</lastmod>
+    <loc>${escapeXml(url)}</loc>
+    <lastmod>${escapeXml(lastmod)}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>`;
 
       if (metadata && metadata.image) {
         urlXml += `
     <image:image>
-      <image:loc>${BASE_URL}${metadata.image}</image:loc>
-      <image:title>${metadata.title}</image:title>
+      <image:loc>${escapeXml(`${BASE_URL}${metadata.image}`)}</image:loc>
+      <image:title>${escapeXml(metadata.title)}</image:title>
     </image:image>`;
       }
 
@@ -335,7 +349,7 @@ function run() {
   fs.writeFileSync(path.join(DIST_DIR, "robots.txt"), robots, "utf8");
 
   console.log(
-    "Enhanced SEO assets generated: sitemap.xml (with image metadata), robots.txt (with detailed rules), canonical tags, JSON-LD"
+    "Enhanced SEO assets generated: sitemap.xml (with image metadata), robots.txt (with detailed rules), canonical tags, JSON-LD",
   );
 }
 
