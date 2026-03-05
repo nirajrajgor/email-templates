@@ -5,7 +5,7 @@
   <!-- Main Pages -->
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/</loc>
-    <lastmod>2026-01-20</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -23,6 +23,16 @@
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/abandoned-cart-preview.png</image:loc>
       <image:title>Abandoned Cart HTML Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/account-billing-update.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/account-billing-update-preview.png</image:loc>
+      <image:title>Account &amp; Billing Update HTML Email Template</image:title>
     </image:image>
   </url>
   <url>
