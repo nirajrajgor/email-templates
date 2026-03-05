@@ -73,9 +73,9 @@ const TEMPLATE_METADATA = {
     title: "Account Verification HTML Email Template",
   },
   "account-billing-update.html": {
-    lastmod: "2026-02-07",
+    lastmod: "2026-03-04",
     image: "account-billing-update-preview.png",
-    title: "Account & Billing Update Email Template",
+    title: "Account & Billing Update HTML Email Template",
   },
   "welcome-onboarding.html": {
     lastmod: "2025-09-19",
@@ -99,6 +99,15 @@ function toUrl(filePath) {
   // Collapse any trailing "index.html" so sub-folders map to a clean URL.
   const clean = relative.replace(/index\.html$/i, "");
   return `${BASE_URL}${clean}`;
+}
+
+function escapeXml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 }
 
 function injectSeo(htmlPath) {
@@ -230,15 +239,15 @@ function buildSitemap(urls) {
     .map((url) => {
       const isMainPage = url === BASE_URL;
       let urlXml = `  <url>
-    <loc>${url}</loc>
-    <lastmod>${today}</lastmod>
+    <loc>${escapeXml(url)}</loc>
+    <lastmod>${escapeXml(today)}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>`;
 
       if (isMainPage) {
         urlXml += `
     <image:image>
-      <image:loc>${BASE_URL}logo.svg</image:loc>
+      <image:loc>${escapeXml(`${BASE_URL}logo.svg`)}</image:loc>
       <image:title>Email Templates Logo</image:title>
     </image:image>`;
       }
@@ -257,16 +266,16 @@ function buildSitemap(urls) {
       const lastmod = metadata ? metadata.lastmod : today;
 
       let urlXml = `  <url>
-    <loc>${url}</loc>
-    <lastmod>${lastmod}</lastmod>
+    <loc>${escapeXml(url)}</loc>
+    <lastmod>${escapeXml(lastmod)}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>`;
 
       if (metadata && metadata.image) {
         urlXml += `
     <image:image>
-      <image:loc>${BASE_URL}${metadata.image}</image:loc>
-      <image:title>${metadata.title}</image:title>
+      <image:loc>${escapeXml(`${BASE_URL}${metadata.image}`)}</image:loc>
+      <image:title>${escapeXml(metadata.title)}</image:title>
     </image:image>`;
       }
 
