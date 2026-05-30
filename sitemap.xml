@@ -5,7 +5,7 @@
   <!-- Main Pages -->
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -113,6 +113,16 @@
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/product-confirm-preview.png</image:loc>
       <image:title>Product Confirmation Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/product-promotion.html</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/product-promotion-preview.png</image:loc>
+      <image:title>Product Promotion HTML Email Template</image:title>
     </image:image>
   </url>
   <url>
