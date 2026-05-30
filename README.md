@@ -41,6 +41,7 @@ No signup required—download with a single click!
 - [Product Review HTMl Email Template](https://nirajrajgor.github.io/email-templates/templates/product-review)
 - [Re-engagement HTML Email Template](https://nirajrajgor.github.io/email-templates/templates/reengagement)
 - [Account Billing Update HTML Email Template](https://nirajrajgor.github.io/email-templates/templates/account-billing-update)
+- [Product Promotion HTML Email Template](https://nirajrajgor.github.io/email-templates/templates/product-promotion)
 
 - More templates are coming soon! Stay tuned for updates.
 

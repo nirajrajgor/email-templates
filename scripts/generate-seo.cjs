@@ -77,6 +77,11 @@ const TEMPLATE_METADATA = {
     image: "account-billing-update-preview.png",
     title: "Account & Billing Update HTML Email Template",
   },
+  "product-promotion.html": {
+    lastmod: "2026-05-30",
+    image: "product-promotion-preview.png",
+    title: "Product Promotion HTML Email Template",
+  },
   "welcome-onboarding.html": {
     lastmod: "2025-09-19",
     image: "welcome-onboarding-preview.png",
