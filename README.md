@@ -17,6 +17,8 @@ Unlock a collection of free, professional, and responsive HTML email templates p
 
 You can access the deployed templates at [https://nirajrajgor.github.io/email-templates/](https://nirajrajgor.github.io/email-templates/). No signup or registration is required; you can download the templates directly with just one click of a button!
 
+![Email Templates homepage screenshot](public/homepage-screenshot.jpg)
+
 ## Live Demo
 
 ▶️ **Explore them here →** <https://nirajrajgor.github.io/email-templates/>
