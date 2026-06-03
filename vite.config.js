@@ -10,6 +10,7 @@ export default defineConfig({
     rollupOptions: {
       input: [
         resolve(__dirname, "index.html"),
+        resolve(__dirname, "preview.html"),
         ...sync("./templates/**/*.html".replace(/\\/g, "/templates")),
       ],
     },

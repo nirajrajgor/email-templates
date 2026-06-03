@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Template Preview</title>
+    <meta
+      name="description"
+      content="Preview and download responsive HTML email templates."
+    />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" type="image/svg+xml" href="./logo.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+      preconnect
+    />
+    <link rel="stylesheet" href="./preview.css" />
+  </head>
+  <body>
+    <nav class="preview-toolbar" aria-label="Template preview controls">
+      <div class="toolbar-left">
+        <a class="back-link" href="./index.html" aria-label="Back to templates">
+          <svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path
+              d="M12.5 15L7.5 10L12.5 5"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+        <div class="brand">
+          <img class="brand-logo" src="./logo.svg" alt="Email Templates" />
+        </div>
+      </div>
+
+      <div class="toolbar-center">
+        <span class="template-title" id="template-title">Template</span>
+      </div>
+
+      <div class="toolbar-right">
+        <button class="action-button secondary" type="button" id="copy-button">
+          <svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path
+              d="M7 7V5.5C7 4.67 7.67 4 8.5 4H14.5C15.33 4 16 4.67 16 5.5V11.5C16 12.33 15.33 13 14.5 13H13M5.5 7H11.5C12.33 7 13 7.67 13 8.5V14.5C13 15.33 12.33 16 11.5 16H5.5C4.67 16 4 15.33 4 14.5V8.5C4 7.67 4.67 7 5.5 7Z"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span>Copy HTML</span>
+        </button>
+        <a class="action-button primary" id="download-link" href="#" download>
+          <svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path
+              d="M10 4V12M10 12L6.5 8.5M10 12L13.5 8.5M4 15.5H16"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span>Download HTML</span>
+        </a>
+      </div>
+    </nav>
+
+    <main class="preview-stage" id="preview-stage">
+      <div class="frame-wrap">
+        <div class="frame-shell" id="frame-shell">
+          <div class="frame-scaler" id="frame-scaler">
+            <iframe
+              class="template-frame"
+              id="template-frame"
+              scrolling="no"
+              title="Email template preview"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="./preview.js"></script>
+  </body>
+</html>
