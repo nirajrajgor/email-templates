@@ -115,18 +115,27 @@ function escapeXml(value) {
     .replace(/'/g, "&apos;");
 }
 
+function hasNoIndex($) {
+  return ($('meta[name="robots"]').attr("content") || "")
+    .toLowerCase()
+    .split(",")
+    .map((value) => value.trim())
+    .includes("noindex");
+}
+
 function injectSeo(htmlPath) {
   const html = fs.readFileSync(htmlPath, "utf8");
   const $ = cheerio.load(html, { decodeEntities: false });
   const canonicalUrl = toUrl(htmlPath);
+  const noindex = hasNoIndex($);
 
   // Canonical tag
-  if ($('link[rel="canonical"]').length === 0) {
+  if (!noindex && $('link[rel="canonical"]').length === 0) {
     $("head").append(`\n    <link rel="canonical" href="${canonicalUrl}" />`);
   }
 
   // JSON-LD
-  if ($('script[type="application/ld+json"]').length === 0) {
+  if (!noindex && $('script[type="application/ld+json"]').length === 0) {
     const isRoot = canonicalUrl === BASE_URL;
     const jsonLd = isRoot
       ? {
@@ -182,7 +191,7 @@ function injectSeo(htmlPath) {
 
   // Twitter meta tags (summary_large_image)
   const existingTwitter = $('meta[name="twitter:card"]').length;
-  if (!existingTwitter) {
+  if (!noindex && !existingTwitter) {
     const title =
       $('meta[property="og:title"]').attr("content") ||
       $("title").text().trim();
@@ -215,6 +224,8 @@ function injectSeo(htmlPath) {
   }
 
   fs.writeFileSync(htmlPath, $.html(), "utf8");
+
+  return { noindex, url: canonicalUrl };
 }
 
 function buildSitemap(urls) {
@@ -341,8 +352,8 @@ function run() {
 
   htmlFiles.forEach((file) => {
     const fullPath = path.join(DIST_DIR, file);
-    injectSeo(fullPath);
-    urls.push(toUrl(fullPath));
+    const { noindex, url } = injectSeo(fullPath);
+    if (!noindex) urls.push(url);
   });
 
   // Enhanced Sitemap with metadata
