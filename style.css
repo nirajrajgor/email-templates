@@ -85,12 +85,12 @@ header a:last-child:hover {
 }
 
 main.container {
-  padding-top: 6.5rem !important;
+  padding-top: 5.25rem !important;
 }
 
 main > section:first-of-type {
-  margin-bottom: 3.5rem !important;
-  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+  margin-top: 0.75rem !important;
 }
 
 main > section:first-of-type h1 {
@@ -109,12 +109,140 @@ main > section:first-of-type h2 {
   font-size: 1.0625rem !important;
   line-height: 1.7 !important;
   margin-bottom: 0 !important;
-  margin-top: 1.25rem !important;
+  margin-top: 0.875rem !important;
   max-width: 680px !important;
 }
 
 main > div.grid {
   gap: 1.5rem !important;
+}
+
+.catalog-toolbar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: grid;
+  align-items: center;
+  gap: 0.75rem;
+  grid-template-columns: minmax(15rem, 18rem) minmax(0, 1fr) max-content;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  position: sticky;
+  top: 4.0625rem;
+  z-index: 49;
+}
+
+.catalog-search {
+  min-width: 0;
+}
+
+.catalog-search input {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.9375rem;
+  height: 2.5rem;
+  outline: none;
+  padding: 0 0.875rem;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+  width: 100%;
+}
+
+.catalog-search input:focus {
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.catalog-search input::placeholder {
+  color: #98a2b3;
+}
+
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-pill {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: #344054;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  height: 2.25rem;
+  padding: 0 0.875rem;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.filter-pill:hover {
+  background: #f9fafb;
+  border-color: #d0d5dd;
+}
+
+.filter-pill.is-active {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+}
+
+.catalog-summary {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+
+.catalog-summary p {
+  color: #475467;
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.catalog-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.625rem;
+}
+
+.catalog-card-meta span {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  color: #475467;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.3125rem 0.5rem;
+}
+
+.catalog-empty {
+  background: var(--surface);
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.catalog-empty h2 {
+  color: #1f2937;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.catalog-empty p {
+  color: var(--muted);
+  font-size: 0.9375rem;
 }
 
 .wrapper {
@@ -130,6 +258,10 @@ main > div.grid {
 .wrapper:hover {
   border-color: #d0d5dd;
   transform: translateY(-2px);
+}
+
+#template-grid article.wrapper[hidden] {
+  display: none !important;
 }
 
 .wrapper > div[class*="aspect-[4/5]"] {
@@ -271,6 +403,25 @@ footer {
 
   main > section:first-of-type h1 {
     font-size: 2rem !important;
+  }
+
+  .catalog-toolbar {
+    grid-template-columns: 1fr;
+    padding: 0.875rem;
+    position: static;
+  }
+
+  .filter-pills {
+    gap: 0.375rem;
+  }
+
+  .catalog-summary {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .filter-pill {
+    flex: 1 1 auto;
   }
 
   .wrapper {
