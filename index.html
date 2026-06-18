@@ -112,7 +112,9 @@
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" preconnect="">
-    <link rel="stylesheet" crossorigin="" href="/email-templates/assets/index-CeOwv5qZ.css">
+    <script type="module" crossorigin="" src="/email-templates/assets/index-CkmRqkil.js"></script>
+    <link rel="modulepreload" crossorigin="" href="/email-templates/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="stylesheet" crossorigin="" href="/email-templates/assets/index-B84eheeR.css">
   </head>
   <body class="dark:bg-gray-900">
     <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
@@ -143,20 +145,53 @@
         </h1>
         <h2 class="animate-delay-300 animate-fade-down text-sm md:text-base my-4 mb-12 text-center font-normal text-neutral-600 dark:text-neutral-200 relative z-20 mx-auto max-w-3xl">
           Unlock a collection of free, professional, and responsive HTML email
-          templates perfect for any business need! Download now to elevate your
-          email game effortlessly.
+          templates.
         </h2>
       </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-20 lg:gap-10 pb-20 items-stretch relative z-40">
-        <article class="wrapper flex flex-col h-full">
+      <section class="catalog-toolbar" aria-label="Template filters">
+        <div class="catalog-search">
+          <input id="template-search" type="search" aria-label="Search templates" placeholder="Search templates" autocomplete="off">
+        </div>
+
+        <div class="filter-pills" role="group" aria-label="Template categories">
+          <button type="button" class="filter-pill is-active" data-filter-value="all" aria-pressed="true">
+            All
+          </button>
+          <button type="button" class="filter-pill" data-filter-value="auth" aria-pressed="false">
+            Auth
+          </button>
+          <button type="button" class="filter-pill" data-filter-value="ecommerce" aria-pressed="false">
+            Ecommerce
+          </button>
+          <button type="button" class="filter-pill" data-filter-value="marketing" aria-pressed="false">
+            Marketing
+          </button>
+          <button type="button" class="filter-pill" data-filter-value="newsletter" aria-pressed="false">
+            Newsletter
+          </button>
+          <button type="button" class="filter-pill" data-filter-value="account" aria-pressed="false">
+            Account
+          </button>
+        </div>
+
+        <div class="catalog-summary">
+          <p id="template-result-count" aria-live="polite">17 templates</p>
+        </div>
+      </section>
+
+      <div id="template-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-20 lg:gap-10 pb-20 items-stretch relative z-40">
+        <article class="wrapper flex flex-col h-full" data-category="ecommerce">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Purchase Confirmation Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/purchase-confirm-preview.png" decoding="async">
           </div>
-          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[100ms]">
+          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700">
             Purchase Confirmation Emailer
           </h2>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[200ms]">
+          <div class="catalog-card-meta">
+            <span>Ecommerce</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             Perfect for online stores, service confirmations, subscription
             sign-ups, and digital product purchases.
           </p>
@@ -174,14 +209,17 @@
           </div>
         </article>
         <!-- End of Purchase Confirmation Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="ecommerce">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Product Confirmation Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/product-confirm-preview.png" decoding="async">
           </div>
-          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[200ms]">
+          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700">
             Product Confirmation Emailer
           </h2>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[300ms]">
+          <div class="catalog-card-meta">
+            <span>Ecommerce</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             Ideal for e-commerce orders, electronic product purchases, and
             online retail.
           </p>
@@ -199,14 +237,17 @@
           </div>
         </article>
         <!-- End of Product Confirmation Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="ecommerce">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Ecommerce Order Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/ecommerce-order-emailer.jpg" decoding="async">
           </div>
-          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[300ms]">
+          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700">
             Ecommerce Order Emailer
           </h2>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[400ms]">
+          <div class="catalog-card-meta">
+            <span>Ecommerce</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             This email template is a user-friendly order confirmation layout
             with a clear message, timeline, and detailed order information. It
             includes contact options, promotional sections, and a footer with
@@ -227,14 +268,18 @@
         </article>
         <!-- End of Ecommerce Order Template -->
         <!-- Promotional Offer Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="marketing ecommerce">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Promotional Offer Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/promotional-offer-preview.png" decoding="async">
           </div>
-          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[400ms]">
+          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700">
             Promotional Offer Emailer
           </h2>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[500ms]">
+          <div class="catalog-card-meta">
+            <span>Marketing</span>
+            <span>Ecommerce</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             Promote your offers like a pro! Our emailer highlights irresistible
             deals, standout features, and bonus discounts with an attractive,
             conversion-focused design.
@@ -254,14 +299,18 @@
         </article>
         <!-- End of Promotional Offer Template -->
         <!-- Shopping Deals Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="marketing ecommerce">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Shopping Deals Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/shopping-deals-preview.png" decoding="async">
           </div>
-          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[500ms]">
+          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700">
             Shopping Deals Emailer
           </h2>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[600ms]">
+          <div class="catalog-card-meta">
+            <span>Marketing</span>
+            <span>Ecommerce</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             Highlight your best deals and offers with this stylish email
             template. Featuring a sleek design and a visually appealing layout,
             it's perfect for driving sales and engagement.
@@ -281,14 +330,18 @@
         </article>
         <!-- End of Shopping Deals Template -->
         <!-- Gift Decor Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="marketing ecommerce">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Gift Decor Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/gift-decor-preview.jpg" decoding="async">
           </div>
-          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[600ms]">
+          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700">
             Gift Decor Emailer
           </h2>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[700ms]">
+          <div class="catalog-card-meta">
+            <span>Marketing</span>
+            <span>Ecommerce</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             A promotional email template crafted to help you sell gift decor
             products effectively. Features an eye-catching design with product
             highlights, compelling visuals, and strategic call-to-action
@@ -309,14 +362,18 @@
         </article>
         <!-- End Gift Decor Template -->
         <!-- Product Announcements Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="newsletter marketing">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Product Announcements Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/product-announcements-preview.png" decoding="async">
           </div>
-          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[700ms]">
+          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700">
             Product Announcements Emailer
           </h2>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[800ms]">
+          <div class="catalog-card-meta">
+            <span>Newsletter</span>
+            <span>Marketing</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             Highlight your best product announcements with this stylish email
             template. Featuring a sleek design and a visually appealing layout,
             it's perfect for driving sales and engagement.
@@ -336,14 +393,17 @@
         </article>
         <!-- End of Product Announcements Template -->
         <!-- AI Newsletter Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="newsletter">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="AI Newsletter Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/ai-newsletter-preview.jpg" decoding="async">
           </div>
-          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[800ms]">
+          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700">
             AI Newsletter Emailer
           </h2>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[900ms]">
+          <div class="catalog-card-meta">
+            <span>Newsletter</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             An email template designed specifically for AI newsletter use cases.
             Features a clean, modern design optimized for delivering AI-related
             content and updates to subscribers.
@@ -363,14 +423,17 @@
         </article>
         <!-- End of AI Newsletter Template -->
         <!-- Music Event Promotion Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="marketing">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Music Event Promotion Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/music-event-promotion-preview.png" decoding="async">
           </div>
-          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[900ms]">
+          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700">
             Music Event Promotion Emailer
           </h2>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[1000ms]">
+          <div class="catalog-card-meta">
+            <span>Marketing</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             An email template designed specifically for music event promotion
             use cases. Features a clean, modern design optimized for delivering
             music event promotion content and updates to subscribers.
@@ -390,14 +453,18 @@
         </article>
         <!-- End of Music Event Promotion Template -->
         <!-- Abandoned Cart Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="ecommerce marketing">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Abandoned Cart Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/abandoned-cart-preview.png" decoding="async">
           </div>
-          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[1000ms]">
+          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700">
             Abandoned Cart Emailer
           </h2>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[1100ms]">
+          <div class="catalog-card-meta">
+            <span>Ecommerce</span>
+            <span>Marketing</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             Recapture lost sales with conversion-optimized abandoned cart html
             email template featuring product displays, discount incentives and
             cross-client compatible design.
@@ -417,14 +484,18 @@
         </article>
         <!-- End of Abandoned Cart Template -->
         <!-- Password Reset Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="auth account">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Password Reset Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/password-reset-preview.png" decoding="async">
           </div>
-          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[1100ms]">
+          <h2 class="text-xl font-bold mt-4 mb-2 dark:text-neutral-100 text-neutral-700">
             Password Reset Emailer
           </h2>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[1200ms]">
+          <div class="catalog-card-meta">
+            <span>Auth</span>
+            <span>Account</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             A secure, accessible password reset html email template with a clear
             CTA, fallback link, and security note, built for broad client
             support.
@@ -444,16 +515,20 @@
         </article>
         <!-- End of Password Reset Template -->
         <!-- Account Verification Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="auth account">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Account Verification Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/account-verification-preview.png" decoding="async">
           </div>
           <div class="flex items-center justify-between mt-4 mb-2">
-            <h2 class="text-xl font-bold dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[1200ms]">
+            <h2 class="text-xl font-bold dark:text-neutral-100 text-neutral-700">
               Account Verification Emailer
             </h2>
           </div>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[1300ms]">
+          <div class="catalog-card-meta">
+            <span>Auth</span>
+            <span>Account</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             Professional account verification html email template with
             bulletproof design and cross-client compatibility. Features secure
             authentication flow and responsive layout.
@@ -473,16 +548,19 @@
         </article>
         <!-- End of Account Verification Template -->
         <!-- Welcome Onboarding Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="account">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Welcome Onboarding Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/welcome-onboarding-preview.png" decoding="async">
           </div>
           <div class="flex items-center justify-between mt-4 mb-2">
-            <h2 class="text-xl font-bold dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[1200ms]">
+            <h2 class="text-xl font-bold dark:text-neutral-100 text-neutral-700">
               Welcome Onboarding Emailer
             </h2>
           </div>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[1300ms]">
+          <div class="catalog-card-meta">
+            <span>Account</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             A distinctly editorial welcome html email with ticket-style layout
             and checklist onboarding. Perfect for guiding new users through
             setup steps with clear visual hierarchy.
@@ -502,17 +580,21 @@
         </article>
         <!-- End of Welcome Onboarding Template -->
         <!-- Product Review Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="ecommerce marketing">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Product Review Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/product-review-preview.png" decoding="async">
           </div>
           <div class="flex items-center justify-between mt-4 mb-2">
-            <h2 class="text-xl font-bold dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[1200ms]">
+            <h2 class="text-xl font-bold dark:text-neutral-100 text-neutral-700">
               Product Review HTML Template
             </h2>
             <span class="inline-flex items-center px-2.5 py-0.5 text-xs font-medium text-blue-700 bg-blue-100 dark:bg-blue-900/50 dark:text-blue-300 rounded-md">NEW</span>
           </div>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[1300ms]">
+          <div class="catalog-card-meta">
+            <span>Ecommerce</span>
+            <span>Marketing</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             Request customer feedback with style! Features order details, a
             clear call-to-action, and honest incentive messaging that builds
             trust.
@@ -532,17 +614,20 @@
         </article>
         <!-- End of Product Review Template -->
         <!-- Re-engagement Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="marketing">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Re-engagement Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/reengagement-preview.png" decoding="async">
           </div>
           <div class="flex items-center justify-between mt-4 mb-2">
-            <h2 class="text-xl font-bold dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[1200ms]">
+            <h2 class="text-xl font-bold dark:text-neutral-100 text-neutral-700">
               Re-engagement HTML Email
             </h2>
             <span class="inline-flex items-center px-2.5 py-0.5 text-xs font-medium text-blue-700 bg-blue-100 dark:bg-blue-900/50 dark:text-blue-300 rounded-md">NEW</span>
           </div>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[1500ms]">
+          <div class="catalog-card-meta">
+            <span>Marketing</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             Reconnect with subscribers using this professionally designed
             re-engagement email template. Highlights new features, exclusive
             discounts, and personalized incentives to win back inactive users
@@ -563,17 +648,20 @@
         </article>
         <!-- End of Re-engagement Template -->
         <!-- Account & Billing Update Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="account">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Account Billing Update Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/account-billing-update-preview.png" decoding="async">
           </div>
           <div class="flex items-center justify-between mt-4 mb-2">
-            <h2 class="text-xl font-bold dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[1200ms]">
+            <h2 class="text-xl font-bold dark:text-neutral-100 text-neutral-700">
               Account &amp; Billing Update Emailer
             </h2>
             <span class="inline-flex items-center px-2.5 py-0.5 text-xs font-medium text-blue-700 bg-blue-100 dark:bg-blue-900/50 dark:text-blue-300 rounded-md">NEW</span>
           </div>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[1300ms]">
+          <div class="catalog-card-meta">
+            <span>Account</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             Flexible SaaS template for plan changes, billing updates, renewal
             reminders, and payment notices in a single layout.
           </p>
@@ -592,17 +680,21 @@
         </article>
         <!-- End of Account & Billing Update Template -->
         <!-- Product Promotion Template -->
-        <article class="wrapper flex flex-col h-full">
+        <article class="wrapper flex flex-col h-full" data-category="marketing ecommerce">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Product Promotion Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/product-promotion-preview.png" decoding="async">
           </div>
           <div class="flex items-center justify-between mt-4 mb-2">
-            <h2 class="text-xl font-bold dark:text-neutral-100 text-neutral-700 animate-fade-down animate-delay-[1200ms]">
+            <h2 class="text-xl font-bold dark:text-neutral-100 text-neutral-700">
               Product Promotion HTML Email Template
             </h2>
             <span class="inline-flex items-center px-2.5 py-0.5 text-xs font-medium text-blue-700 bg-blue-100 dark:bg-blue-900/50 dark:text-blue-300 rounded-md">NEW</span>
           </div>
-          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500 animate-fade-down animate-delay-[1300ms]">
+          <div class="catalog-card-meta">
+            <span>Marketing</span>
+            <span>Ecommerce</span>
+          </div>
+          <p class="mt-2 text-sm font-normal dark:text-neutral-300 text-neutral-500">
             Promote featured products with pricing, benefits, imagery, and clear
             calls to action.
           </p>
@@ -620,6 +712,10 @@
           </div>
         </article>
         <!-- End of Product Promotion Template -->
+      </div>
+      <div id="template-empty-state" class="catalog-empty" hidden="">
+        <h2>No templates found</h2>
+        <p>Try a different keyword or category.</p>
       </div>
       <div class="mt-2 text-center">
         <p class="text-lg font-semibold dark:text-neutral-100 text-neutral-700 animate-pulse">
