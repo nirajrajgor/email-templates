@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/generate-seo.cjs",
+    "build": "node scripts/optimize-previews.cjs --check && vite build && node scripts/generate-seo.cjs",
+    "optimize:previews": "node scripts/optimize-previews.cjs",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist"
   },
