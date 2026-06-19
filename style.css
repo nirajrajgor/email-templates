@@ -264,6 +264,13 @@ main > div.grid {
   display: none !important;
 }
 
+/* Skip rendering/decoding off-screen cards so only visible cards hold image
+   bitmaps; intrinsic-size reserves layout space to avoid scrollbar jumps. */
+#template-grid article.wrapper {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
+}
+
 .wrapper > div[class*="aspect-[4/5]"] {
   background: var(--surface-muted) !important;
   border: 1px solid rgba(230, 232, 236, 0.9) !important;
