@@ -1,0 +1,25 @@
+Account verification required
+Link expires in 24 hours
+
+Hello {{firstName}},
+
+Welcome to Acme. Before you begin exploring all that we have to offer, we
+need to verify your email address to ensure account security.
+
+Verify Account:
+{{verificationUrl}}
+
+If the button doesn't work, copy and paste this link into your browser:
+{{verificationUrl}}
+
+Expires in: 24 Hours
+Security: One-time link
+
+Questions? Contact our support team:
+{{contactUrl}}
+
+Sent to {{email}} on {{date}}
+
+Privacy: {{privacyUrl}}
+Terms: {{termsUrl}}
+Unsubscribe: {{unsubscribeUrl}}

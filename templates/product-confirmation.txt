@@ -1,0 +1,17 @@
+Company Logo
+
+Order confirmation
+
+Hi [Customer],
+
+Thank you for shopping with us! We've received your order No: 52777. We
+will notify you when we send it.
+
+Order summary
+
+Apple Watch Ultra 2
+From $450
+
+Subtotal: $400.00
+VAT (20.0%): $80.00
+Total: $480.00

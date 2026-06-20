@@ -1,0 +1,85 @@
+acme
+
+Store: [add URL]
+Guide: [add URL]
+About: [add URL]
+Services: [add URL]
+
+Hooray! Your order has been confirmed.
+
+The [Company Name] will commence work on this immediately. You'll receive
+an email notification once it's shipped.
+
+Status
+
+- Confirmed
+- Shipped
+- Delivered
+
+View Your Order:
+[add URL]
+
+Expected delivery timelines. Contact the seller for any order-related
+inquiries. More information is available.
+
+Order details
+
+Confirmation number: #6200600
+
+Item
+
+- Transaction ID: 1806790905
+- QTY: SET OF 3
+- Color: Blue
+- Quantity: 1
+- Price: $16.85
+
+Shipping Address
+
+John Doe
+123 Main St.
+Springfield, IL 62701
+United States
+
+Paid with Card
+
+Subtotal: $16.85
+Sales tax: $1.50
+Shipping: $8.12
+Total (1 item): $26.47
+
+Contact Options
+
+Chat: acmeorder.com
+Call: 1 (999) 928-2938
+Email: acmeorder@gmail.com
+
+Have Questions About Your Watch Size?
+
+We've updated our watch size! If you're wondering about the amount of
+offer you're receiving or how this change enhances your Trade experience,
+check out our FAQs.
+
+Read FAQs:
+[add URL]
+
+Exciting news: Enjoy free shipping on next order!
+
+Want to enhance your shopping experience? Enjoy complimentary shipping on
+your next order as a special treat.
+
+Shop Now:
+[add URL]
+
+Facebook: [add URL]
+Twitter: [add URL]
+Instagram: [add URL]
+Pinterest: [add URL]
+
+Copyright Acme Inc. All Rights Reserved.
+123 Main St., Springfield, IL 62701
+
+Prefer not to receive these emails anymore?
+
+Unsubscribe here:
+[add URL]
