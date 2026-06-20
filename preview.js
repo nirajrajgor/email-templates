@@ -2,86 +2,103 @@ const templates = {
   "purchase-confirmation": {
     title: "Purchase Confirmation Emailer",
     file: "./templates/purchase-confirmation.html",
+    plainTextFile: "./templates/purchase-confirmation.txt",
     background: "#f4f4f4",
   },
   "product-confirmation": {
     title: "Product Confirmation Emailer",
     file: "./templates/product-confirmation.html",
+    plainTextFile: "./templates/product-confirmation.txt",
     background: "#f4f4f4",
   },
   "ecommerce-order": {
     title: "Ecommerce Order Emailer",
     file: "./templates/ecommerce-order.html",
+    plainTextFile: "./templates/ecommerce-order.txt",
     background: "#fff5f0",
   },
   "promotional-offer": {
     title: "Promotional Offer Emailer",
     file: "./templates/promotional-offer.html",
+    plainTextFile: "./templates/promotional-offer.txt",
     background: "#ff9b12",
   },
   "shopping-deals": {
     title: "Shopping Deals Emailer",
     file: "./templates/shopping-deals.html",
+    plainTextFile: "./templates/shopping-deals.txt",
     background: "#f4f4f4",
   },
   "gift-decor": {
     title: "Gift Decor Emailer",
     file: "./templates/gift-decor.html",
+    plainTextFile: "./templates/gift-decor.txt",
     background: "rgb(36, 3, 54)",
   },
   "product-announcements": {
     title: "Product Announcements Emailer",
     file: "./templates/product-announcements.html",
+    plainTextFile: "./templates/product-announcements.txt",
     background: "#ffffff",
   },
   "ai-newsletter": {
     title: "AI Newsletter Emailer",
     file: "./templates/ai-newsletter.html",
+    plainTextFile: "./templates/ai-newsletter.txt",
     background: "#06120d",
   },
   "music-event-promotion": {
     title: "Music Event Promotion Emailer",
     file: "./templates/music-event-promotion.html",
+    plainTextFile: "./templates/music-event-promotion.txt",
     background: "#f4f4f4",
   },
   "abandoned-cart": {
     title: "Abandoned Cart Emailer",
     file: "./templates/abandoned-cart.html",
+    plainTextFile: "./templates/abandoned-cart.txt",
     background: "#ffffff",
   },
   "password-reset": {
     title: "Password Reset Emailer",
     file: "./templates/password-reset.html",
+    plainTextFile: "./templates/password-reset.txt",
     background: "#f4f4f4",
   },
   "account-verification": {
     title: "Account Verification Emailer",
     file: "./templates/account-verification.html",
+    plainTextFile: "./templates/account-verification.txt",
     background: "#fafaf9",
   },
   "welcome-onboarding": {
     title: "Welcome Onboarding Emailer",
     file: "./templates/welcome-onboarding.html",
+    plainTextFile: "./templates/welcome-onboarding.txt",
     background: "#f4f4f4",
   },
   "product-review": {
     title: "Product Review HTML Template",
     file: "./templates/product-review.html",
+    plainTextFile: "./templates/product-review.txt",
     background: "#f4f4f4",
   },
   reengagement: {
     title: "Re-engagement HTML Email",
     file: "./templates/reengagement.html",
+    plainTextFile: "./templates/reengagement.txt",
     background: "#f8fafc",
   },
   "account-billing-update": {
     title: "Account & Billing Update Emailer",
     file: "./templates/account-billing-update.html",
+    plainTextFile: "./templates/account-billing-update.txt",
     background: "#eef2f7",
   },
   "product-promotion": {
     title: "Product Promotion HTML Email Template",
     file: "./templates/product-promotion.html",
+    plainTextFile: "./templates/product-promotion.txt",
     background: "#141a08",
   },
 };
@@ -96,9 +113,14 @@ const frameShell = document.getElementById("frame-shell");
 const frameScaler = document.getElementById("frame-scaler");
 const stage = document.getElementById("preview-stage");
 const downloadLink = document.getElementById("download-link");
-const copyButton = document.getElementById("copy-button");
+const copyMenu = document.getElementById("copy-menu");
+const copyMenuButton = document.getElementById("copy-menu-button");
+const copyMenuList = document.getElementById("copy-menu-list");
+const copyHtmlMenuItem = document.getElementById("copy-html-menu-item");
+const copyTextMenuItem = document.getElementById("copy-text-menu-item");
 const FRAME_MIN_WIDTH = 600;
 let frameResizeObservers = [];
+const fileContentCache = new Map();
 
 const getFallbackFrameHeight = () =>
   window.innerHeight - document.querySelector(".preview-toolbar").offsetHeight;
@@ -109,6 +131,13 @@ frame.src = template.file;
 stage.style.setProperty("--template-bg", template.background);
 downloadLink.href = template.file;
 downloadLink.download = template.file.split("/").pop();
+
+if (template.plainTextFile) {
+  copyTextMenuItem.hidden = false;
+}
+
+copyHtmlMenuItem.disabled = true;
+copyTextMenuItem.disabled = true;
 
 const getFrameContentHeight = () => {
   try {
@@ -205,21 +234,98 @@ new ResizeObserver(syncToolbarHeight).observe(
   document.querySelector(".preview-toolbar"),
 );
 
-copyButton.addEventListener("click", async () => {
-  const original = copyButton.innerHTML;
+const setCopyMenuOpen = (isOpen) => {
+  copyMenuList.hidden = !isOpen;
+  copyMenuButton.setAttribute("aria-expanded", String(isOpen));
+};
+
+const getFileContent = async (file) => {
+  if (fileContentCache.has(file)) return fileContentCache.get(file);
+
+  const response = await fetch(file);
+  if (!response.ok) throw new Error("Unable to load template");
+  const content = await response.text();
+  fileContentCache.set(file, content);
+
+  return content;
+};
+
+getFileContent(template.file).finally(() => {
+  copyHtmlMenuItem.disabled = false;
+});
+if (template.plainTextFile) {
+  getFileContent(template.plainTextFile).finally(() => {
+    copyTextMenuItem.disabled = false;
+  });
+}
+
+const copyFileToClipboard = async (button, file, successText) => {
+  const original = button.innerHTML;
+  button.disabled = true;
   try {
-    const response = await fetch(template.file);
-    if (!response.ok) throw new Error("Unable to load template");
-    const html = await response.text();
-    await navigator.clipboard.writeText(html);
-    copyButton.textContent = "Copied";
+    const content = await getFileContent(file);
+    await writeToClipboard(content);
+    button.textContent = successText;
     setTimeout(() => {
-      copyButton.innerHTML = original;
+      button.innerHTML = original;
+      button.disabled = false;
     }, 1400);
   } catch (error) {
-    copyButton.textContent = "Copy failed";
+    button.textContent = "Copy failed";
     setTimeout(() => {
-      copyButton.innerHTML = original;
+      button.innerHTML = original;
+      button.disabled = false;
     }, 1600);
   }
+};
+
+const writeToClipboard = async (content) => {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(content);
+      return;
+    } catch (error) {
+      // Fall back for browsers or contexts that block the async Clipboard API.
+    }
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = content;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.left = "-9999px";
+  textarea.style.top = "0";
+  document.body.append(textarea);
+  textarea.select();
+
+  const copied = document.execCommand("copy");
+  textarea.remove();
+
+  if (!copied) throw new Error("Unable to copy to clipboard");
+};
+
+copyMenuButton.addEventListener("click", (event) => {
+  event.stopPropagation();
+  if (copyMenuButton.disabled) return;
+  setCopyMenuOpen(copyMenuList.hidden);
+});
+
+copyHtmlMenuItem.addEventListener("click", () => {
+  if (copyHtmlMenuItem.disabled) return;
+  setCopyMenuOpen(false);
+  copyFileToClipboard(copyMenuButton, template.file, "HTML copied");
+});
+
+copyTextMenuItem.addEventListener("click", () => {
+  if (!template.plainTextFile || copyTextMenuItem.disabled) return;
+  setCopyMenuOpen(false);
+  copyFileToClipboard(copyMenuButton, template.plainTextFile, "Text copied");
+});
+
+document.addEventListener("click", (event) => {
+  if (!copyMenu.contains(event.target)) setCopyMenuOpen(false);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") setCopyMenuOpen(false);
 });

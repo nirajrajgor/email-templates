@@ -125,6 +125,75 @@ body {
   padding: 0 14px;
 }
 
+.copy-menu {
+  position: relative;
+}
+
+.chevron-icon {
+  height: 14px;
+  width: 14px;
+}
+
+.copy-menu-list {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(23, 32, 51, 0.14);
+  min-width: 190px;
+  padding: 6px;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 20;
+}
+
+.copy-menu-list[hidden],
+.copy-menu-item[hidden] {
+  display: none;
+}
+
+.copy-menu-item {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: #344054;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  gap: 10px;
+  min-height: 38px;
+  padding: 0 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.copy-menu-item:hover,
+.copy-menu-item:focus-visible {
+  background: #f9fafb;
+  outline: none;
+}
+
+.copy-menu-item:disabled {
+  cursor: default;
+  opacity: 0.62;
+}
+
+.copy-menu-item:disabled:hover {
+  background: transparent;
+}
+
+.action-button[hidden] {
+  display: none;
+}
+
+.action-button:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
 .action-button.secondary {
   background: var(--surface);
   color: #344054;
