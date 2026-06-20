@@ -1,10 +1,12 @@
+Cyber Monday deals are here with 40% off and featured footwear offers.
+
 Acme
 
 CYBER MONDAY
 40% OFF
 
 SHOP NOW:
-[add URL]
+[add shop URL]
 
 SPECIAL OFFERS
 
@@ -14,14 +16,14 @@ SPECIAL OFFERS
 - 30% OFF - Nikeeee - $85
 
 VIEW MORE:
-[add URL]
+[add special offers URL]
 
 SHOP BY LABEL
 
 Acme
 
 View More:
-[add URL]
+[add label URL]
 
 Shop By Categories
 
@@ -30,7 +32,7 @@ Shop By Categories
 - TRAINER
 
 View All:
-[add URL]
+[add categories URL]
 
 Recent Posts
 
@@ -40,7 +42,7 @@ Be among the first to see next year's essential sneakers. We're offering
 you an exclusive look at the new styles.
 
 Read More:
-[add URL]
+[add upcoming release post URL]
 
 This Week's Most Wanted Picks
 
@@ -48,7 +50,7 @@ Discover the styles our community loves this December. Including user
 reviews and tips.
 
 Read More:
-[add URL]
+[add most wanted picks post URL]
 
 Uncover The Right Footwear
 
@@ -58,25 +60,25 @@ weightlifting, or basketball.
 Explore their top picks & find perfect fit.
 
 View Collection:
-[add URL]
+[add footwear collection URL]
 
 Acme
 
-VIEW ALL: [add URL]
-NEW ARRIVALS: [add URL]
-OFFERS: [add URL]
-BRANDS: [add URL]
+VIEW ALL: [add view all URL]
+NEW ARRIVALS: [add new arrivals URL]
+OFFERS: [add offers URL]
+BRANDS: [add brands URL]
 
-Instagram: [add URL]
-YouTube: [add URL]
+Instagram: [add Instagram URL]
+YouTube: [add YouTube URL]
 
 Would you like to modify your email preferences?
 
 Update your preferences:
-[add URL]
+[add preferences URL]
 
 Unsubscribe:
-[add URL]
+[add unsubscribe URL]
 
 Privacy Policy:
-[add URL]
+[add privacy URL]

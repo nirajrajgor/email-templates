@@ -1,12 +1,12 @@
-Get 20% off now with code MightySave20!
+Get 20% off gifts and decor with code MightySave20.
 
 Home Decor
 
-Gifts: [add URL]
-Latest Arrivals: [add URL]
-Best Sellers: [add URL]
-Gift Ideas: [add URL]
-Discounts: [add URL]
+Gifts: [add gifts URL]
+Latest Arrivals: [add latest arrivals URL]
+Best Sellers: [add best sellers URL]
+Gift Ideas: [add gift ideas URL]
+Discounts: [add discounts URL]
 
 Mighty gifts for your loved one
 
@@ -23,7 +23,7 @@ No Halloween is complete without a bold black cat! It can hold a generous
 amount of hot cocoa.
 
 Explore Category:
-[add URL]
+[add category URL]
 
 Mighty Chocolate
 
@@ -31,14 +31,14 @@ Kids adore chocolates, and when it's crafted just for them, they enjoy it
 even more.
 
 Place Custom Order:
-[add URL]
+[add custom order URL]
 
 Mighty Candles
 
 Adorable candles serve as a stunning centerpiece for New Year's Eve.
 
 Explore Scents:
-[add URL]
+[add candle scents URL]
 
 Why choose us?
 
@@ -59,17 +59,17 @@ Follow us @acme_gift
 
 Followed by 99K amazing people
 
-Support: [add URL]
-Returns: [add URL]
-FAQs: [add URL]
-Privacy Policy: [add URL]
+Support: [add support URL]
+Returns: [add returns URL]
+FAQs: [add FAQ URL]
+Privacy Policy: [add privacy URL]
 
-Instagram: [add URL]
-Twitter: [add URL]
-YouTube: [add URL]
+Instagram: [add Instagram URL]
+Twitter: [add Twitter URL]
+YouTube: [add YouTube URL]
 
 4909 Xyzabc Dr.
 Mydeson, California 92938, USA
 
-Manage Preferences: [add URL]
-Unsubscribe: [add URL]
+Manage Preferences: [add preferences URL]
+Unsubscribe: [add unsubscribe URL]

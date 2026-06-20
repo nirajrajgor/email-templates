@@ -1,5 +1,4 @@
-Account verification required
-Link expires in 24 hours
+Account verification required • Link expires in 24 hours
 
 Hello {{firstName}},
 

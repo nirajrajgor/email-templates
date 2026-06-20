@@ -1,3 +1,5 @@
+Thanks for your subscription purchase. Here are your order details.
+
 Logo
 
 Hi John Doe,
@@ -19,6 +21,6 @@ Co-Founder of acme.com
 
 FOLLOW US ON
 
-Facebook: [add URL]
-Instagram: [add URL]
-Twitter: [add URL]
+Facebook: [add Facebook URL]
+Instagram: [add Instagram URL]
+Twitter: [add Twitter URL]

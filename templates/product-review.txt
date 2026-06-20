@@ -1,3 +1,5 @@
+Tell us how your purchase went and get 10% off your next purchase.
+
 10% OFF on review - Valid 30 days
 
 Acme
@@ -20,9 +22,9 @@ Your purchase
 +2 more items
 
 Write a review:
-https://example.com/review
+[add review URL]
 
 (c) 2025 Acme Inc. - support@acme.com
 
 Unsubscribe:
-[add URL]
+[add unsubscribe URL]

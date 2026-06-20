@@ -1,3 +1,5 @@
+See the latest product updates, platform improvements, and hiring news.
+
 Product Announcements
 May 2025
 
@@ -31,7 +33,7 @@ Learn more about these integration-focused features on our blog. Both
 require a Professional plan or higher.
 
 Read Blog Post:
-[add URL]
+[add blog post URL]
 
 PLATFORM
 Latest Improvements
@@ -46,7 +48,7 @@ adipiscing elit.
 
 Interested in upgrading to Enterprise?
 Reach out:
-[add URL]
+[add enterprise contact URL]
 
 Longer feature title can go here, it can be a bit longer
 
@@ -78,7 +80,7 @@ as Postgres and Key Value.
 
 We're hiring across multiple teams!
 Check out our careers page:
-[add URL]
+[add careers URL]
 
 Company Name, Inc.
 123 Main St.
@@ -86,9 +88,9 @@ San Francisco, California
 
 (c) 2025 Company Name Inc. All rights reserved.
 
-Twitter: [add URL]
-LinkedIn: [add URL]
-GitHub: [add URL]
+Twitter: [add Twitter URL]
+LinkedIn: [add LinkedIn URL]
+GitHub: [add GitHub URL]
 
-Unsubscribe: [add URL]
-Manage preferences: [add URL]
+Unsubscribe: [add unsubscribe URL]
+Manage preferences: [add preferences URL]

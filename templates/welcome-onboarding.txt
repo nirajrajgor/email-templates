@@ -1,5 +1,4 @@
-Your workspace is ready. A simple 3-step checklist gets you productive
-fast.
+Your workspace is ready. A simple 3-step checklist gets you productive fast.
 
 Welcome Aboard
 Workspace
@@ -12,11 +11,11 @@ We keep onboarding intentionally simple. Start with the checklist, and
 you'll be productive in minutes.
 
 Start Onboarding:
-https://acme.app/onboarding
+[add onboarding URL]
 
 Prefer to watch first?
 See a 2-minute overview:
-[add URL]
+[add overview video URL]
 
 Checklist
 
@@ -31,7 +30,7 @@ Checklist
 
 We host office hours every Tuesday & Thursday.
 Reserve a 15-min slot:
-[add URL]
+[add office hours URL]
 
 If you didn't create this account, you can safely ignore this email.
 

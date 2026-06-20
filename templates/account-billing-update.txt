@@ -1,3 +1,5 @@
+Your Acme subscription has been updated. Next charge on Mar 1, 2026.
+
 Your subscription has been updated
 
 Hello John Doe, here's what's changed on your account:
@@ -34,21 +36,21 @@ What you can do next
 - Manage seats and add-ons for your team.
 
 Review billing details:
-https://acme.com/billing
+[add billing URL]
 
 Or view your latest invoice:
-INV-2048: [add URL]
+INV-2048: [add invoice URL]
 
 If the button doesn't work, copy and paste this link:
-https://acme.com/billing
+[add billing URL]
 
 Questions?
-Contact support: [add URL]
+Contact support: [add support URL]
 
 Acme, Inc.
 123 Market Street
 San Francisco, CA 94103
 
-Terms: [add URL]
-Privacy: [add URL]
-Unsubscribe: [add URL]
+Terms: [add terms URL]
+Privacy: [add privacy URL]
+Unsubscribe: [add unsubscribe URL]

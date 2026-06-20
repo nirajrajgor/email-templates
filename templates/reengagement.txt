@@ -24,10 +24,10 @@ Save 20% with code WELCOME20
 Expires in 7 days - Single use
 
 Claim Your Offer:
-[add URL]
+[add offer URL]
 
-Unsubscribe: [add URL]
-View in browser: [add URL]
+Unsubscribe: [add unsubscribe URL]
+View in browser: [add web version URL]
 
 Questions? support@acme.com
 

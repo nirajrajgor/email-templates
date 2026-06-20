@@ -1,9 +1,11 @@
+Your order is confirmed. Review delivery status, order details, and next steps.
+
 acme
 
-Store: [add URL]
-Guide: [add URL]
-About: [add URL]
-Services: [add URL]
+Store: [add store URL]
+Guide: [add guide URL]
+About: [add about URL]
+Services: [add services URL]
 
 Hooray! Your order has been confirmed.
 
@@ -17,7 +19,7 @@ Status
 - Delivered
 
 View Your Order:
-[add URL]
+[add order details URL]
 
 Expected delivery timelines. Contact the seller for any order-related
 inquiries. More information is available.
@@ -50,9 +52,9 @@ Total (1 item): $26.47
 
 Contact Options
 
-Chat: acmeorder.com
+Chat: [add support chat URL]
 Call: 1 (999) 928-2938
-Email: acmeorder@gmail.com
+Email: [add support email]
 
 Have Questions About Your Watch Size?
 
@@ -61,7 +63,7 @@ offer you're receiving or how this change enhances your Trade experience,
 check out our FAQs.
 
 Read FAQs:
-[add URL]
+[add FAQ URL]
 
 Exciting news: Enjoy free shipping on next order!
 
@@ -69,12 +71,12 @@ Want to enhance your shopping experience? Enjoy complimentary shipping on
 your next order as a special treat.
 
 Shop Now:
-[add URL]
+[add shop URL]
 
-Facebook: [add URL]
-Twitter: [add URL]
-Instagram: [add URL]
-Pinterest: [add URL]
+Facebook: [add Facebook URL]
+Twitter: [add Twitter URL]
+Instagram: [add Instagram URL]
+Pinterest: [add Pinterest URL]
 
 Copyright Acme Inc. All Rights Reserved.
 123 Main St., Springfield, IL 62701
@@ -82,4 +84,4 @@ Copyright Acme Inc. All Rights Reserved.
 Prefer not to receive these emails anymore?
 
 Unsubscribe here:
-[add URL]
+[add unsubscribe URL]

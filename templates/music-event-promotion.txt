@@ -1,3 +1,5 @@
+Coldplayyy live tickets, event details, and VIP options inside.
+
 Coldplayyy Live!
 An Unforgettable Night
 
@@ -8,7 +10,7 @@ greatest hits and new anthems. Get ready for a spectacular show filled
 with lights, music, and unforgettable moments.
 
 Get Your Tickets Now:
-https://example.com/tickets
+[add tickets URL]
 
 Event Details
 
@@ -17,7 +19,7 @@ Time: Doors Open 6:00 PM, Show Starts 7:30 PM
 Venue: Grand Arena, City Center
 
 Get Directions:
-https://www.google.com/maps/search/Grand+Arena+City+Center
+[add venue directions URL]
 
 About Coldplayyy
 
@@ -43,16 +45,16 @@ $299
 Premium seating, exclusive access
 
 Secure Your Spot:
-https://example.com/tickets
+[add tickets URL]
 
 Spread the Word
 
-Facebook: https://www.facebook.com/coldplayyy
-Twitter: https://twitter.com/coldplayyy
-Instagram: https://www.instagram.com/coldplayyy
-YouTube: https://www.youtube.com/coldplayyy
+Facebook: [add Facebook URL]
+Twitter: [add Twitter URL]
+Instagram: [add Instagram URL]
+YouTube: [add YouTube URL]
 
 (c) 2025 Coldplayyy Event Promotion. All rights reserved.
 
-Privacy Policy: https://example.com/privacy
-Unsubscribe: https://example.com/unsubscribe
+Privacy Policy: [add privacy URL]
+Unsubscribe: [add unsubscribe URL]
