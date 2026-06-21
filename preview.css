@@ -147,8 +147,7 @@ body {
   z-index: 20;
 }
 
-.copy-menu-list[hidden],
-.copy-menu-item[hidden] {
+.copy-menu-list[hidden] {
   display: none;
 }
 
@@ -174,15 +173,6 @@ body {
 .copy-menu-item:focus-visible {
   background: #f9fafb;
   outline: none;
-}
-
-.copy-menu-item:disabled {
-  cursor: default;
-  opacity: 0.62;
-}
-
-.copy-menu-item:disabled:hover {
-  background: transparent;
 }
 
 .action-button:disabled {

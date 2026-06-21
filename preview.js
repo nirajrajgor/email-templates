@@ -226,7 +226,7 @@ const copyFileToClipboard = async (button, file, successText) => {
   button.disabled = true;
   try {
     const content = await getFileContent(file);
-    await writeToClipboard(content);
+    await navigator.clipboard.writeText(content);
     button.textContent = successText;
     setTimeout(() => {
       button.innerHTML = original;
@@ -241,31 +241,6 @@ const copyFileToClipboard = async (button, file, successText) => {
   }
 };
 
-const writeToClipboard = async (content) => {
-  if (navigator.clipboard?.writeText) {
-    try {
-      await navigator.clipboard.writeText(content);
-      return;
-    } catch (error) {
-      // Fall back for browsers or contexts that block the async Clipboard API.
-    }
-  }
-
-  const textarea = document.createElement("textarea");
-  textarea.value = content;
-  textarea.setAttribute("readonly", "");
-  textarea.style.position = "fixed";
-  textarea.style.left = "-9999px";
-  textarea.style.top = "0";
-  document.body.append(textarea);
-  textarea.select();
-
-  const copied = document.execCommand("copy");
-  textarea.remove();
-
-  if (!copied) throw new Error("Unable to copy to clipboard");
-};
-
 copyMenuButton.addEventListener("click", (event) => {
   event.stopPropagation();
   if (copyMenuButton.disabled) return;
@@ -273,13 +248,11 @@ copyMenuButton.addEventListener("click", (event) => {
 });
 
 copyHtmlMenuItem.addEventListener("click", () => {
-  if (copyHtmlMenuItem.disabled) return;
   setCopyMenuOpen(false);
   copyFileToClipboard(copyMenuButton, template.file, "HTML copied");
 });
 
 copyTextMenuItem.addEventListener("click", () => {
-  if (copyTextMenuItem.disabled) return;
   setCopyMenuOpen(false);
   copyFileToClipboard(copyMenuButton, plainTextFile, "Text copied");
 });
