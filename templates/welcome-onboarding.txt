@@ -1,0 +1,40 @@
+Your workspace is ready. A simple 3-step checklist gets you productive fast.
+
+Welcome Aboard
+Workspace
+
+From Acme
+
+Hi John, your workspace is ready
+
+We keep onboarding intentionally simple. Start with the checklist, and
+you'll be productive in minutes.
+
+Start Onboarding:
+[add onboarding URL]
+
+Prefer to watch first?
+See a 2-minute overview:
+[add overview video URL]
+
+Checklist
+
+1. Confirm your email
+   Secure access to your workspace and enable all features.
+
+2. Complete your profile
+   Name, photo, timezone, and a few preferences.
+
+3. Take a quick tour
+   Learn the layout and time-saving shortcuts.
+
+We host office hours every Tuesday & Thursday.
+Reserve a 15-min slot:
+[add office hours URL]
+
+If you didn't create this account, you can safely ignore this email.
+
+Support: support@acme.com
+
+(c) 2025 Acme Inc.
+123 Market Street, San Francisco, CA

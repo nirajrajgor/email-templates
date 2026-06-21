@@ -1,0 +1,54 @@
+Still thinking it over? Your items are waiting. Complete your order while they're in stock.
+
+You left something behind
+Finish your checkout in just a few clicks
+
+Hi [First name],
+
+Looks like you didn't get a chance to complete your order. We've saved
+your cart with the items below.
+
+Cart items
+
+- AeroRun Mesh Sneakers
+  Color: Graphite
+  Size: 9
+  Qty: 1
+  Price: $96.00
+
+- AirFlow Performance Cap
+  Color: Navy
+  Size: One size
+  Qty: 1
+  Price: $24.00
+
+Order summary
+
+Subtotal: $120.00
+Shipping: Free
+Tax: $0.00
+Total: $120.00
+
+Limited-time treat
+
+Use code SAVE10 at checkout for 10% off.
+
+Return to your cart:
+[add cart restore URL]
+
+We'll reserve your items for the next 24 hours.
+
+Trouble with the button? Paste this link into your browser:
+[add cart restore URL]
+
+Need help?
+
+Our team is here for you at support@example.com.
+
+You are receiving this because you visited our store but did not complete
+a purchase.
+
+Unsubscribe:
+[add unsubscribe URL]
+
+123 Market St, San Francisco, CA

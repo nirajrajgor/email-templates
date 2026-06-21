@@ -6,9 +6,9 @@
     <meta name="robots" content="noindex, follow">
     <link rel="icon" type="image/svg+xml" href="./logo.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" preconnect="">
-    <script type="module" crossorigin="" src="/email-templates/assets/preview-Dd12cOZ9.js"></script>
+    <script type="module" crossorigin="" src="/email-templates/assets/preview-DGelKohw.js"></script>
     <link rel="modulepreload" crossorigin="" href="/email-templates/assets/modulepreload-polyfill-B5Qt9EMX.js">
-    <link rel="stylesheet" crossorigin="" href="/email-templates/assets/preview-C9zilCk7.css">
+    <link rel="stylesheet" crossorigin="" href="/email-templates/assets/preview-DPPxjg9Z.css">
   </head>
   <body>
     <nav class="preview-toolbar" aria-label="Template preview controls">
@@ -28,12 +28,31 @@
       </div>
 
       <div class="toolbar-right">
-        <button class="action-button secondary" type="button" id="copy-button">
-          <svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M7 7V5.5C7 4.67 7.67 4 8.5 4H14.5C15.33 4 16 4.67 16 5.5V11.5C16 12.33 15.33 13 14.5 13H13M5.5 7H11.5C12.33 7 13 7.67 13 8.5V14.5C13 15.33 12.33 16 11.5 16H5.5C4.67 16 4 15.33 4 14.5V8.5C4 7.67 4.67 7 5.5 7Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-          <span>Copy HTML</span>
-        </button>
+        <div class="copy-menu" id="copy-menu">
+          <button class="action-button secondary" type="button" id="copy-menu-button" aria-haspopup="menu" aria-expanded="false">
+            <svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M7 7V5.5C7 4.67 7.67 4 8.5 4H14.5C15.33 4 16 4.67 16 5.5V11.5C16 12.33 15.33 13 14.5 13H13M5.5 7H11.5C12.33 7 13 7.67 13 8.5V14.5C13 15.33 12.33 16 11.5 16H5.5C4.67 16 4 15.33 4 14.5V8.5C4 7.67 4.67 7 5.5 7Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span>Copy</span>
+            <svg class="icon chevron-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M6 8L10 12L14 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+          <div class="copy-menu-list" id="copy-menu-list" role="menu" hidden="">
+            <button class="copy-menu-item" type="button" id="copy-html-menu-item" role="menuitem">
+              <svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M7 7V5.5C7 4.67 7.67 4 8.5 4H14.5C15.33 4 16 4.67 16 5.5V11.5C16 12.33 15.33 13 14.5 13H13M5.5 7H11.5C12.33 7 13 7.67 13 8.5V14.5C13 15.33 12.33 16 11.5 16H5.5C4.67 16 4 15.33 4 14.5V8.5C4 7.67 4.67 7 5.5 7Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Copy HTML</span>
+            </button>
+            <button class="copy-menu-item" type="button" id="copy-text-menu-item" role="menuitem">
+              <svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M6 5.5H14M6 9H14M6 12.5H11.5M4.5 3.5H15.5V16.5H4.5V3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Copy plain text</span>
+            </button>
+          </div>
+        </div>
         <a class="action-button primary" id="download-link" href="#" download="">
           <svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <path d="M10 4V12M10 12L6.5 8.5M10 12L13.5 8.5M4 15.5H16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
