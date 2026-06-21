@@ -1,0 +1,26 @@
+Thanks for your subscription purchase. Here are your order details.
+
+Logo
+
+Hi John Doe,
+
+Thank you for purchasing your subscription.
+
+Order Details
+
+- Date of purchase: Sep 04, 2024
+- Amount paid: $5.99
+
+We hope you enjoy the premium experience. Thank you for supporting Acme,
+your contribution is a big deal to our tiny company.
+
+Happy coding!
+
+Jane Doe
+Co-Founder of acme.com
+
+FOLLOW US ON
+
+Facebook: [add Facebook URL]
+Instagram: [add Instagram URL]
+Twitter: [add Twitter URL]

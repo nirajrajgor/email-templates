@@ -89,6 +89,7 @@ const templates = {
 const params = new URLSearchParams(window.location.search);
 const id = params.get("template") || "purchase-confirmation";
 const template = templates[id] || templates["purchase-confirmation"];
+const plainTextFile = template.file.replace(/\.html$/, ".txt");
 const title = `${template.title} | Email Template Preview`;
 const titleNode = document.getElementById("template-title");
 const frame = document.getElementById("template-frame");
@@ -96,7 +97,11 @@ const frameShell = document.getElementById("frame-shell");
 const frameScaler = document.getElementById("frame-scaler");
 const stage = document.getElementById("preview-stage");
 const downloadLink = document.getElementById("download-link");
-const copyButton = document.getElementById("copy-button");
+const copyMenu = document.getElementById("copy-menu");
+const copyMenuButton = document.getElementById("copy-menu-button");
+const copyMenuList = document.getElementById("copy-menu-list");
+const copyHtmlMenuItem = document.getElementById("copy-html-menu-item");
+const copyTextMenuItem = document.getElementById("copy-text-menu-item");
 const FRAME_MIN_WIDTH = 600;
 let frameResizeObservers = [];
 
@@ -205,21 +210,57 @@ new ResizeObserver(syncToolbarHeight).observe(
   document.querySelector(".preview-toolbar"),
 );
 
-copyButton.addEventListener("click", async () => {
-  const original = copyButton.innerHTML;
+const setCopyMenuOpen = (isOpen) => {
+  copyMenuList.hidden = !isOpen;
+  copyMenuButton.setAttribute("aria-expanded", String(isOpen));
+};
+
+const getFileContent = async (file) => {
+  const response = await fetch(file);
+  if (!response.ok) throw new Error("Unable to load template");
+  return response.text();
+};
+
+const copyFileToClipboard = async (button, file, successText) => {
+  const original = button.innerHTML;
+  button.disabled = true;
   try {
-    const response = await fetch(template.file);
-    if (!response.ok) throw new Error("Unable to load template");
-    const html = await response.text();
-    await navigator.clipboard.writeText(html);
-    copyButton.textContent = "Copied";
+    const content = await getFileContent(file);
+    await navigator.clipboard.writeText(content);
+    button.textContent = successText;
     setTimeout(() => {
-      copyButton.innerHTML = original;
+      button.innerHTML = original;
+      button.disabled = false;
     }, 1400);
   } catch (error) {
-    copyButton.textContent = "Copy failed";
+    button.textContent = "Copy failed";
     setTimeout(() => {
-      copyButton.innerHTML = original;
+      button.innerHTML = original;
+      button.disabled = false;
     }, 1600);
   }
+};
+
+copyMenuButton.addEventListener("click", (event) => {
+  event.stopPropagation();
+  if (copyMenuButton.disabled) return;
+  setCopyMenuOpen(copyMenuList.hidden);
+});
+
+copyHtmlMenuItem.addEventListener("click", () => {
+  setCopyMenuOpen(false);
+  copyFileToClipboard(copyMenuButton, template.file, "HTML copied");
+});
+
+copyTextMenuItem.addEventListener("click", () => {
+  setCopyMenuOpen(false);
+  copyFileToClipboard(copyMenuButton, plainTextFile, "Text copied");
+});
+
+document.addEventListener("click", (event) => {
+  if (!copyMenu.contains(event.target)) setCopyMenuOpen(false);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") setCopyMenuOpen(false);
 });

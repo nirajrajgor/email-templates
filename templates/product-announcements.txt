@@ -1,0 +1,96 @@
+See the latest product updates, platform improvements, and hiring news.
+
+Product Announcements
+May 2025
+
+This month, we're highlighting powerful new ways to connect your product
+with your team's other tools and providers.
+
+New product features
+
+INTEGRATIONS
+Features 1
+
+New Release
+Feature title can go here
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
+sit amet, consectetur adipiscing elit.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+New Release
+Feature title can go here, it can be a bit longer
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
+sit amet, consectetur adipiscing elit:
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
+sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
+consectetur adipiscing elit.
+
+Learn more about these integration-focused features on our blog. Both
+require a Professional plan or higher.
+
+Read Blog Post:
+[add blog post URL]
+
+PLATFORM
+Latest Improvements
+
+Enterprise
+Feature title can go here
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
+sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
+consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
+adipiscing elit.
+
+Interested in upgrading to Enterprise?
+Reach out:
+[add enterprise contact URL]
+
+Longer feature title can go here, it can be a bit longer
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
+sit amet, consectetur adipiscing elit.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
+sit amet elit.
+
+UPDATES
+More From Your Product
+
+How-To
+Feature title can go here
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
+sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
+consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
+adipiscing elit.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
+sit amet, consectetur adipiscing elit.
+
+Engineering Manager, company name
+
+Inspire, coach, and grow the team responsible for critical infrastructure
+products that serve as "keystones" for our customers as they scale, such
+as Postgres and Key Value.
+
+We're hiring across multiple teams!
+Check out our careers page:
+[add careers URL]
+
+Company Name, Inc.
+123 Main St.
+San Francisco, California
+
+(c) 2025 Company Name Inc. All rights reserved.
+
+Twitter: [add Twitter URL]
+LinkedIn: [add LinkedIn URL]
+GitHub: [add GitHub URL]
+
+Unsubscribe: [add unsubscribe URL]
+Manage preferences: [add preferences URL]

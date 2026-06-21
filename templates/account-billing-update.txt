@@ -1,0 +1,56 @@
+Your Acme subscription has been updated. Next charge on Mar 1, 2026.
+
+Your subscription has been updated
+
+Hello John Doe, here's what's changed on your account:
+
+- Plan updated to Growth Annual.
+- New billing cycle starts on Feb 15, 2026.
+- Next charge of $588.00 on Mar 1, 2026.
+
+Account summary
+
+Plan: Growth Annual
+Next charge: Mar 1, 2026
+Status: Active
+
+Details
+
+Plan: Growth Annual
+Amount: $588.00 / year
+Billing period: Mar 1, 2026 - Feb 28, 2027
+Effective date: Feb 15, 2026
+Payment method: Visa ending in 4242
+
+Charges summary
+
+Growth Annual (1 seat): $588.00
+Proration credit: -$48.00
+Tax: $12.00
+Total due on Mar 1, 2026: $552.00
+
+What you can do next
+
+- Review billing settings and download your latest invoice.
+- Update your payment method if needed.
+- Manage seats and add-ons for your team.
+
+Review billing details:
+[add billing URL]
+
+Or view your latest invoice:
+INV-2048: [add invoice URL]
+
+If the button doesn't work, copy and paste this link:
+[add billing URL]
+
+Questions?
+Contact support: [add support URL]
+
+Acme, Inc.
+123 Market Street
+San Francisco, CA 94103
+
+Terms: [add terms URL]
+Privacy: [add privacy URL]
+Unsubscribe: [add unsubscribe URL]
