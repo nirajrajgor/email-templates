@@ -44,6 +44,7 @@ No signup required—download with a single click!
 - [Re-engagement HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=reengagement)
 - [Account Billing Update HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=account-billing-update)
 - [Product Promotion HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=product-promotion)
+- [Shipping Confirmation Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=shipping-confirmation)
 
 - More templates are coming soon! Stay tuned for updates.
 
