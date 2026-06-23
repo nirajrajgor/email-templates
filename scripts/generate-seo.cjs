@@ -99,7 +99,7 @@ const TEMPLATE_METADATA = {
   },
   "shipping-confirmation.html": {
     lastmod: "2026-06-23",
-    image: "ecommerce-order-emailer.jpg",
+    image: "shipping-confirmation-preview.png",
     title: "Shipping Confirmation HTML Email Template",
   },
 };
