@@ -1,0 +1,76 @@
+Your order has shipped. Track your package and view the estimated delivery date.
+
+acme
+
+Store: [add store URL]
+Track: [add tracking URL]
+Help: [add help URL]
+About: [add about URL]
+
+Your order is on its way!
+
+Track your package below to follow it every step of the way.
+
+Status
+
+- Confirmed
+- Shipped
+- Delivered
+
+Estimated delivery: Wed, June 25 - Fri, June 27
+
+Carrier: FedEx Express
+Tracking number: 7712 8841 0093
+
+Track Package:
+[add tracking URL]
+
+What's in this shipment
+
+Order number: #6200600
+
+Item
+
+- Smart Watch Series X
+- Color: Blue
+- Quantity: 1
+- Price: $16.85
+
+Shipping to
+
+John Doe
+123 Main St.
+Springfield, IL 62701
+United States
+
+Shipping method
+
+Standard (3-5 days)
+1 of 1 packages
+
+Contact Options
+
+Chat: [add support chat URL]
+Call: 1 (999) 928-2938
+Email: [add support email]
+
+While you wait, discover what's new
+
+Explore our latest arrivals and enjoy complimentary shipping on your next
+order as a special treat.
+
+Shop Now:
+[add shop URL]
+
+Facebook: [add Facebook URL]
+Twitter: [add Twitter URL]
+Instagram: [add Instagram URL]
+Pinterest: [add Pinterest URL]
+
+Copyright Acme Inc. All Rights Reserved.
+123 Main St., Springfield, IL 62701
+
+Prefer not to receive these emails anymore?
+
+Unsubscribe here:
+[add unsubscribe URL]

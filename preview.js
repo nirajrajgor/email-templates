@@ -14,6 +14,11 @@ const templates = {
     file: "./templates/ecommerce-order.html",
     background: "#fff5f0",
   },
+  "shipping-confirmation": {
+    title: "Shipping Confirmation Emailer",
+    file: "./templates/shipping-confirmation.html",
+    background: "#eff6ff",
+  },
   "promotional-offer": {
     title: "Promotional Offer Emailer",
     file: "./templates/promotional-offer.html",

@@ -97,6 +97,11 @@ const TEMPLATE_METADATA = {
     image: "reengagement-preview.png",
     title: "Re-engagement HTML Email Template",
   },
+  "shipping-confirmation.html": {
+    lastmod: "2026-06-23",
+    image: "shipping-confirmation-preview.png",
+    title: "Shipping Confirmation HTML Email Template",
+  },
 };
 
 function toUrl(filePath) {
