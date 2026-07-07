@@ -210,6 +210,40 @@ body {
   margin-top: 14px;
 }
 
+.customize-note {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  margin: -4px 0 10px;
+}
+
+.palette-dots {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.palette-dots:empty {
+  display: none;
+}
+
+.palette-dot {
+  background: var(--dot);
+  border: 1px solid rgba(23, 32, 51, 0.18);
+  border-radius: 50%;
+  height: 14px;
+  width: 14px;
+}
+
+.palette-dot-more {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 2px;
+}
+
 .swatch-row {
   display: flex;
   flex-wrap: wrap;
