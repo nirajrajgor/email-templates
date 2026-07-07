@@ -217,25 +217,6 @@ body {
   margin: -4px 0 10px;
 }
 
-.palette-strip {
-  border-radius: 4px;
-  display: flex;
-  height: 8px;
-  margin-bottom: 12px;
-  outline: 1px solid rgba(23, 32, 51, 0.12);
-  outline-offset: -1px;
-  overflow: hidden;
-}
-
-.palette-strip:empty {
-  display: none;
-}
-
-.palette-strip-segment {
-  background: var(--segment);
-  flex: 1;
-}
-
 .swatch-row {
   display: flex;
   flex-wrap: wrap;

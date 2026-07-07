@@ -137,24 +137,6 @@ export const rethemeHtml = (html, fromBrand, toBrand, overrides) => {
   );
 };
 
-export const extractThemedColors = (html, overrides) => {
-  const options = buildOptions(overrides);
-  const found = new Map();
-  for (const chunk of html.match(STYLE_CONTEXT_RE) ?? []) {
-    for (const token of chunk.match(COLOR_TOKEN_RE) ?? []) {
-      const rgba = parseColorToken(token);
-      const key = rgbKey(rgba);
-      if (found.has(key) || options.pinned.has(key)) continue;
-      const hsl = rgbToHsl(rgba);
-      if (hsl.s < SATURATION_MIN && !options.themedExtra.has(key)) continue;
-      found.set(key, { hex: rgbToHex(rgba), hsl });
-    }
-  }
-  return [...found.values()]
-    .sort((a, b) => a.hsl.h - b.hsl.h || a.hsl.l - b.hsl.l)
-    .map((color) => color.hex);
-};
-
 export const rethemeCssColor = (color, fromBrand, toBrand, overrides) => {
   const match = color.match(COLOR_TOKEN_RE);
   if (!match || match[0] !== color.trim()) return color;
@@ -187,7 +169,6 @@ export const initCustomizer = ({
   const colorInput = document.getElementById("brand-color-input");
   const hexInput = document.getElementById("brand-hex-input");
   const hint = document.getElementById("contrast-hint");
-  const paletteStrip = document.getElementById("palette-strip");
   const swatches = Array.from(panel.querySelectorAll("[data-swatch]"));
   const originalSwatch = panel.querySelector('[data-swatch="original"]');
 
@@ -199,25 +180,9 @@ export const initCustomizer = ({
   let originalHtml = null;
   const ensureHtml = async () => (originalHtml ??= await loadHtml());
 
-  const renderPaletteStrip = (html) => {
-    const colors = extractThemedColors(html, { pinned, themedExtra });
-    paletteStrip.replaceChildren(
-      ...colors.map((hex) => {
-        const segment = document.createElement("span");
-        segment.className = "palette-strip-segment";
-        segment.style.setProperty("--segment", hex);
-        segment.title = hex;
-        return segment;
-      }),
-    );
-  };
-
   const setPanelOpen = (isOpen) => {
     panel.hidden = !isOpen;
     button.setAttribute("aria-expanded", String(isOpen));
-    if (isOpen && !paletteStrip.childElementCount) {
-      ensureHtml().then(renderPaletteStrip);
-    }
   };
 
   const setActiveSwatch = (hex) => {
@@ -235,14 +200,12 @@ export const initCustomizer = ({
     const html = await ensureHtml();
     const isOriginal = hex.toLowerCase() === brand.toLowerCase();
     const overrides = { pinned, themedExtra };
-    const themedHtml = isOriginal ? html : rethemeHtml(html, brand, hex, overrides);
     onApply({
-      html: themedHtml,
+      html: isOriginal ? html : rethemeHtml(html, brand, hex, overrides),
       background: isOriginal
         ? background
         : rethemeCssColor(background, brand, hex, overrides),
     });
-    renderPaletteStrip(themedHtml);
     colorInput.value = hex;
     hexInput.value = hex;
     setActiveSwatch(hex);
