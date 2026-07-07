@@ -217,31 +217,23 @@ body {
   margin: -4px 0 10px;
 }
 
-.palette-dots {
-  align-items: center;
+.palette-strip {
+  border-radius: 4px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
+  height: 8px;
   margin-bottom: 12px;
+  outline: 1px solid rgba(23, 32, 51, 0.12);
+  outline-offset: -1px;
+  overflow: hidden;
 }
 
-.palette-dots:empty {
+.palette-strip:empty {
   display: none;
 }
 
-.palette-dot {
-  background: var(--dot);
-  border: 1px solid rgba(23, 32, 51, 0.18);
-  border-radius: 50%;
-  height: 14px;
-  width: 14px;
-}
-
-.palette-dot-more {
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 600;
-  margin-left: 2px;
+.palette-strip-segment {
+  background: var(--segment);
+  flex: 1;
 }
 
 .swatch-row {

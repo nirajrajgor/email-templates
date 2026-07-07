@@ -187,10 +187,9 @@ export const initCustomizer = ({
   const colorInput = document.getElementById("brand-color-input");
   const hexInput = document.getElementById("brand-hex-input");
   const hint = document.getElementById("contrast-hint");
-  const paletteDots = document.getElementById("palette-dots");
+  const paletteStrip = document.getElementById("palette-strip");
   const swatches = Array.from(panel.querySelectorAll("[data-swatch]"));
   const originalSwatch = panel.querySelector('[data-swatch="original"]');
-  const MAX_PALETTE_DOTS = 8;
 
   button.hidden = false;
   originalSwatch.style.setProperty("--swatch", brand);
@@ -200,31 +199,24 @@ export const initCustomizer = ({
   let originalHtml = null;
   const ensureHtml = async () => (originalHtml ??= await loadHtml());
 
-  const renderPaletteDots = (html) => {
+  const renderPaletteStrip = (html) => {
     const colors = extractThemedColors(html, { pinned, themedExtra });
-    const overflow = colors.length - MAX_PALETTE_DOTS;
-    paletteDots.replaceChildren(
-      ...colors.slice(0, MAX_PALETTE_DOTS).map((hex) => {
-        const dot = document.createElement("span");
-        dot.className = "palette-dot";
-        dot.style.setProperty("--dot", hex);
-        dot.title = hex;
-        return dot;
+    paletteStrip.replaceChildren(
+      ...colors.map((hex) => {
+        const segment = document.createElement("span");
+        segment.className = "palette-strip-segment";
+        segment.style.setProperty("--segment", hex);
+        segment.title = hex;
+        return segment;
       }),
     );
-    if (overflow > 0) {
-      const more = document.createElement("span");
-      more.className = "palette-dot-more";
-      more.textContent = `+${overflow}`;
-      paletteDots.append(more);
-    }
   };
 
   const setPanelOpen = (isOpen) => {
     panel.hidden = !isOpen;
     button.setAttribute("aria-expanded", String(isOpen));
-    if (isOpen && !paletteDots.childElementCount) {
-      ensureHtml().then(renderPaletteDots);
+    if (isOpen && !paletteStrip.childElementCount) {
+      ensureHtml().then(renderPaletteStrip);
     }
   };
 
@@ -250,7 +242,7 @@ export const initCustomizer = ({
         ? background
         : rethemeCssColor(background, brand, hex, overrides),
     });
-    renderPaletteDots(themedHtml);
+    renderPaletteStrip(themedHtml);
     colorInput.value = hex;
     hexInput.value = hex;
     setActiveSwatch(hex);
