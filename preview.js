@@ -1,3 +1,5 @@
+import { initCustomizer } from "./customizer.js";
+
 const templates = {
   "purchase-confirmation": {
     title: "Purchase Confirmation Emailer",
@@ -18,11 +20,13 @@ const templates = {
     title: "Shipping Confirmation Emailer",
     file: "./templates/shipping-confirmation.html",
     background: "#eff6ff",
+    brand: "#2563eb",
   },
   "promotional-offer": {
     title: "Promotional Offer Emailer",
     file: "./templates/promotional-offer.html",
     background: "#ff9b12",
+    brand: "#ff9b12",
   },
   "shopping-deals": {
     title: "Shopping Deals Emailer",
@@ -58,6 +62,7 @@ const templates = {
     title: "Password Reset Emailer",
     file: "./templates/password-reset.html",
     background: "#f4f4f4",
+    brand: "#667eea",
   },
   "account-verification": {
     title: "Account Verification Emailer",
@@ -226,11 +231,11 @@ const getFileContent = async (file) => {
   return response.text();
 };
 
-const copyFileToClipboard = async (button, file, successText) => {
+const copyFileToClipboard = async (button, getContent, successText) => {
   const original = button.innerHTML;
   button.disabled = true;
   try {
-    const content = await getFileContent(file);
+    const content = await getContent();
     await navigator.clipboard.writeText(content);
     button.textContent = successText;
     setTimeout(() => {
@@ -254,12 +259,20 @@ copyMenuButton.addEventListener("click", (event) => {
 
 copyHtmlMenuItem.addEventListener("click", () => {
   setCopyMenuOpen(false);
-  copyFileToClipboard(copyMenuButton, template.file, "HTML copied");
+  copyFileToClipboard(
+    copyMenuButton,
+    () => currentHtml ?? getFileContent(template.file),
+    "HTML copied",
+  );
 });
 
 copyTextMenuItem.addEventListener("click", () => {
   setCopyMenuOpen(false);
-  copyFileToClipboard(copyMenuButton, plainTextFile, "Text copied");
+  copyFileToClipboard(
+    copyMenuButton,
+    () => getFileContent(plainTextFile),
+    "Text copied",
+  );
 });
 
 document.addEventListener("click", (event) => {
@@ -269,3 +282,24 @@ document.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") setCopyMenuOpen(false);
 });
+
+let currentHtml = null;
+let downloadBlobUrl = null;
+
+if (template.brand) {
+  initCustomizer({
+    brand: template.brand,
+    background: template.background,
+    loadHtml: () => getFileContent(template.file),
+    onApply: ({ html, background }) => {
+      currentHtml = html;
+      frame.srcdoc = html;
+      stage.style.setProperty("--template-bg", background);
+      if (downloadBlobUrl) URL.revokeObjectURL(downloadBlobUrl);
+      downloadBlobUrl = URL.createObjectURL(
+        new Blob([html], { type: "text/html" }),
+      );
+      downloadLink.href = downloadBlobUrl;
+    },
+  });
+}
