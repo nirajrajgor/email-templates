@@ -94,10 +94,22 @@ const parseColorToken = (token) => {
   return { r: numbers[0], g: numbers[1], b: numbers[2], a: numbers[3] ?? 1 };
 };
 
-const transformToken = (token, from, to) => {
+const rgbKey = ({ r, g, b }) => `${r},${g},${b}`;
+
+// pinned: semantic colors (success badges, warnings) that must never follow
+// the brand. themedExtra: colors below the saturation threshold that still
+// belong to the brand family (e.g. muted browns in a warm monochrome theme).
+const buildOptions = ({ pinned = [], themedExtra = [] } = {}) => ({
+  pinned: new Set(pinned.map((c) => rgbKey(hexToRgba(c)))),
+  themedExtra: new Set(themedExtra.map((c) => rgbKey(hexToRgba(c)))),
+});
+
+const transformToken = (token, from, to, options) => {
   const rgba = parseColorToken(token);
+  const key = rgbKey(rgba);
+  if (options.pinned.has(key)) return token;
   const hsl = rgbToHsl(rgba);
-  if (hsl.s < SATURATION_MIN) return token;
+  if (hsl.s < SATURATION_MIN && !options.themedExtra.has(key)) return token;
 
   const mapped = hslToRgb(remapHsl(hsl, from, to));
   if (token.startsWith("#")) {
@@ -114,20 +126,41 @@ const transformToken = (token, from, to) => {
     : `rgb(${mapped.r}, ${mapped.g}, ${mapped.b})`;
 };
 
-export const rethemeHtml = (html, fromBrand, toBrand) => {
+export const rethemeHtml = (html, fromBrand, toBrand, overrides) => {
   const from = rgbToHsl(hexToRgba(fromBrand));
   const to = rgbToHsl(hexToRgba(toBrand));
+  const options = buildOptions(overrides);
   return html.replace(STYLE_CONTEXT_RE, (chunk) =>
-    chunk.replace(COLOR_TOKEN_RE, (token) => transformToken(token, from, to)),
+    chunk.replace(COLOR_TOKEN_RE, (token) =>
+      transformToken(token, from, to, options),
+    ),
   );
 };
 
-export const rethemeCssColor = (color, fromBrand, toBrand) => {
+export const extractThemedColors = (html, overrides) => {
+  const options = buildOptions(overrides);
+  const found = new Map();
+  for (const chunk of html.match(STYLE_CONTEXT_RE) ?? []) {
+    for (const token of chunk.match(COLOR_TOKEN_RE) ?? []) {
+      const rgba = parseColorToken(token);
+      const key = rgbKey(rgba);
+      if (found.has(key) || options.pinned.has(key)) continue;
+      const hsl = rgbToHsl(rgba);
+      if (hsl.s < SATURATION_MIN && !options.themedExtra.has(key)) continue;
+      found.set(key, { hex: rgbToHex(rgba), hsl });
+    }
+  }
+  return [...found.values()]
+    .sort((a, b) => a.hsl.h - b.hsl.h || a.hsl.l - b.hsl.l)
+    .map((color) => color.hex);
+};
+
+export const rethemeCssColor = (color, fromBrand, toBrand, overrides) => {
   const match = color.match(COLOR_TOKEN_RE);
   if (!match || match[0] !== color.trim()) return color;
   const from = rgbToHsl(hexToRgba(fromBrand));
   const to = rgbToHsl(hexToRgba(toBrand));
-  return transformToken(color.trim(), from, to);
+  return transformToken(color.trim(), from, to, buildOptions(overrides));
 };
 
 const contrastWithWhite = (hex) => {
@@ -140,15 +173,24 @@ const contrastWithWhite = (hex) => {
   return 1.05 / (luminance + 0.05);
 };
 
-export const initCustomizer = ({ brand, background, loadHtml, onApply }) => {
+export const initCustomizer = ({
+  brand,
+  background,
+  pinned,
+  themedExtra,
+  loadHtml,
+  onApply,
+}) => {
   const menu = document.getElementById("customize-menu");
   const button = document.getElementById("customize-button");
   const panel = document.getElementById("customize-panel");
   const colorInput = document.getElementById("brand-color-input");
   const hexInput = document.getElementById("brand-hex-input");
   const hint = document.getElementById("contrast-hint");
+  const paletteDots = document.getElementById("palette-dots");
   const swatches = Array.from(panel.querySelectorAll("[data-swatch]"));
   const originalSwatch = panel.querySelector('[data-swatch="original"]');
+  const MAX_PALETTE_DOTS = 8;
 
   button.hidden = false;
   originalSwatch.style.setProperty("--swatch", brand);
@@ -158,9 +200,32 @@ export const initCustomizer = ({ brand, background, loadHtml, onApply }) => {
   let originalHtml = null;
   const ensureHtml = async () => (originalHtml ??= await loadHtml());
 
+  const renderPaletteDots = (html) => {
+    const colors = extractThemedColors(html, { pinned, themedExtra });
+    const overflow = colors.length - MAX_PALETTE_DOTS;
+    paletteDots.replaceChildren(
+      ...colors.slice(0, MAX_PALETTE_DOTS).map((hex) => {
+        const dot = document.createElement("span");
+        dot.className = "palette-dot";
+        dot.style.setProperty("--dot", hex);
+        dot.title = hex;
+        return dot;
+      }),
+    );
+    if (overflow > 0) {
+      const more = document.createElement("span");
+      more.className = "palette-dot-more";
+      more.textContent = `+${overflow}`;
+      paletteDots.append(more);
+    }
+  };
+
   const setPanelOpen = (isOpen) => {
     panel.hidden = !isOpen;
     button.setAttribute("aria-expanded", String(isOpen));
+    if (isOpen && !paletteDots.childElementCount) {
+      ensureHtml().then(renderPaletteDots);
+    }
   };
 
   const setActiveSwatch = (hex) => {
@@ -177,12 +242,15 @@ export const initCustomizer = ({ brand, background, loadHtml, onApply }) => {
   const applyBrand = async (hex) => {
     const html = await ensureHtml();
     const isOriginal = hex.toLowerCase() === brand.toLowerCase();
+    const overrides = { pinned, themedExtra };
+    const themedHtml = isOriginal ? html : rethemeHtml(html, brand, hex, overrides);
     onApply({
-      html: isOriginal ? html : rethemeHtml(html, brand, hex),
+      html: themedHtml,
       background: isOriginal
         ? background
-        : rethemeCssColor(background, brand, hex),
+        : rethemeCssColor(background, brand, hex, overrides),
     });
+    renderPaletteDots(themedHtml);
     colorInput.value = hex;
     hexInput.value = hex;
     setActiveSwatch(hex);

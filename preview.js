@@ -5,6 +5,7 @@ const templates = {
     title: "Purchase Confirmation Emailer",
     file: "./templates/purchase-confirmation.html",
     background: "#f4f4f4",
+    brand: "#00bfa5",
   },
   "product-confirmation": {
     title: "Product Confirmation Emailer",
@@ -15,6 +16,7 @@ const templates = {
     title: "Ecommerce Order Emailer",
     file: "./templates/ecommerce-order.html",
     background: "#fff5f0",
+    brand: "#ff4d4d",
   },
   "shipping-confirmation": {
     title: "Shipping Confirmation Emailer",
@@ -32,31 +34,38 @@ const templates = {
     title: "Shopping Deals Emailer",
     file: "./templates/shopping-deals.html",
     background: "#f4f4f4",
+    brand: "#7cff64",
   },
   "gift-decor": {
     title: "Gift Decor Emailer",
     file: "./templates/gift-decor.html",
     background: "rgb(36, 3, 54)",
+    brand: "#ffd700",
   },
   "product-announcements": {
     title: "Product Announcements Emailer",
     file: "./templates/product-announcements.html",
     background: "#ffffff",
+    brand: "#4f46e5",
+    pinned: ["#dcfce7", "#f0fdf4", "#166534"],
   },
   "ai-newsletter": {
     title: "AI Newsletter Emailer",
     file: "./templates/ai-newsletter.html",
     background: "#06120d",
+    brand: "#007bff",
   },
   "music-event-promotion": {
     title: "Music Event Promotion Emailer",
     file: "./templates/music-event-promotion.html",
     background: "#f4f4f4",
+    brand: "#ffd700",
   },
   "abandoned-cart": {
     title: "Abandoned Cart Emailer",
     file: "./templates/abandoned-cart.html",
     background: "#ffffff",
+    brand: "#0ea5e9",
   },
   "password-reset": {
     title: "Password Reset Emailer",
@@ -68,31 +77,39 @@ const templates = {
     title: "Account Verification Emailer",
     file: "./templates/account-verification.html",
     background: "#fafaf9",
+    brand: "#d4a574",
+    themedExtra: ["#8b7355", "#a8998a", "#5c4b37", "#e8e3dd"],
   },
   "welcome-onboarding": {
     title: "Welcome Onboarding Emailer",
     file: "./templates/welcome-onboarding.html",
     background: "#f4f4f4",
+    brand: "#f59e0b",
   },
   "product-review": {
     title: "Product Review HTML Template",
     file: "./templates/product-review.html",
     background: "#f4f4f4",
+    brand: "#065f46",
   },
   reengagement: {
     title: "Re-engagement HTML Email",
     file: "./templates/reengagement.html",
     background: "#f8fafc",
+    brand: "#f97316",
   },
   "account-billing-update": {
     title: "Account & Billing Update Emailer",
     file: "./templates/account-billing-update.html",
     background: "#eef2f7",
+    brand: "#2563eb",
+    pinned: ["#f59e0b"],
   },
   "product-promotion": {
     title: "Product Promotion HTML Email Template",
     file: "./templates/product-promotion.html",
     background: "#141a08",
+    brand: "#c9d36a",
   },
 };
 
@@ -290,6 +307,8 @@ if (template.brand) {
   initCustomizer({
     brand: template.brand,
     background: template.background,
+    pinned: template.pinned,
+    themedExtra: template.themedExtra,
     loadHtml: () => getFileContent(template.file),
     onApply: ({ html, background }) => {
       currentHtml = html;
