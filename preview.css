@@ -205,9 +205,14 @@ body {
   text-transform: uppercase;
 }
 
-.customize-label + .customize-label,
-.swatch-row + .customize-label {
+.color-control + .color-control {
+  border-top: 1px solid var(--border);
   margin-top: 14px;
+  padding-top: 14px;
+}
+
+.swatch-row + .customize-custom {
+  margin-top: 12px;
 }
 
 .customize-note {

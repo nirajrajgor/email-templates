@@ -41,6 +41,7 @@ const templates = {
     file: "./templates/gift-decor.html",
     background: "rgb(36, 3, 54)",
     brand: "#ffd700",
+    accent: "#663399",
   },
   "product-announcements": {
     title: "Product Announcements Emailer",
@@ -60,6 +61,7 @@ const templates = {
     file: "./templates/music-event-promotion.html",
     background: "#f4f4f4",
     brand: "#ffd700",
+    accent: "#007bff",
   },
   "abandoned-cart": {
     title: "Abandoned Cart Emailer",
@@ -306,6 +308,7 @@ let downloadBlobUrl = null;
 if (template.brand) {
   initCustomizer({
     brand: template.brand,
+    accent: template.accent,
     background: template.background,
     pinned: template.pinned,
     themedExtra: template.themedExtra,

@@ -70,85 +70,156 @@
             class="customize-panel"
             id="customize-panel"
             role="group"
-            aria-label="Brand color"
+            aria-label="Template colors"
             hidden
           >
-            <p class="customize-label">Brand color</p>
-            <p class="customize-note">
-              Recolors this template's brand palette — neutral elements keep
-              their design.
-            </p>
-            <div class="swatch-row">
-              <button
-                class="swatch"
-                type="button"
-                data-swatch="original"
-                title="Original"
-                aria-label="Original brand color"
-              ></button>
-              <button
-                class="swatch"
-                type="button"
-                data-swatch="#4f46e5"
-                style="--swatch: #4f46e5"
-                title="Indigo"
-                aria-label="Indigo"
-              ></button>
-              <button
-                class="swatch"
-                type="button"
-                data-swatch="#0ea5e9"
-                style="--swatch: #0ea5e9"
-                title="Sky"
-                aria-label="Sky"
-              ></button>
-              <button
-                class="swatch"
-                type="button"
-                data-swatch="#059669"
-                style="--swatch: #059669"
-                title="Emerald"
-                aria-label="Emerald"
-              ></button>
-              <button
-                class="swatch"
-                type="button"
-                data-swatch="#d97706"
-                style="--swatch: #d97706"
-                title="Amber"
-                aria-label="Amber"
-              ></button>
-              <button
-                class="swatch"
-                type="button"
-                data-swatch="#e11d48"
-                style="--swatch: #e11d48"
-                title="Rose"
-                aria-label="Rose"
-              ></button>
-              <button
-                class="swatch"
-                type="button"
-                data-swatch="#7c3aed"
-                style="--swatch: #7c3aed"
-                title="Violet"
-                aria-label="Violet"
-              ></button>
+            <div class="color-control" data-color-control="brand">
+              <p class="customize-label">Brand color</p>
+              <p class="customize-note">
+                Recolors this template's brand palette — neutral elements keep
+                their design.
+              </p>
+              <div class="swatch-row">
+                <button
+                  class="swatch"
+                  type="button"
+                  data-swatch="original"
+                  title="Original"
+                  aria-label="Original brand color"
+                ></button>
+                <button
+                  class="swatch"
+                  type="button"
+                  data-swatch="#4f46e5"
+                  style="--swatch: #4f46e5"
+                  title="Indigo"
+                  aria-label="Indigo"
+                ></button>
+                <button
+                  class="swatch"
+                  type="button"
+                  data-swatch="#0ea5e9"
+                  style="--swatch: #0ea5e9"
+                  title="Sky"
+                  aria-label="Sky"
+                ></button>
+                <button
+                  class="swatch"
+                  type="button"
+                  data-swatch="#059669"
+                  style="--swatch: #059669"
+                  title="Emerald"
+                  aria-label="Emerald"
+                ></button>
+                <button
+                  class="swatch"
+                  type="button"
+                  data-swatch="#d97706"
+                  style="--swatch: #d97706"
+                  title="Amber"
+                  aria-label="Amber"
+                ></button>
+                <button
+                  class="swatch"
+                  type="button"
+                  data-swatch="#e11d48"
+                  style="--swatch: #e11d48"
+                  title="Rose"
+                  aria-label="Rose"
+                ></button>
+                <button
+                  class="swatch"
+                  type="button"
+                  data-swatch="#7c3aed"
+                  style="--swatch: #7c3aed"
+                  title="Violet"
+                  aria-label="Violet"
+                ></button>
+              </div>
+              <div class="customize-custom">
+                <input
+                  type="color"
+                  aria-label="Pick a custom brand color"
+                />
+                <input
+                  type="text"
+                  spellcheck="false"
+                  maxlength="7"
+                  aria-label="Brand color hex value"
+                />
+              </div>
             </div>
-            <p class="customize-label">Custom</p>
-            <div class="customize-custom">
-              <input
-                type="color"
-                id="brand-color-input"
-                aria-label="Pick a custom brand color"
-              />
-              <input
-                type="text"
-                id="brand-hex-input"
-                spellcheck="false"
-                maxlength="7"
-                aria-label="Brand color hex value"
-              />
+            <div class="color-control" data-color-control="accent" hidden>
+              <p class="customize-label">Accent color</p>
+              <div class="swatch-row">
+                <button
+                  class="swatch"
+                  type="button"
+                  data-swatch="original"
+                  title="Original"
+                  aria-label="Original accent color"
+                ></button>
+                <button
+                  class="swatch"
+                  type="button"
+                  data-swatch="#4f46e5"
+                  style="--swatch: #4f46e5"
+                  title="Indigo"
+                  aria-label="Indigo"
+                ></button>
+                <button
+                  class="swatch"
+                  type="button"
+                  data-swatch="#0ea5e9"
+                  style="--swatch: #0ea5e9"
+                  title="Sky"
+                  aria-label="Sky"
+                ></button>
+                <button
+                  class="swatch"
+                  type="button"
+                  data-swatch="#059669"
+                  style="--swatch: #059669"
+                  title="Emerald"
+                  aria-label="Emerald"
+                ></button>
+                <button
+                  class="swatch"
+                  type="button"
+                  data-swatch="#d97706"
+                  style="--swatch: #d97706"
+                  title="Amber"
+                  aria-label="Amber"
+                ></button>
+                <button
+                  class="swatch"
+                  type="button"
+                  data-swatch="#e11d48"
+                  style="--swatch: #e11d48"
+                  title="Rose"
+                  aria-label="Rose"
+                ></button>
+                <button
+                  class="swatch"
+                  type="button"
+                  data-swatch="#7c3aed"
+                  style="--swatch: #7c3aed"
+                  title="Violet"
+                  aria-label="Violet"
+                ></button>
+              </div>
+              <div class="customize-custom">
+                <input
+                  type="color"
+                  aria-label="Pick a custom accent color"
+                />
+                <input
+                  type="text"
+                  spellcheck="false"
+                  maxlength="7"
+                  aria-label="Accent color hex value"
+                />
+              </div>
             </div>
             <p class="customize-hint" id="contrast-hint" hidden>
               Light brand colors can make white button text hard to read.

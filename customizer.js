@@ -96,6 +96,20 @@ const parseColorToken = (token) => {
 
 const rgbKey = ({ r, g, b }) => `${r},${g},${b}`;
 
+const hueDistance = (a, b) => {
+  const d = Math.abs(a - b) % 360;
+  return d > 180 ? 360 - d : d;
+};
+
+// Each pair anchors one hue family: themed colors follow whichever anchor is
+// nearest by hue, so a template's brand and accent can be repicked separately.
+const buildAnchors = (pairs) =>
+  pairs.map(({ from, to }) => ({
+    identity: from.toLowerCase() === to.toLowerCase(),
+    from: rgbToHsl(hexToRgba(from)),
+    to: rgbToHsl(hexToRgba(to)),
+  }));
+
 // pinned: semantic colors (success badges, warnings) that must never follow
 // the brand. themedExtra: colors below the saturation threshold that still
 // belong to the brand family (e.g. muted browns in a warm monochrome theme).
@@ -104,14 +118,21 @@ const buildOptions = ({ pinned = [], themedExtra = [] } = {}) => ({
   themedExtra: new Set(themedExtra.map((c) => rgbKey(hexToRgba(c)))),
 });
 
-const transformToken = (token, from, to, options) => {
+const transformToken = (token, anchors, options) => {
   const rgba = parseColorToken(token);
   const key = rgbKey(rgba);
   if (options.pinned.has(key)) return token;
   const hsl = rgbToHsl(rgba);
   if (hsl.s < SATURATION_MIN && !options.themedExtra.has(key)) return token;
 
-  const mapped = hslToRgb(remapHsl(hsl, from, to));
+  const anchor = anchors.reduce((best, candidate) =>
+    hueDistance(hsl.h, candidate.from.h) < hueDistance(hsl.h, best.from.h)
+      ? candidate
+      : best,
+  );
+  if (anchor.identity) return token;
+
+  const mapped = hslToRgb(remapHsl(hsl, anchor.from, anchor.to));
   if (token.startsWith("#")) {
     const hex = rgbToHex(mapped);
     return rgba.a < 1
@@ -126,23 +147,20 @@ const transformToken = (token, from, to, options) => {
     : `rgb(${mapped.r}, ${mapped.g}, ${mapped.b})`;
 };
 
-export const rethemeHtml = (html, fromBrand, toBrand, overrides) => {
-  const from = rgbToHsl(hexToRgba(fromBrand));
-  const to = rgbToHsl(hexToRgba(toBrand));
+export const rethemeHtml = (html, pairs, overrides) => {
+  const anchors = buildAnchors(pairs);
   const options = buildOptions(overrides);
   return html.replace(STYLE_CONTEXT_RE, (chunk) =>
     chunk.replace(COLOR_TOKEN_RE, (token) =>
-      transformToken(token, from, to, options),
+      transformToken(token, anchors, options),
     ),
   );
 };
 
-export const rethemeCssColor = (color, fromBrand, toBrand, overrides) => {
+export const rethemeCssColor = (color, pairs, overrides) => {
   const match = color.match(COLOR_TOKEN_RE);
   if (!match || match[0] !== color.trim()) return color;
-  const from = rgbToHsl(hexToRgba(fromBrand));
-  const to = rgbToHsl(hexToRgba(toBrand));
-  return transformToken(color.trim(), from, to, buildOptions(overrides));
+  return transformToken(color.trim(), buildAnchors(pairs), buildOptions(overrides));
 };
 
 const contrastWithWhite = (hex) => {
@@ -155,8 +173,65 @@ const contrastWithWhite = (hex) => {
   return 1.05 / (luminance + 0.05);
 };
 
+const initColorControl = (section, original, onPick) => {
+  const swatches = Array.from(section.querySelectorAll("[data-swatch]"));
+  const colorInput = section.querySelector('input[type="color"]');
+  const hexInput = section.querySelector('input[type="text"]');
+  section
+    .querySelector('[data-swatch="original"]')
+    .style.setProperty("--swatch", original);
+
+  const state = { value: original };
+
+  const setValue = (hex) => {
+    state.value = hex;
+    colorInput.value = hex;
+    hexInput.value = hex;
+    swatches.forEach((swatch) => {
+      const value =
+        swatch.dataset.swatch === "original" ? original : swatch.dataset.swatch;
+      swatch.classList.toggle(
+        "is-active",
+        value.toLowerCase() === hex.toLowerCase(),
+      );
+    });
+  };
+  setValue(original);
+
+  swatches.forEach((swatch) => {
+    swatch.addEventListener("click", () => {
+      setValue(
+        swatch.dataset.swatch === "original" ? original : swatch.dataset.swatch,
+      );
+      onPick();
+    });
+  });
+
+  let debounceTimer;
+  colorInput.addEventListener("input", () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      setValue(colorInput.value);
+      onPick();
+    }, 150);
+  });
+
+  hexInput.addEventListener("change", () => {
+    const value = hexInput.value.trim().replace(/^([0-9a-f]{6})$/i, "#$1");
+    if (/^#[0-9a-f]{6}$/i.test(value)) {
+      setValue(value);
+      onPick();
+    } else {
+      hexInput.value = state.value;
+    }
+  });
+
+  return state;
+};
+
 export const initCustomizer = ({
   brand,
+  accent,
   background,
   pinned,
   themedExtra,
@@ -166,16 +241,11 @@ export const initCustomizer = ({
   const menu = document.getElementById("customize-menu");
   const button = document.getElementById("customize-button");
   const panel = document.getElementById("customize-panel");
-  const colorInput = document.getElementById("brand-color-input");
-  const hexInput = document.getElementById("brand-hex-input");
   const hint = document.getElementById("contrast-hint");
-  const swatches = Array.from(panel.querySelectorAll("[data-swatch]"));
-  const originalSwatch = panel.querySelector('[data-swatch="original"]');
+  const brandSection = panel.querySelector('[data-color-control="brand"]');
+  const accentSection = panel.querySelector('[data-color-control="accent"]');
 
   button.hidden = false;
-  originalSwatch.style.setProperty("--swatch", brand);
-  colorInput.value = brand;
-  hexInput.value = brand;
 
   let originalHtml = null;
   const ensureHtml = async () => (originalHtml ??= await loadHtml());
@@ -185,52 +255,31 @@ export const initCustomizer = ({
     button.setAttribute("aria-expanded", String(isOpen));
   };
 
-  const setActiveSwatch = (hex) => {
-    swatches.forEach((swatch) => {
-      const value =
-        swatch.dataset.swatch === "original" ? brand : swatch.dataset.swatch;
-      swatch.classList.toggle(
-        "is-active",
-        value.toLowerCase() === hex.toLowerCase(),
-      );
-    });
-  };
-
-  const applyBrand = async (hex) => {
+  const applyTheme = async () => {
     const html = await ensureHtml();
-    const isOriginal = hex.toLowerCase() === brand.toLowerCase();
+    const pairs = [{ from: brand, to: brandControl.value }];
+    if (accentControl) pairs.push({ from: accent, to: accentControl.value });
+    const isOriginal = pairs.every(
+      ({ from, to }) => from.toLowerCase() === to.toLowerCase(),
+    );
     const overrides = { pinned, themedExtra };
     onApply({
-      html: isOriginal ? html : rethemeHtml(html, brand, hex, overrides),
+      html: isOriginal ? html : rethemeHtml(html, pairs, overrides),
       background: isOriginal
         ? background
-        : rethemeCssColor(background, brand, hex, overrides),
+        : rethemeCssColor(background, pairs, overrides),
     });
-    colorInput.value = hex;
-    hexInput.value = hex;
-    setActiveSwatch(hex);
-    hint.hidden = isOriginal || contrastWithWhite(hex) >= 3;
+    const brandChanged =
+      brandControl.value.toLowerCase() !== brand.toLowerCase();
+    hint.hidden = !brandChanged || contrastWithWhite(brandControl.value) >= 3;
   };
 
-  swatches.forEach((swatch) => {
-    swatch.addEventListener("click", () => {
-      const value =
-        swatch.dataset.swatch === "original" ? brand : swatch.dataset.swatch;
-      applyBrand(value);
-    });
-  });
-
-  let debounceTimer;
-  colorInput.addEventListener("input", () => {
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => applyBrand(colorInput.value), 150);
-  });
-
-  hexInput.addEventListener("change", () => {
-    const value = hexInput.value.trim().replace(/^([0-9a-f]{6})$/i, "#$1");
-    if (/^#[0-9a-f]{6}$/i.test(value)) applyBrand(value);
-    else hexInput.value = colorInput.value;
-  });
+  const brandControl = initColorControl(brandSection, brand, applyTheme);
+  let accentControl = null;
+  if (accent) {
+    accentSection.hidden = false;
+    accentControl = initColorControl(accentSection, accent, applyTheme);
+  }
 
   button.addEventListener("click", (event) => {
     event.stopPropagation();
