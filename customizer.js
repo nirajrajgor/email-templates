@@ -178,30 +178,28 @@ const initColorControl = (section, original, onPick) => {
   const swatches = Array.from(section.querySelectorAll("[data-swatch]"));
   const colorInput = section.querySelector('input[type="color"]');
   const hexInput = section.querySelector('input[type="text"]');
-  section
-    .querySelector('[data-swatch="original"]')
-    .style.setProperty("--swatch", original);
+  const originalSwatch = section.querySelector('[data-swatch="original"]');
+  originalSwatch.style.setProperty("--swatch", original);
 
   const state = { value: original };
 
-  const setValue = (hex) => {
+  const setValue = (hex, activeSwatch = null) => {
     state.value = hex;
     colorInput.value = hex;
     hexInput.value = hex;
     swatches.forEach((swatch) => {
-      const value =
-        swatch.dataset.swatch === "original" ? original : swatch.dataset.swatch;
-      const isActive = value.toLowerCase() === hex.toLowerCase();
+      const isActive = swatch === activeSwatch;
       swatch.classList.toggle("is-active", isActive);
       swatch.setAttribute("aria-pressed", String(isActive));
     });
   };
-  setValue(original);
+  setValue(original, originalSwatch);
 
   swatches.forEach((swatch) => {
     swatch.addEventListener("click", () => {
       setValue(
         swatch.dataset.swatch === "original" ? original : swatch.dataset.swatch,
+        swatch,
       );
       onPick();
     });

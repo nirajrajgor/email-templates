@@ -125,6 +125,10 @@ body {
   padding: 0 14px;
 }
 
+.action-button[hidden] {
+  display: none;
+}
+
 .copy-menu {
   position: relative;
 }
