@@ -84,9 +84,10 @@ const RGB_TOKEN =
 const COLOR_TOKEN_RE = new RegExp(`${HEX_TOKEN}|${RGB_TOKEN}`, "gi");
 
 // Only rewrite colors inside style contexts so hex-like text content
-// (e.g. "Order number: #6200600") is never touched.
+// (e.g. "Order number: #6200600") is never touched. Include SVG and Outlook
+// VML color attributes, and accept either HTML attribute quote style.
 const STYLE_CONTEXT_RE =
-  /<style\b[\s\S]*?<\/style>|\b(?:style|bgcolor|color|fill|stroke)\s*=\s*"[^"]*"/gi;
+  /<style\b[\s\S]*?<\/style>|\b(?:style|bgcolor|color|fillcolor|strokecolor|fill|stroke)\s*=\s*(?:"[^"]*"|'[^']*')/gi;
 
 const parseColorToken = (token) => {
   if (token.startsWith("#")) return hexToRgba(token);
