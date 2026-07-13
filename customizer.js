@@ -191,10 +191,9 @@ const initColorControl = (section, original, onPick) => {
     swatches.forEach((swatch) => {
       const value =
         swatch.dataset.swatch === "original" ? original : swatch.dataset.swatch;
-      swatch.classList.toggle(
-        "is-active",
-        value.toLowerCase() === hex.toLowerCase(),
-      );
+      const isActive = value.toLowerCase() === hex.toLowerCase();
+      swatch.classList.toggle("is-active", isActive);
+      swatch.setAttribute("aria-pressed", String(isActive));
     });
   };
   setValue(original);

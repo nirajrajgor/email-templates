@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 import { rethemeHtml } from "../customizer.js";
@@ -24,4 +25,19 @@ test("rethemes HTML, SVG, and Outlook VML color attributes", () => {
   assert.match(themed, /fillcolor="#e11d48"/);
   assert.match(themed, /strokecolor='#e11d48'/);
   assert.match(themed, /<p>Reference #667eea<\/p>/);
+});
+
+test("every color swatch exposes an initial pressed state", async () => {
+  const previewHtml = await readFile(
+    new URL("../preview.html", import.meta.url),
+    "utf8",
+  );
+  const swatches = previewHtml.match(
+    /<button\s+class="swatch"[\s\S]*?<\/button>/g,
+  );
+
+  assert.ok(swatches?.length, "expected color swatch buttons");
+  swatches.forEach((swatch) => {
+    assert.match(swatch, /aria-pressed="false"/);
+  });
 });
