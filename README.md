@@ -7,9 +7,10 @@
 ## Table of Contents
 
 1. [Live Demo](#live-demo)
-2. [Available Templates](#available-templates)
-3. [Setup](#setup-instructions)
-4. [License](#license)
+2. [Customize to Your Brand](#customize-to-your-brand)
+3. [Available Templates](#available-templates)
+4. [Setup](#setup-instructions)
+5. [License](#license)
 
 ---
 
@@ -24,6 +25,10 @@ You can access the deployed templates at [https://nirajrajgor.github.io/email-te
 ▶️ **Explore them here →** <https://nirajrajgor.github.io/email-templates/>
 
 No signup required—download with a single click!
+
+## Customize to Your Brand
+
+Template previews have a **Customize** button: pick your brand color (and on select templates, an accent color) and the whole palette re-themes live — tints, shades, and buttons stay in sync while neutral elements keep their design. Then download or copy the recolored HTML. Free, in the browser, no signup.
 
 ## Available Templates
 

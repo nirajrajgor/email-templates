@@ -125,6 +125,10 @@ body {
   padding: 0 14px;
 }
 
+.action-button[hidden] {
+  display: none;
+}
+
 .copy-menu {
   position: relative;
 }
@@ -173,6 +177,120 @@ body {
 .copy-menu-item:focus-visible {
   background: #f9fafb;
   outline: none;
+}
+
+.customize-menu {
+  position: relative;
+}
+
+.customize-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(23, 32, 51, 0.14);
+  padding: 14px;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  width: 232px;
+  z-index: 20;
+}
+
+.customize-panel[hidden] {
+  display: none;
+}
+
+.customize-label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.color-control + .color-control {
+  border-top: 1px solid var(--border);
+  margin-top: 14px;
+  padding-top: 14px;
+}
+
+.swatch-row + .customize-custom {
+  margin-top: 12px;
+}
+
+.customize-note {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  margin: -4px 0 10px;
+}
+
+.swatch-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.swatch {
+  background: var(--swatch, #ffffff);
+  border: 1px solid rgba(23, 32, 51, 0.18);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 26px;
+  padding: 0;
+  width: 26px;
+}
+
+.swatch:hover {
+  transform: scale(1.08);
+}
+
+.swatch.is-active {
+  box-shadow:
+    0 0 0 2px var(--surface),
+    0 0 0 4px var(--accent);
+}
+
+.customize-custom {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.customize-custom input[type="color"] {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  height: 34px;
+  padding: 2px;
+  width: 42px;
+}
+
+.customize-custom input[type="text"] {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  flex: 1;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  height: 34px;
+  min-width: 0;
+  padding: 0 10px;
+}
+
+.customize-custom input[type="text"]:focus-visible {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.customize-hint {
+  color: #b45309;
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 10px 0 0;
 }
 
 .action-button:disabled {

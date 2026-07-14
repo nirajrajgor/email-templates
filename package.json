@@ -13,6 +13,8 @@
   ],
   "scripts": {
     "dev": "vite",
+    "test": "node --test",
+    "test:e2e": "playwright test",
     "build": "node scripts/optimize-previews.cjs --check && vite build && node scripts/copy-template-text.cjs && node scripts/generate-seo.cjs",
     "copy:template-text": "node scripts/copy-template-text.cjs",
     "optimize:previews": "node scripts/optimize-previews.cjs",
@@ -20,6 +22,7 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "autoprefixer": "^10.4.20",
     "cheerio": "^1.0.0-rc.12",
     "gh-pages": "^6.2.0",
