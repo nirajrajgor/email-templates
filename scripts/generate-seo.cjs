@@ -102,6 +102,11 @@ const TEMPLATE_METADATA = {
     image: "shipping-confirmation-preview.png",
     title: "Shipping Confirmation HTML Email Template",
   },
+  "supabase-confirm-signup.html": {
+    lastmod: "2026-07-17",
+    image: "supabase-confirm-signup-preview.png",
+    title: "Supabase Confirm Signup HTML Email Template",
+  },
 };
 
 function toUrl(filePath) {

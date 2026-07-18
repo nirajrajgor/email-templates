@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <title>Supabase Confirm Signup Email Template</title>
+    <meta
+      name="description"
+      content="A responsive Supabase Auth confirm-signup email template using supported Supabase variables."
+    />
+    <style type="text/css">
+      a[x-apple-data-detectors],
+      #MessageViewBody a,
+      a[href^="tel"],
+      a[href^="sms"] {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-weight: inherit !important;
+      }
+
+      @media only screen and (max-width: 620px) {
+        .email-shell {
+          width: 100% !important;
+        }
+
+        .email-card {
+          border-radius: 0 !important;
+        }
+
+        .content-cell {
+          padding-left: 24px !important;
+          padding-right: 24px !important;
+        }
+      }
+    </style>
+    <!--[if mso]>
+      <style type="text/css">
+        body,
+        table,
+        td,
+        a {
+          font-family: Arial, Helvetica, sans-serif !important;
+        }
+        table,
+        td {
+          mso-table-lspace: 0pt !important;
+          mso-table-rspace: 0pt !important;
+        }
+      </style>
+    <![endif]-->
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #f3f6f5;
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    "
+    bgcolor="#f3f6f5"
+  >
+    <div
+      style="
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        mso-hide: all;
+      "
+    >
+      Confirm your email address to finish creating your account.
+    </div>
+
+    <table
+      role="presentation"
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+      width="100%"
+      style="width: 100%; background-color: #f3f6f5"
+      bgcolor="#f3f6f5"
+    >
+      <tr>
+        <td align="center" style="padding: 40px 16px">
+          <!--[if mso]>
+            <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td>
+          <![endif]-->
+          <table
+            role="presentation"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            width="100%"
+            class="email-shell email-card"
+            style="
+              width: 100%;
+              max-width: 600px;
+              background-color: #ffffff;
+              border: 1px solid #dfe7e3;
+              border-radius: 16px;
+              overflow: hidden;
+            "
+            bgcolor="#ffffff"
+          >
+            <tr>
+              <td class="content-cell" style="padding: 34px 48px 0">
+                <p
+                  style="
+                    display: inline-block;
+                    margin: 0;
+                    padding: 7px 10px;
+                    background-color: #e8f9f1;
+                    border: 1px solid #b7ead2;
+                    border-radius: 999px;
+                    color: #16865a;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 11px;
+                    font-weight: bold;
+                    letter-spacing: 0.08em;
+                    line-height: 1;
+                    text-transform: uppercase;
+                  "
+                >
+                  Secure signup
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="content-cell" style="padding: 22px 48px 0">
+                <h1
+                  style="
+                    margin: 0;
+                    color: #18211d;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 34px;
+                    font-weight: bold;
+                    letter-spacing: -0.7px;
+                    line-height: 1.2;
+                  "
+                >
+                  Confirm your email
+                </h1>
+                <p
+                  style="
+                    margin: 18px 0 0;
+                    color: #53635b;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 16px;
+                    line-height: 1.65;
+                  "
+                >
+                  You're one step away from finishing your account setup for
+                  <strong style="color: #26352e">{{ .Email }}</strong>.
+                  Confirm this email address to get started.
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="content-cell" style="padding: 30px 48px 0">
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                >
+                  <tr>
+                    <td
+                      align="center"
+                      bgcolor="#3ecf8e"
+                      style="
+                        background-color: #3ecf8e;
+                        border-radius: 8px;
+                      "
+                    >
+                      <!--[if mso]>
+                        <v:roundrect
+                          xmlns:v="urn:schemas-microsoft-com:vml"
+                          xmlns:w="urn:schemas-microsoft-com:office:word"
+                          href="{{ .ConfirmationURL }}"
+                          style="height: 48px; v-text-anchor: middle; width: 190px"
+                          arcsize="17%"
+                          strokecolor="#3ecf8e"
+                          fillcolor="#3ecf8e"
+                        >
+                          <w:anchorlock />
+                          <center style="color: #052e1a; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: bold">
+                            Confirm email
+                          </center>
+                        </v:roundrect>
+                      <![endif]-->
+                      <!--[if !mso]><!-->
+                      <a
+                        href="{{ .ConfirmationURL }}"
+                        style="
+                          display: inline-block;
+                          padding: 15px 24px;
+                          color: #052e1a;
+                          font-family: Arial, Helvetica, sans-serif;
+                          font-size: 15px;
+                          font-weight: bold;
+                          line-height: 18px;
+                          text-align: center;
+                          text-decoration: none;
+                          white-space: nowrap;
+                        "
+                        >Confirm email</a
+                      >
+                      <!--<![endif]-->
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="content-cell" style="padding: 28px 48px 0">
+                <p
+                  style="
+                    margin: 0;
+                    color: #718078;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 13px;
+                    line-height: 1.6;
+                  "
+                >
+                  If the button does not work, copy and paste this link into
+                  your browser:
+                </p>
+                <p
+                  style="
+                    margin: 10px 0 0;
+                    padding: 14px 16px;
+                    background-color: #f3f6f5;
+                    border-left: 3px solid #3ecf8e;
+                    color: #16865a;
+                    font-family: 'Courier New', Courier, monospace;
+                    font-size: 12px;
+                    line-height: 1.55;
+                    word-break: break-all;
+                  "
+                >
+                  {{ .ConfirmationURL }}
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="content-cell" style="padding: 28px 48px 36px">
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  width="100%"
+                  style="width: 100%; border-top: 1px solid #e6ece9"
+                >
+                  <tr>
+                    <td style="padding-top: 22px">
+                      <p
+                        style="
+                          margin: 0;
+                          color: #718078;
+                          font-family: Arial, Helvetica, sans-serif;
+                          font-size: 13px;
+                          line-height: 1.6;
+                        "
+                      >
+                        If you did not create an account, you can safely ignore
+                        this email. This confirmation link can only be used
+                        once.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <!--[if mso]>
+                </td>
+              </tr>
+            </table>
+          <![endif]-->
+
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

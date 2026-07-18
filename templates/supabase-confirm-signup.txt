@@ -1,0 +1,8 @@
+Confirm your email
+
+You're one step away from finishing your account setup for {{ .Email }}.
+
+Confirm your email address:
+{{ .ConfirmationURL }}
+
+If you did not create an account, you can safely ignore this email. This confirmation link can only be used once.

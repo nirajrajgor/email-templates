@@ -82,6 +82,14 @@ const templates = {
     brand: "#d4a574",
     themedExtra: ["#8b7355", "#a8998a", "#5c4b37", "#e8e3dd"],
   },
+  "supabase-confirm-signup": {
+    title: "Supabase Confirm Signup",
+    file: "./templates/supabase-confirm-signup.html",
+    background: "#f3f6f5",
+    brand: "#3ecf8e",
+    back: "./supabase.html",
+    integration: "Supabase",
+  },
   "welcome-onboarding": {
     title: "Welcome Onboarding Emailer",
     file: "./templates/welcome-onboarding.html",
@@ -121,6 +129,7 @@ const template = templates[id] || templates["purchase-confirmation"];
 const plainTextFile = template.file.replace(/\.html$/, ".txt");
 const title = `${template.title} | Email Template Preview`;
 const titleNode = document.getElementById("template-title");
+const backLink = document.getElementById("back-link");
 const frame = document.getElementById("template-frame");
 const frameShell = document.getElementById("frame-shell");
 const frameScaler = document.getElementById("frame-scaler");
@@ -139,10 +148,19 @@ const getFallbackFrameHeight = () =>
 
 document.title = title;
 titleNode.textContent = template.title;
+backLink.href = template.back || "./index.html";
+backLink.setAttribute(
+  "aria-label",
+  template.back ? `Back to ${template.integration} templates` : "Back to templates",
+);
 frame.src = template.file;
 stage.style.setProperty("--template-bg", template.background);
 downloadLink.href = template.file;
 downloadLink.download = template.file.split("/").pop();
+if (template.integration) {
+  copyHtmlMenuItem.querySelector("span").textContent =
+    `Copy ${template.integration} HTML`;
+}
 
 const getFrameContentHeight = () => {
   try {

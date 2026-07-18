@@ -2,6 +2,13 @@ const searchInput = document.getElementById("template-search");
 const resultCount = document.getElementById("template-result-count");
 const emptyState = document.getElementById("template-empty-state");
 const filterButtons = document.querySelectorAll("[data-filter-value]");
+const integrationCards = Array.from(
+  document.querySelectorAll("[data-integration-card]"),
+).map((card) => ({
+  card,
+  categories: card.dataset.category.trim().split(/\s+/),
+  searchText: card.textContent.toLowerCase(),
+}));
 
 const state = {
   category: "all",
@@ -51,11 +58,20 @@ const renderResults = () => {
     if (isVisible) visibleCount += 1;
   });
 
+  let visibleIntegrationCount = 0;
+  integrationCards.forEach(({ card, ...cardData }) => {
+    const isVisible = matchesCard(cardData, terms);
+    card.hidden = !isVisible;
+    if (isVisible) visibleIntegrationCount += 1;
+  });
+
+  const totalCount = cards.length + integrationCards.length;
+  const visibleTotal = visibleCount + visibleIntegrationCount;
   resultCount.textContent =
-    visibleCount === cards.length
-      ? `${cards.length} templates`
-      : `${visibleCount} of ${cards.length} templates`;
-  emptyState.hidden = visibleCount > 0;
+    visibleTotal === totalCount
+      ? `${totalCount} templates`
+      : `${visibleTotal} of ${totalCount} templates`;
+  emptyState.hidden = visibleCount > 0 || visibleIntegrationCount > 0;
 };
 
 filterButtons.forEach((button) => {
