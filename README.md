@@ -9,8 +9,9 @@
 1. [Live Demo](#live-demo)
 2. [Customize to Your Brand](#customize-to-your-brand)
 3. [Available Templates](#available-templates)
-4. [Setup](#setup-instructions)
-5. [License](#license)
+4. [Integration Collections](#integration-collections)
+5. [Setup](#setup-instructions)
+6. [License](#license)
 
 ---
 
@@ -50,8 +51,13 @@ Template previews have a **Customize** button: pick your brand color (and on sel
 - [Account Billing Update HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=account-billing-update)
 - [Product Promotion HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=product-promotion)
 - [Shipping Confirmation HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=shipping-confirmation)
+- [Supabase Confirm Signup HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-confirm-signup)
 
 - More templates are coming soon! Stay tuned for updates.
+
+## Integration Collections
+
+- [Supabase Email Templates](https://nirajrajgor.github.io/email-templates/supabase.html) — includes a customizable Confirm Signup email with Supabase variables preserved during customization.
 
 ## Setup Instructions
 
