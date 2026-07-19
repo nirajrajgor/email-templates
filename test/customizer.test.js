@@ -43,18 +43,25 @@ test("every color swatch exposes an initial pressed state", async () => {
 });
 
 test("Supabase variables survive brand-color customization", async () => {
-  const html = await readFile(
-    new URL("../templates/supabase-confirm-signup.html", import.meta.url),
-    "utf8",
-  );
+  const files = [
+    "supabase-confirm-signup.html",
+    "supabase-reset-password.html",
+  ];
 
-  const themed = rethemeHtml(html, [
-    { from: "#3ecf8e", to: "#4f46e5" },
-  ]);
+  for (const file of files) {
+    const html = await readFile(
+      new URL(`../templates/${file}`, import.meta.url),
+      "utf8",
+    );
 
-  assert.match(themed, /{{ \.ConfirmationURL }}/);
-  assert.match(themed, /{{ \.Email }}/);
-  assert.doesNotMatch(themed, /{{ \.SiteURL }}/);
-  assert.match(themed, /background-color: #4f46e5/);
-  assert.match(themed, /fillcolor="#4f46e5"/);
+    const themed = rethemeHtml(html, [
+      { from: "#3ecf8e", to: "#4f46e5" },
+    ]);
+
+    assert.match(themed, /{{ \.ConfirmationURL }}/);
+    assert.match(themed, /{{ \.Email }}/);
+    assert.doesNotMatch(themed, /{{ \.SiteURL }}/);
+    assert.match(themed, /background-color: #4f46e5/);
+    assert.match(themed, /fillcolor="#4f46e5"/);
+  }
 });

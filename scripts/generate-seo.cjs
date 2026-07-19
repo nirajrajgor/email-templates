@@ -107,6 +107,11 @@ const TEMPLATE_METADATA = {
     image: "supabase-confirm-signup-preview.png",
     title: "Supabase Confirm Signup HTML Email Template",
   },
+  "supabase-reset-password.html": {
+    lastmod: "2026-07-18",
+    image: "supabase-reset-password-preview.png",
+    title: "Supabase Reset Password HTML Email Template",
+  },
 };
 
 function toUrl(filePath) {

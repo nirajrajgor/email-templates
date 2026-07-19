@@ -90,6 +90,14 @@ const templates = {
     back: "./supabase.html",
     integration: "Supabase",
   },
+  "supabase-reset-password": {
+    title: "Supabase Reset Password",
+    file: "./templates/supabase-reset-password.html",
+    background: "#f3f6f5",
+    brand: "#3ecf8e",
+    back: "./supabase.html",
+    integration: "Supabase",
+  },
   "welcome-onboarding": {
     title: "Welcome Onboarding Emailer",
     file: "./templates/welcome-onboarding.html",

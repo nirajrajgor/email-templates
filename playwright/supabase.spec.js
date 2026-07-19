@@ -8,7 +8,7 @@ test("the Supabase collection is the first homepage card and has its own filter"
   const integration = page.locator("[data-integration-card]");
   await expect(integration).toBeVisible();
   await expect(integration).toContainText("Supabase");
-  await expect(integration).toContainText("1 template");
+  await expect(integration).toContainText("2 templates");
   await expect(page.locator("#template-grid > article").first()).toHaveAttribute(
     "data-integration-card",
     "",
@@ -30,7 +30,7 @@ test("the Supabase collection is the first homepage card and has its own filter"
   );
 });
 
-test("the collection presents one production-ready template without roadmap copy", async ({
+test("the collection presents production-ready templates without roadmap copy", async ({
   page,
 }) => {
   await page.goto("supabase.html");
@@ -40,14 +40,26 @@ test("the collection presents one production-ready template without roadmap copy
   ).toBeVisible();
   await expect(
     page.locator(".collection-template-grid article.wrapper"),
-  ).toHaveCount(1);
-  await expect(page.getByRole("link", { name: "Download" })).toHaveAttribute(
+  ).toHaveCount(2);
+
+  const confirmSignup = page.locator("article.wrapper", {
+    has: page.getByRole("heading", { name: "Confirm Signup" }),
+  });
+  await expect(confirmSignup.getByRole("link", { name: "Download" })).toHaveAttribute(
     "download",
     "supabase-confirm-signup.html",
   );
+
+  const resetPassword = page.locator("article.wrapper", {
+    has: page.getByRole("heading", { name: "Reset Password" }),
+  });
+  await expect(resetPassword.getByRole("link", { name: "Download" })).toHaveAttribute(
+    "download",
+    "supabase-reset-password.html",
+  );
   await expect(
-    page.getByRole("link", { name: "Live Preview External Link" }),
-  ).toHaveAttribute("href", "./preview.html?template=supabase-confirm-signup");
+    resetPassword.getByRole("link", { name: "Live Preview External Link" }),
+  ).toHaveAttribute("href", "./preview.html?template=supabase-reset-password");
 });
 
 test("the collection opens the Supabase preview and its customizer", async ({
@@ -55,6 +67,18 @@ test("the collection opens the Supabase preview and its customizer", async ({
 }) => {
   await page.goto("preview.html?template=supabase-confirm-signup");
 
+  await page.locator("#copy-menu-button").click();
+  await expect(page.getByText("Copy Supabase HTML")).toBeVisible();
+});
+
+test("the reset password template opens with Supabase copy support", async ({
+  page,
+}) => {
+  await page.goto("preview.html?template=supabase-reset-password");
+
+  await expect(
+    page.getByText("Supabase Reset Password", { exact: true }),
+  ).toBeVisible();
   await page.locator("#copy-menu-button").click();
   await expect(page.getByText("Copy Supabase HTML")).toBeVisible();
 });
