@@ -65,3 +65,27 @@ test("Supabase variables survive brand-color customization", async () => {
     assert.match(themed, /fillcolor="#4f46e5"/);
   }
 });
+
+test("Supabase reset password keeps its email-client layout safeguards", async () => {
+  const html = await readFile(
+    new URL("../templates/supabase-reset-password.html", import.meta.url),
+    "utf8",
+  );
+  const outerTable = html.match(
+    /<table\s+role="presentation"[\s\S]*?<tr>/,
+  )?.[0];
+  const resetButton = html.match(
+    /<a[\s\S]*?class="reset-button"[\s\S]*?<\/a\s*>/,
+  )?.[0];
+
+  assert.ok(outerTable, "expected the outer email table");
+  assert.match(outerTable, /align="center"/);
+  assert.match(outerTable, /min-width: 100%/);
+  assert.match(outerTable, /margin: 0 auto/);
+
+  assert.ok(resetButton, "expected the reset button link");
+  assert.match(resetButton, /width: 100%/);
+  assert.match(resetButton, /min-width: 100%/);
+  assert.match(resetButton, /box-sizing: border-box/);
+  assert.match(html, /Reset requested for<br \/>/);
+});
