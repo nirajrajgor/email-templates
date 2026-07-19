@@ -65,12 +65,21 @@ const renderResults = () => {
     if (isVisible) visibleIntegrationCount += 1;
   });
 
-  const totalCount = cards.length + integrationCards.length;
-  const visibleTotal = visibleCount + visibleIntegrationCount;
-  resultCount.textContent =
-    visibleTotal === totalCount
-      ? `${totalCount} templates`
-      : `${visibleTotal} of ${totalCount} templates`;
+  const formatCount = (count, singular, plural) =>
+    `${count} ${count === 1 ? singular : plural}`;
+  const visibleParts = [];
+
+  if (visibleCount > 0) {
+    visibleParts.push(formatCount(visibleCount, "template", "templates"));
+  }
+
+  if (visibleIntegrationCount > 0) {
+    visibleParts.push(
+      formatCount(visibleIntegrationCount, "collection", "collections"),
+    );
+  }
+
+  resultCount.textContent = visibleParts.join(" · ") || "0 templates";
   emptyState.hidden = visibleCount > 0 || visibleIntegrationCount > 0;
 };
 

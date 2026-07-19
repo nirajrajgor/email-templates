@@ -187,10 +187,25 @@ main > div.grid {
   border-color: #d0d5dd;
 }
 
+.filter-pill:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.18);
+  outline-offset: 2px;
+}
+
 .filter-pill.is-active {
   background: #eff6ff;
   border-color: #93c5fd;
   color: #1d4ed8;
+}
+
+.filter-pill-supabase.is-active {
+  background: #e9fbf3;
+  border-color: #53d59c;
+  color: #087554;
+}
+
+.filter-pill-supabase:focus-visible {
+  outline-color: rgba(16, 185, 129, 0.24);
 }
 
 .catalog-summary {
@@ -206,95 +221,124 @@ main > div.grid {
   font-weight: 700;
 }
 
-.integration-feature {
-  align-items: center;
-  background: #ffffff;
-  border: 1px solid #b7ead2;
-  border-radius: 10px;
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: minmax(0, 1fr) minmax(17rem, 24rem);
-  margin-bottom: 1.5rem;
-  padding: 1.5rem;
+.integration-card {
+  min-width: 0;
   position: relative;
-  z-index: 40;
+  z-index: 1;
 }
 
-.integration-feature[hidden] {
+.integration-card[hidden] {
   display: none;
 }
 
-.integration-feature h2 {
-  color: #172033;
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
+.integration-card-link {
+  background: #ffffff;
+  border: 1px solid #9fe5c6;
+  border-radius: 8px;
+  box-shadow:
+    5px 5px 0 #e7faf2,
+    9px 9px 0 #c9f2df;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem;
+  text-decoration: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.integration-card-link:hover {
+  border-color: #53d59c;
+  box-shadow:
+    5px 5px 0 #dcf8eb,
+    9px 9px 0 #b6edcf;
+  transform: translateY(-2px);
+}
+
+.integration-card-link:focus-visible {
+  outline: 3px solid rgba(16, 185, 129, 0.24);
+  outline-offset: 3px;
+}
+
+.integration-card-preview {
+  align-items: center;
+  aspect-ratio: 4 / 5;
+  background: #35c589;
+  border-radius: 8px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.integration-card-preview span {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.integration-card-heading {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.integration-card-heading h2 {
+  color: #162033;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
   margin: 0;
 }
 
-.integration-feature-copy > p {
-  color: #667085;
-  font-size: 0.9375rem;
-  line-height: 1.65;
-  margin: 0.75rem 0 0;
-  max-width: 650px;
+.integration-card-heading span {
+  background: #e9fbf3;
+  border: 1px solid #a7e8cd;
+  border-radius: 999px;
+  color: #087554;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  padding: 0.3125rem 0.625rem;
+  text-transform: uppercase;
 }
 
-.integration-feature-link {
+.integration-card-link > p {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0.875rem 0 0;
+}
+
+.integration-card-action {
   align-items: center;
   background: #16865a;
   border: 1px solid #16865a;
   border-radius: 8px;
   color: #ffffff;
-  display: inline-flex;
+  display: flex;
   font-size: 0.875rem;
-  font-weight: 700;
-  gap: 0.5rem;
+  font-weight: 600;
   height: 2.625rem;
   justify-content: center;
-  margin-top: 1.25rem;
-  padding: 0 1rem;
-  text-decoration: none;
+  margin-top: auto;
   transition:
     background-color 180ms ease,
     border-color 180ms ease;
 }
 
-.integration-feature-link:hover {
+.integration-card-link:hover .integration-card-action {
   background: #126e4a;
   border-color: #126e4a;
-}
-
-.integration-feature-preview {
-  align-items: center;
-  background: #f3f6f5;
-  border: 1px solid #dfe7e3;
-  border-radius: 8px;
-  display: grid;
-  gap: 0.875rem;
-  grid-template-columns: 6.5rem minmax(0, 1fr);
-  min-height: 11rem;
-  overflow: hidden;
-  padding: 1rem;
-  text-decoration: none;
-}
-
-.integration-feature-preview img {
-  background: #ffffff;
-  border: 1px solid #dfe7e3;
-  border-radius: 5px !important;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
-  height: 9rem;
-  object-fit: cover;
-  object-position: top;
-  width: 6.5rem;
-}
-
-.integration-feature-preview span {
-  color: #26352e;
-  font-size: 0.9375rem;
-  font-weight: 800;
 }
 
 .catalog-card-meta {
@@ -519,21 +563,6 @@ footer {
   .catalog-summary {
     align-items: center;
     justify-content: space-between;
-  }
-
-  .integration-feature {
-    grid-template-columns: 1fr;
-    padding: 1.25rem;
-  }
-
-  .integration-feature-preview {
-    grid-template-columns: 5rem minmax(0, 1fr);
-    min-height: 8rem;
-  }
-
-  .integration-feature-preview img {
-    height: 7rem;
-    width: 5rem;
   }
 
   .filter-pill {

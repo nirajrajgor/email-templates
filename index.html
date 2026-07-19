@@ -223,84 +223,50 @@
           </button>
           <button
             type="button"
-            class="filter-pill"
-            data-filter-value="auth"
+            class="filter-pill filter-pill-supabase"
+            data-filter-value="supabase"
             aria-pressed="false"
           >
-            Auth
-          </button>
-          <button
-            type="button"
-            class="filter-pill"
-            data-filter-value="ecommerce"
-            aria-pressed="false"
-          >
-            Ecommerce
-          </button>
-          <button
-            type="button"
-            class="filter-pill"
-            data-filter-value="marketing"
-            aria-pressed="false"
-          >
-            Marketing
-          </button>
-          <button
-            type="button"
-            class="filter-pill"
-            data-filter-value="newsletter"
-            aria-pressed="false"
-          >
-            Newsletter
-          </button>
-          <button
-            type="button"
-            class="filter-pill"
-            data-filter-value="account"
-            aria-pressed="false"
-          >
-            Account
+            Supabase
           </button>
         </div>
 
         <div class="catalog-summary">
-          <p id="template-result-count" aria-live="polite">17 templates</p>
-        </div>
-      </section>
-
-      <section
-        class="integration-feature"
-        data-integration-card
-        data-category="auth account"
-        aria-labelledby="supabase-templates-title"
-      >
-        <div class="integration-feature-copy">
-          <h2 id="supabase-templates-title">Supabase Email Templates</h2>
-          <p>
-            Customize a Supabase-ready Confirm Signup email, preview your brand
-            color, and export HTML with Auth variables intact.
+          <p id="template-result-count" aria-live="polite">
+            18 templates · 1 collection
           </p>
-          <a class="integration-feature-link" href="./supabase.html">
-            View Supabase templates
-          </a>
         </div>
-        <a
-          class="integration-feature-preview"
-          href="./supabase.html"
-          aria-label="View the Supabase Email Templates"
-        >
-          <img
-            src="/supabase-confirm-signup-preview.png"
-            alt="Supabase Confirm Signup email preview"
-          />
-          <span>Confirm Signup</span>
-        </a>
       </section>
 
       <div
         id="template-grid"
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-20 lg:gap-10 pb-20 items-stretch relative z-40"
       >
+        <article
+          class="integration-card"
+          data-integration-card
+          data-category="supabase"
+        >
+          <a
+            class="integration-card-link"
+            href="./supabase.html"
+            aria-label="View the Supabase Email Templates collection"
+          >
+            <div class="integration-card-preview" aria-hidden="true">
+              <span>1 template</span>
+            </div>
+            <div class="integration-card-heading">
+              <h2>Supabase</h2>
+              <span>Collection</span>
+            </div>
+            <p>
+              Customize Supabase-ready authentication emails and export HTML
+              with supported Auth variables intact.
+            </p>
+            <span class="integration-card-action">View collection</span>
+          </a>
+        </article>
+
         <article class="wrapper flex flex-col h-full" data-category="ecommerce">
           <div
             class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]"
