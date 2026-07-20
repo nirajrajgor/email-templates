@@ -175,7 +175,9 @@ titleNode.textContent = template.title;
 backLink.href = template.back || "./index.html";
 backLink.setAttribute(
   "aria-label",
-  template.back ? `Back to ${template.integration} templates` : "Back to templates",
+  template.integration
+    ? `Back to ${template.integration} templates`
+    : "Back to templates",
 );
 frame.src = template.file;
 stage.style.setProperty("--template-bg", template.background);

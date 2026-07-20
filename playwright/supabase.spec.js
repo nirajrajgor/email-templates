@@ -95,6 +95,10 @@ test("the collection opens the Supabase preview and its customizer", async ({
 }) => {
   await page.goto("preview.html?template=supabase-confirm-signup");
 
+  await expect(page.locator("#back-link")).toHaveAttribute(
+    "aria-label",
+    "Back to Supabase templates",
+  );
   await page.locator("#copy-menu-button").click();
   await expect(page.getByText("Copy Supabase HTML")).toBeVisible();
 });
