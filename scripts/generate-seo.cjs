@@ -231,9 +231,7 @@ function injectSeo(htmlPath) {
       if (firstImg) image = firstImg;
     }
     if (image && !/^https?:/.test(image)) {
-      image = image.startsWith("/")
-        ? `${BASE_URL}${image.substring(1)}`
-        : `${canonicalUrl}${image}`;
+      image = new URL(image, canonicalUrl).href;
     }
     $("head").append(
       `\n    <meta name="twitter:card" content="summary_large_image" />`,
