@@ -85,8 +85,8 @@ const templates = {
   "supabase-confirm-signup": {
     title: "Supabase Confirm Signup",
     file: "./templates/supabase-confirm-signup.html",
-    background: "#f3f6f5",
-    brand: "#3ecf8e",
+    background: "#f3f4f6",
+    brand: "#4f46e5",
     back: "./supabase.html",
     integration: "Supabase",
   },
@@ -109,8 +109,8 @@ const templates = {
   "supabase-reset-password": {
     title: "Supabase Reset Password",
     file: "./templates/supabase-reset-password.html",
-    background: "#f3f6f5",
-    brand: "#3ecf8e",
+    background: "#f3f4f6",
+    brand: "#4f46e5",
     back: "./supabase.html",
     integration: "Supabase",
   },

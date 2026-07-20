@@ -45,6 +45,7 @@ test("every color swatch exposes an initial pressed state", async () => {
 test("Supabase variables survive brand-color customization", async () => {
   const files = [
     "supabase-confirm-signup.html",
+    "supabase-magic-link.html",
     "supabase-reset-password.html",
   ];
 
@@ -55,14 +56,14 @@ test("Supabase variables survive brand-color customization", async () => {
     );
 
     const themed = rethemeHtml(html, [
-      { from: "#3ecf8e", to: "#4f46e5" },
+      { from: "#4f46e5", to: "#0ea5e9" },
     ]);
 
     assert.match(themed, /{{ \.ConfirmationURL }}/);
     assert.match(themed, /{{ \.Email }}/);
     assert.doesNotMatch(themed, /{{ \.SiteURL }}/);
-    assert.match(themed, /background-color: #4f46e5/);
-    assert.match(themed, /fillcolor="#4f46e5"/);
+    assert.match(themed, /background-color: #0ea5e9/);
+    assert.match(themed, /fillcolor="#0ea5e9"/);
   }
 });
 
