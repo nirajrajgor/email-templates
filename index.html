@@ -112,9 +112,10 @@
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" preconnect="">
-    <script type="module" crossorigin="" src="/email-templates/assets/index-CfmSQXQI.js"></script>
+    <script type="module" crossorigin="" src="/email-templates/assets/index-DrtSNAg8.js"></script>
     <link rel="modulepreload" crossorigin="" href="/email-templates/assets/modulepreload-polyfill-B5Qt9EMX.js">
-    <link rel="stylesheet" crossorigin="" href="/email-templates/assets/index-geRgt0jR.css">
+    <link rel="modulepreload" crossorigin="" href="/email-templates/assets/card-preview-BJLbFOUb.js">
+    <link rel="stylesheet" crossorigin="" href="/email-templates/assets/card-preview-BqfFbk1a.css">
   </head>
   <body class="dark:bg-gray-900">
     <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
@@ -158,29 +159,36 @@
           <button type="button" class="filter-pill is-active" data-filter-value="all" aria-pressed="true">
             All
           </button>
-          <button type="button" class="filter-pill" data-filter-value="auth" aria-pressed="false">
-            Auth
-          </button>
-          <button type="button" class="filter-pill" data-filter-value="ecommerce" aria-pressed="false">
-            Ecommerce
-          </button>
-          <button type="button" class="filter-pill" data-filter-value="marketing" aria-pressed="false">
-            Marketing
-          </button>
-          <button type="button" class="filter-pill" data-filter-value="newsletter" aria-pressed="false">
-            Newsletter
-          </button>
-          <button type="button" class="filter-pill" data-filter-value="account" aria-pressed="false">
-            Account
+          <button type="button" class="filter-pill filter-pill-supabase" data-filter-value="supabase" aria-pressed="false">
+            Supabase
           </button>
         </div>
 
         <div class="catalog-summary">
-          <p id="template-result-count" aria-live="polite">17 templates</p>
+          <p id="template-result-count" aria-live="polite">
+            18 templates · 1 collection
+          </p>
         </div>
       </section>
 
       <div id="template-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-20 lg:gap-10 pb-20 items-stretch relative z-40">
+        <article class="integration-card" data-integration-card="" data-category="supabase">
+          <a class="integration-card-link" href="./supabase.html" aria-label="View the Supabase Email Templates collection">
+            <div class="integration-card-preview" aria-hidden="true">
+              <span>4 templates</span>
+            </div>
+            <div class="integration-card-heading">
+              <h2>Supabase</h2>
+              <span>Collection</span>
+            </div>
+            <p>
+              Customize Supabase-ready authentication emails and export HTML
+              with supported Auth variables intact.
+            </p>
+            <span class="integration-card-action">View collection</span>
+          </a>
+        </article>
+
         <article class="wrapper flex flex-col h-full" data-category="ecommerce">
           <div class="relative dark:border rounded-lg dark:border-white/[0.1] overflow-hidden transition duration-200 dark:bg-gray-800 bg-[#f4f4f4] w-full aspect-[4/5]">
             <img alt="Purchase Confirmation Thumbnail" loading="lazy" class="blur-0 rounded-md w-full h-full object-contain" style="color: transparent" src="/email-templates/purchase-confirm-preview.png" decoding="async">
@@ -888,78 +896,6 @@
       </div>
     </footer>
 
-    <script>
-      (function () {
-        const reduce =
-          window.matchMedia &&
-          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        if (reduce) return;
-
-        const cards = document.querySelectorAll("main article.wrapper");
-        cards.forEach((card) => {
-          const container = card.querySelector('div[class*="aspect-[4/5]"]');
-          if (!container) return;
-          const img = container.querySelector("img");
-          if (!img) return;
-
-          // Make image taller than container so we can reveal lower parts
-          img.classList.remove("h-full", "object-contain");
-          img.classList.add("h-auto");
-          container.style.overflow = "hidden";
-
-          // Constant scroll speed in px/s for a predictable experience
-          const SCROLL_SPEED = 110;
-          let cleanupTimer;
-          const startScroll = () => {
-            if (!img.complete) {
-              img.addEventListener("load", startScroll, { once: true });
-              return;
-            }
-
-            const cw = container.clientWidth;
-            const ch = container.clientHeight;
-            if (!cw || !ch) return;
-
-            const iw = img.naturalWidth;
-            const ih = img.naturalHeight;
-            let displayedH = 0;
-
-            if (iw && ih) {
-              const scale = cw / iw;
-              displayedH = ih * scale;
-            } else {
-              displayedH = img.getBoundingClientRect().height;
-            }
-
-            const delta = Math.max(0, displayedH - ch);
-            if (delta < 8) return; // tiny overflow; skip
-
-            const duration = delta / SCROLL_SPEED;
-            img.style.willChange = "transform";
-            img.style.transition = `transform ${duration}s linear`;
-            img.style.transform = `translateY(-${delta}px)`;
-          };
-
-          const resetScroll = () => {
-            img.style.transition = "transform .6s ease-out";
-            img.style.transform = "translateY(0)";
-            clearTimeout(cleanupTimer);
-            cleanupTimer = setTimeout(() => {
-              img.style.willChange = "auto";
-            }, 700);
-          };
-
-          container.addEventListener("mouseenter", startScroll);
-          container.addEventListener("mouseleave", resetScroll);
-          container.addEventListener("touchstart", startScroll, {
-            passive: true,
-          });
-          container.addEventListener("touchend", resetScroll, {
-            passive: true,
-          });
-        });
-      })();
-    </script>
   
 
 </body></html>

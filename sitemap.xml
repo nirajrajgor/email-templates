@@ -5,13 +5,19 @@
   <!-- Main Pages -->
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/logo.svg</image:loc>
       <image:title>Email Templates Logo</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/supabase.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
 
   <!-- Email Templates -->
@@ -183,6 +189,46 @@
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/shopping-deals-preview.png</image:loc>
       <image:title>Shopping Deals HTML Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/supabase-confirm-signup.html</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/supabase-confirm-signup-preview.png</image:loc>
+      <image:title>Supabase Confirm Signup HTML Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/supabase-email-otp.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/supabase-email-otp-preview.png</image:loc>
+      <image:title>Supabase Email OTP HTML Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/supabase-magic-link.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/supabase-magic-link-preview.png</image:loc>
+      <image:title>Supabase Magic Link HTML Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/supabase-reset-password.html</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/supabase-reset-password-preview.png</image:loc>
+      <image:title>Supabase Reset Password HTML Email Template</image:title>
     </image:image>
   </url>
   <url>
