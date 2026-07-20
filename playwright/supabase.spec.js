@@ -71,7 +71,10 @@ test("the collection presents production-ready templates without roadmap copy", 
   await page.goto("supabase.html");
 
   await expect(
-    page.getByRole("heading", { name: "Supabase Email Templates" }),
+    page.getByRole("heading", {
+      name: "Supabase Email Templates",
+      exact: true,
+    }),
   ).toBeVisible();
   await expect(
     page.locator(".collection-template-grid article.wrapper"),
