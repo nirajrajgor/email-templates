@@ -3,17 +3,26 @@ const resultCount = document.getElementById("template-result-count");
 const emptyState = document.getElementById("template-empty-state");
 const filterButtons = document.querySelectorAll("[data-filter-value]");
 
-const state = {
-  category: "all",
-  query: "",
-};
-
 const getCardSearchText = (card) => {
   const title = card.querySelector("h2")?.textContent ?? "";
   const description =
-    card.querySelector(".catalog-card-meta + p")?.textContent ?? "";
+    card.querySelector(".catalog-card-meta + p, .integration-card-link > p")
+      ?.textContent ?? "";
 
   return `${title} ${description}`.toLowerCase();
+};
+
+const integrationCards = Array.from(
+  document.querySelectorAll("[data-integration-card]"),
+).map((card) => ({
+  card,
+  categories: card.dataset.category.trim().split(/\s+/),
+  searchText: getCardSearchText(card),
+}));
+
+const state = {
+  category: "all",
+  query: "",
 };
 
 const cards = Array.from(
@@ -51,11 +60,29 @@ const renderResults = () => {
     if (isVisible) visibleCount += 1;
   });
 
-  resultCount.textContent =
-    visibleCount === cards.length
-      ? `${cards.length} templates`
-      : `${visibleCount} of ${cards.length} templates`;
-  emptyState.hidden = visibleCount > 0;
+  let visibleIntegrationCount = 0;
+  integrationCards.forEach(({ card, ...cardData }) => {
+    const isVisible = matchesCard(cardData, terms);
+    card.hidden = !isVisible;
+    if (isVisible) visibleIntegrationCount += 1;
+  });
+
+  const formatCount = (count, singular, plural) =>
+    `${count} ${count === 1 ? singular : plural}`;
+  const visibleParts = [];
+
+  if (visibleCount > 0) {
+    visibleParts.push(formatCount(visibleCount, "template", "templates"));
+  }
+
+  if (visibleIntegrationCount > 0) {
+    visibleParts.push(
+      formatCount(visibleIntegrationCount, "collection", "collections"),
+    );
+  }
+
+  resultCount.textContent = visibleParts.join(" · ") || "0 templates";
+  emptyState.hidden = visibleCount > 0 || visibleIntegrationCount > 0;
 };
 
 filterButtons.forEach((button) => {

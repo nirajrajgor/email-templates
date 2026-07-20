@@ -11,6 +11,7 @@ export default defineConfig({
       input: [
         resolve(__dirname, "index.html"),
         resolve(__dirname, "preview.html"),
+        resolve(__dirname, "supabase.html"),
         ...sync("./templates/**/*.html".replace(/\\/g, "/templates")),
       ],
     },

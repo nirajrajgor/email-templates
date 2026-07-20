@@ -1,0 +1,10 @@
+Your sign-in link
+
+Sign-in requested for {{ .Email }}.
+
+Follow the link below to sign in. This link expires shortly and can only be used once.
+
+Sign in:
+{{ .ConfirmationURL }}
+
+Didn't request this? You can safely ignore this email. This sign-in link can only be used once.

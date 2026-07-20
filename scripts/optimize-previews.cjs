@@ -1,5 +1,5 @@
-// Caps homepage card preview widths so the browser doesn't decode huge bitmaps
-// (decoded RAM = width x height x 4). Only #template-grid card images are touched.
+// Caps card preview widths so the browser doesn't decode huge bitmaps
+// (decoded RAM = width x height x 4). Only configured card grids are touched.
 // Pass --check to fail (read-only) instead of writing, e.g. in the build.
 const fs = require("fs");
 const path = require("path");
@@ -13,24 +13,36 @@ const CHECK = process.argv.includes("--check");
 const ROOT = path.resolve(__dirname, "..");
 const PUBLIC_DIR = path.join(ROOT, "public");
 const INDEX_HTML = path.join(ROOT, "index.html");
+const SUPABASE_HTML = path.join(ROOT, "supabase.html");
+const CARD_GRIDS = [
+  {
+    page: INDEX_HTML,
+    selector: '#template-grid article.wrapper div[class*="aspect-"] img',
+  },
+  {
+    page: SUPABASE_HTML,
+    selector:
+      '.collection-template-grid article.wrapper div[class*="aspect-"] img',
+  },
+];
 
 function getCardImageSources() {
-  const html = fs.readFileSync(INDEX_HTML, "utf8");
-  const $ = cheerio.load(html);
   const sources = new Set();
-  $('#template-grid article.wrapper div[class*="aspect-[4/5]"] img').each(
-    (_, el) => {
+  for (const { page, selector } of CARD_GRIDS) {
+    const html = fs.readFileSync(page, "utf8");
+    const $ = cheerio.load(html);
+    $(selector).each((_, el) => {
       const src = $(el).attr("src");
       if (src) sources.add(src.replace(/^\//, ""));
-    },
-  );
+    });
+  }
   return [...sources];
 }
 
 async function optimize() {
   const sources = getCardImageSources();
   if (sources.length === 0) {
-    console.warn("optimize-previews: no card images found in #template-grid");
+    console.warn("optimize-previews: no card preview images found");
     return;
   }
 

@@ -102,6 +102,26 @@ const TEMPLATE_METADATA = {
     image: "shipping-confirmation-preview.png",
     title: "Shipping Confirmation HTML Email Template",
   },
+  "supabase-confirm-signup.html": {
+    lastmod: "2026-07-17",
+    image: "supabase-confirm-signup-preview.png",
+    title: "Supabase Confirm Signup HTML Email Template",
+  },
+  "supabase-email-otp.html": {
+    lastmod: "2026-07-19",
+    image: "supabase-email-otp-preview.png",
+    title: "Supabase Email OTP HTML Email Template",
+  },
+  "supabase-magic-link.html": {
+    lastmod: "2026-07-19",
+    image: "supabase-magic-link-preview.png",
+    title: "Supabase Magic Link HTML Email Template",
+  },
+  "supabase-reset-password.html": {
+    lastmod: "2026-07-18",
+    image: "supabase-reset-password-preview.png",
+    title: "Supabase Reset Password HTML Email Template",
+  },
 };
 
 function toUrl(filePath) {
@@ -211,9 +231,7 @@ function injectSeo(htmlPath) {
       if (firstImg) image = firstImg;
     }
     if (image && !/^https?:/.test(image)) {
-      image = image.startsWith("/")
-        ? `${BASE_URL}${image.substring(1)}`
-        : `${canonicalUrl}${image}`;
+      image = new URL(image, canonicalUrl).href;
     }
     $("head").append(
       `\n    <meta name="twitter:card" content="summary_large_image" />`,
