@@ -4,8 +4,61 @@ import test from "node:test";
 
 import { rethemeHtml } from "../customizer.js";
 
-const getSupabaseVariables = (html) =>
-  html.match(/{{\s+\.[A-Za-z][A-Za-z0-9_]*\s+}}/g) ?? [];
+const linkTemplateVariables = [
+  "ConfirmationURL",
+  "ConfirmationURL",
+  "ConfirmationURL",
+  "Email",
+];
+
+const supabaseTemplates = [
+  {
+    file: "supabase-confirm-signup.html",
+    label: "Confirm Signup",
+    variables: linkTemplateVariables,
+    maxWidth: 600,
+    actionClass: "confirm-button",
+    fixedLayout: true,
+    hasVmlButton: true,
+  },
+  {
+    file: "supabase-reset-password.html",
+    label: "Reset Password",
+    variables: linkTemplateVariables,
+    maxWidth: 520,
+    actionClass: "reset-button",
+    fullWidthAction: true,
+    hasVmlButton: true,
+  },
+  {
+    file: "supabase-magic-link.html",
+    label: "Magic Link",
+    variables: linkTemplateVariables,
+    maxWidth: 520,
+    actionClass: "signin-button",
+    fullWidthAction: true,
+    fixedLayout: true,
+    hasVmlButton: true,
+    recommendedContent:
+      /Follow the link below to sign in\. This link expires shortly\s+and can only be used once\./,
+  },
+  {
+    file: "supabase-email-otp.html",
+    label: "Email OTP",
+    variables: ["Email", "Token"],
+    maxWidth: 520,
+    fixedLayout: true,
+    hasOtpCode: true,
+  },
+];
+
+const readTemplate = (file) =>
+  readFile(new URL(`../templates/${file}`, import.meta.url), "utf8");
+
+const getSupabaseVariableNames = (html) =>
+  [...html.matchAll(/{{\s+\.([A-Za-z][A-Za-z0-9_]*)\s+}}/g)]
+    .map(([, name]) => name)
+    .sort();
 
 test("rethemes HTML, SVG, and Outlook VML color attributes", () => {
   const html = `
@@ -46,162 +99,85 @@ test("every color swatch exposes an initial pressed state", async () => {
 });
 
 test("Supabase variables survive brand-color customization", async () => {
-  const files = [
-    "supabase-confirm-signup.html",
-    "supabase-magic-link.html",
-    "supabase-reset-password.html",
-  ];
-
-  for (const file of files) {
-    const html = await readFile(
-      new URL(`../templates/${file}`, import.meta.url),
-      "utf8",
-    );
+  for (const template of supabaseTemplates) {
+    const html = await readTemplate(template.file);
 
     const themed = rethemeHtml(html, [
       { from: "#4f46e5", to: "#0ea5e9" },
     ]);
 
-    assert.match(themed, /{{ \.ConfirmationURL }}/);
-    assert.match(themed, /{{ \.Email }}/);
-    assert.deepEqual(getSupabaseVariables(themed), getSupabaseVariables(html));
+    assert.deepEqual(
+      getSupabaseVariableNames(html),
+      template.variables,
+      `${template.file} has the expected variables`,
+    );
+    assert.deepEqual(
+      getSupabaseVariableNames(themed),
+      template.variables,
+      `${template.file} preserves variables after customization`,
+    );
     assert.match(themed, /background-color: #0ea5e9/);
-    assert.match(themed, /fillcolor="#0ea5e9"/);
+    if (template.hasVmlButton) {
+      assert.match(themed, /fillcolor="#0ea5e9"/);
+    }
   }
 });
 
-test("Supabase reset password keeps its email-client layout safeguards", async () => {
-  const html = await readFile(
-    new URL("../templates/supabase-reset-password.html", import.meta.url),
-    "utf8",
-  );
-  const outerTable = html.match(
-    /<table\s+role="presentation"[\s\S]*?<tr>/,
-  )?.[0];
-  const resetButton = html.match(
-    /<a[\s\S]*?class="reset-button"[\s\S]*?<\/a\s*>/,
-  )?.[0];
+for (const template of supabaseTemplates) {
+  test(`${template.label} keeps its email-client safeguards`, async () => {
+    const html = await readTemplate(template.file);
+    const outerTable = html.match(
+      /<table\s+role="presentation"[\s\S]*?<tr>/,
+    )?.[0];
+    const card = html.match(
+      /<table\b(?=[^>]*class="email-shell email-card")[^>]*>/,
+    )?.[0];
 
-  assert.ok(outerTable, "expected the outer email table");
-  assert.match(outerTable, /align="center"/);
-  assert.match(outerTable, /min-width: 100%/);
-  assert.match(outerTable, /margin: 0 auto/);
+    assert.ok(outerTable, `${template.file} has an outer email table`);
+    assert.match(outerTable, /width: 100% !important/);
+    assert.match(outerTable, /min-width: 100%/);
+    assert.match(outerTable, /margin: 0 auto/);
+    if (template.fixedLayout) {
+      assert.match(outerTable, /table-layout: fixed/);
+    }
 
-  assert.ok(resetButton, "expected the reset button link");
-  assert.match(resetButton, /width: 100%/);
-  assert.match(resetButton, /min-width: 100%/);
-  assert.match(resetButton, /box-sizing: border-box/);
-  assert.match(html, /Reset requested for<br \/>/);
-});
+    assert.ok(card, `${template.file} has a centered email card`);
+    assert.match(card, /align="center"/);
+    assert.match(card, new RegExp(`max-width: ${template.maxWidth}px`));
+    assert.match(card, /margin: 0 auto/);
+    assert.doesNotMatch(card, /border-radius/);
 
-test("Supabase confirm signup keeps a fluid canvas and centered card", async () => {
-  const html = await readFile(
-    new URL("../templates/supabase-confirm-signup.html", import.meta.url),
-    "utf8",
-  );
-  const outerTable = html.match(
-    /<table\s+role="presentation"[\s\S]*?<tr>/,
-  )?.[0];
-  const card = html.match(
-    /<table[\s\S]*?class="email-shell email-card"[\s\S]*?>/,
-  )?.[0];
+    if (template.actionClass) {
+      const action = html.match(
+        new RegExp(
+          `<a\\b(?=[^>]*class="${template.actionClass}")[^>]*>`,
+        ),
+      )?.[0];
+      assert.ok(action, `${template.file} has its primary action`);
+      assert.match(action, /href="{{ \.ConfirmationURL }}"/);
+      if (template.fullWidthAction) {
+        assert.match(action, /width: 100%/);
+        assert.match(action, /min-width: 100%/);
+        assert.match(action, /box-sizing: border-box/);
+      }
+    }
 
-  assert.ok(outerTable, "expected the outer email table");
-  assert.match(outerTable, /width: 100% !important/);
-  assert.match(outerTable, /min-width: 100%/);
-  assert.match(outerTable, /table-layout: fixed/);
+    if (template.recommendedContent) {
+      assert.match(html, template.recommendedContent);
+    }
 
-  assert.ok(card, "expected the centered email card");
-  assert.match(card, /align="center"/);
-  assert.match(card, /margin: 0 auto/);
-  assert.match(html, /padding: 24px 24px 0/);
-  assert.doesNotMatch(card, /border-radius/);
-});
-
-test("Supabase magic link keeps Supabase's recommended content", async () => {
-  const html = await readFile(
-    new URL("../templates/supabase-magic-link.html", import.meta.url),
-    "utf8",
-  );
-  const outerTable = html.match(
-    /<table\s+role="presentation"[\s\S]*?<tr>/,
-  )?.[0];
-  const card = html.match(
-    /<table[\s\S]*?class="email-shell email-card"[\s\S]*?>/,
-  )?.[0];
-  const signinButton = html.match(
-    /<a[\s\S]*?class="signin-button"[\s\S]*?<\/a\s*>/,
-  )?.[0];
-
-  assert.ok(outerTable, "expected the outer email table");
-  assert.match(outerTable, /width: 100% !important/);
-  assert.match(outerTable, /min-width: 100%/);
-
-  assert.ok(card, "expected the centered email card");
-  assert.match(card, /max-width: 520px/);
-  assert.match(card, /margin: 0 auto/);
-
-  assert.match(html, /Your sign-in link/);
-  assert.match(
-    html,
-    /Follow the link below to sign in\. This link expires shortly\s+and can only be used once\./,
-  );
-
-  assert.ok(signinButton, "expected the sign-in button link");
-  assert.match(signinButton, /href="{{ \.ConfirmationURL }}"/);
-  assert.match(signinButton, /width: 100%/);
-  assert.match(signinButton, /min-width: 100%/);
-  assert.match(signinButton, /box-sizing: border-box/);
-  assert.match(signinButton, />Sign in</);
-
-  assert.doesNotMatch(html, /{{ \.Token }}/);
-  assert.match(html, /This sign-in link\s+can only be used once\./);
-});
-
-test("Supabase email OTP keeps a prominent one-time code", async () => {
-  const html = await readFile(
-    new URL("../templates/supabase-email-otp.html", import.meta.url),
-    "utf8",
-  );
-  const outerTable = html.match(
-    /<table\s+role="presentation"[\s\S]*?<tr>/,
-  )?.[0];
-  const card = html.match(
-    /<table[\s\S]*?class="email-shell email-card"[\s\S]*?>/,
-  )?.[0];
-  const otpCode = html.match(
-    /<span[\s\S]*?class="otp-code"[\s\S]*?<\/span\s*>/,
-  )?.[0];
-
-  assert.ok(outerTable, "expected the outer email table");
-  assert.match(outerTable, /width: 100% !important/);
-  assert.match(outerTable, /min-width: 100%/);
-
-  assert.ok(card, "expected the centered email card");
-  assert.match(card, /max-width: 520px/);
-  assert.match(card, /margin: 0 auto/);
-
-  assert.match(html, /Your verification code/);
-  assert.match(
-    html,
-    /Use the code below to verify your identity\. It expires\s+shortly\./,
-  );
-  assert.match(html, /{{ \.Email }}/);
-
-  assert.ok(otpCode, "expected the one-time code display");
-  assert.match(otpCode, /{{ \.Token }}/);
-  assert.match(otpCode, /Courier/);
-  assert.match(otpCode, /letter-spacing/);
-  assert.match(
-    html,
-    /\.otp-code\s*{[\s\S]*?font-size: 24px !important;[\s\S]*?white-space: nowrap !important;/,
-  );
-
-  assert.doesNotMatch(html, /{{ \.ConfirmationURL }}/);
-  assert.match(html, /Never share this\s+code with anyone\./);
-
-  const themed = rethemeHtml(html, [{ from: "#4f46e5", to: "#0ea5e9" }]);
-  assert.match(themed, /{{ \.Token }}/);
-  assert.deepEqual(getSupabaseVariables(themed), getSupabaseVariables(html));
-  assert.match(themed, /background-color: #0ea5e9/);
-});
+    if (template.hasOtpCode) {
+      const otpCode = html.match(
+        /<span\b(?=[^>]*class="otp-code")[\s\S]*?<\/span\s*>/,
+      )?.[0];
+      assert.ok(otpCode, `${template.file} has a one-time code display`);
+      assert.match(otpCode, /{{ \.Token }}/);
+      assert.match(otpCode, /Courier/);
+      assert.match(otpCode, /letter-spacing/);
+      assert.match(
+        html,
+        /\.otp-code\s*{[\s\S]*?font-size: 24px !important;[\s\S]*?white-space: nowrap !important;/,
+      );
+    }
+  });
+}

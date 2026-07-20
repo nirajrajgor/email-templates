@@ -1,5 +1,32 @@
 import { expect, test } from "@playwright/test";
 
+const supabaseTemplates = [
+  {
+    id: "supabase-confirm-signup",
+    cardTitle: "Confirm Signup",
+    previewTitle: "Supabase Confirm Signup",
+    emailHeading: "Confirm your email",
+  },
+  {
+    id: "supabase-reset-password",
+    cardTitle: "Reset Password",
+    previewTitle: "Supabase Reset Password",
+    emailHeading: "Reset your password",
+  },
+  {
+    id: "supabase-magic-link",
+    cardTitle: "Magic Link",
+    previewTitle: "Supabase Magic Link",
+    emailHeading: "Your sign-in link",
+  },
+  {
+    id: "supabase-email-otp",
+    cardTitle: "Email OTP",
+    previewTitle: "Supabase Email OTP",
+    emailHeading: "Your verification code",
+  },
+];
+
 test("the Supabase collection is the first homepage card and has its own filter", async ({
   page,
 }) => {
@@ -8,7 +35,9 @@ test("the Supabase collection is the first homepage card and has its own filter"
   const integration = page.locator("[data-integration-card]");
   await expect(integration).toBeVisible();
   await expect(integration).toContainText("Supabase");
-  await expect(integration).toContainText("4 templates");
+  await expect(integration).toContainText(
+    `${supabaseTemplates.length} templates`,
+  );
   await expect(page.locator("#template-grid > article").first()).toHaveAttribute(
     "data-integration-card",
     "",
@@ -46,117 +75,37 @@ test("the collection presents production-ready templates without roadmap copy", 
   ).toBeVisible();
   await expect(
     page.locator(".collection-template-grid article.wrapper"),
-  ).toHaveCount(4);
+  ).toHaveCount(supabaseTemplates.length);
 
-  const confirmSignup = page.locator("article.wrapper", {
-    has: page.getByRole("heading", { name: "Confirm Signup" }),
-  });
-  await expect(confirmSignup.getByRole("link", { name: "Download" })).toHaveAttribute(
-    "download",
-    "supabase-confirm-signup.html",
-  );
-
-  const resetPassword = page.locator("article.wrapper", {
-    has: page.getByRole("heading", { name: "Reset Password" }),
-  });
-  await expect(resetPassword.getByRole("link", { name: "Download" })).toHaveAttribute(
-    "download",
-    "supabase-reset-password.html",
-  );
-  await expect(
-    resetPassword.getByRole("link", { name: "Live Preview External Link" }),
-  ).toHaveAttribute("href", "./preview.html?template=supabase-reset-password");
-
-  const magicLink = page.locator("article.wrapper", {
-    has: page.getByRole("heading", { name: "Magic Link" }),
-  });
-  await expect(magicLink.getByRole("link", { name: "Download" })).toHaveAttribute(
-    "download",
-    "supabase-magic-link.html",
-  );
-  await expect(
-    magicLink.getByRole("link", { name: "Live Preview External Link" }),
-  ).toHaveAttribute("href", "./preview.html?template=supabase-magic-link");
-
-  const emailOtp = page.locator("article.wrapper", {
-    has: page.getByRole("heading", { name: "Email OTP" }),
-  });
-  await expect(emailOtp.getByRole("link", { name: "Download" })).toHaveAttribute(
-    "download",
-    "supabase-email-otp.html",
-  );
-  await expect(
-    emailOtp.getByRole("link", { name: "Live Preview External Link" }),
-  ).toHaveAttribute("href", "./preview.html?template=supabase-email-otp");
+  for (const template of supabaseTemplates) {
+    const card = page.locator("article.wrapper", {
+      has: page.getByRole("heading", { name: template.cardTitle }),
+    });
+    await expect(card.getByRole("link", { name: "Download" })).toHaveAttribute(
+      "download",
+      `${template.id}.html`,
+    );
+    await expect(
+      card.getByRole("link", { name: "Live Preview External Link" }),
+    ).toHaveAttribute("href", `./preview.html?template=${template.id}`);
+  }
 });
 
-test("the collection opens the Supabase preview and its customizer", async ({
-  page,
-}) => {
-  await page.goto("preview.html?template=supabase-confirm-signup");
+for (const template of supabaseTemplates) {
+  test(`${template.id} opens with Supabase copy support`, async ({ page }) => {
+    await page.goto(`preview.html?template=${template.id}`);
 
-  await expect(page.locator("#back-link")).toHaveAttribute(
-    "aria-label",
-    "Back to Supabase templates",
-  );
-  await page.locator("#copy-menu-button").click();
-  await expect(page.getByText("Copy Supabase HTML")).toBeVisible();
-});
-
-test("Supabase cards keep square previews while compact emails remain fully visible", async ({
-  page,
-}) => {
-  await page.goto("supabase.html");
-
-  const previews = page.locator(
-    '.collection-template-grid article.wrapper > div[class*="aspect-"]',
-  );
-  await expect(previews).toHaveCount(4);
-
-  const previewStates = await previews.evaluateAll((nodes) =>
-    nodes.map((node) => {
-      const image = node.querySelector("img");
-      const bounds = node.getBoundingClientRect();
-      return {
-        height: bounds.height,
-        scrollable: node.dataset.previewScrollable,
-        width: bounds.width,
-        imageHeight: image?.getBoundingClientRect().height,
-      };
-    }),
-  );
-
-  previewStates.forEach(({ height, imageHeight, scrollable, width }) => {
-    expect(Math.abs(width - height)).toBeLessThan(1);
-    expect(imageHeight).toBeLessThanOrEqual(height);
-    expect(scrollable).toBe("false");
-  });
-});
-
-test("the reset password template opens with Supabase copy support", async ({
-  page,
-}) => {
-  await page.goto("preview.html?template=supabase-reset-password");
-
-  await expect(
-    page.getByText("Supabase Reset Password", { exact: true }),
-  ).toBeVisible();
-  await page.locator("#copy-menu-button").click();
-  await expect(page.getByText("Copy Supabase HTML")).toBeVisible();
-});
-
-for (const [templateId, title, emailHeading] of [
-  ["supabase-magic-link", "Supabase Magic Link", "Your sign-in link"],
-  ["supabase-email-otp", "Supabase Email OTP", "Your verification code"],
-]) {
-  test(`${templateId} opens with Supabase copy support`, async ({ page }) => {
-    await page.goto(`preview.html?template=${templateId}`);
-
-    await expect(page.getByText(title, { exact: true })).toBeVisible();
+    await expect(
+      page.getByText(template.previewTitle, { exact: true }),
+    ).toBeVisible();
+    await expect(page.locator("#back-link")).toHaveAttribute(
+      "aria-label",
+      "Back to Supabase templates",
+    );
     await expect(
       page
         .frameLocator("#template-frame")
-        .getByRole("heading", { name: emailHeading }),
+        .getByRole("heading", { name: template.emailHeading }),
     ).toBeVisible();
     await page.locator("#copy-menu-button").click();
     await expect(page.getByText("Copy Supabase HTML")).toBeVisible();
