@@ -305,6 +305,86 @@
         </div>
       </section>
 
+      <section
+        class="collection-how-to"
+        aria-labelledby="supabase-template-guide-title"
+      >
+        <h2 id="supabase-template-guide-title">Using Supabase email templates</h2>
+
+        <div class="how-to-questions">
+          <details class="how-to-accordion" open>
+            <summary>
+              <span>How do I customize and copy a template?</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path
+                  d="m5 7.5 5 5 5-5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+            </summary>
+            <div class="how-to-answer">
+              <p>
+                Choose a template above, open its live preview, and select your
+                brand color. When it is ready, choose
+                <strong>Copy Supabase HTML</strong> or download the HTML file.
+              </p>
+            </div>
+          </details>
+
+          <details class="how-to-accordion">
+            <summary>
+              <span>How do I add the HTML to Supabase?</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path
+                  d="m5 7.5 5 5 5-5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+            </summary>
+            <div class="how-to-answer">
+              <p>
+                In your Supabase Dashboard, go to
+                <strong>Authentication &rarr; Email Templates</strong>. Select
+                the matching email type, replace its content with your copied
+                HTML, and save.
+              </p>
+            </div>
+          </details>
+
+          <details class="how-to-accordion">
+            <summary>
+              <span>Which Supabase variables should I keep?</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path
+                  d="m5 7.5 5 5 5-5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+            </summary>
+            <div class="how-to-answer">
+              <p>
+                Keep <code>{{ .ConfirmationURL }}</code>,
+                <code>{{ .Token }}</code>, and <code>{{ .Email }}</code>
+                unchanged. Supabase replaces them when it sends the email. For
+                Email OTP, use Supabase's <strong>Magic Link</strong> template.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
     </main>
 
     <footer>

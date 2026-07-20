@@ -53,6 +53,94 @@
   gap: 1.5rem !important;
 }
 
+.collection-how-to {
+  margin: 4rem auto 0;
+  max-width: 896px;
+  padding: 0 1rem;
+}
+
+.collection-how-to > h2 {
+  color: #172033;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 2rem;
+  text-align: center;
+}
+
+.how-to-questions {
+  display: grid;
+  gap: 1rem;
+}
+
+.how-to-accordion {
+  background: #ffffff !important;
+  border: 1px solid #e6e8ec !important;
+  border-radius: 8px !important;
+  padding: 1.5rem;
+}
+
+.how-to-accordion summary {
+  align-items: center;
+  color: #1f2937 !important;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.125rem;
+  font-weight: 600;
+  gap: 1rem;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.how-to-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.how-to-accordion summary:focus-visible {
+  border-radius: 4px;
+  outline: 2px solid #3b82f6;
+  outline-offset: 4px;
+}
+
+.how-to-accordion summary svg {
+  color: #3b82f6;
+  flex: 0 0 1.25rem;
+  height: 1.25rem;
+  transition: transform 180ms ease;
+  width: 1.25rem;
+}
+
+.how-to-accordion[open] summary svg {
+  transform: rotate(180deg);
+}
+
+.how-to-answer {
+  color: #667085 !important;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
+.how-to-answer p {
+  margin: 0;
+}
+
+.how-to-answer strong {
+  color: #344054;
+}
+
+.how-to-answer code {
+  background: #eef2ff;
+  border-radius: 4px;
+  color: #3730a3;
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", monospace;
+  font-size: 0.75rem;
+  margin: 0.125rem;
+  padding: 0.2rem 0.4rem;
+  white-space: nowrap;
+}
+
 footer {
   margin-top: 0 !important;
   padding: 2rem 0;
@@ -87,5 +175,18 @@ footer a:hover {
 
   .collection-header {
     padding-bottom: 2rem;
+  }
+
+  .collection-how-to {
+    margin: 3rem auto 0;
+    padding: 0;
+  }
+
+  .how-to-accordion {
+    padding: 1rem;
+  }
+
+  .how-to-accordion summary {
+    font-size: 1rem;
   }
 }
