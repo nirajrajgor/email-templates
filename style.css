@@ -458,7 +458,7 @@ main > div.grid {
 }
 
 .wrapper button[type="button"],
-.wrapper .mt-auto > a[download],
+.collection-main .wrapper .mt-auto > a[download],
 .wrapper .mt-auto > a:last-child {
   border-radius: 8px !important;
   box-shadow: none !important;
@@ -472,13 +472,13 @@ main > div.grid {
 }
 
 .wrapper button[type="button"],
-.wrapper .mt-auto > a[download] {
+.collection-main .wrapper .mt-auto > a[download] {
   background: var(--accent) !important;
   color: #ffffff !important;
 }
 
 .wrapper button[type="button"]:hover,
-.wrapper .mt-auto > a[download]:hover {
+.collection-main .wrapper .mt-auto > a[download]:hover {
   background: var(--accent-hover) !important;
 }
 
