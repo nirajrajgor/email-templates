@@ -13,17 +13,18 @@ const CHECK = process.argv.includes("--check");
 const ROOT = path.resolve(__dirname, "..");
 const PUBLIC_DIR = path.join(ROOT, "public");
 const INDEX_HTML = path.join(ROOT, "index.html");
+const SUPABASE_HTML = path.join(ROOT, "supabase.html");
 
 function getCardImageSources() {
-  const html = fs.readFileSync(INDEX_HTML, "utf8");
-  const $ = cheerio.load(html);
   const sources = new Set();
-  $('#template-grid article.wrapper div[class*="aspect-[4/5]"] img').each(
-    (_, el) => {
+  for (const page of [INDEX_HTML, SUPABASE_HTML]) {
+    const html = fs.readFileSync(page, "utf8");
+    const $ = cheerio.load(html);
+    $('article.wrapper div[class*="aspect-"] img').each((_, el) => {
       const src = $(el).attr("src");
       if (src) sources.add(src.replace(/^\//, ""));
-    },
-  );
+    });
+  }
   return [...sources];
 }
 
