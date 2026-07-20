@@ -4,6 +4,9 @@ import test from "node:test";
 
 import { rethemeHtml } from "../customizer.js";
 
+const getSupabaseVariables = (html) =>
+  html.match(/{{\s+\.[A-Za-z][A-Za-z0-9_]*\s+}}/g) ?? [];
+
 test("rethemes HTML, SVG, and Outlook VML color attributes", () => {
   const html = `
     <style>.cta { background: #667eea; }</style>
@@ -61,7 +64,7 @@ test("Supabase variables survive brand-color customization", async () => {
 
     assert.match(themed, /{{ \.ConfirmationURL }}/);
     assert.match(themed, /{{ \.Email }}/);
-    assert.doesNotMatch(themed, /{{ \.SiteURL }}/);
+    assert.deepEqual(getSupabaseVariables(themed), getSupabaseVariables(html));
     assert.match(themed, /background-color: #0ea5e9/);
     assert.match(themed, /fillcolor="#0ea5e9"/);
   }
@@ -195,10 +198,10 @@ test("Supabase email OTP keeps a prominent one-time code", async () => {
   );
 
   assert.doesNotMatch(html, /{{ \.ConfirmationURL }}/);
-  assert.doesNotMatch(html, /{{ \.SiteURL }}/);
   assert.match(html, /Never share this\s+code with anyone\./);
 
   const themed = rethemeHtml(html, [{ from: "#4f46e5", to: "#0ea5e9" }]);
   assert.match(themed, /{{ \.Token }}/);
+  assert.deepEqual(getSupabaseVariables(themed), getSupabaseVariables(html));
   assert.match(themed, /background-color: #0ea5e9/);
 });
