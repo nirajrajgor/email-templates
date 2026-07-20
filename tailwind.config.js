@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./*.html", "./templates/**/*.{html,js,ts,jsx,tsx}"],
+  content: ["./*.{html,js}", "./templates/**/*.{html,js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
