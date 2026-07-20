@@ -113,3 +113,91 @@ test("Supabase confirm signup keeps a fluid canvas and centered card", async () 
   assert.match(html, /padding: 24px 24px 0/);
   assert.doesNotMatch(card, /border-radius/);
 });
+
+test("Supabase magic link keeps Supabase's recommended content", async () => {
+  const html = await readFile(
+    new URL("../templates/supabase-magic-link.html", import.meta.url),
+    "utf8",
+  );
+  const outerTable = html.match(
+    /<table\s+role="presentation"[\s\S]*?<tr>/,
+  )?.[0];
+  const card = html.match(
+    /<table[\s\S]*?class="email-shell email-card"[\s\S]*?>/,
+  )?.[0];
+  const signinButton = html.match(
+    /<a[\s\S]*?class="signin-button"[\s\S]*?<\/a\s*>/,
+  )?.[0];
+
+  assert.ok(outerTable, "expected the outer email table");
+  assert.match(outerTable, /width: 100% !important/);
+  assert.match(outerTable, /min-width: 100%/);
+
+  assert.ok(card, "expected the centered email card");
+  assert.match(card, /max-width: 520px/);
+  assert.match(card, /margin: 0 auto/);
+
+  assert.match(html, /Your sign-in link/);
+  assert.match(
+    html,
+    /Follow the link below to sign in\. This link expires shortly\s+and can only be used once\./,
+  );
+
+  assert.ok(signinButton, "expected the sign-in button link");
+  assert.match(signinButton, /href="{{ \.ConfirmationURL }}"/);
+  assert.match(signinButton, /width: 100%/);
+  assert.match(signinButton, /min-width: 100%/);
+  assert.match(signinButton, /box-sizing: border-box/);
+  assert.match(signinButton, />Sign in</);
+
+  assert.doesNotMatch(html, /{{ \.Token }}/);
+  assert.match(html, /This sign-in link\s+can only be used once\./);
+});
+
+test("Supabase email OTP keeps a prominent one-time code", async () => {
+  const html = await readFile(
+    new URL("../templates/supabase-email-otp.html", import.meta.url),
+    "utf8",
+  );
+  const outerTable = html.match(
+    /<table\s+role="presentation"[\s\S]*?<tr>/,
+  )?.[0];
+  const card = html.match(
+    /<table[\s\S]*?class="email-shell email-card"[\s\S]*?>/,
+  )?.[0];
+  const otpCode = html.match(
+    /<span[\s\S]*?class="otp-code"[\s\S]*?<\/span\s*>/,
+  )?.[0];
+
+  assert.ok(outerTable, "expected the outer email table");
+  assert.match(outerTable, /width: 100% !important/);
+  assert.match(outerTable, /min-width: 100%/);
+
+  assert.ok(card, "expected the centered email card");
+  assert.match(card, /max-width: 520px/);
+  assert.match(card, /margin: 0 auto/);
+
+  assert.match(html, /Your verification code/);
+  assert.match(
+    html,
+    /Use the code below to verify your identity\. It expires\s+shortly\./,
+  );
+  assert.match(html, /{{ \.Email }}/);
+
+  assert.ok(otpCode, "expected the one-time code display");
+  assert.match(otpCode, /{{ \.Token }}/);
+  assert.match(otpCode, /Courier/);
+  assert.match(otpCode, /letter-spacing/);
+  assert.match(
+    html,
+    /\.otp-code\s*{[\s\S]*?font-size: 24px !important;[\s\S]*?white-space: nowrap !important;/,
+  );
+
+  assert.doesNotMatch(html, /{{ \.ConfirmationURL }}/);
+  assert.doesNotMatch(html, /{{ \.SiteURL }}/);
+  assert.match(html, /Never share this\s+code with anyone\./);
+
+  const themed = rethemeHtml(html, [{ from: "#4f46e5", to: "#0ea5e9" }]);
+  assert.match(themed, /{{ \.Token }}/);
+  assert.match(themed, /background-color: #0ea5e9/);
+});

@@ -1,0 +1,11 @@
+Your verification code
+
+Sign-in requested for {{ .Email }}.
+
+Use the code below to verify your identity. It expires shortly.
+
+Your one-time code: {{ .Token }}
+
+Enter this code where you requested it. It can only be used once.
+
+Didn't request this? You can safely ignore this email. Never share this code with anyone.

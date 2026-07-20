@@ -90,6 +90,22 @@ const templates = {
     back: "./supabase.html",
     integration: "Supabase",
   },
+  "supabase-email-otp": {
+    title: "Supabase Email OTP",
+    file: "./templates/supabase-email-otp.html",
+    background: "#f3f4f6",
+    brand: "#4f46e5",
+    back: "./supabase.html",
+    integration: "Supabase",
+  },
+  "supabase-magic-link": {
+    title: "Supabase Magic Link",
+    file: "./templates/supabase-magic-link.html",
+    background: "#f3f4f6",
+    brand: "#4f46e5",
+    back: "./supabase.html",
+    integration: "Supabase",
+  },
   "supabase-reset-password": {
     title: "Supabase Reset Password",
     file: "./templates/supabase-reset-password.html",
