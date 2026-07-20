@@ -2,25 +2,27 @@ const searchInput = document.getElementById("template-search");
 const resultCount = document.getElementById("template-result-count");
 const emptyState = document.getElementById("template-empty-state");
 const filterButtons = document.querySelectorAll("[data-filter-value]");
+
+const getCardSearchText = (card) => {
+  const title = card.querySelector("h2")?.textContent ?? "";
+  const description =
+    card.querySelector(".catalog-card-meta + p, .integration-card-link > p")
+      ?.textContent ?? "";
+
+  return `${title} ${description}`.toLowerCase();
+};
+
 const integrationCards = Array.from(
   document.querySelectorAll("[data-integration-card]"),
 ).map((card) => ({
   card,
   categories: card.dataset.category.trim().split(/\s+/),
-  searchText: card.textContent.toLowerCase(),
+  searchText: getCardSearchText(card),
 }));
 
 const state = {
   category: "all",
   query: "",
-};
-
-const getCardSearchText = (card) => {
-  const title = card.querySelector("h2")?.textContent ?? "";
-  const description =
-    card.querySelector(".catalog-card-meta + p")?.textContent ?? "";
-
-  return `${title} ${description}`.toLowerCase();
 };
 
 const cards = Array.from(

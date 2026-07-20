@@ -20,6 +20,12 @@ test("the Supabase collection is the first homepage card and has its own filter"
 
   await expect(page.getByRole("button", { name: "Auth" })).toHaveCount(0);
 
+  const search = page.getByRole("searchbox", { name: "Search templates" });
+  await search.fill("View collection");
+  await expect(integration).toBeHidden();
+  await search.fill("");
+  await expect(integration).toBeVisible();
+
   await page.getByRole("button", { name: "Supabase" }).click();
   await expect(integration).toBeVisible();
   await expect(page.locator("#template-grid article.wrapper:visible")).toHaveCount(
