@@ -24,10 +24,6 @@
           width: 100% !important;
         }
 
-        .email-card {
-          border-radius: 0 !important;
-        }
-
         .content-cell {
           padding-left: 24px !important;
           padding-right: 24px !important;
@@ -54,6 +50,7 @@
     style="
       margin: 0;
       padding: 0;
+      width: 100% !important;
       background-color: #f3f6f5;
       font-family: Arial, Helvetica, sans-serif;
       -webkit-text-size-adjust: 100%;
@@ -80,11 +77,22 @@
       cellspacing="0"
       border="0"
       width="100%"
-      style="width: 100%; background-color: #f3f6f5"
+      align="center"
+      style="
+        width: 100% !important;
+        min-width: 100%;
+        table-layout: fixed;
+        margin: 0 auto;
+        background-color: #f3f6f5;
+      "
       bgcolor="#f3f6f5"
     >
       <tr>
-        <td align="center" style="padding: 40px 16px">
+        <td
+          width="100%"
+          align="center"
+          style="width: 100%; padding: 40px 16px"
+        >
           <!--[if mso]>
             <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
               <tr>
@@ -96,19 +104,20 @@
             cellspacing="0"
             border="0"
             width="100%"
+            align="center"
             class="email-shell email-card"
             style="
               width: 100%;
               max-width: 600px;
+              margin: 0 auto;
               background-color: #ffffff;
               border: 1px solid #dfe7e3;
-              border-radius: 16px;
               overflow: hidden;
             "
             bgcolor="#ffffff"
           >
             <tr>
-              <td class="content-cell" style="padding: 40px 48px 0">
+              <td class="content-cell" style="padding: 24px 24px 0">
                 <h1
                   style="
                     margin: 0;
@@ -139,7 +148,7 @@
             </tr>
 
             <tr>
-              <td class="content-cell" style="padding: 30px 48px 0">
+              <td class="content-cell" style="padding: 30px 24px 0">
                 <table
                   role="presentation"
                   cellpadding="0"
@@ -196,7 +205,7 @@
             </tr>
 
             <tr>
-              <td class="content-cell" style="padding: 28px 48px 0">
+              <td class="content-cell" style="padding: 28px 24px 0">
                 <p
                   style="
                     margin: 0;
@@ -228,7 +237,7 @@
             </tr>
 
             <tr>
-              <td class="content-cell" style="padding: 28px 48px 36px">
+              <td class="content-cell" style="padding: 28px 24px 24px">
                 <table
                   role="presentation"
                   cellpadding="0"

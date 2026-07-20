@@ -89,3 +89,27 @@ test("Supabase reset password keeps its email-client layout safeguards", async (
   assert.match(resetButton, /box-sizing: border-box/);
   assert.match(html, /Reset requested for<br \/>/);
 });
+
+test("Supabase confirm signup keeps a fluid canvas and centered card", async () => {
+  const html = await readFile(
+    new URL("../templates/supabase-confirm-signup.html", import.meta.url),
+    "utf8",
+  );
+  const outerTable = html.match(
+    /<table\s+role="presentation"[\s\S]*?<tr>/,
+  )?.[0];
+  const card = html.match(
+    /<table[\s\S]*?class="email-shell email-card"[\s\S]*?>/,
+  )?.[0];
+
+  assert.ok(outerTable, "expected the outer email table");
+  assert.match(outerTable, /width: 100% !important/);
+  assert.match(outerTable, /min-width: 100%/);
+  assert.match(outerTable, /table-layout: fixed/);
+
+  assert.ok(card, "expected the centered email card");
+  assert.match(card, /align="center"/);
+  assert.match(card, /margin: 0 auto/);
+  assert.match(html, /padding: 24px 24px 0/);
+  assert.doesNotMatch(card, /border-radius/);
+});
