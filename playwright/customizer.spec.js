@@ -10,7 +10,7 @@ const customizableTemplates = [
   "welcome-onboarding", "product-review", "reengagement",
   "account-billing-update", "product-promotion",
   "supabase-confirm-signup", "supabase-reset-password",
-  "supabase-magic-link", "supabase-email-otp",
+  "supabase-magic-link", "supabase-email-otp", "supabase-invite-user",
 ];
 const dualColorTemplates = new Set(["gift-decor", "music-event-promotion"]);
 const templateCases = [

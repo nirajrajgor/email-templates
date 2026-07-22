@@ -112,6 +112,11 @@ const TEMPLATE_METADATA = {
     image: "supabase-email-otp-preview.png",
     title: "Supabase Email OTP HTML Email Template",
   },
+  "supabase-invite-user.html": {
+    lastmod: "2026-07-22",
+    image: "supabase-invite-user-preview.png",
+    title: "Supabase Invite User HTML Email Template",
+  },
   "supabase-magic-link.html": {
     lastmod: "2026-07-19",
     image: "supabase-magic-link-preview.png",

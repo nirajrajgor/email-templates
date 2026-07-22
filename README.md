@@ -55,12 +55,13 @@ Template previews have a **Customize** button: pick your brand color (and on sel
 - [Supabase Reset Password HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-reset-password)
 - [Supabase Magic Link HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-magic-link)
 - [Supabase Email OTP HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-email-otp)
+- [Supabase Invite User HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-invite-user)
 
 - More templates are coming soon! Stay tuned for updates.
 
 ## Integration Collections
 
-- [Supabase Email Templates](https://nirajrajgor.github.io/email-templates/supabase.html) — includes customizable Confirm Signup, Reset Password, Magic Link, and Email OTP designs with Supabase variables preserved during customization.
+- [Supabase Email Templates](https://nirajrajgor.github.io/email-templates/supabase.html) — includes customizable Confirm Signup, Reset Password, Magic Link, Email OTP, and Invite User designs with Supabase variables preserved during customization.
 
 ## Setup Instructions
 

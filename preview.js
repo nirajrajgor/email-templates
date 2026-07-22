@@ -98,6 +98,14 @@ const templates = {
     back: "./supabase.html",
     integration: "Supabase",
   },
+  "supabase-invite-user": {
+    title: "Supabase Invite User",
+    file: "./templates/supabase-invite-user.html",
+    background: "#f3f4f6",
+    brand: "#4f46e5",
+    back: "./supabase.html",
+    integration: "Supabase",
+  },
   "supabase-magic-link": {
     title: "Supabase Magic Link",
     file: "./templates/supabase-magic-link.html",
