@@ -1,0 +1,6 @@
+You've been invited
+
+You've been invited to create an account. Follow the link below to accept.
+
+Accept invitation:
+{{ .ConfirmationURL }}

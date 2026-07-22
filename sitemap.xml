@@ -5,7 +5,7 @@
   <!-- Main Pages -->
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -15,7 +15,7 @@
   </url>
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/supabase.html</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -209,6 +209,16 @@
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/supabase-email-otp-preview.png</image:loc>
       <image:title>Supabase Email OTP HTML Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/supabase-invite-user.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/supabase-invite-user-preview.png</image:loc>
+      <image:title>Supabase Invite User HTML Email Template</image:title>
     </image:image>
   </url>
   <url>
