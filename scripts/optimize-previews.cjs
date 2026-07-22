@@ -17,7 +17,8 @@ const SUPABASE_HTML = path.join(ROOT, "supabase.html");
 const CARD_GRIDS = [
   {
     page: INDEX_HTML,
-    selector: '#template-grid article.wrapper div[class*="aspect-"] img',
+    selector:
+      '#template-grid article.wrapper div[class*="aspect-"] img, #template-grid [data-integration-card] .integration-card-preview img',
   },
   {
     page: SUPABASE_HTML,

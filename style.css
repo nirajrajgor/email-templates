@@ -233,11 +233,11 @@ main > div.grid {
 
 .integration-card-link {
   background: #ffffff;
-  border: 1px solid #9fe5c6;
+  border: 1px solid #c7d2fe;
   border-radius: 8px;
   box-shadow:
-    5px 5px 0 #e7faf2,
-    9px 9px 0 #c9f2df;
+    5px 5px 0 #eef2ff,
+    9px 9px 0 #e0e7ff;
   color: inherit;
   display: flex;
   flex-direction: column;
@@ -251,34 +251,30 @@ main > div.grid {
 }
 
 .integration-card-link:hover {
-  border-color: #53d59c;
+  border-color: #818cf8;
   box-shadow:
-    5px 5px 0 #dcf8eb,
-    9px 9px 0 #b6edcf;
+    5px 5px 0 #e0e7ff,
+    9px 9px 0 #c7d2fe;
   transform: translateY(-2px);
 }
 
 .integration-card-link:focus-visible {
-  outline: 3px solid rgba(16, 185, 129, 0.24);
+  outline: 3px solid rgba(79, 70, 229, 0.24);
   outline-offset: 3px;
 }
 
 .integration-card-preview {
-  align-items: center;
   aspect-ratio: 4 / 5;
-  background: #35c589;
+  background: #f3f4f6;
   border-radius: 8px;
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
+  overflow: hidden;
 }
 
-.integration-card-preview span {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+.integration-card-preview img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
 .integration-card-heading {
@@ -298,10 +294,10 @@ main > div.grid {
 }
 
 .integration-card-heading span {
-  background: #e9fbf3;
-  border: 1px solid #a7e8cd;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
   border-radius: 999px;
-  color: #087554;
+  color: #3730a3;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
   font-size: 0.6875rem;
@@ -321,8 +317,8 @@ main > div.grid {
 
 .integration-card-action {
   align-items: center;
-  background: #16865a;
-  border: 1px solid #16865a;
+  background: #4f46e5;
+  border: 1px solid #4f46e5;
   border-radius: 8px;
   color: #ffffff;
   display: flex;
@@ -337,8 +333,8 @@ main > div.grid {
 }
 
 .integration-card-link:hover .integration-card-action {
-  background: #126e4a;
-  border-color: #126e4a;
+  background: #4338ca;
+  border-color: #4338ca;
 }
 
 .catalog-card-meta {

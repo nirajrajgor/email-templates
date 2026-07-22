@@ -29,7 +29,7 @@ const supabaseTemplates = [
     id: "supabase-invite-user",
     cardTitle: "Invite User",
     previewTitle: "Supabase Invite User",
-    emailHeading: "You've been invited",
+    emailHeading: "You’ve been invited",
   },
 ];
 
@@ -41,9 +41,9 @@ test("the Supabase collection is the first homepage card and has its own filter"
   const integration = page.locator("[data-integration-card]");
   await expect(integration).toBeVisible();
   await expect(integration).toContainText("Supabase");
-  await expect(integration).toContainText(
-    `${supabaseTemplates.length} templates`,
-  );
+  await expect(
+    integration.locator(".integration-card-preview img"),
+  ).toHaveAttribute("src", /\/supabase-collection-card-preview\.png$/);
   await expect(page.locator("#template-grid > article").first()).toHaveAttribute(
     "data-integration-card",
     "",
