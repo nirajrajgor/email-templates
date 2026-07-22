@@ -50,6 +50,23 @@ const supabaseTemplates = [
     fixedLayout: true,
     hasOtpCode: true,
   },
+  {
+    file: "supabase-invite-user.html",
+    label: "Invite User",
+    variables: [
+      "ConfirmationURL",
+      "ConfirmationURL",
+      "ConfirmationURL",
+    ],
+    maxWidth: 520,
+    actionClass: "invite-button",
+    fullWidthAction: true,
+    fixedLayout: true,
+    hasVmlButton: true,
+    excludesEmail: true,
+    recommendedContent:
+      /You&rsquo;ve been invited to create an account\. Follow the link\s+below to accept\./,
+  },
 ];
 
 const readTemplate = (file) =>
@@ -164,6 +181,10 @@ for (const template of supabaseTemplates) {
 
     if (template.recommendedContent) {
       assert.match(html, template.recommendedContent);
+    }
+
+    if (template.excludesEmail) {
+      assert.doesNotMatch(html, /{{\s+\.Email\s+}}/);
     }
 
     if (template.hasOtpCode) {

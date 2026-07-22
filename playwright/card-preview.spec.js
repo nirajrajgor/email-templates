@@ -27,7 +27,7 @@ test("compact Supabase emails remain fully visible in square previews", async ({
   const previews = page.locator(
     '.collection-template-grid article.wrapper > div[class*="aspect-"]',
   );
-  await expect(previews).toHaveCount(4);
+  await expect(previews).toHaveCount(5);
 
   const previewStates = await previews.evaluateAll((nodes) =>
     nodes.map((node) => {

@@ -25,6 +25,12 @@ const supabaseTemplates = [
     previewTitle: "Supabase Email OTP",
     emailHeading: "Your verification code",
   },
+  {
+    id: "supabase-invite-user",
+    cardTitle: "Invite User",
+    previewTitle: "Supabase Invite User",
+    emailHeading: "You've been invited",
+  },
 ];
 
 test("the Supabase collection is the first homepage card and has its own filter", async ({
