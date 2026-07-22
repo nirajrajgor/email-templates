@@ -1,6 +1,6 @@
-# Free Email Templates - Download Instantly, No Signups Required!
+# Free Responsive HTML Email Templates
 
-**⚡ Blazing-fast, responsive HTML email templates ready to copy, paste & send.**
+**Preview, customize, copy, and download responsive HTML email templates.**
 
 ---
 
@@ -15,53 +15,49 @@
 
 ---
 
-Unlock a collection of free, professional, and responsive HTML email templates perfect for any business need! Download now to elevate your email game effortlessly.
-
-You can access the deployed templates at [https://nirajrajgor.github.io/email-templates/](https://nirajrajgor.github.io/email-templates/). No signup or registration is required; you can download the templates directly with just one click of a button!
+Browse templates for transactional, ecommerce, authentication, and marketing emails. Customize colors in your browser, then copy or download the HTML. No signup is required.
 
 ![Email Templates homepage screenshot](public/homepage-screenshot.jpg)
 
 ## Live Demo
 
-▶️ **Explore them here →** <https://nirajrajgor.github.io/email-templates/>
-
-No signup required—download with a single click!
+[Browse the live templates →](https://nirajrajgor.github.io/email-templates/)
 
 ## Customize to Your Brand
 
-Template previews have a **Customize** button: pick your brand color (and on select templates, an accent color) and the whole palette re-themes live — tints, shades, and buttons stay in sync while neutral elements keep their design. Then download or copy the recolored HTML. Free, in the browser, no signup.
+Each template preview includes a **Customize** button. Choose a brand color to update the palette while keeping neutral elements unchanged. Supported templates also let you choose an accent color.
+
+When you are finished, copy the customized HTML or download it as a file.
 
 ## Available Templates
 
-- [Ecommerce Order Emailer](https://nirajrajgor.github.io/email-templates/preview.html?template=ecommerce-order)
-- [Product Confirmation Template](https://nirajrajgor.github.io/email-templates/preview.html?template=product-confirmation)
-- [Purchase Confirmation Template](https://nirajrajgor.github.io/email-templates/preview.html?template=purchase-confirmation)
-- [Promotional Offer Template](https://nirajrajgor.github.io/email-templates/preview.html?template=promotional-offer)
-- [Shopping Deals Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=shopping-deals)
-- [Gift Decor Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=gift-decor)
-- [Product Announcements Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=product-announcements)
-- [AI Newsletter HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=ai-newsletter)
-- [Music Event HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=music-event-promotion)
-- [Password Reset HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=password-reset)
-- [Abandoned Cart HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=abandoned-cart)
-- [Account Verification HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=account-verification)
-- [Welcome Onboarding HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=welcome-onboarding)
-- [Product Review HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=product-review)
-- [Re-engagement HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=reengagement)
-- [Account Billing Update HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=account-billing-update)
-- [Product Promotion HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=product-promotion)
-- [Shipping Confirmation HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=shipping-confirmation)
-- [Supabase Confirm Signup HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-confirm-signup)
-- [Supabase Reset Password HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-reset-password)
-- [Supabase Magic Link HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-magic-link)
-- [Supabase Email OTP HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-email-otp)
-- [Supabase Invite User HTML Email Template](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-invite-user)
-
-- More templates are coming soon! Stay tuned for updates.
+- [Ecommerce Order](https://nirajrajgor.github.io/email-templates/preview.html?template=ecommerce-order)
+- [Product Confirmation](https://nirajrajgor.github.io/email-templates/preview.html?template=product-confirmation)
+- [Purchase Confirmation](https://nirajrajgor.github.io/email-templates/preview.html?template=purchase-confirmation)
+- [Promotional Offer](https://nirajrajgor.github.io/email-templates/preview.html?template=promotional-offer)
+- [Shopping Deals](https://nirajrajgor.github.io/email-templates/preview.html?template=shopping-deals)
+- [Gift Decor](https://nirajrajgor.github.io/email-templates/preview.html?template=gift-decor)
+- [Product Announcement](https://nirajrajgor.github.io/email-templates/preview.html?template=product-announcements)
+- [AI Newsletter](https://nirajrajgor.github.io/email-templates/preview.html?template=ai-newsletter)
+- [Music Event Promotion](https://nirajrajgor.github.io/email-templates/preview.html?template=music-event-promotion)
+- [Password Reset](https://nirajrajgor.github.io/email-templates/preview.html?template=password-reset)
+- [Abandoned Cart](https://nirajrajgor.github.io/email-templates/preview.html?template=abandoned-cart)
+- [Account Verification](https://nirajrajgor.github.io/email-templates/preview.html?template=account-verification)
+- [Welcome and Onboarding](https://nirajrajgor.github.io/email-templates/preview.html?template=welcome-onboarding)
+- [Product Review](https://nirajrajgor.github.io/email-templates/preview.html?template=product-review)
+- [Re-engagement](https://nirajrajgor.github.io/email-templates/preview.html?template=reengagement)
+- [Account Billing Update](https://nirajrajgor.github.io/email-templates/preview.html?template=account-billing-update)
+- [Product Promotion](https://nirajrajgor.github.io/email-templates/preview.html?template=product-promotion)
+- [Shipping Confirmation](https://nirajrajgor.github.io/email-templates/preview.html?template=shipping-confirmation)
+- [Supabase Confirm Signup](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-confirm-signup)
+- [Supabase Reset Password](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-reset-password)
+- [Supabase Magic Link](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-magic-link)
+- [Supabase Email OTP](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-email-otp)
+- [Supabase Invite User](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-invite-user)
 
 ## Integration Collections
 
-- [Supabase Email Templates](https://nirajrajgor.github.io/email-templates/supabase.html) — includes customizable Confirm Signup, Reset Password, Magic Link, Email OTP, and Invite User designs with Supabase variables preserved during customization.
+- [Supabase Email Templates](https://nirajrajgor.github.io/email-templates/supabase.html) includes customizable Confirm Signup, Reset Password, Magic Link, Email OTP, and Invite User designs. Supabase variables are preserved during customization.
 
 ## Setup Instructions
 
@@ -82,9 +78,9 @@ Template previews have a **Customize** button: pick your brand color (and on sel
    npm run dev
    ```
 
-# Support Our Project
+## Support the Project
 
-If you find these templates useful, please consider starring the repository! Your support is greatly appreciated!
+If these templates are useful, consider starring the repository.
 
 ## Disclaimer
 
@@ -96,4 +92,4 @@ HTML email templates • responsive email • free email template • newsletter
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
