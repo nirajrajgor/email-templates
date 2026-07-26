@@ -73,6 +73,7 @@ test("mobile, stripped-CSS, and dark preview modes remain usable", async ({
   await page.setViewportSize({ width: 320, height: 800 });
   await page.goto("preview.html?template=product-promotion");
   await expect(page.locator("#template-frame")).toBeVisible();
+  await expect(page.locator("#dark-menu-label")).toHaveText("Original");
 
   await selectOption(
     page,
@@ -117,6 +118,7 @@ test("mobile, stripped-CSS, and dark preview modes remain usable", async ({
   expect(geometry.right).toBeLessThanOrEqual(geometry.viewport);
 
   await selectOption(page, "#dark-menu-button", '[data-dark-mode="full"]');
+  await expect(page.locator("#dark-menu-label")).toHaveText("Full inversion");
   await expect
     .poll(() =>
       page.locator("#template-frame").evaluate(
@@ -126,6 +128,18 @@ test("mobile, stripped-CSS, and dark preview modes remain usable", async ({
       ),
     )
     .toBeGreaterThan(0);
+
+  await selectOption(page, "#dark-menu-button", '[data-dark-mode="none"]');
+  await expect(page.locator("#dark-menu-label")).toHaveText("Original");
+  await expect
+    .poll(() =>
+      page.locator("#template-frame").evaluate(
+        (frame) =>
+          frame.contentDocument?.querySelectorAll("[data-dark-sim-original]")
+            .length ?? 0,
+      ),
+    )
+    .toBe(0);
 
   const originalDownload = await page.evaluate(async () => {
     const response = await fetch(document.getElementById("download-link").href);

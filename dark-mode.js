@@ -1,5 +1,4 @@
-// Simulate per-element client transformations: partial inversion changes light
-// surfaces and dark text, while full inversion remaps every color.
+// Approximate common dark-mode transformations for visual stress testing.
 
 import { hslToRgb, relativeLuminance, rgbToHsl } from "./color.js";
 
@@ -9,6 +8,8 @@ const SKIP_TAGS = ["IMG", "PICTURE", "VIDEO", "SVG"];
 
 const LIGHT_BG_LUMINANCE = 0.62;
 const DARK_TEXT_LUMINANCE = 0.38;
+const INVERT_FLOOR = 0.05;
+const INVERT_RANGE = 0.9;
 
 const parseColor = (value) => {
   if (!value) return null;
@@ -27,18 +28,29 @@ const toCss = ({ r, g, b }, a) =>
 // Ends are compressed: clients land white on dark grey, not pure black.
 const darkenSurface = (hsl) => ({ ...hsl, l: 0.06 + (1 - hsl.l) * 0.3 });
 const lightenInk = (hsl) => ({ ...hsl, l: 0.95 - hsl.l * 0.3 });
-const invertLightness = (hsl) => ({ ...hsl, l: 0.05 + (1 - hsl.l) * 0.9 });
+
+const invertChannel = (value) =>
+  Math.round(255 * (INVERT_FLOOR + (1 - value / 255) * INVERT_RANGE));
+
+export const invertRgb = ({ r, g, b }) => ({
+  r: invertChannel(r),
+  g: invertChannel(g),
+  b: invertChannel(b),
+});
 
 const remap = (color, role, mode) => {
+  if (mode === "full") return invertRgb(color);
+
   const hsl = rgbToHsl(color);
   const luminance = relativeLuminance(color);
-
-  if (mode === "full") return invertLightness(hsl);
-
   if (role === "background") {
-    return luminance >= LIGHT_BG_LUMINANCE ? darkenSurface(hsl) : null;
+    return luminance >= LIGHT_BG_LUMINANCE
+      ? hslToRgb(darkenSurface(hsl))
+      : null;
   }
-  return luminance <= DARK_TEXT_LUMINANCE ? lightenInk(hsl) : null;
+  return luminance <= DARK_TEXT_LUMINANCE
+    ? hslToRgb(lightenInk(hsl))
+    : null;
 };
 
 const applyProperty = (element, property, computed, role, mode, originals) => {
@@ -49,7 +61,7 @@ const applyProperty = (element, property, computed, role, mode, originals) => {
   if (!next) return;
 
   originals[property] = element.style[property];
-  element.style[property] = toCss(hslToRgb(next), color.a);
+  element.style[property] = toCss(next, color.a);
 };
 
 export const applyDarkSimulation = (doc, mode) => {

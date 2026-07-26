@@ -424,7 +424,7 @@ viewportButtons.forEach((button) => {
 let darkMode = "none";
 
 const DARK_MODE_LABELS = {
-  none: "No change",
+  none: "Original",
   partial: "Partial inversion",
   full: "Full inversion",
 };

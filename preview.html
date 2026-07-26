@@ -95,7 +95,7 @@
               data-viewport="desktop"
             >
               <span class="dark-menu-item-name">Desktop</span>
-              <span class="dark-menu-item-clients">
+              <span class="dark-menu-item-description">
                 Full width, embedded CSS applied
               </span>
             </button>
@@ -107,7 +107,7 @@
               data-viewport="mobile"
             >
               <span class="dark-menu-item-name">Mobile</span>
-              <span class="dark-menu-item-clients">
+              <span class="dark-menu-item-description">
                 Apple Mail on iOS, Gmail with a Google account, Samsung Mail,
                 Outlook mobile
               </span>
@@ -122,7 +122,7 @@
               <span class="dark-menu-item-name"
                 >Mobile, embedded CSS stripped</span
               >
-              <span class="dark-menu-item-clients">
+              <span class="dark-menu-item-description">
                 Gmail app signed in to a non-Gmail (IMAP) account — it drops
                 every &lt;style&gt; block, so media queries never run
               </span>
@@ -136,7 +136,7 @@
             id="dark-menu-button"
             aria-haspopup="menu"
             aria-expanded="false"
-            aria-label="Dark mode simulation"
+            aria-label="Dark mode stress test"
           >
             <svg
               class="icon"
@@ -152,7 +152,7 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <span id="dark-menu-label">No change</span>
+            <span id="dark-menu-label">Original</span>
             <svg
               class="chevron-icon"
               viewBox="0 0 20 20"
@@ -169,7 +169,7 @@
             </svg>
           </button>
           <div class="dark-menu-list" id="dark-menu-list" role="menu" hidden>
-            <p class="dark-menu-heading">Dark mode simulation</p>
+            <p class="dark-menu-heading">Dark mode stress test</p>
             <button
               class="dark-menu-item is-active"
               type="button"
@@ -177,9 +177,9 @@
               aria-checked="true"
               data-dark-mode="none"
             >
-              <span class="dark-menu-item-name">No change</span>
-              <span class="dark-menu-item-clients">
-                Apple Mail, Gmail on desktop, Yahoo, AOL
+              <span class="dark-menu-item-name">Original</span>
+              <span class="dark-menu-item-description">
+                Source rendering, no forced transformation
               </span>
             </button>
             <button
@@ -190,8 +190,9 @@
               data-dark-mode="partial"
             >
               <span class="dark-menu-item-name">Partial inversion</span>
-              <span class="dark-menu-item-clients">
-                Outlook.com, Outlook iOS and Android, Office 365 for Mac
+              <span class="dark-menu-item-description">
+                Approximates light surfaces becoming dark and dark text
+                becoming light
               </span>
             </button>
             <button
@@ -202,10 +203,14 @@
               data-dark-mode="full"
             >
               <span class="dark-menu-item-name">Full inversion</span>
-              <span class="dark-menu-item-clients">
-                Gmail for iOS, Outlook for Windows, Windows Mail
+              <span class="dark-menu-item-description">
+                Approximates all HTML colors inverting; images stay unchanged
               </span>
             </button>
+            <p class="dark-menu-note">
+              Approximation only — email clients apply different
+              transformations.
+            </p>
           </div>
         </div>
       </div>

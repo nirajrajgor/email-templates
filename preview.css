@@ -454,10 +454,18 @@ body {
   color: #1d4ed8;
 }
 
-.dark-menu-item-clients {
+.dark-menu-item-description {
   color: var(--muted);
   font-size: 12px;
   line-height: 1.4;
+}
+
+.dark-menu-note {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+  margin: 0;
+  padding: 8px 10px 6px;
 }
 
 .preview-warning {
