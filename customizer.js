@@ -1,72 +1,42 @@
-// Brand-color customizer: re-themes a template by transforming its whole
-// saturated palette relative to one brand color, so tints/shades stay in sync.
+// Re-theme a template's saturated palette while preserving relative shades.
+
+import {
+  clamp01,
+  contrastWithWhite,
+  hexToRgba,
+  hslToRgb,
+  rgbToHex,
+  rgbToHsl,
+} from "./color.js";
 
 const SATURATION_MIN = 0.3;
+const HEX_COLOR_RE = /^#[0-9a-f]{6}$/i;
+const SWATCHES = [
+  ["original", "Original"],
+  ["#4f46e5", "Indigo"],
+  ["#0ea5e9", "Sky"],
+  ["#059669", "Emerald"],
+  ["#d97706", "Amber"],
+  ["#e11d48", "Rose"],
+  ["#7c3aed", "Violet"],
+];
 
-const clamp01 = (value) => Math.min(1, Math.max(0, value));
-
-const hexToRgba = (hex) => {
-  let digits = hex.slice(1);
-  if (digits.length <= 4) {
-    digits = [...digits].map((char) => char + char).join("");
-  }
-  const int = parseInt(digits.slice(0, 6), 16);
-  return {
-    r: (int >> 16) & 255,
-    g: (int >> 8) & 255,
-    b: int & 255,
-    a: digits.length === 8 ? parseInt(digits.slice(6, 8), 16) / 255 : 1,
-  };
+const renderSwatches = (section) => {
+  const colorRole = section.dataset.colorControl;
+  section.querySelector(".swatch-row").innerHTML = SWATCHES.map(
+    ([value, name]) => `
+      <button class="swatch" type="button" aria-pressed="false"
+        data-swatch="${value}" title="${name}"
+        aria-label="${value === "original" ? `Original ${colorRole} color` : name}"
+        ${value === "original" ? "" : `style="--swatch: ${value}"`}>
+        <span class="swatch-dot" aria-hidden="true"></span>
+        <span class="swatch-name">${name}</span>
+      </button>`,
+  ).join("");
 };
 
-const rgbToHsl = ({ r, g, b }) => {
-  const red = r / 255;
-  const green = g / 255;
-  const blue = b / 255;
-  const max = Math.max(red, green, blue);
-  const min = Math.min(red, green, blue);
-  const delta = max - min;
-  const l = (max + min) / 2;
-
-  if (delta === 0) return { h: 0, s: 0, l };
-
-  const s = delta / (1 - Math.abs(2 * l - 1));
-  let h;
-  if (max === red) h = ((green - blue) / delta) % 6;
-  else if (max === green) h = (blue - red) / delta + 2;
-  else h = (red - green) / delta + 4;
-  h = (h * 60 + 360) % 360;
-
-  return { h, s: clamp01(s), l };
-};
-
-const hslToRgb = ({ h, s, l }) => {
-  const chroma = (1 - Math.abs(2 * l - 1)) * s;
-  const x = chroma * (1 - Math.abs(((h / 60) % 2) - 1));
-  const m = l - chroma / 2;
-  const sextant = Math.floor(h / 60) % 6;
-  const [red, green, blue] = [
-    [chroma, x, 0],
-    [x, chroma, 0],
-    [0, chroma, x],
-    [0, x, chroma],
-    [x, 0, chroma],
-    [chroma, 0, x],
-  ][sextant];
-
-  return {
-    r: Math.round((red + m) * 255),
-    g: Math.round((green + m) * 255),
-    b: Math.round((blue + m) * 255),
-  };
-};
-
-const rgbToHex = ({ r, g, b }) =>
-  "#" + [r, g, b].map((v) => v.toString(16).padStart(2, "0")).join("");
-
-// Shift a color by the same relative move the brand color makes: hue by
-// delta, saturation by ratio, lightness proportionally into the headroom
-// left above/below the new brand lightness (keeps tints from clipping).
+// Shift hue by delta and scale saturation/lightness relative to the brand color,
+// preserving tint and shade relationships without clipping.
 const remapHsl = (hsl, from, to) => {
   const h = (to.h + (hsl.h - from.h) + 360) % 360;
   const s = from.s > 0 ? clamp01(hsl.s * (to.s / from.s)) : hsl.s;
@@ -78,14 +48,14 @@ const remapHsl = (hsl, from, to) => {
   return { h, s, l };
 };
 
-const HEX_TOKEN = "#(?:[0-9a-f]{8}|[0-9a-f]{6}|[0-9a-f]{4}|[0-9a-f]{3})(?![0-9a-f])";
+const HEX_TOKEN =
+  "#(?:[0-9a-f]{8}|[0-9a-f]{6}|[0-9a-f]{4}|[0-9a-f]{3})(?![0-9a-f])";
 const RGB_TOKEN =
   "rgba?\\(\\s*\\d{1,3}\\s*,\\s*\\d{1,3}\\s*,\\s*\\d{1,3}\\s*(?:,\\s*(?:\\d*\\.)?\\d+\\s*)?\\)";
 const COLOR_TOKEN_RE = new RegExp(`${HEX_TOKEN}|${RGB_TOKEN}`, "gi");
 
-// Only rewrite colors inside style contexts so hex-like text content
-// (e.g. "Order number: #6200600") is never touched. Include SVG and Outlook
-// VML color attributes, and accept either HTML attribute quote style.
+// Limit replacements to style, SVG, and Outlook VML contexts so hex-like text
+// such as order numbers is never modified.
 const STYLE_CONTEXT_RE =
   /<style\b[\s\S]*?<\/style>|\b(?:style|bgcolor|color|fillcolor|strokecolor|fill|stroke)\s*=\s*(?:"[^"]*"|'[^']*')/gi;
 
@@ -102,8 +72,7 @@ const hueDistance = (a, b) => {
   return d > 180 ? 360 - d : d;
 };
 
-// Each pair anchors one hue family: themed colors follow whichever anchor is
-// nearest by hue, so a template's brand and accent can be repicked separately.
+// Map each color through its nearest hue anchor so brand and accent stay separate.
 const buildAnchors = (pairs) =>
   pairs.map(({ from, to }) => ({
     identity: from.toLowerCase() === to.toLowerCase(),
@@ -111,9 +80,7 @@ const buildAnchors = (pairs) =>
     to: rgbToHsl(hexToRgba(to)),
   }));
 
-// pinned: semantic colors (success badges, warnings) that must never follow
-// the brand. themedExtra: colors below the saturation threshold that still
-// belong to the brand family (e.g. muted browns in a warm monochrome theme).
+// Keep semantic colors pinned; themedExtra opts muted brand colors into mapping.
 const buildOptions = ({ pinned = [], themedExtra = [] } = {}) => ({
   pinned: new Set(pinned.map((c) => rgbKey(hexToRgba(c)))),
   themedExtra: new Set(themedExtra.map((c) => rgbKey(hexToRgba(c)))),
@@ -161,37 +128,49 @@ export const rethemeHtml = (html, pairs, overrides) => {
 export const rethemeCssColor = (color, pairs, overrides) => {
   const match = color.match(COLOR_TOKEN_RE);
   if (!match || match[0] !== color.trim()) return color;
-  return transformToken(color.trim(), buildAnchors(pairs), buildOptions(overrides));
-};
-
-const contrastWithWhite = (hex) => {
-  const channel = (v) => {
-    const c = v / 255;
-    return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
-  };
-  const { r, g, b } = hexToRgba(hex);
-  const luminance = 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b);
-  return 1.05 / (luminance + 0.05);
+  return transformToken(
+    color.trim(),
+    buildAnchors(pairs),
+    buildOptions(overrides),
+  );
 };
 
 const initColorControl = (section, original, onPick) => {
+  renderSwatches(section);
   const swatches = Array.from(section.querySelectorAll("[data-swatch]"));
   const colorInput = section.querySelector('input[type="color"]');
   const hexInput = section.querySelector('input[type="text"]');
   const originalSwatch = section.querySelector('[data-swatch="original"]');
   originalSwatch.style.setProperty("--swatch", original);
 
+  const error = document.createElement("p");
+  error.className = "customize-error";
+  error.hidden = true;
+  error.textContent = "Enter a 6-digit hex color, like #2563eb.";
+  hexInput.parentElement.insertAdjacentElement("afterend", error);
+
   const state = { value: original };
+
+  const setError = (isInvalid) => {
+    error.hidden = !isInvalid;
+    hexInput.classList.toggle("is-invalid", isInvalid);
+    hexInput.setAttribute("aria-invalid", String(isInvalid));
+  };
+
+  const setActiveSwatch = (predicate) => {
+    swatches.forEach((swatch) => {
+      const isActive = predicate(swatch);
+      swatch.classList.toggle("is-active", isActive);
+      swatch.setAttribute("aria-pressed", String(isActive));
+    });
+  };
 
   const setValue = (hex, activeSwatch = null) => {
     state.value = hex;
     colorInput.value = hex;
     hexInput.value = hex;
-    swatches.forEach((swatch) => {
-      const isActive = swatch === activeSwatch;
-      swatch.classList.toggle("is-active", isActive);
-      swatch.setAttribute("aria-pressed", String(isActive));
-    });
+    setError(false);
+    setActiveSwatch((swatch) => swatch === activeSwatch);
   };
   setValue(original, originalSwatch);
 
@@ -205,26 +184,45 @@ const initColorControl = (section, original, onPick) => {
     });
   });
 
+  // Re-theme once after a burst of picker or keyboard input.
   let debounceTimer;
-  colorInput.addEventListener("input", () => {
+  const applySoon = () => {
     clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => {
-      setValue(colorInput.value);
-      onPick();
-    }, 150);
+    debounceTimer = setTimeout(onPick, 150);
+  };
+
+  colorInput.addEventListener("input", () => {
+    setValue(colorInput.value);
+    applySoon();
   });
 
-  hexInput.addEventListener("change", () => {
-    const value = hexInput.value.trim().replace(/^([0-9a-f]{6})$/i, "#$1");
-    if (/^#[0-9a-f]{6}$/i.test(value)) {
-      setValue(value);
-      onPick();
-    } else {
+  const normalize = (raw) => raw.trim().replace(/^#?([0-9a-f]{6})$/i, "#$1");
+
+  hexInput.addEventListener("input", () => {
+    const value = normalize(hexInput.value);
+    if (!HEX_COLOR_RE.test(value)) {
+      setError(hexInput.value.trim().length > 0);
+      return;
+    }
+    state.value = value;
+    colorInput.value = value;
+    setError(false);
+    setActiveSwatch(
+      (swatch) =>
+        (swatch.dataset.swatch || "").toLowerCase() === value.toLowerCase(),
+    );
+    applySoon();
+  });
+
+  // Restore the last good value if the field is left in an invalid state.
+  hexInput.addEventListener("blur", () => {
+    if (!HEX_COLOR_RE.test(normalize(hexInput.value))) {
       hexInput.value = state.value;
+      setError(false);
     }
   });
 
-  return state;
+  return { state, reset: () => setValue(original, originalSwatch) };
 };
 
 export const initCustomizer = ({
@@ -236,27 +234,24 @@ export const initCustomizer = ({
   loadHtml,
   onApply,
 }) => {
-  const menu = document.getElementById("customize-menu");
-  const button = document.getElementById("customize-button");
   const panel = document.getElementById("customize-panel");
+  const resetButton = document.getElementById("customize-reset");
   const hint = document.getElementById("contrast-hint");
   const brandSection = panel.querySelector('[data-color-control="brand"]');
   const accentSection = panel.querySelector('[data-color-control="accent"]');
 
-  button.hidden = false;
+  // The markup ships hidden, so templates that never call this skip the rail.
+  panel.hidden = false;
 
   let originalHtml = null;
   const ensureHtml = async () => (originalHtml ??= await loadHtml());
 
-  const setPanelOpen = (isOpen) => {
-    panel.hidden = !isOpen;
-    button.setAttribute("aria-expanded", String(isOpen));
-  };
-
   const applyTheme = async () => {
     const html = await ensureHtml();
-    const pairs = [{ from: brand, to: brandControl.value }];
-    if (accentControl) pairs.push({ from: accent, to: accentControl.value });
+    const pairs = [{ from: brand, to: brandControl.state.value }];
+    if (accentControl) {
+      pairs.push({ from: accent, to: accentControl.state.value });
+    }
     const isOriginal = pairs.every(
       ({ from, to }) => from.toLowerCase() === to.toLowerCase(),
     );
@@ -268,8 +263,9 @@ export const initCustomizer = ({
         : rethemeCssColor(background, pairs, overrides),
     });
     const brandChanged =
-      brandControl.value.toLowerCase() !== brand.toLowerCase();
-    hint.hidden = !brandChanged || contrastWithWhite(brandControl.value) >= 3;
+      brandControl.state.value.toLowerCase() !== brand.toLowerCase();
+    hint.hidden =
+      !brandChanged || contrastWithWhite(brandControl.state.value) >= 3;
   };
 
   const brandControl = initColorControl(brandSection, brand, applyTheme);
@@ -279,18 +275,9 @@ export const initCustomizer = ({
     accentControl = initColorControl(accentSection, accent, applyTheme);
   }
 
-  button.addEventListener("click", (event) => {
-    event.stopPropagation();
-    setPanelOpen(panel.hidden);
-  });
-
-  panel.addEventListener("click", (event) => event.stopPropagation());
-
-  document.addEventListener("click", (event) => {
-    if (!menu.contains(event.target)) setPanelOpen(false);
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setPanelOpen(false);
+  resetButton?.addEventListener("click", () => {
+    brandControl.reset();
+    accentControl?.reset();
+    applyTheme();
   });
 };
