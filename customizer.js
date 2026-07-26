@@ -2,7 +2,6 @@
 
 import {
   clamp01,
-  contrastWithWhite,
   hexToRgba,
   hslToRgb,
   rgbToHex,
@@ -236,7 +235,6 @@ export const initCustomizer = ({
 }) => {
   const panel = document.getElementById("customize-panel");
   const resetButton = document.getElementById("customize-reset");
-  const hint = document.getElementById("contrast-hint");
   const brandSection = panel.querySelector('[data-color-control="brand"]');
   const accentSection = panel.querySelector('[data-color-control="accent"]');
 
@@ -262,10 +260,6 @@ export const initCustomizer = ({
         ? background
         : rethemeCssColor(background, pairs, overrides),
     });
-    const brandChanged =
-      brandControl.state.value.toLowerCase() !== brand.toLowerCase();
-    hint.hidden =
-      !brandChanged || contrastWithWhite(brandControl.state.value) >= 3;
   };
 
   const brandControl = initColorControl(brandSection, brand, applyTheme);

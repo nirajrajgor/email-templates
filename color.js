@@ -69,15 +69,3 @@ export const relativeLuminance = ({ r, g, b }) => {
   };
   return 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b);
 };
-
-export const contrastRatio = (first, second) => {
-  const [lighter, darker] = [
-    relativeLuminance(first),
-    relativeLuminance(second),
-  ].sort((a, b) => b - a);
-  return (lighter + 0.05) / (darker + 0.05);
-};
-
-const WHITE = { r: 255, g: 255, b: 255 };
-
-export const contrastWithWhite = (hex) => contrastRatio(hexToRgba(hex), WHITE);

@@ -86,6 +86,7 @@ test("mobile, stripped-CSS, and dark preview modes remain usable", async ({
       ),
     )
     .toBe(375);
+  await expect(page.locator("#overflow-warning")).toBeVisible();
 
   await selectOption(
     page,

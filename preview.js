@@ -1,9 +1,5 @@
 import { initCustomizer } from "./customizer.js";
-import {
-  applyDarkSimulation,
-  auditSimulatedContrast,
-  SEVERE_CONTRAST_RATIO,
-} from "./dark-mode.js";
+import { applyDarkSimulation } from "./dark-mode.js";
 
 const supabaseTemplate = (title) => ({
   title: `Supabase ${title}`,
@@ -136,9 +132,7 @@ const copyMenuButton = document.getElementById("copy-menu-button");
 const copyMenuList = document.getElementById("copy-menu-list");
 const copyHtmlMenuItem = document.getElementById("copy-html-menu-item");
 const copyTextMenuItem = document.getElementById("copy-text-menu-item");
-const clipWarning = document.getElementById("clip-warning");
 const overflowWarning = document.getElementById("overflow-warning");
-const contrastWarning = document.getElementById("contrast-warning");
 const darkMenu = document.getElementById("dark-menu");
 const darkMenuButton = document.getElementById("dark-menu-button");
 const darkMenuList = document.getElementById("dark-menu-list");
@@ -151,7 +145,6 @@ const viewportMenuLabel = document.getElementById("viewport-menu-label");
 const viewportButtons = document.querySelectorAll("[data-viewport]");
 const FRAME_MIN_WIDTH = 600;
 const MOBILE_FRAME_WIDTH = 375;
-const GMAIL_CLIP_BYTES = 102 * 1024;
 let frameResizeObserver = null;
 let viewportMode = "desktop";
 let currentHtml = null;
@@ -436,35 +429,12 @@ const DARK_MODE_LABELS = {
   full: "Full inversion",
 };
 
-const updateContrastWarning = (report) => {
-  if (!contrastWarning) return;
-  const count = report?.issues.length ?? 0;
-  contrastWarning.hidden = count === 0;
-  if (!count) return;
-
-  const lowest = Math.min(...report.issues.map((issue) => issue.contrast));
-  const regions = count === 1 ? "text region" : "text regions";
-  // Disclose skipped regions so the warning is not mistaken for a complete audit.
-  const unchecked = report.uncheckedCount
-    ? ` ${report.uncheckedCount} more could not be measured (background image or transparency).`
-    : "";
-  contrastWarning.textContent = `This ${DARK_MODE_LABELS[darkMode].toLowerCase()} simulation predicts ${count} ${regions} below ${SEVERE_CONTRAST_RATIO}:1 contrast (lowest ${lowest.toFixed(2)}:1).${unchecked} Verify in the target email clients before sending.`;
-};
-
 const syncFrameDarkSimulation = () => {
   try {
     const doc = frame.contentDocument;
-    if (!doc?.body) {
-      updateContrastWarning(null);
-      return;
-    }
+    if (!doc?.body) return;
     applyDarkSimulation(doc, darkMode === "none" ? null : darkMode);
-    updateContrastWarning(
-      darkMode === "none" ? null : auditSimulatedContrast(doc),
-    );
-  } catch (error) {
-    updateContrastWarning(null);
-  }
+  } catch (error) {}
 };
 
 const darkDropdown = createDropdown({
@@ -496,18 +466,6 @@ darkMenuItems.forEach((item) => {
     darkDropdown.setOpen(false);
   });
 });
-
-// The one client limit that silently truncates a working template.
-const updateClipWarning = (html) => {
-  if (!clipWarning) return;
-  const bytes = new TextEncoder().encode(html ?? "").length;
-  const isOverLimit = bytes > GMAIL_CLIP_BYTES;
-
-  clipWarning.hidden = !isOverLimit;
-  if (isOverLimit) {
-    clipWarning.textContent = `This template is ${Math.round(bytes / 1024)} KB — Gmail clips messages over about ${Math.round(GMAIL_CLIP_BYTES / 1024)} KB and hides the rest behind a "View entire message" link.`;
-  }
-};
 
 const copyDropdown = createDropdown({
   root: copyMenu,
@@ -576,7 +534,6 @@ if (template.brand) {
       currentHtml = html;
       renderFrame();
       stage.style.setProperty("--template-bg", background);
-      updateClipWarning(html);
       if (downloadBlobUrl) URL.revokeObjectURL(downloadBlobUrl);
       downloadBlobUrl = URL.createObjectURL(
         new Blob([html], { type: "text/html" }),
@@ -585,10 +542,5 @@ if (template.brand) {
     },
   });
 }
-
-// Templates without a customizer never reach onApply, so size the file on load.
-getRawHtml()
-  .then(updateClipWarning)
-  .catch(() => {});
 
 renderFrame();

@@ -380,13 +380,6 @@ body {
   outline: none;
 }
 
-.customize-hint {
-  color: #b45309;
-  font-size: 12px;
-  line-height: 1.4;
-  margin: 10px 0 0;
-}
-
 .action-button:disabled {
   cursor: default;
   opacity: 0.72;
@@ -494,7 +487,7 @@ body {
   line-height: 1.4;
 }
 
-.clip-warning {
+.preview-warning {
   background: #fef3c7;
   border-bottom: 1px solid #fcd34d;
   color: #92400e;

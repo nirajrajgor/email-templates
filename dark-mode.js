@@ -1,12 +1,7 @@
 // Simulate per-element client transformations: partial inversion changes light
 // surfaces and dark text, while full inversion remaps every color.
 
-import {
-  contrastRatio,
-  hslToRgb,
-  relativeLuminance,
-  rgbToHsl,
-} from "./color.js";
+import { hslToRgb, relativeLuminance, rgbToHsl } from "./color.js";
 
 const ATTR = "data-dark-sim-original";
 
@@ -14,9 +9,6 @@ const SKIP_TAGS = ["IMG", "PICTURE", "VIDEO", "SVG"];
 
 const LIGHT_BG_LUMINANCE = 0.62;
 const DARK_TEXT_LUMINANCE = 0.38;
-// This intentionally flags only effectively unreadable text, not every WCAG
-// failure. A higher threshold overwhelms the simulation with false positives.
-export const SEVERE_CONTRAST_RATIO = 1.5;
 
 const parseColor = (value) => {
   if (!value) return null;
@@ -31,103 +23,6 @@ const parseColor = (value) => {
 
 const toCss = ({ r, g, b }, a) =>
   a < 1 ? `rgba(${r}, ${g}, ${b}, ${a})` : `rgb(${r}, ${g}, ${b})`;
-
-const composite = (foreground, background) => {
-  const alpha = foreground.a + background.a * (1 - foreground.a);
-  if (alpha === 0) return null;
-
-  return {
-    r:
-      (foreground.r * foreground.a +
-        background.r * background.a * (1 - foreground.a)) /
-      alpha,
-    g:
-      (foreground.g * foreground.a +
-        background.g * background.a * (1 - foreground.a)) /
-      alpha,
-    b:
-      (foreground.b * foreground.a +
-        background.b * background.a * (1 - foreground.a)) /
-      alpha,
-    a: alpha,
-  };
-};
-
-// Resolve solid ancestor layers; images and element opacity require pixel sampling.
-const effectiveBackground = (element) => {
-  const layers = [];
-
-  for (let current = element; current; current = current.parentElement) {
-    const computed =
-      current.ownerDocument.defaultView?.getComputedStyle(current);
-    if (!computed) return null;
-    if (computed.backgroundImage !== "none" || Number(computed.opacity) < 1) {
-      return null;
-    }
-
-    const color = parseColor(computed.backgroundColor);
-    if (!color) continue;
-    layers.push(color);
-
-    if (color.a >= 1) {
-      let result = layers.pop();
-      while (layers.length) result = composite(layers.pop(), result);
-      return result;
-    }
-  }
-
-  return null;
-};
-
-const hasDirectText = (element) =>
-  [...element.childNodes].some(
-    (node) => node.nodeType === 3 && node.textContent.trim(),
-  );
-
-// Measure rendered direct text only when its background resolves to a solid color.
-export const auditSimulatedContrast = (
-  doc,
-  threshold = SEVERE_CONTRAST_RATIO,
-) => {
-  if (!doc?.body) return { issues: [], uncheckedCount: 0 };
-
-  const issues = [];
-  let uncheckedCount = 0;
-
-  doc.body.querySelectorAll("*").forEach((element) => {
-    if (!hasDirectText(element) || !element.getClientRects().length) return;
-    if (element.closest("svg, picture, video")) return;
-
-    const computed = doc.defaultView?.getComputedStyle(element);
-    if (
-      !computed ||
-      computed.display === "none" ||
-      computed.visibility === "hidden" ||
-      Number(computed.opacity) === 0
-    ) {
-      return;
-    }
-
-    const foreground = parseColor(computed.color);
-    const background = effectiveBackground(element);
-    if (!foreground || !background) {
-      uncheckedCount += 1;
-      return;
-    }
-
-    const visibleForeground =
-      foreground.a < 1 ? composite(foreground, background) : foreground;
-    if (!visibleForeground) {
-      uncheckedCount += 1;
-      return;
-    }
-
-    const contrast = contrastRatio(visibleForeground, background);
-    if (contrast < threshold) issues.push({ element, contrast });
-  });
-
-  return { issues, uncheckedCount };
-};
 
 // Ends are compressed: clients land white on dark grey, not pure black.
 const darkenSurface = (hsl) => ({ ...hsl, l: 0.06 + (1 - hsl.l) * 0.3 });
