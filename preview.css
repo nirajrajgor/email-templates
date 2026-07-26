@@ -217,37 +217,10 @@ body {
   margin: 0;
 }
 
-.customize-reset:focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: 2px;
-}
-
 .customize-note-images {
   border-top: 1px solid var(--border);
   margin: 16px 0 0;
   padding-top: 14px;
-}
-
-.customize-reset {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: #344054;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
-  margin-top: 12px;
-  min-height: 38px;
-  padding: 0 12px;
-  transition:
-    background-color 180ms ease,
-    border-color 180ms ease;
-  width: 100%;
-}
-
-.customize-reset:hover {
-  background: #f9fafb;
-  border-color: #d0d5dd;
 }
 
 .customize-error {

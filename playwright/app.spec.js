@@ -63,7 +63,7 @@ test("customization updates the preview and downloaded HTML", async ({ page }) =
   expect(downloaded).toContain("#123456");
   expect(downloaded).toContain("#7c3aed");
 
-  await page.locator("#customize-reset").click();
+  await controls.first().locator('[data-swatch="original"]').click();
   await expect.poll(() => frame.getAttribute("srcdoc")).not.toContain("#123456");
 });
 

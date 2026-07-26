@@ -221,7 +221,7 @@ const initColorControl = (section, original, onPick) => {
     }
   });
 
-  return { state, reset: () => setValue(original, originalSwatch) };
+  return { state };
 };
 
 export const initCustomizer = ({
@@ -234,7 +234,6 @@ export const initCustomizer = ({
   onApply,
 }) => {
   const panel = document.getElementById("customize-panel");
-  const resetButton = document.getElementById("customize-reset");
   const brandSection = panel.querySelector('[data-color-control="brand"]');
   const accentSection = panel.querySelector('[data-color-control="accent"]');
 
@@ -268,10 +267,4 @@ export const initCustomizer = ({
     accentSection.hidden = false;
     accentControl = initColorControl(accentSection, accent, applyTheme);
   }
-
-  resetButton?.addEventListener("click", () => {
-    brandControl.reset();
-    accentControl?.reset();
-    applyTheme();
-  });
 };
