@@ -48,7 +48,7 @@
             id="viewport-menu-button"
             aria-haspopup="menu"
             aria-expanded="false"
-            aria-label="Preview width and CSS support"
+            aria-label="Preview width and CSS fallback"
           >
             <svg
               class="icon"
@@ -86,7 +86,7 @@
             role="menu"
             hidden
           >
-            <p class="dark-menu-heading">Width and CSS support</p>
+            <p class="dark-menu-heading">Viewport stress test</p>
             <button
               class="dark-menu-item is-active"
               type="button"
@@ -96,7 +96,7 @@
             >
               <span class="dark-menu-item-name">Desktop</span>
               <span class="dark-menu-item-description">
-                Full width, embedded CSS applied
+                Full-width rendering with embedded styles applied
               </span>
             </button>
             <button
@@ -106,10 +106,9 @@
               aria-checked="false"
               data-viewport="mobile"
             >
-              <span class="dark-menu-item-name">Mobile</span>
+              <span class="dark-menu-item-name">Mobile · 375px</span>
               <span class="dark-menu-item-description">
-                Apple Mail on iOS, Gmail with a Google account, Samsung Mail,
-                Outlook mobile
+                Embedded styles and media queries applied
               </span>
             </button>
             <button
@@ -119,14 +118,15 @@
               aria-checked="false"
               data-viewport="mobile-nocss"
             >
-              <span class="dark-menu-item-name"
-                >Mobile, embedded CSS stripped</span
-              >
+              <span class="dark-menu-item-name">Mobile fallback · 375px</span>
               <span class="dark-menu-item-description">
-                Gmail app signed in to a non-Gmail (IMAP) account — it drops
-                every &lt;style&gt; block, so media queries never run
+                Embedded &lt;style&gt; blocks removed; inline styles retained
               </span>
             </button>
+            <p class="dark-menu-note">
+              Approximation only: rendering and CSS support vary by app,
+              account, and device.
+            </p>
           </div>
         </div>
         <div class="dark-menu" id="dark-menu">
@@ -208,7 +208,7 @@
               </span>
             </button>
             <p class="dark-menu-note">
-              Approximation only — email clients apply different
+              Approximation only: email clients apply different
               transformations.
             </p>
           </div>
@@ -350,7 +350,7 @@
         <div class="color-control" data-color-control="brand">
           <p class="customize-label">Brand color</p>
           <p class="customize-note">
-            Recolors this template's brand palette — neutral elements keep their
+            Recolors this template's brand palette; neutral elements keep their
             design.
           </p>
           <div class="swatch-row"></div>
@@ -378,7 +378,7 @@
           </div>
         </div>
         <p class="customize-note customize-note-images">
-          Colors baked into images stay as they are — swap those files after
+          Colors baked into images stay as they are. Swap those files after
           downloading.
         </p>
       </aside>

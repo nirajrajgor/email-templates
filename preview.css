@@ -547,7 +547,7 @@ body {
     display: none;
   }
 
-  /* Stays labelled — an icon-only desktop/mobile pair is not self-explanatory. */
+  /* Stays labelled: an icon-only desktop/mobile pair is not self-explanatory. */
   .dark-toggle span {
     display: inline;
   }

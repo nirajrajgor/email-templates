@@ -390,8 +390,8 @@ const viewportDropdown = createDropdown({
 
 const VIEWPORT_LABELS = {
   desktop: "Desktop",
-  mobile: "Mobile",
-  "mobile-nocss": "Mobile, no CSS",
+  mobile: "Mobile · 375px",
+  "mobile-nocss": "Mobile, styles stripped",
 };
 
 const setViewportMode = (mode) => {

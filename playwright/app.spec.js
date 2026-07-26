@@ -80,6 +80,9 @@ test("mobile, stripped-CSS, and dark preview modes remain usable", async ({
     "#viewport-menu-button",
     '[data-viewport="mobile"]',
   );
+  await expect(page.locator("#viewport-menu-label")).toHaveText(
+    "Mobile · 375px",
+  );
   await expect
     .poll(() =>
       page.locator("#template-frame").evaluate((frame) =>
@@ -93,6 +96,9 @@ test("mobile, stripped-CSS, and dark preview modes remain usable", async ({
     page,
     "#viewport-menu-button",
     '[data-viewport="mobile-nocss"]',
+  );
+  await expect(page.locator("#viewport-menu-label")).toHaveText(
+    "Mobile, styles stripped",
   );
   await expect
     .poll(() =>
