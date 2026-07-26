@@ -5,13 +5,17 @@ const prefersReducedMotion =
   window.matchMedia &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-if (!prefersReducedMotion) {
+// Only the hover scroll is motion-gated; sizing always runs.
+{
   const cards = document.querySelectorAll("main article.wrapper");
 
   cards.forEach((card) => {
     const container = card.querySelector('div[class*="aspect-"]');
     const image = container?.querySelector("img");
     if (!container || !image) return;
+
+    // Cover would crop the email's own margins, so remove it once.
+    image.classList.remove("object-cover");
 
     let cleanupTimer;
     let scrollDelta = 0;
@@ -39,8 +43,8 @@ if (!prefersReducedMotion) {
       const isScrollable = scrollDelta >= OVERFLOW_THRESHOLD;
 
       image.classList.toggle("h-full", !isScrollable);
-      image.classList.toggle("object-contain", !isScrollable);
       image.classList.toggle("h-auto", isScrollable);
+      image.classList.toggle("object-contain", !isScrollable);
       container.dataset.previewScrollable = String(isScrollable);
 
       if (!isScrollable) resetScroll();
@@ -61,10 +65,13 @@ if (!prefersReducedMotion) {
     };
 
     container.style.overflow = "hidden";
+    // A swapped source must re-evaluate fit without a container resize.
+    image.addEventListener("load", syncPreview);
     if (image.complete) syncPreview();
-    else image.addEventListener("load", syncPreview, { once: true });
 
     new ResizeObserver(syncPreview).observe(container);
+
+    if (prefersReducedMotion) return;
     container.addEventListener("mouseenter", startScroll);
     container.addEventListener("mouseleave", resetScroll);
     container.addEventListener("touchstart", startScroll, { passive: true });
