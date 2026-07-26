@@ -1,4 +1,3 @@
-// vite.config.js
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import { sync } from "glob";
@@ -18,7 +17,8 @@ export default defineConfig({
   },
   plugins: [
     ViteImageOptimizer({
-      /* pass your config */
+      // SVGO cannot see external <symbol> references and would empty this sprite.
+      exclude: /icons\.svg$/,
     }),
   ],
 });

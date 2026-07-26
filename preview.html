@@ -35,25 +35,20 @@
               stroke-linejoin="round"
             />
           </svg>
+          <span class="back-link-text">Templates</span>
         </a>
-        <div class="brand">
-          <img class="brand-logo" src="./logo.svg" alt="Email Templates" />
-        </div>
-      </div>
-
-      <div class="toolbar-center">
         <span class="template-title" id="template-title">Template</span>
       </div>
 
-      <div class="toolbar-right">
-        <div class="customize-menu" id="customize-menu">
+      <div class="toolbar-center">
+        <div class="dark-menu" id="viewport-menu">
           <button
             class="action-button secondary"
             type="button"
-            id="customize-button"
-            aria-haspopup="true"
+            id="viewport-menu-button"
+            aria-haspopup="menu"
             aria-expanded="false"
-            hidden
+            aria-label="Preview width and CSS fallback"
           >
             <svg
               class="icon"
@@ -62,189 +57,165 @@
               aria-hidden="true"
             >
               <path
-                d="M10 3.5C10 3.5 4.5 9 4.5 12.5C4.5 15.54 6.96 17.5 10 17.5C13.04 17.5 15.5 15.54 15.5 12.5C15.5 9 10 3.5 10 3.5Z"
+                d="M3 4.5h14v9H3v-9ZM7.5 17h5M10 13.5V17"
                 stroke="currentColor"
                 stroke-width="1.7"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
             </svg>
-            <span>Customize</span>
+            <span id="viewport-menu-label">Desktop</span>
+            <svg
+              class="chevron-icon"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M6 8l4 4 4-4"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
           </button>
           <div
-            class="customize-panel"
-            id="customize-panel"
-            role="group"
-            aria-label="Template colors"
+            class="dark-menu-list"
+            id="viewport-menu-list"
+            role="menu"
             hidden
           >
-            <div class="color-control" data-color-control="brand">
-              <p class="customize-label">Brand color</p>
-              <p class="customize-note">
-                Recolors this template's brand palette — neutral elements keep
-                their design.
-              </p>
-              <div class="swatch-row">
-                <button
-                  class="swatch"
-                  type="button"
-                  aria-pressed="false"
-                  data-swatch="original"
-                  title="Original"
-                  aria-label="Original brand color"
-                ></button>
-                <button
-                  class="swatch"
-                  type="button"
-                  aria-pressed="false"
-                  data-swatch="#4f46e5"
-                  style="--swatch: #4f46e5"
-                  title="Indigo"
-                  aria-label="Indigo"
-                ></button>
-                <button
-                  class="swatch"
-                  type="button"
-                  aria-pressed="false"
-                  data-swatch="#0ea5e9"
-                  style="--swatch: #0ea5e9"
-                  title="Sky"
-                  aria-label="Sky"
-                ></button>
-                <button
-                  class="swatch"
-                  type="button"
-                  aria-pressed="false"
-                  data-swatch="#059669"
-                  style="--swatch: #059669"
-                  title="Emerald"
-                  aria-label="Emerald"
-                ></button>
-                <button
-                  class="swatch"
-                  type="button"
-                  aria-pressed="false"
-                  data-swatch="#d97706"
-                  style="--swatch: #d97706"
-                  title="Amber"
-                  aria-label="Amber"
-                ></button>
-                <button
-                  class="swatch"
-                  type="button"
-                  aria-pressed="false"
-                  data-swatch="#e11d48"
-                  style="--swatch: #e11d48"
-                  title="Rose"
-                  aria-label="Rose"
-                ></button>
-                <button
-                  class="swatch"
-                  type="button"
-                  aria-pressed="false"
-                  data-swatch="#7c3aed"
-                  style="--swatch: #7c3aed"
-                  title="Violet"
-                  aria-label="Violet"
-                ></button>
-              </div>
-              <div class="customize-custom">
-                <input
-                  type="color"
-                  aria-label="Pick a custom brand color"
-                />
-                <input
-                  type="text"
-                  spellcheck="false"
-                  maxlength="7"
-                  aria-label="Brand color hex value"
-                />
-              </div>
-            </div>
-            <div class="color-control" data-color-control="accent" hidden>
-              <p class="customize-label">Accent color</p>
-              <div class="swatch-row">
-                <button
-                  class="swatch"
-                  type="button"
-                  aria-pressed="false"
-                  data-swatch="original"
-                  title="Original"
-                  aria-label="Original accent color"
-                ></button>
-                <button
-                  class="swatch"
-                  type="button"
-                  aria-pressed="false"
-                  data-swatch="#4f46e5"
-                  style="--swatch: #4f46e5"
-                  title="Indigo"
-                  aria-label="Indigo"
-                ></button>
-                <button
-                  class="swatch"
-                  type="button"
-                  aria-pressed="false"
-                  data-swatch="#0ea5e9"
-                  style="--swatch: #0ea5e9"
-                  title="Sky"
-                  aria-label="Sky"
-                ></button>
-                <button
-                  class="swatch"
-                  type="button"
-                  aria-pressed="false"
-                  data-swatch="#059669"
-                  style="--swatch: #059669"
-                  title="Emerald"
-                  aria-label="Emerald"
-                ></button>
-                <button
-                  class="swatch"
-                  type="button"
-                  aria-pressed="false"
-                  data-swatch="#d97706"
-                  style="--swatch: #d97706"
-                  title="Amber"
-                  aria-label="Amber"
-                ></button>
-                <button
-                  class="swatch"
-                  type="button"
-                  aria-pressed="false"
-                  data-swatch="#e11d48"
-                  style="--swatch: #e11d48"
-                  title="Rose"
-                  aria-label="Rose"
-                ></button>
-                <button
-                  class="swatch"
-                  type="button"
-                  aria-pressed="false"
-                  data-swatch="#7c3aed"
-                  style="--swatch: #7c3aed"
-                  title="Violet"
-                  aria-label="Violet"
-                ></button>
-              </div>
-              <div class="customize-custom">
-                <input
-                  type="color"
-                  aria-label="Pick a custom accent color"
-                />
-                <input
-                  type="text"
-                  spellcheck="false"
-                  maxlength="7"
-                  aria-label="Accent color hex value"
-                />
-              </div>
-            </div>
-            <p class="customize-hint" id="contrast-hint" hidden>
-              Light brand colors can make white button text hard to read.
+            <p class="dark-menu-heading">Viewport stress test</p>
+            <button
+              class="dark-menu-item is-active"
+              type="button"
+              role="menuitemradio"
+              aria-checked="true"
+              data-viewport="desktop"
+            >
+              <span class="dark-menu-item-name">Desktop</span>
+              <span class="dark-menu-item-description">
+                Full-width rendering with embedded styles applied
+              </span>
+            </button>
+            <button
+              class="dark-menu-item"
+              type="button"
+              role="menuitemradio"
+              aria-checked="false"
+              data-viewport="mobile"
+            >
+              <span class="dark-menu-item-name">Mobile · 375px</span>
+              <span class="dark-menu-item-description">
+                Embedded styles and media queries applied
+              </span>
+            </button>
+            <button
+              class="dark-menu-item"
+              type="button"
+              role="menuitemradio"
+              aria-checked="false"
+              data-viewport="mobile-nocss"
+            >
+              <span class="dark-menu-item-name">Mobile fallback · 375px</span>
+              <span class="dark-menu-item-description">
+                Embedded &lt;style&gt; blocks removed; inline styles retained
+              </span>
+            </button>
+            <p class="dark-menu-note">
+              Approximation only: rendering and CSS support vary by app,
+              account, and device.
             </p>
           </div>
         </div>
+        <div class="dark-menu" id="dark-menu">
+          <button
+            class="action-button secondary dark-toggle"
+            type="button"
+            id="dark-menu-button"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-label="Dark mode stress test"
+          >
+            <svg
+              class="icon"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M16 11.5A6.5 6.5 0 0 1 8.5 4a6.5 6.5 0 1 0 7.5 7.5Z"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span id="dark-menu-label">Original</span>
+            <svg
+              class="chevron-icon"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M6 8l4 4 4-4"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <div class="dark-menu-list" id="dark-menu-list" role="menu" hidden>
+            <p class="dark-menu-heading">Dark mode stress test</p>
+            <button
+              class="dark-menu-item is-active"
+              type="button"
+              role="menuitemradio"
+              aria-checked="true"
+              data-dark-mode="none"
+            >
+              <span class="dark-menu-item-name">Original</span>
+              <span class="dark-menu-item-description">
+                Source rendering, no forced transformation
+              </span>
+            </button>
+            <button
+              class="dark-menu-item"
+              type="button"
+              role="menuitemradio"
+              aria-checked="false"
+              data-dark-mode="partial"
+            >
+              <span class="dark-menu-item-name">Partial inversion</span>
+              <span class="dark-menu-item-description">
+                Approximates light surfaces becoming dark and dark text
+                becoming light
+              </span>
+            </button>
+            <button
+              class="dark-menu-item"
+              type="button"
+              role="menuitemradio"
+              aria-checked="false"
+              data-dark-mode="full"
+            >
+              <span class="dark-menu-item-name">Full inversion</span>
+              <span class="dark-menu-item-description">
+                Approximates all HTML colors inverting; images stay unchanged
+              </span>
+            </button>
+            <p class="dark-menu-note">
+              Approximation only: email clients apply different
+              transformations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="toolbar-right">
         <div class="copy-menu" id="copy-menu">
           <button
             class="action-button secondary"
@@ -344,21 +315,74 @@
         </a>
       </div>
     </nav>
-
-    <main class="preview-stage" id="preview-stage">
-      <div class="frame-wrap">
-        <div class="frame-shell" id="frame-shell">
-          <div class="frame-scaler" id="frame-scaler">
-            <iframe
-              class="template-frame"
-              id="template-frame"
-              scrolling="no"
-              title="Email template preview"
-            ></iframe>
+    <div class="preview-body">
+      <main class="preview-stage" id="preview-stage">
+        <p
+          class="preview-warning"
+          id="overflow-warning"
+          role="status"
+          hidden
+        ></p>
+        <div class="frame-wrap">
+          <div class="frame-shell" id="frame-shell">
+            <div class="frame-scaler" id="frame-scaler">
+              <iframe
+                class="template-frame"
+                id="template-frame"
+                scrolling="no"
+                title="Email template preview"
+              ></iframe>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+
+      <aside
+        class="customize-rail"
+        id="customize-panel"
+        role="group"
+        aria-label="Template colors"
+        hidden
+      >
+        <div class="customize-rail-head">
+          <h2 class="customize-rail-title">Customize</h2>
+        </div>
+        <div class="color-control" data-color-control="brand">
+          <p class="customize-label">Brand color</p>
+          <p class="customize-note">
+            Recolors this template's brand palette; neutral elements keep their
+            design.
+          </p>
+          <div class="swatch-row"></div>
+          <div class="customize-custom">
+            <input type="color" aria-label="Pick a custom brand color" />
+            <input
+              type="text"
+              spellcheck="false"
+              maxlength="7"
+              aria-label="Brand color hex value"
+            />
+          </div>
+        </div>
+        <div class="color-control" data-color-control="accent" hidden>
+          <p class="customize-label">Accent color</p>
+          <div class="swatch-row"></div>
+          <div class="customize-custom">
+            <input type="color" aria-label="Pick a custom accent color" />
+            <input
+              type="text"
+              spellcheck="false"
+              maxlength="7"
+              aria-label="Accent color hex value"
+            />
+          </div>
+        </div>
+        <p class="customize-note customize-note-images">
+          Colors baked into images stay as they are. Swap those files after
+          downloading.
+        </p>
+      </aside>
+    </div>
 
     <script type="module" src="./preview.js"></script>
   </body>
