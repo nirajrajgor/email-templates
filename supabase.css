@@ -133,8 +133,9 @@
   border-radius: 4px;
   color: #3730a3;
   display: inline-block;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    monospace;
   font-size: 0.75rem;
   margin: 0.125rem;
   padding: 0.2rem 0.4rem;
