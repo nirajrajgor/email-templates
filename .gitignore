@@ -25,6 +25,3 @@ dist-ssr
 *.sw?
 
 .cursorrules
-
-# Public
-public/google*.html

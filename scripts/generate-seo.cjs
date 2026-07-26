@@ -9,6 +9,7 @@ const BASE_URL = "https://nirajrajgor.github.io/email-templates/";
 const DIST_DIR = path.resolve(__dirname, "..", "dist");
 const CHANGE_FREQ = "weekly";
 const PUBLISHER_NAME = "Niraj Rajgor";
+const GOOGLE_VERIFICATION_FILE = /^google[a-z0-9]+\.html$/i;
 
 // Template metadata for custom lastmod dates and images
 const TEMPLATE_METADATA = {
@@ -375,7 +376,13 @@ function run() {
     process.exit(1);
   }
 
-  const htmlFiles = glob.sync("**/*.html", { cwd: DIST_DIR, nodir: true });
+  const htmlFiles = glob
+    .sync("**/*.html", { cwd: DIST_DIR, nodir: true })
+    .filter(
+      (file) =>
+        path.dirname(file) !== "." ||
+        !GOOGLE_VERIFICATION_FILE.test(path.basename(file)),
+    );
   const urls = [];
 
   htmlFiles.forEach((file) => {
