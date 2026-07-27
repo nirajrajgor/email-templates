@@ -25,7 +25,22 @@
         line-height: 1.6;
         background-color: #f4f4f4;
       }
+      @media screen and (min-width: 480px) {
+        .confirmation-content {
+          padding: 40px !important;
+        }
+        .confirmation-summary {
+          padding: 30px !important;
+        }
+      }
     </style>
+    <!--[if mso]>
+      <style type="text/css">
+        .confirmation-card { width: 510px !important; }
+        .confirmation-content { padding: 40px !important; }
+        .confirmation-summary { padding: 30px !important; }
+      </style>
+    <![endif]-->
   
     <link rel="canonical" href="https://nirajrajgor.github.io/email-templates/templates/product-confirmation.html">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Product Confirmation Emailer | Email template","description":"Ideal for e-commerce orders, electronic product purchases, and\n      online retail.","url":"https://nirajrajgor.github.io/email-templates/templates/product-confirmation.html","isAccessibleForFree":true,"fileFormat":"text/html","publisher":{"@type":"Person","name":"Niraj Rajgor"}}</script>
@@ -34,7 +49,7 @@
     <meta name="twitter:description" content="Ideal for e-commerce orders, electronic product purchases, and
       online retail.">
     <meta name="twitter:image" content="https://nirajrajgor.github.io/email-templates/acme.png"></head>
-  <body style="margin: 0; padding: 0; background-color: #f4f4f4">
+  <body style="margin: 0; padding: 0; background-color: #f4f4f4; font-family: Arial, sans-serif; line-height: 1.6">
     <!-- Preheader (hidden) -->
     <div style="display: none; font-size: 1px; color: #f4f4f4; line-height: 1px; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide: all;">
       Your order is confirmed. Review your order details inside.
@@ -42,13 +57,16 @@
 
     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f4f4f4">
       <tbody><tr>
-        <td style="padding: 20px 0">
-          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="510" style="
-              margin: 0 auto;
+        <td align="center" style="padding: 20px 0">
+          <table class="confirmation-card" role="presentation" align="center" cellspacing="0" cellpadding="0" border="0" width="510" style="
+              width: 100%;
+              max-width: 510px;
               background-color: #ffffff;
               border-radius: 8px;
-              padding: 40px;
             ">
+            <tbody><tr>
+              <td class="confirmation-content" style="padding: 32px">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
             <!-- Logo -->
             <tbody><tr>
               <td style="padding-bottom: 30px">
@@ -82,7 +100,7 @@
             <tr>
               <td style="padding-bottom: 30px">
                 <p style="color: #333333; font-size: 16px">
-                  Thank you for shopping with us! We've received your order<br>No:
+                  Thank you for shopping with us! We've received your order No:
                   52777. We will notify you when we send it.
                 </p>
               </td>
@@ -90,9 +108,9 @@
 
             <!-- Order summary -->
             <tr>
-              <td style="
+              <td class="confirmation-summary" style="
                   background-color: #f9f9f9;
-                  padding: 30px;
+                  padding: 20px;
                   border-radius: 8px;
                 ">
                 <h2 style="font-size: 24px; color: #000000; margin-bottom: 20px">
@@ -179,6 +197,9 @@
                       </tbody></table>
                     </td>
                   </tr>
+                </tbody></table>
+              </td>
+            </tr>
                 </tbody></table>
               </td>
             </tr>

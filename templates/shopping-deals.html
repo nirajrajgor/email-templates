@@ -3,6 +3,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Deals Emailer | Email template</title>
     <meta name="description" content="Highlight your best deals and offers with this stylish email template.">
+    <style type="text/css">
+      @media screen and (max-width: 479px) {
+        .deal-amount {
+          font-size: 64px !important;
+        }
+        .shopping-hero-column,
+        .offer-column {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          box-sizing: border-box !important;
+        }
+        .offer-column {
+          padding: 5px 0 !important;
+        }
+        .offer-image {
+          margin: 0 auto !important;
+        }
+        .discover-title {
+          font-size: 32px !important;
+        }
+        .category-title {
+          font-size: 16px !important;
+          margin-bottom: 30px !important;
+          padding: 12px 12px 0 !important;
+        }
+        .category-column,
+        .post-column {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          box-sizing: border-box !important;
+        }
+        .category-column {
+          padding: 6px 0 !important;
+        }
+        .category-image {
+          max-width: 220px !important;
+        }
+        .post-column {
+          padding: 5px 0 !important;
+        }
+        .post-column-2 {
+          padding-top: 15px !important;
+        }
+        .footer-nav-link {
+          font-size: 14px !important;
+          display: inline-block !important;
+          padding: 10px 6px !important;
+        }
+      }
+    </style>
     <!--[if mso]>
       <style type="text/css">
         body,
@@ -27,9 +79,9 @@
 
     <table cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width: 600px; margin: 0 auto; background-color: #bbfea8">
       <tbody><tr>
-        <td align="center">
+        <td align="center" bgcolor="#1e1e1e" style="padding: 20px; background-color: #1e1e1e">
           <!-- Email Content Container -->
-          <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#1e1e1e" style="padding: 20px">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#1e1e1e" style="box-sizing: border-box">
             <!-- Logo Section -->
             <tbody><tr>
               <td align="center" style="padding: 0 20px 40px">
@@ -43,7 +95,7 @@
                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                   <tbody><tr>
                     <!-- Left Content (Text) -->
-                    <td width="40%" style="padding: 20px; vertical-align: middle">
+                    <td class="shopping-hero-column shopping-hero-copy" width="40%" style="padding: 20px; vertical-align: middle">
                       <h1 style="
                           font-family: Arial, sans-serif;
                           color: #ffffff;
@@ -53,7 +105,7 @@
                         ">
                         CYBER MONDAY
                       </h1>
-                      <div style="
+                      <div class="deal-amount" style="
                           font-family: Arial, sans-serif;
                           color: #7cff64;
                           font-size: 110px;
@@ -62,7 +114,7 @@
                         ">
                         40%
                       </div>
-                      <div style="
+                      <div class="deal-amount" style="
                           font-family: Arial, sans-serif;
                           color: #ffffff;
                           font-size: 110px;
@@ -74,7 +126,7 @@
                       </div>
                     </td>
                     <!-- Right Content (Image) -->
-                    <td width="60%" style="vertical-align: top">
+                    <td class="shopping-hero-column shopping-hero-media" width="60%" style="vertical-align: top">
                       <img src="https://nirajrajgor.github.io/email-templates/shoe-graphic.png" alt="Nike Sports Shoe" style="
                           display: block;
                           width: 100%;
@@ -123,7 +175,7 @@
                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                   <tbody><tr>
                     <!-- First Row -->
-                    <td width="50%" style="padding: 5px">
+                    <td class="offer-column" width="50%" style="padding: 5px">
                       <div style="
                           background-color: #2a2a2a;
                           border-radius: 12px;
@@ -138,10 +190,13 @@
                           15% OFF
                         </p>
 
-                        <img src="https://nirajrajgor.github.io/email-templates/shoe-graphic.png" alt="Nike K-5000" style="
+                        <img class="offer-image" src="https://nirajrajgor.github.io/email-templates/shoe-graphic.png" alt="Nike K-5000" style="
                             display: block;
-                            width: 180px;
-                            margin: -20px auto 0;
+                            width: 100%;
+                            max-width: 180px;
+                            height: auto;
+                            margin: 0 auto;
+                            margin-top: -20px;
                           " decoding="async">
                         <h3 style="
                             font-family: Arial, sans-serif;
@@ -161,7 +216,7 @@
                         </p>
                       </div>
                     </td>
-                    <td width="50%" style="padding: 5px">
+                    <td class="offer-column" width="50%" style="padding: 5px">
                       <div style="
                           background-color: #2a2a2a;
                           border-radius: 12px;
@@ -175,10 +230,13 @@
                           ">
                           25% OFF
                         </p>
-                        <img src="https://nirajrajgor.github.io/email-templates/shoe-graphic.png" alt="Puma" style="
+                        <img class="offer-image" src="https://nirajrajgor.github.io/email-templates/shoe-graphic.png" alt="Puma" style="
                             display: block;
-                            width: 180px;
-                            margin: -20px auto 0;
+                            width: 100%;
+                            max-width: 180px;
+                            height: auto;
+                            margin: 0 auto;
+                            margin-top: -20px;
                           " decoding="async">
                         <h3 style="
                             font-family: Arial, sans-serif;
@@ -201,7 +259,7 @@
                   </tr>
                   <!-- Second Row -->
                   <tr>
-                    <td width="50%" style="padding: 5px">
+                    <td class="offer-column" width="50%" style="padding: 5px">
                       <div style="
                           background-color: #2a2a2a;
                           border-radius: 12px;
@@ -215,10 +273,13 @@
                           ">
                           20% OFF
                         </p>
-                        <img src="https://nirajrajgor.github.io/email-templates/shoe-graphic.png" alt="Adidas" style="
+                        <img class="offer-image" src="https://nirajrajgor.github.io/email-templates/shoe-graphic.png" alt="Adidas" style="
                             display: block;
-                            width: 180px;
-                            margin: -20px auto 0;
+                            width: 100%;
+                            max-width: 180px;
+                            height: auto;
+                            margin: 0 auto;
+                            margin-top: -20px;
                           " decoding="async">
                         <h3 style="
                             font-family: Arial, sans-serif;
@@ -238,7 +299,7 @@
                         </p>
                       </div>
                     </td>
-                    <td width="50%" style="padding: 5px">
+                    <td class="offer-column" width="50%" style="padding: 5px">
                       <div style="
                           background-color: #2a2a2a;
                           border-radius: 12px;
@@ -252,10 +313,13 @@
                           ">
                           30% OFF
                         </p>
-                        <img src="https://nirajrajgor.github.io/email-templates/shoe-graphic.png" alt="Nikeeee" style="
+                        <img class="offer-image" src="https://nirajrajgor.github.io/email-templates/shoe-graphic.png" alt="Nikeeee" style="
                             display: block;
-                            width: 180px;
-                            margin: -20px auto 0;
+                            width: 100%;
+                            max-width: 180px;
+                            height: auto;
+                            margin: 0 auto;
+                            margin-top: -20px;
                           " decoding="async">
                         <h3 style="
                             font-family: Arial, sans-serif;
@@ -401,11 +465,11 @@
           <table cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width: 600px">
             <tbody><tr>
               <!-- Three equal columns for categories -->
-              <td width="33.33%" style="padding: 5px">
+              <td class="category-column" width="33.33%" style="padding: 5px">
                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                   <tbody><tr>
                     <td style="background-color: #f5f5f5; border-radius: 8px">
-                      <h3 style="
+                      <h3 class="category-title" style="
                           font-family: Arial, sans-serif;
                           color: #666666;
                           font-size: 20px;
@@ -415,24 +479,23 @@
                         ">
                         RUNNING
                       </h3>
-                      <img src="https://nirajrajgor.github.io/email-templates/shoe-ai-gen.png" alt="Running Shoe" style="
+                      <img class="category-image" src="https://nirajrajgor.github.io/email-templates/shoe-ai-gen.png" alt="Running Shoe" style="
                           display: block;
                           width: 100%;
                           max-width: 160px;
                           height: auto;
                           margin: 0 auto;
-                          transform: rotate(-15deg) translate(10px, 0);
                         " decoding="async">
                     </td>
                   </tr>
                 </tbody></table>
               </td>
 
-              <td width="33.33%" style="padding: 5px">
+              <td class="category-column" width="33.33%" style="padding: 5px">
                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                   <tbody><tr>
                     <td style="background-color: #f5f5f5; border-radius: 8px">
-                      <h3 style="
+                      <h3 class="category-title" style="
                           font-family: Arial, sans-serif;
                           color: #666666;
                           font-size: 20px;
@@ -442,24 +505,23 @@
                         ">
                         LIFESTYLE
                       </h3>
-                      <img src="https://nirajrajgor.github.io/email-templates/shoe-ai-gen.png" alt="Lifestyle Shoe" style="
+                      <img class="category-image" src="https://nirajrajgor.github.io/email-templates/shoe-ai-gen.png" alt="Lifestyle Shoe" style="
                           display: block;
                           width: 100%;
                           max-width: 160px;
                           height: auto;
                           margin: 0 auto;
-                          transform: rotate(-15deg) translate(10px, 0);
                         " decoding="async">
                     </td>
                   </tr>
                 </tbody></table>
               </td>
 
-              <td width="33.33%" style="padding: 5px">
+              <td class="category-column" width="33.33%" style="padding: 5px">
                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                   <tbody><tr>
                     <td style="background-color: #f5f5f5; border-radius: 8px">
-                      <h3 style="
+                      <h3 class="category-title" style="
                           font-family: Arial, sans-serif;
                           color: #666666;
                           font-size: 20px;
@@ -470,13 +532,12 @@
                         ">
                         TRAINER
                       </h3>
-                      <img src="https://nirajrajgor.github.io/email-templates/shoe-ai-gen.png" alt="Trainer Shoe" style="
+                      <img class="category-image" src="https://nirajrajgor.github.io/email-templates/shoe-ai-gen.png" alt="Trainer Shoe" style="
                           display: block;
                           width: 100%;
                           max-width: 160px;
                           height: auto;
                           margin: 0 auto;
-                          transform: rotate(-15deg) translate(10px, 0);
                         " decoding="async">
                     </td>
                   </tr>
@@ -526,7 +587,7 @@
           <table cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width: 600px">
             <tbody><tr>
               <!-- Left Post -->
-              <td width="50%" align="left" style="padding: 5px; vertical-align: top">
+              <td class="post-column" width="50%" align="left" style="padding: 5px; vertical-align: top">
                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                   <tbody><tr>
                     <td style="
@@ -591,7 +652,7 @@
               </td>
 
               <!-- Right Post -->
-              <td width="50%" align="left" style="padding: 5px; vertical-align: top">
+              <td class="post-column post-column-2" width="50%" align="left" style="padding: 5px; vertical-align: top">
                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                   <tbody><tr>
                     <td style="
@@ -659,18 +720,17 @@
             <tbody><tr>
               <!-- Left Image Column -->
               <td width="20%" align="left" style="vertical-align: top; padding-right: 2px">
-                <img src="https://nirajrajgor.github.io/email-templates/shoe-ai-gen.png" alt="Sports Shoe" style="
+                <img class="discover-image-left" src="https://nirajrajgor.github.io/email-templates/shoe-ai-gen.png" alt="Sports Shoe" style="
                     display: block;
                     width: 100%;
                     max-width: 120px;
                     height: auto;
-                    transform: scaleX(-1) rotate(-25deg);
                   " decoding="async">
               </td>
 
               <!-- Center Content Column -->
               <td width="60%" align="center" style="vertical-align: top">
-                <h2 style="
+                <h2 class="discover-title" style="
                     font-family: Arial, sans-serif;
                     color: #1e1e1e;
                     font-size: 52px;
@@ -689,8 +749,8 @@
                     line-height: 1.4;
                     margin: 0 0 20px 0;
                   ">
-                  Numerous athletes have revealed their<br>preferred shoes for
-                  running,<br>weightlifting, or basketball.
+                  Numerous athletes have revealed their preferred shoes for
+                  running, weightlifting, or basketball.
                 </p>
 
                 <p style="
@@ -723,12 +783,11 @@
 
               <!-- Right Image Column -->
               <td width="20%" align="right" style="vertical-align: top; padding-left: 2px">
-                <img src="https://nirajrajgor.github.io/email-templates/shoe-ai-gen.png" alt="Sports Shoe" style="
+                <img class="discover-image-right" src="https://nirajrajgor.github.io/email-templates/shoe-ai-gen.png" alt="Sports Shoe" style="
                     display: block;
                     width: 100%;
                     max-width: 120px;
                     height: auto;
-                    transform: rotate(-25deg);
                   " decoding="async">
               </td>
             </tr>
@@ -750,41 +809,45 @@
           <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 30px">
             <tbody><tr>
               <td>
-                <a href="#" style="
+                <a class="footer-nav-link" href="#" style="
                     font-family: Arial, sans-serif;
                     color: #a6a6a6;
                     font-size: 20px;
                     text-decoration: none;
+                    display: inline-block;
                     padding: 0 15px;
                     text-decoration: underline;
                   ">VIEW ALL</a>
               </td>
               <td>
-                <a href="#" style="
+                <a class="footer-nav-link" href="#" style="
                     font-family: Arial, sans-serif;
                     color: #a6a6a6;
                     font-size: 20px;
                     text-decoration: none;
+                    display: inline-block;
                     padding: 0 15px;
                     text-decoration: underline;
                   ">NEW ARRIVALS</a>
               </td>
               <td>
-                <a href="#" style="
+                <a class="footer-nav-link" href="#" style="
                     font-family: Arial, sans-serif;
                     color: #a6a6a6;
                     font-size: 20px;
                     text-decoration: none;
+                    display: inline-block;
                     padding: 0 15px;
                     text-decoration: underline;
                   ">OFFERS</a>
               </td>
               <td>
-                <a href="#" style="
+                <a class="footer-nav-link" href="#" style="
                     font-family: Arial, sans-serif;
                     color: #a6a6a6;
                     font-size: 20px;
                     text-decoration: none;
+                    display: inline-block;
                     padding: 0 15px;
                     text-decoration: underline;
                   ">BRANDS</a>

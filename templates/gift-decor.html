@@ -5,6 +5,47 @@
     <!--[if !mso]><!-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--<![endif]-->
+    <style type="text/css">
+      @media screen and (max-width: 479px) {
+        .gift-promo-column,
+        .gift-product-column,
+        .gift-footer-column {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          box-sizing: border-box !important;
+          text-align: center !important;
+        }
+        .gift-promo-left {
+          padding-right: 0 !important;
+        }
+        .gift-promo-right {
+          padding: 16px 0 0 !important;
+        }
+        .gift-promo-separator,
+        .gift-footer-separator {
+          display: none !important;
+        }
+        .gift-footer-column {
+          padding-top: 0 !important;
+        }
+        .gift-footer-column-2 {
+          padding-top: 20px !important;
+        }
+        .gift-nav-link {
+          display: inline-block !important;
+          padding: 10px 8px !important;
+        }
+        .gift-footer-link {
+          display: inline-block !important;
+          padding: 10px !important;
+        }
+        .gift-product-copy {
+          padding: 24px !important;
+          text-align: left !important;
+        }
+      }
+    </style>
   
     <link rel="canonical" href="https://nirajrajgor.github.io/email-templates/templates/gift-decor.html">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Gift Decor","description":"","url":"https://nirajrajgor.github.io/email-templates/templates/gift-decor.html","isAccessibleForFree":true,"fileFormat":"text/html","publisher":{"@type":"Person","name":"Niraj Rajgor"}}</script>
@@ -63,11 +104,11 @@
           <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
             <tbody><tr>
               <td align="center" style="font-size: 14px">
-                <a href="#" style="color: #ffffff; text-decoration: none; padding: 0 15px">Gifts</a>
-                <a href="#" style="color: #ffffff; text-decoration: none; padding: 0 15px">Latest Arrivals</a>
-                <a href="#" style="color: #ffffff; text-decoration: none; padding: 0 15px">Best Sellers</a>
-                <a href="#" style="color: #ffffff; text-decoration: none; padding: 0 15px">Gift Ideas</a>
-                <a href="#" style="color: #ffffff; text-decoration: none; padding: 0 15px">Discounts</a>
+                <a href="#" class="gift-nav-link" style="color: #ffffff; text-decoration: none; padding: 0 15px">Gifts</a>
+                <a href="#" class="gift-nav-link" style="color: #ffffff; text-decoration: none; padding: 0 15px">Latest Arrivals</a>
+                <a href="#" class="gift-nav-link" style="color: #ffffff; text-decoration: none; padding: 0 15px">Best Sellers</a>
+                <a href="#" class="gift-nav-link" style="color: #ffffff; text-decoration: none; padding: 0 15px">Gift Ideas</a>
+                <a href="#" class="gift-nav-link" style="color: #ffffff; text-decoration: none; padding: 0 15px">Discounts</a>
               </td>
             </tr>
           </tbody></table>
@@ -85,7 +126,7 @@
       <tr>
         <td bgcolor="#000000" style="padding: 40px 20px; text-align: center">
           <h1 style="margin: 0; color: #ffffff; font-size: 56px; line-height: 1.2">
-            Mighty gifts for<br>your loved one
+            Mighty gifts for your loved one
           </h1>
         </td>
       </tr>
@@ -96,7 +137,7 @@
           <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
             <tbody><tr>
               <!-- Left Text -->
-              <td width="47%" style="
+              <td class="gift-promo-column gift-promo-left" width="47%" style="
                   color: #ffffff;
                   font-size: 16px;
                   text-align: left;
@@ -106,8 +147,9 @@
                 This is a season for enjoyment and meaningful gift.
               </td>
 
+              <!--[if !mso]><!-->
               <!-- Centered Vertical Line -->
-              <td width="6%" style="vertical-align: middle">
+              <td class="gift-promo-separator" width="6%" style="vertical-align: middle">
                 <div style="
                     width: 1px;
                     background-color: #333333;
@@ -115,9 +157,19 @@
                     margin: 0 auto;
                   "></div>
               </td>
+              <!--<![endif]-->
+              <!--[if mso]>
+              <td width="6%" valign="middle" align="center">
+                <table role="presentation" width="1" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="1" height="40" bgcolor="#333333" style="font-size:0; line-height:0;">&nbsp;</td>
+                  </tr>
+                </table>
+              </td>
+              <![endif]-->
 
               <!-- Right Text with Promo Code -->
-              <td width="47%" style="
+              <td class="gift-promo-column gift-promo-right" width="47%" style="
                   color: #ffffff;
                   font-size: 16px;
                   text-align: left;
@@ -142,17 +194,17 @@
           <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
             <tbody><tr>
               <!-- Product Image -->
-              <td width="50%" style="padding: 0">
+              <td class="gift-product-column gift-product-media" width="50%" valign="top" style="padding: 0">
                 <img src="https://nirajrajgor.github.io/email-templates/cupcake-ai-gen.webp" alt="Mighty Ghost Mug" width="300" style="
                     width: 100%;
-                    max-width: 300px;
+                    max-width: 100%;
                     height: auto;
                     display: block;
                   " decoding="async">
               </td>
 
               <!-- Product Description -->
-              <td width="50%" bgcolor="#663399" style="padding: 30px">
+              <td class="gift-product-column gift-product-copy" width="50%" valign="top" bgcolor="#663399" style="padding: 30px">
                 <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 24px">
                   Mighty Ghost Mug
                 </h2>
@@ -189,7 +241,7 @@
           <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
             <tbody><tr>
               <!-- Product Description -->
-              <td width="50%" bgcolor="#000000" style="padding: 30px">
+              <td class="gift-product-column gift-product-copy" width="50%" valign="top" bgcolor="#000000" style="padding: 30px">
                 <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 24px">
                   Mighty Chocolate
                 </h2>
@@ -217,10 +269,10 @@
               </td>
 
               <!-- Product Image -->
-              <td width="50%" style="padding: 0">
+              <td class="gift-product-column gift-product-media" width="50%" valign="top" style="padding: 0">
                 <img src="https://nirajrajgor.github.io/email-templates/cupcake-ai-gen.webp" alt="Mighty Ghost Mug" width="300" style="
                     width: 100%;
-                    max-width: 300px;
+                    max-width: 100%;
                     height: auto;
                     display: block;
                   " decoding="async">
@@ -236,17 +288,17 @@
           <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
             <tbody><tr>
               <!-- Product Image -->
-              <td width="50%" style="padding: 0">
+              <td class="gift-product-column gift-product-media" width="50%" valign="top" style="padding: 0">
                 <img src="https://nirajrajgor.github.io/email-templates/candle-decor-ai.webp" alt="Candles" width="300" style="
                     width: 100%;
-                    max-width: 300px;
+                    max-width: 100%;
                     height: auto;
                     display: block;
                   " decoding="async">
               </td>
 
               <!-- Product Description -->
-              <td width="50%" bgcolor="#663399" style="padding: 30px">
+              <td class="gift-product-column gift-product-copy" width="50%" valign="top" bgcolor="#663399" style="padding: 30px">
                 <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 24px">
                   Mighty Candles
                 </h2>
@@ -416,11 +468,11 @@
             text-align: center;
           ">
           <p style="margin: 0 0 20px">
-            <a href="#" style="color: #ffffff; text-decoration: none; padding: 0 10px">Support</a>
-            <a href="#" style="color: #ffffff; text-decoration: none; padding: 0 10px">
+            <a class="gift-footer-link" href="#" style="color: #ffffff; text-decoration: none; padding: 0 10px">Support</a>
+            <a class="gift-footer-link" href="#" style="color: #ffffff; text-decoration: none; padding: 0 10px">
               Returns</a>
-            <a href="#" style="color: #ffffff; text-decoration: none; padding: 0 10px">FAQs</a>
-            <a href="#" style="color: #ffffff; text-decoration: none; padding: 0 10px">Privacy Policy</a>
+            <a class="gift-footer-link" href="#" style="color: #ffffff; text-decoration: none; padding: 0 10px">FAQs</a>
+            <a class="gift-footer-link" href="#" style="color: #ffffff; text-decoration: none; padding: 0 10px">Privacy Policy</a>
           </p>
 
           <!-- Social Icons -->
@@ -439,9 +491,9 @@
           <div style="height: 1px; background-color: #333333; margin: 40px 0"></div>
 
           <!-- Address and Footer Links Container -->
-          <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="padding: 0 40px">
+          <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="padding: 0 40px; box-sizing: border-box">
             <tbody><tr>
-              <td width="45%" align="left" style="vertical-align: top">
+              <td class="gift-footer-column" width="45%" align="left" style="vertical-align: top">
                 <p style="
                     color: #ffffff;
                     font-size: 14px;
@@ -452,7 +504,8 @@
                   Mydeson, California 92938, USA
                 </p>
               </td>
-              <td width="10%" style="vertical-align: middle">
+              <!--[if !mso]><!-->
+              <td class="gift-footer-separator" width="10%" style="vertical-align: middle">
                 <div style="
                     width: 1px;
                     height: 40px;
@@ -460,7 +513,17 @@
                     margin: 0 auto;
                   "></div>
               </td>
-              <td width="45%" align="left" style="vertical-align: middle">
+              <!--<![endif]-->
+              <!--[if mso]>
+              <td width="10%" valign="middle" align="center">
+                <table role="presentation" width="1" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="1" height="40" bgcolor="#333333" style="font-size:0; line-height:0;">&nbsp;</td>
+                  </tr>
+                </table>
+              </td>
+              <![endif]-->
+              <td class="gift-footer-column gift-footer-column-2" width="45%" align="left" style="vertical-align: middle">
                 <p style="margin: 0">
                   <a href="#" style="
                       color: #ffffff;
