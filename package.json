@@ -15,6 +15,7 @@
     "dev": "vite",
     "test": "node --test",
     "test:e2e": "playwright test",
+    "lint:templates": "node scripts/lint-templates.js",
     "build": "node scripts/optimize-previews.cjs --check && vite build && node scripts/copy-template-text.cjs && node scripts/generate-seo.cjs",
     "copy:template-text": "node scripts/copy-template-text.cjs",
     "optimize:previews": "node scripts/optimize-previews.cjs",

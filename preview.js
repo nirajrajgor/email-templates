@@ -143,7 +143,8 @@ const viewportMenuButton = document.getElementById("viewport-menu-button");
 const viewportMenuList = document.getElementById("viewport-menu-list");
 const viewportMenuLabel = document.getElementById("viewport-menu-label");
 const viewportButtons = document.querySelectorAll("[data-viewport]");
-const FRAME_MIN_WIDTH = 600;
+// Must exceed the largest template mobile breakpoint (623px, product-promotion).
+const FRAME_MIN_WIDTH = 624;
 const MOBILE_FRAME_WIDTH = 375;
 let frameResizeObserver = null;
 let viewportMode = "desktop";
