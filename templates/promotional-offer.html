@@ -8,6 +8,61 @@
       name="description"
       content="Promote your offers like a pro with our high-converting emailer! Showcase irresistible deals, standout features, and bonus discounts in a sleek, professional design."
     />
+    <style type="text/css">
+      @media screen and (max-width: 479px) {
+        .email-shell {
+          padding: 8px !important;
+        }
+        .deal-column,
+        .promo-stack,
+        .new-user-copy,
+        .new-user-media,
+        .footer-column {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          text-align: center !important;
+          box-sizing: border-box !important;
+        }
+        .deal-media {
+          padding: 0 0 20px !important;
+        }
+        .deal-media-after {
+          padding: 20px 0 0 !important;
+        }
+        .deal-copy {
+          padding: 0 !important;
+        }
+        .promo-stack-left {
+          padding: 0 0 10px !important;
+        }
+        .promo-stack-right {
+          padding: 10px 0 0 !important;
+        }
+        .new-user-media {
+          padding-top: 24px !important;
+        }
+        .new-user-media img {
+          width: 150px !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin: 0 auto !important;
+        }
+        .promo-hero-image {
+          width: 100% !important;
+          max-width: 300px !important;
+          height: auto !important;
+        }
+        .footer-copy {
+          padding: 20px 0 0 !important;
+        }
+      }
+    </style>
+    <!--[if mso]>
+      <style type="text/css">
+        .promo-card { width: 600px !important; }
+      </style>
+    <![endif]-->
   </head>
   <body style="margin: 0; padding: 0; background-color: #ff9b12">
     <!-- Preheader (hidden) -->
@@ -23,13 +78,16 @@
       style="background-color: #ff9b12"
     >
       <tr>
-        <td align="center" style="padding: 20px">
+        <td class="email-shell" align="center" style="padding: 20px">
           <table
+            class="promo-card"
             cellpadding="0"
             cellspacing="0"
             border="0"
-            max-width="600"
+            width="600"
             style="
+              width: 100%;
+              max-width: 600px;
               background-color: #000000;
               background-image: linear-gradient(
                 225deg,
@@ -38,14 +96,8 @@
               );
               border-radius: 8px;
             "
+            bgcolor="#000000"
           >
-            <!-- MSO conditional for Outlook -->
-            <!--[if gte mso 9]>
-            <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px;">
-              <v:fill type="gradient" color="#000000" color2="#ff9b12" angle="225"/>
-              <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
-            <![endif]-->
-
             <!-- Header -->
             <tr>
               <td align="center" style="padding: 30px 20px 10px 20px">
@@ -66,9 +118,12 @@
             <tr>
               <td align="center" style="padding: 20px">
                 <img
-                  src="/black-friday-text.png"
+                  class="promo-hero-image"
+                  src="https://nirajrajgor.github.io/email-templates/black-friday-text.png"
                   alt="Promotional Offer Emailer Image"
-                  style="width: 300px; height: 400px"
+                  width="300"
+                  height="400"
+                  style="width: 300px; max-width: 100%; height: auto"
                 />
               </td>
             </tr>
@@ -86,10 +141,9 @@
                   "
                 >
                   We are celebrating Black Friday with a
-                  <span style="font-weight: bold">40%</span><br />
+                  <span style="font-weight: bold">40%</span>
                   discount on our site. Use promo code
-                  <span style="color: #ff9b12; font-weight: bold">APPLEE40</span
-                  ><br />
+                  <span style="color: #ff9b12; font-weight: bold">APPLEE40</span>
                   on your checkout. Have a great weekend!
                 </p>
               </td>
@@ -145,21 +199,23 @@
                         style="
                           background-color: #1a1a1a;
                           border-radius: 12px;
-                          padding: 30px 20px;
                           text-align: center;
                         "
                       >
                         <tr>
-                          <td width="150" valign="top">
+                          <td style="padding: 30px 20px">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                              <tr>
+                          <td class="deal-column deal-media" width="150" valign="top">
                             <img
-                              src="/processed_apple-watch-ai-gen.webp"
+                              src="https://nirajrajgor.github.io/email-templates/processed-apple-watch.png"
                               alt="Jabra Elite 75t"
                               width="140"
                               height="140"
-                              style="display: block"
+                              style="display: block; width: 100%; max-width: 140px; height: auto; margin: 0 auto"
                             />
                           </td>
-                          <td width="290" valign="top">
+                          <td class="deal-column deal-copy" width="290" valign="top">
                             <h3
                               style="
                                 font-family: Arial, sans-serif;
@@ -190,7 +246,7 @@
                                 margin: 0 0 15px 0;
                               "
                             >
-                              Super comfortable lightweight design,<br />with up
+                              Super comfortable lightweight design, with up
                               to 25 hours of battery life.
                             </p>
                             <div
@@ -213,6 +269,9 @@
                               >
                             </div>
                           </td>
+                              </tr>
+                            </table>
+                          </td>
                         </tr>
                       </table>
                     </td>
@@ -228,12 +287,14 @@
                         style="
                           background-color: #1a1a1a;
                           border-radius: 12px;
-                          padding: 30px 20px;
                           text-align: center;
                         "
                       >
                         <tr>
-                          <td width="290" valign="top">
+                          <td style="padding: 30px 20px">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                              <tr>
+                          <td class="deal-column deal-copy" width="290" valign="top">
                             <h3
                               style="
                                 font-family: Arial, sans-serif;
@@ -264,7 +325,7 @@
                                 margin: 0 0 15px 0;
                               "
                             >
-                              Experience advanced noise cancellation,<br />up to
+                              Experience advanced noise cancellation, up to
                               25 hours of battery life.
                             </p>
                             <div
@@ -287,14 +348,17 @@
                               >
                             </div>
                           </td>
-                          <td width="150" valign="top">
+                          <td class="deal-column deal-media deal-media-after" width="150" valign="top">
                             <img
-                              src="/processed_apple-watch-ai-gen.webp"
+                              src="https://nirajrajgor.github.io/email-templates/processed-apple-watch.png"
                               alt="Apple AirPods"
                               width="140"
                               height="140"
-                              style="display: block"
+                              style="display: block; width: 100%; max-width: 140px; height: auto; margin: 0 auto"
                             />
+                          </td>
+                              </tr>
+                            </table>
                           </td>
                         </tr>
                       </table>
@@ -314,6 +378,7 @@
                         <tr>
                           <!-- Left Product -->
                           <td
+                            class="promo-stack promo-stack-left"
                             width="45%"
                             valign="top"
                             style="padding-right: 10px"
@@ -327,17 +392,19 @@
                               style="
                                 background-color: #1a1a1a;
                                 border-radius: 12px;
-                                padding: 30px 20px;
                                 text-align: center;
                               "
                             >
+                              <tr>
+                                <td style="padding: 30px 20px">
+                                  <table cellpadding="0" cellspacing="0" border="0" width="100%">
                               <tr>
                                 <td
                                   align="center"
                                   style="height: 140px; vertical-align: middle"
                                 >
                                   <img
-                                    src="/processed_apple-watch-ai-gen.webp"
+                                    src="https://nirajrajgor.github.io/email-templates/processed-apple-watch.png"
                                     alt="Sony WH-100"
                                     width="140"
                                     height="140"
@@ -377,7 +444,7 @@
                                       margin: 0 0 15px 0;
                                     "
                                   >
-                                    Premium noise cancellation,<br />up to 30
+                                    Premium noise cancellation, up to 30
                                     hours of battery life.
                                   </p>
                                   <div
@@ -401,10 +468,14 @@
                                   </div>
                                 </td>
                               </tr>
+                                  </table>
+                                </td>
+                              </tr>
                             </table>
                           </td>
                           <!-- Right Product -->
                           <td
+                            class="promo-stack promo-stack-right"
                             width="45%"
                             valign="top"
                             style="padding-left: 10px"
@@ -418,17 +489,19 @@
                               style="
                                 background-color: #1a1a1a;
                                 border-radius: 12px;
-                                padding: 30px 20px;
                                 text-align: center;
                               "
                             >
+                              <tr>
+                                <td style="padding: 30px 20px">
+                                  <table cellpadding="0" cellspacing="0" border="0" width="100%">
                               <tr>
                                 <td
                                   align="center"
                                   style="height: 140px; vertical-align: middle"
                                 >
                                   <img
-                                    src="/processed_apple-watch-ai-gen.webp"
+                                    src="https://nirajrajgor.github.io/email-templates/processed-apple-watch.png"
                                     alt="Bose QC45"
                                     width="140"
                                     height="140"
@@ -468,7 +541,7 @@
                                       margin: 0 0 15px 0;
                                     "
                                   >
-                                    World-class noise cancellation,<br />with
+                                    World-class noise cancellation, with
                                     exceptional comfort.
                                   </p>
                                   <div
@@ -490,6 +563,9 @@
                                       >Buy Now</a
                                     >
                                   </div>
+                                </td>
+                              </tr>
+                                  </table>
                                 </td>
                               </tr>
                             </table>
@@ -675,13 +751,9 @@
                   width="100%"
                   style="max-width: 500px"
                 >
-                  <!--[if gte mso 9]>
-                  <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:500px;">
-                    <v:fill type="gradient" color="#FF8C00" color2="#FF1493" angle="0"/>
-                    <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
-                  <![endif]-->
                   <tr>
                     <td
+                      bgcolor="#ff8c00"
                       style="
                         background: linear-gradient(
                           90deg,
@@ -701,7 +773,11 @@
                       >
                         <tr>
                           <!-- Left Content -->
-                          <td width="70%" style="vertical-align: top">
+                          <td
+                            class="new-user-copy"
+                            width="70%"
+                            style="vertical-align: top"
+                          >
                             <h3
                               style="
                                 font-family: Arial, sans-serif;
@@ -757,9 +833,13 @@
                             </div>
                           </td>
                           <!-- Right Content (Phone Image) -->
-                          <td width="30%" style="vertical-align: bottom">
+                          <td
+                            class="new-user-media"
+                            width="30%"
+                            style="vertical-align: bottom"
+                          >
                             <img
-                              src="/mockup.png"
+                              src="https://nirajrajgor.github.io/email-templates/mockup.png"
                               alt="Appleee Mobile App"
                               width="150"
                               height="240"
@@ -770,18 +850,9 @@
                       </table>
                     </td>
                   </tr>
-                  <!--[if gte mso 9]>
-                    </v:textbox>
-                  </v:rect>
-                  <![endif]-->
                 </table>
               </td>
             </tr>
-
-            <!--[if gte mso 9]>
-              </v:textbox>
-              </v:rect>
-            <![endif]-->
 
             <!-- Footer Section -->
             <tr>
@@ -808,6 +879,7 @@
                         <tr>
                           <!-- Left Column (Logo & Store Buttons) -->
                           <td
+                            class="footer-column"
                             width="50%"
                             align="left"
                             style="vertical-align: top"
@@ -883,6 +955,7 @@
                           </td>
                           <!-- Right Column (Text) -->
                           <td
+                            class="footer-column footer-copy"
                             width="50%"
                             align="left"
                             style="vertical-align: top; padding-left: 20px"

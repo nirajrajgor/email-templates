@@ -47,6 +47,64 @@
       img {
         -ms-interpolation-mode: bicubic;
       }
+      @media screen and (max-width: 479px) {
+        .order-header-column {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          text-align: center !important;
+        }
+        .order-header-nav {
+          padding-top: 16px !important;
+        }
+        .header-link {
+          padding-left: 6px !important;
+          padding-right: 6px !important;
+        }
+        .summary-column {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+        .summary-address {
+          padding: 16px 0 0 !important;
+        }
+        .summary-payment {
+          padding-top: 24px !important;
+          text-align: left !important;
+        }
+        .summary-totals {
+          margin-left: 0 !important;
+        }
+        .contact-option {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          padding: 0 0 28px !important;
+        }
+        .contact-option-last {
+          padding-bottom: 0 !important;
+        }
+        .faq-action {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          text-align: center !important;
+        }
+        .faq-image {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          margin-top: 24px !important;
+          text-align: center !important;
+        }
+        .order-footer-link {
+          display: inline-block !important;
+          margin-left: 4px !important;
+          margin-right: 4px !important;
+          padding: 10px 8px !important;
+        }
+      }
     </style>
   </head>
   <body style="margin: 0; padding: 32px 16px; background-color: #fff5f0">
@@ -66,14 +124,14 @@
         max-width: 600px;
         margin: 0 auto;
         background-color: white;
-        border: 2px solid rgb(248 250 252);
+        border: 2px solid #f8fafc;
         border-radius: 16px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       "
     >
       <!-- Header -->
       <tr>
-        <td style="padding: 24px 32px">
+        <td style="padding: 24px 20px">
           <table
             role="presentation"
             width="100%"
@@ -81,10 +139,21 @@
             cellspacing="0"
           >
             <tr>
-              <td>
-                <img src="/acme.png" alt="acme" style="height: 24px" />
+              <td
+                class="order-header-column order-header-brand"
+                valign="middle"
+              >
+                <img
+                  src="https://nirajrajgor.github.io/email-templates/acme.png"
+                  alt="acme"
+                  style="height: 24px"
+                />
               </td>
-              <td style="text-align: right">
+              <td
+                class="order-header-column order-header-nav"
+                valign="middle"
+                style="text-align: right"
+              >
                 <table
                   role="presentation"
                   cellpadding="0"
@@ -92,7 +161,7 @@
                   style="display: inline-block"
                 >
                   <tr>
-                    <td style="padding-left: 24px">
+                    <td class="header-link" style="padding-left: 24px">
                       <a
                         href="#"
                         style="
@@ -103,7 +172,7 @@
                         >Store</a
                       >
                     </td>
-                    <td style="padding-left: 24px">
+                    <td class="header-link" style="padding-left: 24px">
                       <a
                         href="#"
                         style="
@@ -114,7 +183,7 @@
                         >Guide</a
                       >
                     </td>
-                    <td style="padding-left: 24px">
+                    <td class="header-link" style="padding-left: 24px">
                       <a
                         href="#"
                         style="
@@ -125,7 +194,7 @@
                         >About</a
                       >
                     </td>
-                    <td style="padding-left: 24px">
+                    <td class="header-link" style="padding-left: 24px">
                       <a
                         href="#"
                         style="
@@ -178,28 +247,42 @@
               <td align="center">
                 <!-- Main container table -->
                 <table
+                  class="order-tracker"
+                  role="presentation"
                   cellpadding="0"
                   cellspacing="0"
                   border="0"
-                  style="max-width: 600px; width: 100%; padding: 20px"
+                  width="100%"
+                  style="width: 100%; max-width: 536px; table-layout: fixed"
                 >
                   <tr>
-                    <!-- Order Confirmed -->
                     <td
+                      class="order-step"
+                      width="33%"
                       align="center"
-                      style="width: 0%; text-align: center; max-width: 40px"
+                      valign="middle"
+                      style="width: 33.33%; text-align: center; vertical-align: middle"
                     >
-                      <table cellpadding="0" cellspacing="0" border="0">
+                      <table
+                        role="presentation"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0"
+                        width="100%"
+                        style="width: 100%; table-layout: fixed"
+                      >
                         <tr>
-                          <td style="padding: 0">
+                          <td width="50%" style="font-size: 0; line-height: 0">&nbsp;</td>
+                          <td width="44" align="center" style="width: 44px; padding: 0">
                             <div
+                              class="order-step-circle"
                               style="
-                                width: 40px;
-                                height: 40px;
+                                width: 44px;
+                                height: 44px;
                                 background-color: #ec6d63;
                                 border-radius: 50%;
                                 text-align: center;
-                                line-height: 34px; /* Centering the image vertically */
+                                line-height: 38px;
                               "
                             >
                               <img
@@ -214,57 +297,41 @@
                               />
                             </div>
                           </td>
-                        </tr>
-                        <tr>
-                          <td style="padding-top: 8px">
-                            <span
-                              style="
-                                font-family: Arial, sans-serif;
-                                font-size: 14px;
-                                color: #333333;
-                              "
-                              >Confirmed</span
-                            >
+                          <td class="order-connector" width="50%" valign="middle" style="vertical-align: middle">
+                            <div style="width: 100%; border-top: 2px solid #333333; font-size: 0; line-height: 0">&nbsp;</div>
                           </td>
                         </tr>
                       </table>
                     </td>
-
-                    <!-- Divider Line between Order Confirmed and Shipped -->
                     <td
+                      class="order-step"
+                      width="33%"
                       align="center"
-                      style="
-                        width: 10%;
-                        text-align: center;
-                        vertical-align: baseline;
-                      "
+                      valign="middle"
+                      style="width: 33.33%; text-align: center; vertical-align: middle"
                     >
-                      <div
-                        style="
-                          border-top: 2px solid #333333;
-                          width: 100%;
-                          height: 2px;
-                          margin-top: 20px;
-                        "
-                      ></div>
-                    </td>
-
-                    <!-- Shipped -->
-                    <td
-                      align="center"
-                      style="width: 0%; text-align: center; max-width: 44px"
-                    >
-                      <table cellpadding="0" cellspacing="0" border="0">
+                      <table
+                        role="presentation"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0"
+                        width="100%"
+                        style="width: 100%; table-layout: fixed"
+                      >
                         <tr>
-                          <td style="padding: 0; text-align: center">
+                          <td class="order-connector" width="50%" valign="middle" style="vertical-align: middle">
+                            <div style="width: 100%; border-top: 2px solid #333333; font-size: 0; line-height: 0">&nbsp;</div>
+                          </td>
+                          <td width="44" align="center" style="width: 44px; padding: 0; text-align: center">
                             <div
+                              class="order-step-circle"
                               style="
-                                width: 40px;
-                                height: 40px;
+                                width: 44px;
+                                height: 44px;
                                 border: 2px solid #333333;
                                 border-radius: 50%;
                                 text-align: center;
-                                line-height: 34px; /* Centering the image vertically */
+                                line-height: 38px;
                               "
                             >
                               <img
@@ -279,57 +346,41 @@
                               />
                             </div>
                           </td>
-                        </tr>
-                        <tr>
-                          <td style="padding-top: 8px">
-                            <span
-                              style="
-                                font-family: Arial, sans-serif;
-                                font-size: 14px;
-                                color: #333333;
-                              "
-                              >Shipped</span
-                            >
+                          <td class="order-connector" width="50%" valign="middle" style="vertical-align: middle">
+                            <div style="width: 100%; border-top: 2px solid #333333; font-size: 0; line-height: 0">&nbsp;</div>
                           </td>
                         </tr>
                       </table>
                     </td>
-
-                    <!-- Divider Line between Shipped and Expected Delivered -->
                     <td
+                      class="order-step"
+                      width="33%"
                       align="center"
-                      style="
-                        width: 10%;
-                        text-align: center;
-                        vertical-align: baseline;
-                      "
+                      valign="middle"
+                      style="width: 33.33%; text-align: center; vertical-align: middle"
                     >
-                      <div
-                        style="
-                          border-top: 2px solid #333333;
-                          width: 100%;
-                          height: 2px;
-                          margin-top: 20px;
-                        "
-                      ></div>
-                    </td>
-
-                    <!-- Expected Delivered -->
-                    <td
-                      align="center"
-                      style="width: 0%; text-align: center; max-width: 50px"
-                    >
-                      <table cellpadding="0" cellspacing="0" border="0">
+                      <table
+                        role="presentation"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0"
+                        width="100%"
+                        style="width: 100%; table-layout: fixed"
+                      >
                         <tr>
-                          <td style="padding: 0">
+                          <td class="order-connector" width="50%" valign="middle" style="vertical-align: middle">
+                            <div style="width: 100%; border-top: 2px solid #333333; font-size: 0; line-height: 0">&nbsp;</div>
+                          </td>
+                          <td width="44" align="center" style="width: 44px; padding: 0">
                             <div
+                              class="order-step-circle"
                               style="
-                                width: 40px;
-                                height: 40px;
+                                width: 44px;
+                                height: 44px;
                                 border: 2px solid #333333;
                                 border-radius: 50%;
                                 text-align: center;
-                                line-height: 34px; /* Centering the image vertically */
+                                line-height: 38px;
                               "
                             >
                               <img
@@ -344,20 +395,20 @@
                               />
                             </div>
                           </td>
-                        </tr>
-                        <tr>
-                          <td style="padding-top: 8px">
-                            <span
-                              style="
-                                font-family: Arial, sans-serif;
-                                font-size: 14px;
-                                color: #333333;
-                              "
-                              >Delivered</span
-                            >
-                          </td>
+                          <td width="50%" style="font-size: 0; line-height: 0">&nbsp;</td>
                         </tr>
                       </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="33%" align="center" style="width: 33.33%; padding: 8px 4px 0">
+                      <span class="order-step-label" style="display: block; margin: 0; font-family: Arial, sans-serif; font-size: 14px; line-height: 18px; color: #333333; text-align: center; white-space: normal">Confirmed</span>
+                    </td>
+                    <td width="33%" align="center" style="width: 33.33%; padding: 8px 4px 0">
+                      <span class="order-step-label" style="display: block; margin: 0; font-family: Arial, sans-serif; font-size: 14px; line-height: 18px; color: #333333; text-align: center; white-space: normal">Shipped</span>
+                    </td>
+                    <td width="33%" align="center" style="width: 33.33%; padding: 8px 4px 0">
+                      <span class="order-step-label" style="display: block; margin: 0; font-family: Arial, sans-serif; font-size: 14px; line-height: 18px; color: #333333; text-align: center; white-space: normal">Delivered</span>
                     </td>
                   </tr>
                 </table>
@@ -390,8 +441,7 @@
                   "
                 >
                   Expected delivery timelines. Contact the seller for any
-                  order-related<br />
-                  inquiries. More information is available.
+                  order-related inquiries. More information is available.
                 </p>
               </td>
             </tr>
@@ -424,7 +474,7 @@
                   <tr>
                     <td width="80">
                       <img
-                        src="/apple-watch-ai-gen.webp"
+                        src="https://nirajrajgor.github.io/email-templates/apple-watch-ai-gen.webp"
                         alt="T-shirt"
                         style="
                           width: 80px;
@@ -468,116 +518,72 @@
                   style="border-top: 1px solid #e8e8e8"
                 >
                   <tr>
-                    <td
-                      style="
-                        text-align: left;
-                        padding-right: 20px;
-                        padding-top: 16px;
-                        vertical-align: top;
-                      "
-                    >
-                      <h3
-                        style="
-                          font-size: 16px;
-                          font-weight: 600;
-                          color: #1a1a1a;
-                          margin-bottom: 8px;
-                        "
+                    <td style="font-size: 0; text-align: left">
+                      <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td width="250" valign="top"><![endif]-->
+                      <div
+                        class="summary-column summary-address"
+                        style="display: inline-block; width: 100%; max-width: 250px; padding: 16px 20px 0 0; text-align: left; vertical-align: top; box-sizing: border-box; font-size: 14px"
                       >
-                        Shipping Address
-                      </h3>
-                      <p
-                        style="
-                          font-size: 14px;
-                          color: #4a4a4a;
-                          line-height: 1.5;
-                        "
+                        <h3
+                          style="font-size: 16px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px"
+                        >
+                          Shipping Address
+                        </h3>
+                        <p style="font-size: 14px; color: #4a4a4a; line-height: 1.5">
+                          <a href="#" style="color: #4a4a4a; text-decoration: none"
+                            >John Doe<br />
+                            123 Main St.<br />
+                            Springfield, IL 62701<br />
+                            United States</a
+                          >
+                        </p>
+                      </div>
+                      <!--[if mso]></td><td width="250" valign="top"><![endif]-->
+                      <div
+                        class="summary-column summary-payment"
+                        style="display: inline-block; width: 100%; max-width: 250px; padding-top: 0; text-align: right; vertical-align: top; box-sizing: border-box; font-size: 14px"
                       >
-                        John Doe<br />
-                        123 Main St.<br />
-                        Springfield, IL 62701<br />
-                        United States
-                      </p>
-                    </td>
-                    <td style="text-align: right; vertical-align: top">
-                      <h3
-                        style="
-                          font-size: 16px;
-                          font-weight: 600;
-                          color: #1a1a1a;
-                          margin-bottom: 8px;
-                          padding-top: 16px;
-                        "
-                      >
-                        Paid with Card
-                      </h3>
-                      <table
-                        role="presentation"
-                        cellpadding="0"
-                        cellspacing="0"
-                        style="margin-left: auto; margin-top: 15px"
-                      >
-                        <tr>
-                          <td
-                            style="
-                              padding: 4px 24px 4px 0;
-                              font-size: 14px;
-                              color: #4a4a4a;
-                            "
-                          >
-                            Subtotal
-                          </td>
-                          <td style="font-size: 14px; color: #1a1a1a">
-                            $16.85
-                          </td>
-                        </tr>
-                        <tr>
-                          <td
-                            style="
-                              padding: 4px 24px 4px 0;
-                              font-size: 14px;
-                              color: #4a4a4a;
-                            "
-                          >
-                            Sales tax
-                          </td>
-                          <td style="font-size: 14px; color: #1a1a1a">$1.50</td>
-                        </tr>
-                        <tr>
-                          <td
-                            style="
-                              padding: 4px 24px 4px 0;
-                              font-size: 14px;
-                              color: #4a4a4a;
-                            "
-                          >
-                            Shipping
-                          </td>
-                          <td style="font-size: 14px; color: #1a1a1a">$8.12</td>
-                        </tr>
-                        <tr>
-                          <td
-                            style="
-                              padding: 16px 24px 4px 0;
-                              font-size: 14px;
-                              font-weight: 600;
-                              color: #1a1a1a;
-                            "
-                          >
-                            Total (1 item)
-                          </td>
-                          <td
-                            style="
-                              padding-top: 16px;
-                              font-size: 14px;
-                              font-weight: 600;
-                              color: #1a1a1a;
-                            "
-                          >
-                            $26.47
-                          </td>
-                        </tr>
-                      </table>
+                        <h3
+                          style="font-size: 16px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; padding-top: 16px"
+                        >
+                          Paid with Card
+                        </h3>
+                        <table
+                          class="summary-totals"
+                          role="presentation"
+                          cellpadding="0"
+                          cellspacing="0"
+                          style="margin-left: auto; margin-top: 15px"
+                        >
+                          <tr>
+                            <td style="padding: 4px 24px 4px 0; font-size: 14px; color: #4a4a4a">
+                              Subtotal
+                            </td>
+                            <td style="font-size: 14px; color: #1a1a1a">$16.85</td>
+                          </tr>
+                          <tr>
+                            <td style="padding: 4px 24px 4px 0; font-size: 14px; color: #4a4a4a">
+                              Sales tax
+                            </td>
+                            <td style="font-size: 14px; color: #1a1a1a">$1.50</td>
+                          </tr>
+                          <tr>
+                            <td style="padding: 4px 24px 4px 0; font-size: 14px; color: #4a4a4a">
+                              Shipping
+                            </td>
+                            <td style="font-size: 14px; color: #1a1a1a">$8.12</td>
+                          </tr>
+                          <tr>
+                            <td style="padding: 16px 24px 4px 0; font-size: 14px; font-weight: 600; color: #1a1a1a">
+                              Total (1 item)
+                            </td>
+                            <td style="padding-top: 16px; font-size: 14px; font-weight: 600; color: #1a1a1a">
+                              $26.47
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                      <!--[if mso]></td></tr></table><![endif]-->
                     </td>
                   </tr>
                 </table>
@@ -597,34 +603,43 @@
             cellspacing="0"
           >
             <tr>
-              <td width="33%" style="text-align: center">
-                <div style="font-size: 24px; margin-bottom: 8px">💬</div>
-                <h3
-                  style="font-size: 16px; font-weight: 600; margin-bottom: 4px"
+              <td style="font-size: 0; text-align: center">
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td width="33%" valign="top"><![endif]-->
+                <div
+                  class="contact-option"
+                  style="display: inline-block; width: 100%; max-width: 166px; padding: 0; text-align: center; vertical-align: top; box-sizing: border-box; font-size: 14px"
                 >
-                  Chat
-                </h3>
-                <p style="font-size: 14px; color: #4a4a4a">acmeorder.com</p>
-              </td>
-              <td width="33%" style="text-align: center">
-                <div style="font-size: 24px; margin-bottom: 8px">📞</div>
-                <h3
-                  style="font-size: 16px; font-weight: 600; margin-bottom: 4px"
+                  <div style="font-size: 24px; margin-bottom: 8px">💬</div>
+                  <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 4px">
+                    Chat
+                  </h3>
+                  <p style="font-size: 14px; color: #4a4a4a">acmeorder.com</p>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
+                <div
+                  class="contact-option"
+                  style="display: inline-block; width: 100%; max-width: 166px; padding: 0; text-align: center; vertical-align: top; box-sizing: border-box; font-size: 14px"
                 >
-                  Call
-                </h3>
-                <p style="font-size: 14px; color: #4a4a4a">1 (999) 928-2938</p>
-              </td>
-              <td width="33%" style="text-align: center">
-                <div style="font-size: 24px; margin-bottom: 8px">✉️</div>
-                <h3
-                  style="font-size: 16px; font-weight: 600; margin-bottom: 4px"
+                  <div style="font-size: 24px; margin-bottom: 8px">📞</div>
+                  <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 4px">
+                    Call
+                  </h3>
+                  <p style="font-size: 14px; color: #4a4a4a">1 (999) 928-2938</p>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
+                <div
+                  class="contact-option contact-option-last"
+                  style="display: inline-block; width: 100%; max-width: 166px; padding: 0; text-align: center; vertical-align: top; box-sizing: border-box; font-size: 14px"
                 >
-                  Email
-                </h3>
-                <p style="font-size: 14px; color: #4a4a4a">
-                  acmeorder@gmail.com
-                </p>
+                  <div style="font-size: 24px; margin-bottom: 8px">✉️</div>
+                  <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 4px">
+                    Email
+                  </h3>
+                  <p style="font-size: 14px; color: #4a4a4a">
+                    acmeorder@gmail.com
+                  </p>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
               </td>
             </tr>
           </table>
@@ -653,12 +668,15 @@
             "
           >
             We've updated our watch size! If you're wondering about the amount
-            of offer<br />
-            you're receiving or how this change enhances your Trade experience,
-            check out our FAQs!
+            of offer you're receiving or how this change enhances your Trade
+            experience, check out our FAQs!
           </p>
-          <div style="width: 100%; overflow: hidden">
-            <div style="float: left; margin-right: 20px">
+          <div style="width: 100%; font-size: 0; text-align: left">
+            <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td width="250" valign="top"><![endif]-->
+            <div
+              class="faq-action"
+              style="display: inline-block; width: 100%; max-width: 250px; margin: 0; text-align: left; vertical-align: top; box-sizing: border-box; font-size: 15px"
+            >
               <a
                 href="#"
                 style="
@@ -674,13 +692,18 @@
                 >Read FAQs</a
               >
             </div>
-            <div style="float: right">
+            <!--[if mso]></td><td width="250" valign="top"><![endif]-->
+            <div
+              class="faq-image"
+              style="display: inline-block; width: 100%; max-width: 250px; margin-top: 0; text-align: right; vertical-align: top; box-sizing: border-box; font-size: 15px"
+            >
               <img
-                src="/size-chart.webp"
+                src="https://nirajrajgor.github.io/email-templates/size-chart.webp"
                 alt="Clothes rack"
-                style="width: 100%; max-width: 200px; border-radius: 8px"
+                style="display: inline-block; width: 100%; max-width: 200px; border-radius: 8px"
               />
             </div>
+            <!--[if mso]></td></tr></table><![endif]-->
           </div>
         </td>
       </tr>
@@ -706,7 +729,7 @@
               margin-bottom: 24px;
             "
           >
-            Want to enhance your shopping experience? Enjoy complimentary <br />
+            Want to enhance your shopping experience? Enjoy complimentary
             shipping on your next order as a special treat!
           </p>
           <a
@@ -746,41 +769,53 @@
             <tr>
               <td style="text-align: center; padding-bottom: 32px">
                 <a
+                  class="order-footer-link"
                   href="#"
                   style="
+                    display: inline-block;
                     color: white;
                     text-decoration: none;
-                    margin: 0 12px;
+                    margin: 0 4px;
+                    padding: 10px 8px;
                     font-size: 14px;
                   "
                   >Facebook</a
                 >
                 <a
+                  class="order-footer-link"
                   href="#"
                   style="
+                    display: inline-block;
                     color: white;
                     text-decoration: none;
-                    margin: 0 12px;
+                    margin: 0 4px;
+                    padding: 10px 8px;
                     font-size: 14px;
                   "
                   >Twitter</a
                 >
                 <a
+                  class="order-footer-link"
                   href="#"
                   style="
+                    display: inline-block;
                     color: white;
                     text-decoration: none;
-                    margin: 0 12px;
+                    margin: 0 4px;
+                    padding: 10px 8px;
                     font-size: 14px;
                   "
                   >Instagram</a
                 >
                 <a
+                  class="order-footer-link"
                   href="#"
                   style="
+                    display: inline-block;
                     color: white;
                     text-decoration: none;
-                    margin: 0 12px;
+                    margin: 0 4px;
+                    padding: 10px 8px;
                     font-size: 14px;
                   "
                   >Pinterest</a
