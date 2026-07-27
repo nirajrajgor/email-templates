@@ -90,7 +90,7 @@ test("mobile, stripped-CSS, and dark preview modes remain usable", async ({
       ),
     )
     .toBe(375);
-  await expect(page.locator("#overflow-warning")).toBeVisible();
+  await expect(page.locator("#overflow-warning")).toBeHidden();
 
   await selectOption(
     page,
@@ -100,11 +100,13 @@ test("mobile, stripped-CSS, and dark preview modes remain usable", async ({
   await expect(page.locator("#viewport-menu-label")).toHaveText(
     "Mobile, styles stripped",
   );
+  // Templates are desktop-default, so stripping styles shows the natural
+  // desktop layout scaled down to phone width.
   await expect
     .poll(() =>
       page.locator("#template-frame").evaluate(
         (frame) =>
-          parseInt(frame.style.width, 10) > 500 &&
+          parseInt(frame.style.width, 10) >= 375 &&
           frame.contentDocument?.querySelectorAll("style").length === 0,
       ),
     )
@@ -119,7 +121,7 @@ test("mobile, stripped-CSS, and dark preview modes remain usable", async ({
       viewport: window.innerWidth,
     };
   });
-  expect(geometry.layoutWidth).toBeGreaterThan(500);
+  expect(geometry.layoutWidth).toBeGreaterThanOrEqual(375);
   expect(geometry.left).toBeGreaterThanOrEqual(0);
   expect(geometry.right).toBeLessThanOrEqual(geometry.viewport);
 
@@ -153,6 +155,38 @@ test("mobile, stripped-CSS, and dark preview modes remain usable", async ({
   });
   expect(originalDownload).toContain("<style");
   expect(originalDownload).not.toContain("data-dark-sim-original");
+});
+
+test("product promotion changes layout without overflow", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("preview.html?template=product-promotion");
+  await expect
+    .poll(() =>
+      page
+        .locator("#template-frame")
+        .evaluate((frame) => parseInt(frame.style.width, 10)),
+    )
+    .toBe(624);
+
+  for (const [width, display] of [
+    [623, "block"],
+    [624, "table-cell"],
+  ]) {
+    await page.setViewportSize({ width, height: 800 });
+    await page.goto("templates/product-promotion.html");
+
+    const layout = await page.evaluate(() => ({
+      overflow:
+        document.documentElement.scrollWidth -
+        document.documentElement.clientWidth,
+      headerDisplay: getComputedStyle(
+        document.querySelector(".header-cell"),
+      ).display,
+    }));
+
+    expect(layout.overflow).toBeLessThanOrEqual(1);
+    expect(layout.headerDisplay).toBe(display);
+  }
 });
 
 test("the Supabase collection opens a working template preview", async ({
