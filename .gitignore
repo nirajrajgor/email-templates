@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 .env
-scripts/send-test.js
+scripts/send-template.js
 /verification/playwright-results/
 
 # Editor directories and files
