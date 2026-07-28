@@ -1,0 +1,8 @@
+Email change requested
+
+Follow the link below to confirm {{ .NewEmail }} as your new email address.
+
+Confirm change:
+{{ .ConfirmationURL }}
+
+If you didn't request this change, you can safely ignore this email.

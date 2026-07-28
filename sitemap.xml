@@ -5,7 +5,7 @@
   <!-- Main Pages -->
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -15,7 +15,7 @@
   </url>
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/supabase.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -192,6 +192,16 @@
     </image:image>
   </url>
   <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/supabase-change-email.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/supabase-change-email-preview.png</image:loc>
+      <image:title>Supabase Change Email Address HTML Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://nirajrajgor.github.io/email-templates/templates/supabase-confirm-signup.html</loc>
     <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -229,6 +239,16 @@
     <image:image>
       <image:loc>https://nirajrajgor.github.io/email-templates/supabase-magic-link-preview.png</image:loc>
       <image:title>Supabase Magic Link HTML Email Template</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/templates/supabase-reauthentication.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://nirajrajgor.github.io/email-templates/supabase-reauthentication-preview.png</image:loc>
+      <image:title>Supabase Reauthentication HTML Email Template</image:title>
     </image:image>
   </url>
   <url>
