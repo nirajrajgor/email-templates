@@ -79,9 +79,11 @@ const templates = {
     themedExtra: ["#8b7355", "#a8998a", "#5c4b37", "#e8e3dd"],
   },
   "supabase-confirm-signup": supabaseTemplate("Confirm Signup"),
+  "supabase-change-email": supabaseTemplate("Change Email Address"),
   "supabase-email-otp": supabaseTemplate("Email OTP"),
   "supabase-invite-user": supabaseTemplate("Invite User"),
   "supabase-magic-link": supabaseTemplate("Magic Link"),
+  "supabase-reauthentication": supabaseTemplate("Reauthentication"),
   "supabase-reset-password": supabaseTemplate("Reset Password"),
   "welcome-onboarding": {
     title: "Welcome Onboarding Emailer",

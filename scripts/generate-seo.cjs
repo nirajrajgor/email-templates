@@ -108,6 +108,11 @@ const TEMPLATE_METADATA = {
     image: "supabase-confirm-signup-preview.png",
     title: "Supabase Confirm Signup HTML Email Template",
   },
+  "supabase-change-email.html": {
+    lastmod: "2026-07-28",
+    image: "supabase-change-email-preview.png",
+    title: "Supabase Change Email Address HTML Email Template",
+  },
   "supabase-email-otp.html": {
     lastmod: "2026-07-19",
     image: "supabase-email-otp-preview.png",
@@ -122,6 +127,11 @@ const TEMPLATE_METADATA = {
     lastmod: "2026-07-19",
     image: "supabase-magic-link-preview.png",
     title: "Supabase Magic Link HTML Email Template",
+  },
+  "supabase-reauthentication.html": {
+    lastmod: "2026-07-28",
+    image: "supabase-reauthentication-preview.png",
+    title: "Supabase Reauthentication HTML Email Template",
   },
   "supabase-reset-password.html": {
     lastmod: "2026-07-18",

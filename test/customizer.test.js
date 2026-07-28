@@ -13,8 +13,19 @@ const linkVariables = [
 
 const supabaseTemplates = [
   ["supabase-confirm-signup.html", linkVariables],
+  [
+    "supabase-change-email.html",
+    [
+      "ConfirmationURL",
+      "ConfirmationURL",
+      "ConfirmationURL",
+      "NewEmail",
+      "NewEmail",
+    ],
+  ],
   ["supabase-reset-password.html", linkVariables],
   ["supabase-magic-link.html", linkVariables],
+  ["supabase-reauthentication.html", ["Token"]],
   ["supabase-email-otp.html", ["Email", "Token"]],
   [
     "supabase-invite-user.html",
