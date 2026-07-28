@@ -54,10 +54,12 @@ When you are finished, copy the customized HTML or download it as a file.
 - [Supabase Magic Link](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-magic-link)
 - [Supabase Email OTP](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-email-otp)
 - [Supabase Invite User](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-invite-user)
+- [Supabase Change Email Address](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-change-email)
+- [Supabase Reauthentication](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-reauthentication)
 
 ## Integration Collections
 
-- [Supabase Email Templates](https://nirajrajgor.github.io/email-templates/supabase.html) includes customizable Confirm Signup, Reset Password, Magic Link, Email OTP, and Invite User designs. Supabase variables are preserved during customization.
+- [Supabase Email Templates](https://nirajrajgor.github.io/email-templates/supabase.html) includes customizable Confirm Signup, Reset Password, Magic Link, Email OTP, Invite User, Change Email Address, and Reauthentication designs. Supabase variables are preserved during customization.
 
 ## Setup Instructions
 

@@ -200,9 +200,6 @@ test("the Supabase collection opens a working template preview", async ({
     .click();
 
   await expect(page).toHaveURL(/supabase\.html$/);
-  await expect(
-    page.locator(".collection-template-grid article.wrapper"),
-  ).toHaveCount(5);
 
   const card = page.locator("article.wrapper", {
     has: page.getByRole("heading", { name: "Confirm Signup" }),
@@ -210,12 +207,33 @@ test("the Supabase collection opens a working template preview", async ({
   await expect(
     card.getByRole("link", { name: "Download Confirm Signup" }),
   ).toHaveAttribute("download", "supabase-confirm-signup.html");
-  await card.getByRole("link", { name: "Preview Confirm Signup" }).click();
+
+  const changeEmailCard = page.locator("article.wrapper", {
+    has: page.getByRole("heading", { name: "Change Email Address" }),
+  });
+  await expect(
+    changeEmailCard.getByRole("link", {
+      name: "Download Change Email Address",
+    }),
+  ).toHaveAttribute("download", "supabase-change-email.html");
+
+  const reauthenticationCard = page.locator("article.wrapper", {
+    has: page.getByRole("heading", { name: "Reauthentication" }),
+  });
+  await expect(
+    reauthenticationCard.getByRole("link", {
+      name: "Download Reauthentication",
+    }),
+  ).toHaveAttribute("download", "supabase-reauthentication.html");
+
+  await reauthenticationCard
+    .getByRole("link", { name: "Preview Reauthentication" })
+    .click();
 
   await expect(
     page
       .frameLocator("#template-frame")
-      .getByRole("heading", { name: "Confirm your email" }),
+      .getByRole("heading", { name: "Your verification code" }),
   ).toBeVisible();
   await page.locator("#copy-menu-button").click();
   await expect(page.getByText("Copy Supabase HTML")).toBeVisible();

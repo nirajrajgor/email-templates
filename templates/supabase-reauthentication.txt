@@ -1,0 +1,10 @@
+ACME — Identity check
+
+Your verification code
+
+Use the code below to verify your identity. It expires shortly.
+
+{{ .Token }}
+
+Didn't request this code?
+You can safely ignore this email. Never share this code with anyone.
