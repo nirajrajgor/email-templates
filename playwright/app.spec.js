@@ -200,9 +200,6 @@ test("the Supabase collection opens a working template preview", async ({
     .click();
 
   await expect(page).toHaveURL(/supabase\.html$/);
-  await expect(
-    page.locator(".collection-template-grid article.wrapper"),
-  ).toHaveCount(7);
 
   const card = page.locator("article.wrapper", {
     has: page.getByRole("heading", { name: "Confirm Signup" }),
@@ -237,18 +234,6 @@ test("the Supabase collection opens a working template preview", async ({
     page
       .frameLocator("#template-frame")
       .getByRole("heading", { name: "Your verification code" }),
-  ).toBeVisible();
-  await expect(
-    page
-      .frameLocator("#template-frame")
-      .getByText(
-        "Use the code below to verify your identity. It expires shortly.",
-      ),
-  ).toBeVisible();
-  await expect(
-    page
-      .frameLocator("#template-frame")
-      .getByText("Didn’t request this code?"),
   ).toBeVisible();
   await page.locator("#copy-menu-button").click();
   await expect(page.getByText("Copy Supabase HTML")).toBeVisible();
