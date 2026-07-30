@@ -1,0 +1,12 @@
+ACME
+
+Your sign-in link
+
+A sign-in was requested for ${email}. Follow the link below to sign in. It expires in 5 minutes and can only be used once.
+
+Sign in:
+${url}
+
+If you did not try to sign in, you can safely ignore this email.
+
+We will never ask you for your password or a one-time code by email.
