@@ -277,6 +277,16 @@ main > div.grid {
   outline-color: rgba(16, 185, 129, 0.24);
 }
 
+.filter-pill-better-auth.is-active {
+  background: #f4f4f5;
+  border-color: #a1a1aa;
+  color: #18181b;
+}
+
+.filter-pill-better-auth:focus-visible {
+  outline-color: rgba(24, 24, 27, 0.18);
+}
+
 .filter-pill-count {
   color: var(--muted);
   font-size: 0.75rem;
@@ -292,6 +302,10 @@ main > div.grid {
 
 .filter-pill-supabase.is-active .filter-pill-count {
   color: #087554;
+}
+
+.filter-pill-better-auth.is-active .filter-pill-count {
+  color: #18181b;
 }
 
 .catalog-summary {

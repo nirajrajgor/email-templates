@@ -9,6 +9,16 @@ const supabaseTemplate = (title) => ({
   integration: "Supabase",
 });
 
+// The brand black is below the customizer's saturation gate, so opt it in.
+const betterAuthTemplate = (title) => ({
+  title: `Better Auth ${title}`,
+  background: "#ffffff",
+  brand: "#18181b",
+  themedExtra: ["#18181b"],
+  back: "./better-auth.html",
+  integration: "Better Auth",
+});
+
 const templates = {
   "purchase-confirmation": {
     title: "Purchase Confirmation Emailer",
@@ -85,6 +95,13 @@ const templates = {
   "supabase-magic-link": supabaseTemplate("Magic Link"),
   "supabase-reauthentication": supabaseTemplate("Reauthentication"),
   "supabase-reset-password": supabaseTemplate("Reset Password"),
+  "better-auth-verify-email": betterAuthTemplate("Verify Email"),
+  "better-auth-reset-password": betterAuthTemplate("Reset Password"),
+  "better-auth-magic-link": betterAuthTemplate("Magic Link"),
+  "better-auth-email-otp": betterAuthTemplate("Email OTP"),
+  "better-auth-invite-member": betterAuthTemplate("Organization Invite"),
+  "better-auth-change-email": betterAuthTemplate("Change Email"),
+  "better-auth-delete-account": betterAuthTemplate("Delete Account"),
   "welcome-onboarding": {
     title: "Welcome Onboarding Emailer",
     background: "#f4f4f4",
