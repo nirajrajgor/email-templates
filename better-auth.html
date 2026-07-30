@@ -507,37 +507,18 @@
             </summary>
             <div class="how-to-answer">
               <p>
-                Better Auth does not send emails itself — each email type has a
-                callback where you deliver the message with your own provider,
-                such as Resend or Nodemailer. Paste the copied HTML into a
-                template literal (backticks) inside the matching callback, and
-                the <code>${url}</code>-style placeholders are filled in by
-                JavaScript:
-              </p>
-              <pre><code>import { betterAuth } from "better-auth";
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export const auth = betterAuth({
-  emailVerification: {
-    sendVerificationEmail: async ({ user, url }) => {
-      const email = user.email;
-      await resend.emails.send({
-        from: "Acme &lt;auth@yourdomain.com&gt;",
-        to: email,
-        subject: "Confirm your email",
-        html: `&lt;!-- paste better-auth-verify-email.html here --&gt;`,
-      });
-    },
-  },
-});</code></pre>
-              <p>
-                The same pattern works for
-                <code>sendResetPassword</code>, the magic link and email OTP
-                plugins, <code>sendChangeEmailConfirmation</code>,
-                <code>sendDeleteAccountVerification</code>, and the
-                organization plugin&rsquo;s <code>sendInvitationEmail</code>.
+                Better Auth provides callbacks for sending authentication
+                emails. See the
+                <a
+                  class="font-medium text-blue-600 hover:underline"
+                  href="https://better-auth.com/docs/concepts/email"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Better Auth email documentation</a
+                >
+                to configure the appropriate callback. To use custom HTML, pass
+                the copied template as the HTML body through your email
+                provider; the exact setup depends on the provider you use.
               </p>
             </div>
           </details>
@@ -563,7 +544,7 @@ export const auth = betterAuth({
                 <code>${inviteLink}</code>, <code>${inviterName}</code>, and
                 <code>${organizationName}</code> unchanged. They are plain
                 JavaScript template-literal placeholders, so define matching
-                variables from your callback&rsquo;s arguments — for example
+                variables from your callback&rsquo;s arguments, for example
                 <code>const email = user.email</code>. If you build the HTML
                 without template literals, swap them out with
                 <code>.replace()</code> instead.
