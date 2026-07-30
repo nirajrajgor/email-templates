@@ -238,3 +238,24 @@ test("the Supabase collection opens a working template preview", async ({
   await page.locator("#copy-menu-button").click();
   await expect(page.getByText("Copy Supabase HTML")).toBeVisible();
 });
+
+test("the Better Auth collection opens a working template preview", async ({
+  page,
+}) => {
+  await page.goto("index.html");
+  await page
+    .getByRole("link", {
+      name: "View the Better Auth Email Templates collection",
+    })
+    .click();
+
+  await page.getByRole("link", { name: "Preview Delete Account" }).click();
+
+  await expect(
+    page
+      .frameLocator("#template-frame")
+      .getByRole("heading", { name: "Confirm account deletion" }),
+  ).toBeVisible();
+  await page.locator("#copy-menu-button").click();
+  await expect(page.getByText("Copy Better Auth HTML")).toBeVisible();
+});
