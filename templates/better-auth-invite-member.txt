@@ -1,0 +1,12 @@
+ACME
+
+Join ${organizationName}
+
+${inviterName} has invited you to collaborate. Accept the invitation below to get started.
+
+Accept invitation:
+${inviteLink}
+
+If you weren't expecting this invitation, you can safely ignore this email.
+
+We will never ask you for your password or a one-time code by email.

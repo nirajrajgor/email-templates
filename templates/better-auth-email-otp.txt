@@ -1,0 +1,13 @@
+ACME
+
+Your verification code
+
+A sign-in was requested for ${email}. Enter the code below where you requested it. It expires in 5 minutes.
+
+Your one-time code: ${otp}
+
+This code can only be used once.
+
+Didn't request this code? You can safely ignore this email. Never share this code with anyone.
+
+We will never ask you for your password or a one-time code by email.
