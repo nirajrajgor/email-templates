@@ -287,27 +287,6 @@ main > div.grid {
   outline-color: rgba(24, 24, 27, 0.18);
 }
 
-.filter-pill-count {
-  color: var(--muted);
-  font-size: 0.75rem;
-  font-variant-numeric: tabular-nums;
-  font-weight: 600;
-  margin-left: 0.125rem;
-}
-
-/* Counts remain secondary while clearing 4.5:1 at 12px. */
-.filter-pill.is-active .filter-pill-count {
-  color: #2563eb;
-}
-
-.filter-pill-supabase.is-active .filter-pill-count {
-  color: #087554;
-}
-
-.filter-pill-better-auth.is-active .filter-pill-count {
-  color: #18181b;
-}
-
 .catalog-summary {
   align-items: center;
   display: flex;
