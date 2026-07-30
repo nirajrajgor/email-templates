@@ -33,10 +33,32 @@ const supabaseTemplates = [
   ],
 ];
 
+const betterAuthTemplates = [
+  ["better-auth-verify-email.html", ["email", "url"]],
+  ["better-auth-reset-password.html", ["email", "url"]],
+  ["better-auth-magic-link.html", ["email", "url"]],
+  ["better-auth-delete-account.html", ["email", "url"]],
+  ["better-auth-email-otp.html", ["email", "otp"]],
+  ["better-auth-change-email.html", ["newEmail", "url"]],
+  [
+    "better-auth-invite-member.html",
+    ["inviteLink", "inviterName", "organizationName"],
+  ],
+];
+
 const getVariables = (html) =>
   [...html.matchAll(/{{\s+\.([A-Za-z][A-Za-z0-9_]*)\s+}}/g)]
     .map(([, name]) => name)
     .sort();
+
+const getBetterAuthVariables = (html) =>
+  [
+    ...new Set(
+      [...html.matchAll(/\$\{([A-Za-z][A-Za-z0-9]*)\}/g)].map(
+        ([, name]) => name,
+      ),
+    ),
+  ].sort();
 
 test("rethemes email style contexts without changing text", () => {
   const html = `
@@ -68,6 +90,26 @@ test("Supabase variables survive customization", async () => {
 
     assert.deepEqual(getVariables(html), expected, file);
     assert.deepEqual(getVariables(themed), expected, file);
+    assert.match(themed, /background-color: #0ea5e9/);
+  }
+});
+
+test("Better Auth placeholders survive customization", async () => {
+  for (const [file, expected] of betterAuthTemplates) {
+    const html = await readFile(
+      new URL(`../templates/${file}`, import.meta.url),
+      "utf8",
+    );
+    const themed = rethemeHtml(
+      html,
+      [{ from: "#18181b", to: "#0ea5e9" }],
+      { themedExtra: ["#18181b"] },
+    );
+
+    // Files are pasted into JS template literals, so backticks would break them.
+    assert.doesNotMatch(html, /`/, file);
+    assert.deepEqual(getBetterAuthVariables(html), expected, file);
+    assert.deepEqual(getBetterAuthVariables(themed), expected, file);
     assert.match(themed, /background-color: #0ea5e9/);
   }
 });

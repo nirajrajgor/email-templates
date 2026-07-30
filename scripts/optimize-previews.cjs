@@ -14,6 +14,7 @@ const ROOT = path.resolve(__dirname, "..");
 const PUBLIC_DIR = path.join(ROOT, "public");
 const INDEX_HTML = path.join(ROOT, "index.html");
 const SUPABASE_HTML = path.join(ROOT, "supabase.html");
+const BETTER_AUTH_HTML = path.join(ROOT, "better-auth.html");
 const CARD_GRIDS = [
   {
     page: INDEX_HTML,
@@ -22,6 +23,11 @@ const CARD_GRIDS = [
   },
   {
     page: SUPABASE_HTML,
+    selector:
+      '.collection-template-grid article.wrapper div[class*="aspect-"] img',
+  },
+  {
+    page: BETTER_AUTH_HTML,
     selector:
       '.collection-template-grid article.wrapper div[class*="aspect-"] img',
   },

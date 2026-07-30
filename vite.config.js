@@ -11,6 +11,7 @@ export default defineConfig({
         resolve(__dirname, "index.html"),
         resolve(__dirname, "preview.html"),
         resolve(__dirname, "supabase.html"),
+        resolve(__dirname, "better-auth.html"),
         ...sync("./templates/**/*.html".replace(/\\/g, "/templates")),
       ],
     },

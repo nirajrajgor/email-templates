@@ -138,6 +138,41 @@ const TEMPLATE_METADATA = {
     image: "supabase-reset-password-preview.png",
     title: "Supabase Reset Password HTML Email Template",
   },
+  "better-auth-verify-email.html": {
+    lastmod: "2026-07-28",
+    image: "better-auth-verify-email-preview.png",
+    title: "Better Auth Verify Email HTML Template",
+  },
+  "better-auth-reset-password.html": {
+    lastmod: "2026-07-28",
+    image: "better-auth-reset-password-preview.png",
+    title: "Better Auth Reset Password HTML Email Template",
+  },
+  "better-auth-magic-link.html": {
+    lastmod: "2026-07-28",
+    image: "better-auth-magic-link-preview.png",
+    title: "Better Auth Magic Link HTML Email Template",
+  },
+  "better-auth-email-otp.html": {
+    lastmod: "2026-07-28",
+    image: "better-auth-email-otp-preview.png",
+    title: "Better Auth Email OTP HTML Template",
+  },
+  "better-auth-invite-member.html": {
+    lastmod: "2026-07-28",
+    image: "better-auth-invite-member-preview.png",
+    title: "Better Auth Organization Invite HTML Email Template",
+  },
+  "better-auth-change-email.html": {
+    lastmod: "2026-07-28",
+    image: "better-auth-change-email-preview.png",
+    title: "Better Auth Change Email HTML Template",
+  },
+  "better-auth-delete-account.html": {
+    lastmod: "2026-07-28",
+    image: "better-auth-delete-account-preview.png",
+    title: "Better Auth Delete Account HTML Email Template",
+  },
 };
 
 function toUrl(filePath) {

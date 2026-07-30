@@ -1,0 +1,14 @@
+ACME
+
+Confirm account deletion
+
+We received a request to permanently delete the account for ${email}. Follow the link below to confirm.
+
+This action is permanent. Your account and all associated data will be removed and cannot be recovered.
+
+Confirm deletion:
+${url}
+
+Didn't request this? You can safely ignore this email and your account will not be deleted.
+
+For security, this link is single-use. Never share it with anyone.

@@ -1,0 +1,12 @@
+ACME
+
+Confirm your email
+
+You're one step away from finishing your account setup for ${email}. Confirm this email address to get started.
+
+Confirm email:
+${url}
+
+If you did not create an account, you can safely ignore this email. This link expires in 1 hour and can only be used once.
+
+We will never ask you for your password or a one-time code by email.

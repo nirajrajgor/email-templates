@@ -34,21 +34,6 @@ const state = {
   query: "",
 };
 
-const renderCounts = () => {
-  const totals = { all: cards.length };
-
-  cards.forEach(({ categories }) => {
-    categories.forEach((category) => {
-      totals[category] = (totals[category] ?? 0) + 1;
-    });
-  });
-
-  document.querySelectorAll("[data-count-for]").forEach((node) => {
-    const total = totals[node.dataset.countFor];
-    node.textContent = total ? String(total) : "";
-  });
-};
-
 const setActiveCategory = (category) => {
   state.category = category;
 
@@ -176,6 +161,5 @@ const initFromUrl = () => {
   setActiveCategory(isKnownCategory ? category : "all");
 };
 
-renderCounts();
 initFromUrl();
 renderResults();

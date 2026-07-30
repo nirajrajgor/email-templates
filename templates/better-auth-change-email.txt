@@ -1,0 +1,12 @@
+ACME
+
+Email change requested
+
+Follow the link below to confirm ${newEmail} as your new email address. The link expires in 1 hour.
+
+Confirm change:
+${url}
+
+If you didn't request this change, you can safely ignore this email and your address will stay the same.
+
+We will never ask you for your password or a one-time code by email.

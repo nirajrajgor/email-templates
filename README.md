@@ -56,10 +56,18 @@ When you are finished, copy the customized HTML or download it as a file.
 - [Supabase Invite User](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-invite-user)
 - [Supabase Change Email Address](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-change-email)
 - [Supabase Reauthentication](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-reauthentication)
+- [Better Auth Verify Email](https://nirajrajgor.github.io/email-templates/preview.html?template=better-auth-verify-email)
+- [Better Auth Reset Password](https://nirajrajgor.github.io/email-templates/preview.html?template=better-auth-reset-password)
+- [Better Auth Magic Link](https://nirajrajgor.github.io/email-templates/preview.html?template=better-auth-magic-link)
+- [Better Auth Email OTP](https://nirajrajgor.github.io/email-templates/preview.html?template=better-auth-email-otp)
+- [Better Auth Invite Member](https://nirajrajgor.github.io/email-templates/preview.html?template=better-auth-invite-member)
+- [Better Auth Change Email](https://nirajrajgor.github.io/email-templates/preview.html?template=better-auth-change-email)
+- [Better Auth Delete Account](https://nirajrajgor.github.io/email-templates/preview.html?template=better-auth-delete-account)
 
 ## Integration Collections
 
 - [Supabase Email Templates](https://nirajrajgor.github.io/email-templates/supabase.html) includes customizable Confirm Signup, Reset Password, Magic Link, Email OTP, Invite User, Change Email Address, and Reauthentication designs. Supabase variables are preserved during customization.
+- [Better Auth Email Templates](https://nirajrajgor.github.io/email-templates/better-auth.html) includes customizable Verify Email, Reset Password, Magic Link, Email OTP, Invite Member, Change Email, and Delete Account designs. Better Auth placeholders are preserved during customization.
 
 ## Setup Instructions
 
