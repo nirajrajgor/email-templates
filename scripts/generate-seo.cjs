@@ -103,6 +103,11 @@ const TEMPLATE_METADATA = {
     image: "shipping-confirmation-preview.png",
     title: "Shipping Confirmation HTML Email Template",
   },
+  "back-in-stock.html": {
+    lastmod: "2026-08-27",
+    image: "back-in-stock-preview.png",
+    title: "Back in Stock HTML Email Template",
+  },
   "supabase-confirm-signup.html": {
     lastmod: "2026-07-17",
     image: "supabase-confirm-signup-preview.png",

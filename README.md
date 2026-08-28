@@ -49,6 +49,7 @@ When you are finished, copy the customized HTML or download it as a file.
 - [Account Billing Update](https://nirajrajgor.github.io/email-templates/preview.html?template=account-billing-update)
 - [Product Promotion](https://nirajrajgor.github.io/email-templates/preview.html?template=product-promotion)
 - [Shipping Confirmation](https://nirajrajgor.github.io/email-templates/preview.html?template=shipping-confirmation)
+- [Back in Stock](https://nirajrajgor.github.io/email-templates/preview.html?template=back-in-stock)
 - [Supabase Confirm Signup](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-confirm-signup)
 - [Supabase Reset Password](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-reset-password)
 - [Supabase Magic Link](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-magic-link)
