@@ -173,6 +173,11 @@ const TEMPLATE_METADATA = {
     image: "better-auth-delete-account-preview.png",
     title: "Better Auth Delete Account HTML Email Template",
   },
+  "back-in-stock.html": {
+    lastmod: "2026-08-27",
+    image: "back-in-stock-preview.webp",
+    title: "Back in Stock HTML Email Template",
+  },
 };
 
 function toUrl(filePath) {

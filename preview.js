@@ -128,6 +128,12 @@ const templates = {
     background: "#141a08",
     brand: "#c9d36a",
   },
+  "back-in-stock": {
+    title: "Back in Stock Emailer",
+    background: "#f0fdf4",
+    brand: "#059669",
+    pinned: ["#b45309", "#fef3c7"],
+  },
 };
 
 const params = new URLSearchParams(window.location.search);
