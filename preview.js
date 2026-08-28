@@ -39,6 +39,12 @@ const templates = {
     background: "#eff6ff",
     brand: "#2563eb",
   },
+  "back-in-stock": {
+    title: "Back in Stock Emailer",
+    background: "#f0fdf4",
+    brand: "#059669",
+    pinned: ["#b45309", "#fef3c7"],
+  },
   "promotional-offer": {
     title: "Promotional Offer Emailer",
     background: "#ff9b12",
