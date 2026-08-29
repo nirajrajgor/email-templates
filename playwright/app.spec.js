@@ -8,6 +8,33 @@ const selectOption = async (page, menuButton, option) => {
 test("catalog filtering, URL state, and template links work", async ({ page }) => {
   await page.goto("index.html");
 
+  await expect(
+    page.locator("#template-grid > article[data-integration-card] h2"),
+  ).toHaveText(["Supabase", "Better Auth"]);
+
+  const orderedTemplates = await page
+    .locator("#template-grid > article.wrapper")
+    .evaluateAll((cards) =>
+      cards.map((card) => ({
+        title: card.querySelector("h2")?.textContent?.trim(),
+        lastmod: card.getAttribute("data-lastmod"),
+      })),
+    );
+  const lastmodDates = orderedTemplates.map(({ lastmod }) => lastmod);
+
+  expect(lastmodDates).toHaveLength(19);
+  expect(lastmodDates.every(Boolean)).toBe(true);
+  expect(lastmodDates).toEqual(
+    [...lastmodDates].sort((a, b) => b.localeCompare(a)),
+  );
+  expect(orderedTemplates.slice(0, 5).map(({ title }) => title)).toEqual([
+    "Back in Stock Emailer",
+    "Shipping Confirmation Emailer",
+    "Product Promotion HTML Email Template",
+    "Account & Billing Update Emailer",
+    "Re-engagement HTML Email",
+  ]);
+
   await page.locator('.filter-pill[data-filter-value="auth"]').click();
   await expect(
     page.locator("#template-grid article.wrapper:visible"),
