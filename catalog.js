@@ -1,3 +1,5 @@
+import templateMetadata from "./scripts/template-metadata.json";
+
 const searchInput = document.getElementById("template-search");
 const resultCount = document.getElementById("template-result-count");
 const emptyState = document.getElementById("template-empty-state");
@@ -7,6 +9,36 @@ const filterButtons = document.querySelectorAll(
 );
 const tagButtons = document.querySelectorAll(".catalog-tag[data-filter-value]");
 const grid = document.getElementById("template-grid");
+
+const getTemplateMetadata = (card) => {
+  const fileName = card.querySelector("a[download]")?.getAttribute("download");
+  return fileName ? templateMetadata[fileName] : undefined;
+};
+
+const orderCatalogCards = () => {
+  if (!grid) return;
+
+  const catalogCards = Array.from(grid.children);
+  const collections = catalogCards.filter((card) =>
+    card.hasAttribute("data-integration-card"),
+  );
+  const templates = catalogCards.filter(
+    (card) => !card.hasAttribute("data-integration-card"),
+  );
+
+  templates.forEach((card) => {
+    const lastmod = getTemplateMetadata(card)?.lastmod;
+    if (lastmod) card.dataset.lastmod = lastmod;
+  });
+
+  templates.sort((a, b) =>
+    (b.dataset.lastmod ?? "").localeCompare(a.dataset.lastmod ?? ""),
+  );
+
+  [...collections, ...templates].forEach((card) => grid.append(card));
+};
+
+orderCatalogCards();
 
 const getCardSearchText = (card) => {
   const title = card.querySelector("h2")?.textContent ?? "";
