@@ -42,6 +42,20 @@ function injectSeo(htmlPath) {
   const html = fs.readFileSync(htmlPath, "utf8");
   const $ = cheerio.load(html, { decodeEntities: false });
   const canonicalUrl = toUrl(htmlPath);
+  const relativePath = path.relative(DIST_DIR, htmlPath);
+  const isTemplatePage = relativePath.startsWith(`templates${path.sep}`);
+
+  if (isTemplatePage) {
+    const $robots = $('meta[name="robots"]');
+    if ($robots.length > 0) {
+      $robots.attr("content", "noindex, follow");
+    } else {
+      $("head").append(
+        '\n    <meta name="robots" content="noindex, follow" />',
+      );
+    }
+  }
+
   const noindex = hasNoIndex($);
 
   // Canonical tag
