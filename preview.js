@@ -134,6 +134,12 @@ const templates = {
     brand: "#059669",
     pinned: ["#b45309", "#fef3c7"],
   },
+  "order-adjustment": {
+    title: "Order Adjustment Emailer",
+    background: "#f4f4f5",
+    brand: "#4f46e5",
+    pinned: ["#b42318", "#067647"],
+  },
 };
 
 const params = new URLSearchParams(window.location.search);

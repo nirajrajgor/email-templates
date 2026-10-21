@@ -163,5 +163,10 @@
     "lastmod": "2026-08-27",
     "image": "back-in-stock-preview.webp",
     "title": "Back in Stock HTML Email Template"
+  },
+  "order-adjustment.html": {
+    "lastmod": "2026-10-21",
+    "image": "order-adjustment-preview.webp",
+    "title": "Order Adjustment HTML Email Template"
   }
 }
