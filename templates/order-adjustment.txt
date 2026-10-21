@@ -1,0 +1,52 @@
+2 items sold out. $120.00 refunded, the rest is on its way.
+
+acme
+
+Shop: [add shop URL]
+Help: [add help URL]
+
+Order #6200600
+
+Part of your order is unavailable
+
+Hi Alex, a few items sold out, so we cancelled and refunded them. The rest ships as planned.
+
+Still on its way
+
+- AeroRun Mesh Sneakers
+  Graphite · Size 9 · Qty 1
+  $96.00
+
+- Happy Mug
+  Black · 12 oz · Qty 1
+  $18.00
+
+Cancelled
+
+- AeroRun Mesh Sneakers
+  Graphite · Size 9 · 1 of 2
+  $96.00
+
+- AirFlow Performance Cap
+  Navy · One size · Qty 1
+  $24.00
+
+Items: $114.00
+Shipping (unchanged): $6.00
+Rewards: -$10.00
+New total: $110.00
+
+Original total: $230.00
+Refunded to Visa ending 4242: $120.00
+
+Expect it in 5-10 business days.
+
+View order:
+[add order URL]
+
+Questions? Write us at acmeorder@gmail.com
+
+You got this email because you placed an order with Acme.
+
+Copyright Acme Inc.
+123 Main St., Springfield, IL 62701
