@@ -64,6 +64,7 @@ When you are finished, copy the customized HTML or download it as a file.
 - [Better Auth Change Email](https://nirajrajgor.github.io/email-templates/preview.html?template=better-auth-change-email)
 - [Better Auth Delete Account](https://nirajrajgor.github.io/email-templates/preview.html?template=better-auth-delete-account)
 - [Back in Stock](https://nirajrajgor.github.io/email-templates/preview.html?template=back-in-stock)
+- [Order Adjustment](https://nirajrajgor.github.io/email-templates/preview.html?template=order-adjustment)
 
 ## Integration Collections
 
