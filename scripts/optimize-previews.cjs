@@ -19,7 +19,7 @@ const CARD_GRIDS = [
   {
     page: INDEX_HTML,
     selector:
-      '#template-grid article.wrapper div[class*="aspect-"] img, #template-grid [data-integration-card] .integration-card-preview img',
+      '#template-grid article.wrapper div[class*="aspect-"] img, #collection-grid [data-integration-card] .integration-card-preview img',
   },
   {
     page: SUPABASE_HTML,

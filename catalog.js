@@ -7,8 +7,11 @@ const clearFiltersButton = document.getElementById("template-clear-filters");
 const filterButtons = document.querySelectorAll(
   ".filter-pill[data-filter-value]",
 );
-const tagButtons = document.querySelectorAll(".catalog-tag[data-filter-value]");
 const grid = document.getElementById("template-grid");
+const sections = {
+  collection: document.getElementById("collections-section"),
+  template: document.getElementById("templates-section"),
+};
 
 const getTemplateMetadata = (card) => {
   const fileName = card.querySelector("a[download]")?.getAttribute("download");
@@ -18,13 +21,7 @@ const getTemplateMetadata = (card) => {
 const orderCatalogCards = () => {
   if (!grid) return;
 
-  const catalogCards = Array.from(grid.children);
-  const collections = catalogCards.filter((card) =>
-    card.hasAttribute("data-integration-card"),
-  );
-  const templates = catalogCards.filter(
-    (card) => !card.hasAttribute("data-integration-card"),
-  );
+  const templates = Array.from(grid.children);
 
   templates.forEach((card) => {
     const lastmod = getTemplateMetadata(card)?.lastmod;
@@ -35,15 +32,15 @@ const orderCatalogCards = () => {
     (b.dataset.lastmod ?? "").localeCompare(a.dataset.lastmod ?? ""),
   );
 
-  [...collections, ...templates].forEach((card) => grid.append(card));
+  templates.forEach((card) => grid.append(card));
 };
 
 orderCatalogCards();
 
 const getCardSearchText = (card) => {
-  const title = card.querySelector("h2")?.textContent ?? "";
+  const title = card.querySelector("h3")?.textContent ?? "";
   const description =
-    card.querySelector(".catalog-card-copy, .integration-card-link > p")
+    card.querySelector(".catalog-card-copy, .integration-card-body > p")
       ?.textContent ?? "";
   const categories = card.dataset.category ?? "";
 
@@ -58,7 +55,9 @@ const toCardData = (card) => ({
 });
 
 const cards = Array.from(
-  document.querySelectorAll("#template-grid > article"),
+  document.querySelectorAll(
+    "#collection-grid > article, #template-grid > article",
+  ),
 ).map(toCardData);
 
 const state = {
@@ -73,13 +72,6 @@ const setActiveCategory = (category) => {
     const isActive = button.dataset.filterValue === category;
     button.classList.toggle("is-active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
-  });
-
-  tagButtons.forEach((button) => {
-    button.classList.toggle(
-      "is-active",
-      button.dataset.filterValue === category,
-    );
   });
 };
 
@@ -128,39 +120,23 @@ const renderResults = () => {
     );
   }
 
+  Object.entries(sections).forEach(([type, section]) => {
+    if (section) section.hidden = visible[type] === 0;
+  });
+
   resultCount.textContent = visibleParts.join(" · ") || "0 templates";
   emptyState.hidden = visible.template > 0 || visible.collection > 0;
   syncUrl();
 };
 
-const applyCategory = (category, { scrollIntoView = false } = {}) => {
+const applyCategory = (category) => {
   setActiveCategory(category);
   renderResults();
-
-  if (scrollIntoView && grid) {
-    const top = grid.getBoundingClientRect().top + window.scrollY - 140;
-    window.scrollTo({
-      top: Math.max(0, top),
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "auto"
-        : "smooth",
-    });
-  }
 };
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     applyCategory(button.dataset.filterValue);
-  });
-});
-
-tagButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const next =
-      state.category === button.dataset.filterValue
-        ? "all"
-        : button.dataset.filterValue;
-    applyCategory(next, { scrollIntoView: true });
   });
 });
 
