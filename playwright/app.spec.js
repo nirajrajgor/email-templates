@@ -9,7 +9,7 @@ test("catalog filtering, URL state, and template links work", async ({ page }) =
   await page.goto("index.html");
 
   await expect(
-    page.locator("#template-grid > article[data-integration-card] h2"),
+    page.locator("#collection-grid > article[data-integration-card] h3"),
   ).toHaveText(["Supabase", "Better Auth"]);
 
   const orderedTemplates = await page
@@ -39,6 +39,7 @@ test("catalog filtering, URL state, and template links work", async ({ page }) =
   await expect(
     page.locator("#template-grid article.wrapper:visible"),
   ).toHaveCount(2);
+  await expect(page.locator("#collections-section")).toBeHidden();
 
   const search = page.getByRole("searchbox", { name: "Search templates" });
   await search.fill("reset");
