@@ -7,7 +7,6 @@ const clearFiltersButton = document.getElementById("template-clear-filters");
 const filterButtons = document.querySelectorAll(
   ".filter-pill[data-filter-value]",
 );
-const tagButtons = document.querySelectorAll(".catalog-tag[data-filter-value]");
 const grid = document.getElementById("template-grid");
 const sections = {
   collection: document.getElementById("collections-section"),
@@ -39,7 +38,7 @@ const orderCatalogCards = () => {
 orderCatalogCards();
 
 const getCardSearchText = (card) => {
-  const title = card.querySelector("h2, h3")?.textContent ?? "";
+  const title = card.querySelector("h3")?.textContent ?? "";
   const description =
     card.querySelector(".catalog-card-copy, .integration-card-body > p")
       ?.textContent ?? "";
@@ -73,13 +72,6 @@ const setActiveCategory = (category) => {
     const isActive = button.dataset.filterValue === category;
     button.classList.toggle("is-active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
-  });
-
-  tagButtons.forEach((button) => {
-    button.classList.toggle(
-      "is-active",
-      button.dataset.filterValue === category,
-    );
   });
 };
 
@@ -137,34 +129,14 @@ const renderResults = () => {
   syncUrl();
 };
 
-const applyCategory = (category, { scrollIntoView = false } = {}) => {
+const applyCategory = (category) => {
   setActiveCategory(category);
   renderResults();
-
-  if (scrollIntoView && grid) {
-    const top = grid.getBoundingClientRect().top + window.scrollY - 140;
-    window.scrollTo({
-      top: Math.max(0, top),
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "auto"
-        : "smooth",
-    });
-  }
 };
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     applyCategory(button.dataset.filterValue);
-  });
-});
-
-tagButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const next =
-      state.category === button.dataset.filterValue
-        ? "all"
-        : button.dataset.filterValue;
-    applyCategory(next, { scrollIntoView: true });
   });
 });
 

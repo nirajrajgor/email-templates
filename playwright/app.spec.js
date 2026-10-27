@@ -16,7 +16,7 @@ test("catalog filtering, URL state, and template links work", async ({ page }) =
     .locator("#template-grid > article.wrapper")
     .evaluateAll((cards) =>
       cards.map((card) => ({
-        title: card.querySelector("h2")?.textContent?.trim(),
+        title: card.querySelector("h3")?.textContent?.trim(),
         lastmod: card.getAttribute("data-lastmod"),
       })),
     );
