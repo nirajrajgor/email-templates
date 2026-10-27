@@ -504,6 +504,16 @@ main.container > section:first-of-type h2 {
   transform: translate(-50%, 0);
 }
 
+@media (hover: none) {
+  .catalog-card-preview::after {
+    bottom: 0.5rem;
+    font-size: 0.75rem;
+    opacity: 1;
+    padding: 0.3125rem 0.75rem;
+    transform: translate(-50%, 0);
+  }
+}
+
 .catalog-card-heading {
   align-items: center;
   display: flex;
