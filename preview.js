@@ -140,6 +140,11 @@ const templates = {
     brand: "#4f46e5",
     pinned: ["#b42318", "#067647"],
   },
+  "order-cancelled": {
+    title: "Order Cancelled Emailer",
+    background: "#eef1ee",
+    brand: "#2f6f4f",
+  },
 };
 
 const params = new URLSearchParams(window.location.search);
