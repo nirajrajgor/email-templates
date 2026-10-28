@@ -1,0 +1,45 @@
+Left at your front door on Mar 6 at 2:14 PM.
+
+acme
+
+Order #6200712
+
+Delivered.
+
+Mar 6, 2:14 PM, front door
+
+To: John Smith, 123 Main St., Springfield, IL
+Carrier: UPS
+
+In this delivery
+
+- AeroRun Sneakers
+  Teal, Size 10
+  Rate:
+  [add rating URL]
+
+- Happy Mug
+  Qty 2
+  Rate:
+  [add rating URL]
+
+- AirFlow Cap
+  One size
+  Rate:
+  [add rating URL]
+
+- Pulse Watch
+  Midnight, 41 mm
+  Rate:
+  [add rating URL]
+
+View order:
+[add order URL]
+
+Get help:
+[add help URL]
+
+You got this email because you placed an order with Acme.
+
+Copyright Acme Inc.
+123 Main St., Springfield, IL 62701
