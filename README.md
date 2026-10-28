@@ -66,6 +66,7 @@ When you are finished, copy the customized HTML or download it as a file.
 - [Back in Stock](https://nirajrajgor.github.io/email-templates/preview.html?template=back-in-stock)
 - [Order Adjustment](https://nirajrajgor.github.io/email-templates/preview.html?template=order-adjustment)
 - [Order Cancelled](https://nirajrajgor.github.io/email-templates/preview.html?template=order-cancelled)
+- [Order Delivered](https://nirajrajgor.github.io/email-templates/preview.html?template=order-delivered)
 
 ## Integration Collections
 

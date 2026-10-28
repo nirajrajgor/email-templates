@@ -145,6 +145,11 @@ const templates = {
     background: "#eef1ee",
     brand: "#2f6f4f",
   },
+  "order-delivered": {
+    title: "Order Delivered Emailer",
+    background: "#ececee",
+    brand: "#d4f26a",
+  },
 };
 
 const params = new URLSearchParams(window.location.search);
