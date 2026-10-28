@@ -1,0 +1,41 @@
+Your $144.00 refund is on its way to Visa •••• 4242.
+
+acme
+
+Order #6200600
+
+Order cancelled
+
+Cancelled at your request. Your full refund is on its way.
+
+Refund status
+
+- Cancelled: Mar 4
+- Refund sent: Mar 4
+- In your bank: By Mar 14
+
+Cancelled items
+
+- AeroRun Sneakers
+  $96.00
+
+- Happy Mug
+  $18.00
+
+- AirFlow Cap
+  $24.00
+
+Items: $138.00
+Shipping: $6.00
+Refund to Visa ending 4242: $144.00
+
+Shop again:
+[add shop URL]
+
+Get help:
+[add help URL]
+
+You got this email because you placed an order with Acme.
+
+Copyright Acme Inc.
+123 Main St., Springfield, IL 62701
