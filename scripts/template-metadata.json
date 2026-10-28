@@ -173,5 +173,10 @@
     "lastmod": "2026-10-27",
     "image": "order-cancelled-preview.webp",
     "title": "Order Cancelled HTML Email Template"
+  },
+  "order-delivered.html": {
+    "lastmod": "2026-10-27",
+    "image": "order-delivered-preview.webp",
+    "title": "Order Delivered HTML Email Template"
   }
 }
