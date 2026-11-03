@@ -1,0 +1,40 @@
+We couldn't charge Visa •••• 4242 for $74.52. Update it by Mar 8.
+
+acme
+
+Invoice #INV-2048
+
+Payment failed
+
+Update your card by Mar 8 to keep your Pro plan active.
+
+Amount: $74.52
+Card: Visa ending 4242
+Reason: Card expired
+Access until: Mar 8
+
+Update payment method:
+[add billing URL]
+
+What happens next
+
+- Charge failed: Mar 1
+- We retry your card: Mar 4
+- Account paused: Mar 8
+
+Common fixes
+
+- Expired card: Add the new expiry date or a new card.
+- Bank declined: Ask your bank to allow the charge.
+- Low balance: Use a different card.
+
+View invoice:
+[add invoice URL]
+
+Get help:
+[add help URL]
+
+You got this email because you have an Acme Pro subscription.
+
+Copyright Acme Inc.
+123 Main St., Springfield, IL 62701
