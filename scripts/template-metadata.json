@@ -178,5 +178,10 @@
     "lastmod": "2026-10-27",
     "image": "order-delivered-preview.webp",
     "title": "Order Delivered HTML Email Template"
+  },
+  "payment-failed.html": {
+    "lastmod": "2026-11-02",
+    "image": "payment-failed-preview.webp",
+    "title": "Payment Failed HTML Email Template"
   }
 }
