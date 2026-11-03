@@ -150,6 +150,11 @@ const templates = {
     background: "#ececee",
     brand: "#d4f26a",
   },
+  "payment-failed": {
+    title: "Payment Failed Emailer",
+    background: "#eeeef0",
+    brand: "#dc2626",
+  },
 };
 
 const params = new URLSearchParams(window.location.search);

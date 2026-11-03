@@ -67,6 +67,7 @@ When you are finished, copy the customized HTML or download it as a file.
 - [Order Adjustment](https://nirajrajgor.github.io/email-templates/preview.html?template=order-adjustment)
 - [Order Cancelled](https://nirajrajgor.github.io/email-templates/preview.html?template=order-cancelled)
 - [Order Delivered](https://nirajrajgor.github.io/email-templates/preview.html?template=order-delivered)
+- [Payment Failed](https://nirajrajgor.github.io/email-templates/preview.html?template=payment-failed)
 
 ## Integration Collections
 
