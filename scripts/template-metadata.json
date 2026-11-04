@@ -95,7 +95,7 @@
     "title": "Supabase Confirm Signup HTML Email Template"
   },
   "supabase-change-email.html": {
-    "lastmod": "2026-07-28",
+    "lastmod": "2026-11-03",
     "image": "supabase-change-email-preview.png",
     "title": "Supabase Change Email Address HTML Email Template"
   },
@@ -123,6 +123,11 @@
     "lastmod": "2026-07-18",
     "image": "supabase-reset-password-preview.png",
     "title": "Supabase Reset Password HTML Email Template"
+  },
+  "supabase-password-changed.html": {
+    "lastmod": "2026-11-03",
+    "image": "supabase-password-changed-preview.png",
+    "title": "Supabase Password Changed HTML Email Template"
   },
   "better-auth-verify-email.html": {
     "lastmod": "2026-07-28",

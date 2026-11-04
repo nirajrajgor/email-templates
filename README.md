@@ -56,6 +56,7 @@ When you are finished, copy the customized HTML or download it as a file.
 - [Supabase Invite User](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-invite-user)
 - [Supabase Change Email Address](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-change-email)
 - [Supabase Reauthentication](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-reauthentication)
+- [Supabase Password Changed](https://nirajrajgor.github.io/email-templates/preview.html?template=supabase-password-changed)
 - [Better Auth Verify Email](https://nirajrajgor.github.io/email-templates/preview.html?template=better-auth-verify-email)
 - [Better Auth Reset Password](https://nirajrajgor.github.io/email-templates/preview.html?template=better-auth-reset-password)
 - [Better Auth Magic Link](https://nirajrajgor.github.io/email-templates/preview.html?template=better-auth-magic-link)

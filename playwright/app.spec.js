@@ -254,6 +254,15 @@ test("the Supabase collection opens a working template preview", async ({
     }),
   ).toHaveAttribute("download", "supabase-reauthentication.html");
 
+  const passwordChangedCard = page.locator("article.wrapper", {
+    has: page.getByRole("heading", { name: "Password Changed" }),
+  });
+  await expect(
+    passwordChangedCard.getByRole("link", {
+      name: "Download Password Changed",
+    }),
+  ).toHaveAttribute("download", "supabase-password-changed.html");
+
   await reauthenticationCard
     .getByRole("link", { name: "Preview Reauthentication" })
     .click();

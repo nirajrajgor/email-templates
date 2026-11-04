@@ -1,3 +1,5 @@
+Acme · Account security
+
 Email change requested
 
 Follow the link below to confirm {{ .NewEmail }} as your new email address.
