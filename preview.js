@@ -155,6 +155,11 @@ const templates = {
     background: "#eeeef0",
     brand: "#dc2626",
   },
+  "trial-ending": {
+    title: "Trial Ending Emailer",
+    background: "#f6f5f1",
+    brand: "#0f766e",
+  },
 };
 
 const params = new URLSearchParams(window.location.search);
