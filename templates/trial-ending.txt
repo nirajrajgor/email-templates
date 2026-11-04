@@ -1,0 +1,41 @@
+Your Northwind Pro trial ends Mar 8. We'll charge Visa •••• 4242 $48.00 unless you cancel.
+
+acme
+
+Northwind · Pro trial
+
+Your trial ends in 3 days
+
+We'll charge your card unless you cancel.
+
+Day 11 of 14
+
+Upcoming charge
+
+Plan: Pro, 4 seats × $12
+Amount: $48.00 per month
+Card: Visa ending 4242
+Charge date: Mar 8
+
+Your trial so far
+
+- Projects: 12
+- Members: 4
+- Tasks done: 86
+
+Manage plan:
+[add plan URL]
+
+Cancel trial:
+[add cancel URL]
+
+Billing settings:
+[add billing URL]
+
+Help center:
+[add help URL]
+
+You got this email because you own the Northwind workspace.
+
+Copyright Acme Inc.
+123 Main St., Springfield, IL 62701
