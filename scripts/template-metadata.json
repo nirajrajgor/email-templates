@@ -183,5 +183,10 @@
     "lastmod": "2026-11-02",
     "image": "payment-failed-preview.webp",
     "title": "Payment Failed HTML Email Template"
+  },
+  "trial-ending.html": {
+    "lastmod": "2026-11-03",
+    "image": "trial-ending-preview.webp",
+    "title": "Trial Ending HTML Email Template"
   }
 }
