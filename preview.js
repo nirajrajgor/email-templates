@@ -95,6 +95,7 @@ const templates = {
   "supabase-magic-link": supabaseTemplate("Magic Link"),
   "supabase-reauthentication": supabaseTemplate("Reauthentication"),
   "supabase-reset-password": supabaseTemplate("Reset Password"),
+  "supabase-password-changed": supabaseTemplate("Password Changed"),
   "better-auth-verify-email": betterAuthTemplate("Verify Email"),
   "better-auth-reset-password": betterAuthTemplate("Reset Password"),
   "better-auth-magic-link": betterAuthTemplate("Magic Link"),

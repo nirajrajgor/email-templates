@@ -26,6 +26,10 @@ const supabaseTemplates = [
   ["supabase-reset-password.html", linkVariables],
   ["supabase-magic-link.html", linkVariables],
   ["supabase-reauthentication.html", ["Token"]],
+  [
+    "supabase-password-changed.html",
+    ["Email", "Email", "SiteURL", "SiteURL", "SiteURL"],
+  ],
   ["supabase-email-otp.html", ["Email", "Token"]],
   [
     "supabase-invite-user.html",
