@@ -124,6 +124,11 @@
     "image": "supabase-reset-password-preview.png",
     "title": "Supabase Reset Password HTML Email Template"
   },
+  "supabase-password-changed.html": {
+    "lastmod": "2026-11-03",
+    "image": "supabase-password-changed-preview.png",
+    "title": "Supabase Password Changed HTML Email Template"
+  },
   "better-auth-verify-email.html": {
     "lastmod": "2026-07-28",
     "image": "better-auth-verify-email-preview.png",
