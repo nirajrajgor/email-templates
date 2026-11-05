@@ -161,6 +161,12 @@ const templates = {
     background: "#f6f5f1",
     brand: "#0f766e",
   },
+  "usage-limit": {
+    title: "Usage Limit Emailer",
+    background: "#eef0f3",
+    brand: "#3b5bdb",
+    pinned: ["#b45309", "#f2b77d", "#dc2626", "#b42318", "#fef2f2", "#7f1d1d"],
+  },
 };
 
 const params = new URLSearchParams(window.location.search);
