@@ -1,0 +1,51 @@
+Northwind has 9,588 API requests left and will run out around Nov 26. Add 50,000 for $10 or upgrade to Scale.
+
+acme
+
+Northwind · Pro
+
+You'll run out of API requests around Nov 26
+
+7-day average: 6,100 a day
+
+Usage · Nov 1 to 30
+
+- API requests: 90% (90,412 of 100,000, 9,588 left)
+- Storage: 72%
+- Bandwidth: 41%
+
+View usage:
+[add usage URL]
+
+Next 7 days
+
+- Today: Nov 24
+- Around Nov 26: blocked 5 days
+- Dec 1: resets
+
+Stops: new API requests, webhooks
+Keeps working: stored data, dashboard
+
+API requests by project
+
+- search-api: 46%, up 38% this week
+- web-app: 31%
+- cron-jobs: 23%
+
+Add 50,000 requests: this period, $10
+
+Add for $10:
+[add add-on URL]
+
+Upgrade to Scale: 500,000 requests, $99/mo
+
+Upgrade:
+[add upgrade URL]
+
+Alert settings:
+[add alert settings URL]
+
+Sent to owners of the Northwind workspace.
+
+Copyright Acme Inc.
+123 Main St., Springfield, IL 62701
