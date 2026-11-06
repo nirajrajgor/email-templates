@@ -198,5 +198,10 @@
     "lastmod": "2026-11-04",
     "image": "usage-limit-preview.webp",
     "title": "Usage Limit HTML Email Template"
+  },
+  "login-alert.html": {
+    "lastmod": "2026-11-05",
+    "image": "login-alert-preview.webp",
+    "title": "Login Alert HTML Email Template"
   }
 }
