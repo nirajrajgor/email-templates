@@ -72,6 +72,7 @@ When you are finished, copy the customized HTML or download it as a file.
 - [Trial Ending](https://nirajrajgor.github.io/email-templates/preview.html?template=trial-ending)
 - [Usage Limit](https://nirajrajgor.github.io/email-templates/preview.html?template=usage-limit)
 - [Login Alert](https://nirajrajgor.github.io/email-templates/preview.html?template=login-alert)
+- [Appointment Reminder](https://nirajrajgor.github.io/email-templates/preview.html?template=appointment-reminder)
 
 ## Integration Collections
 
