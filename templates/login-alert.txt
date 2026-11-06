@@ -1,0 +1,25 @@
+Chrome on Windows signed in to your Acme account from Lisbon, Portugal. Not you? Secure your account.
+
+acme
+
+Security alert
+
+New sign-in on Windows
+
+Check it was you.
+
+- Device: Windows PC
+- Browser: Chrome 131
+- Location: Lisbon, Portugal (approximate, based on IP)
+- Time: Nov 5, 2026, 9:42 AM UTC
+
+Check activity:
+[add activity URL]
+
+Not you? Secure your account:
+[add secure account URL]
+
+Acme will never ask for your password or code by email, text or phone.
+
+Copyright 2026 Acme Inc.
+123 Market St, San Francisco, CA 94105
