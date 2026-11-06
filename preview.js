@@ -174,6 +174,11 @@ const templates = {
     themedExtra: ["#18181b"],
     accent: "#ea580c",
   },
+  "appointment-reminder": {
+    title: "Appointment Reminder Emailer",
+    background: "#eef1ef",
+    brand: "#134e4a",
+  },
 };
 
 const params = new URLSearchParams(window.location.search);

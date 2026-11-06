@@ -203,5 +203,10 @@
     "lastmod": "2026-11-05",
     "image": "login-alert-preview.webp",
     "title": "Login Alert HTML Email Template"
+  },
+  "appointment-reminder.html": {
+    "lastmod": "2026-11-05",
+    "image": "appointment-reminder-preview.webp",
+    "title": "Appointment Reminder HTML Email Template"
   }
 }
