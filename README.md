@@ -71,6 +71,7 @@ When you are finished, copy the customized HTML or download it as a file.
 - [Payment Failed](https://nirajrajgor.github.io/email-templates/preview.html?template=payment-failed)
 - [Trial Ending](https://nirajrajgor.github.io/email-templates/preview.html?template=trial-ending)
 - [Usage Limit](https://nirajrajgor.github.io/email-templates/preview.html?template=usage-limit)
+- [Login Alert](https://nirajrajgor.github.io/email-templates/preview.html?template=login-alert)
 
 ## Integration Collections
 
