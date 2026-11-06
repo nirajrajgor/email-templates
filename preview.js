@@ -167,6 +167,13 @@ const templates = {
     brand: "#3b5bdb",
     pinned: ["#b45309", "#f2b77d", "#dc2626", "#b42318", "#fef2f2", "#7f1d1d"],
   },
+  "login-alert": {
+    title: "Login Alert Emailer",
+    background: "#e7e7ea",
+    brand: "#18181b",
+    themedExtra: ["#18181b"],
+    accent: "#ea580c",
+  },
 };
 
 const params = new URLSearchParams(window.location.search);
