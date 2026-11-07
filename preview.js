@@ -179,6 +179,12 @@ const templates = {
     background: "#eef1ef",
     brand: "#134e4a",
   },
+  "policy-update": {
+    title: "Policy Update Emailer",
+    background: "#eef0f4",
+    brand: "#1e2a4a",
+    accent: "#2563eb",
+  },
 };
 
 const params = new URLSearchParams(window.location.search);

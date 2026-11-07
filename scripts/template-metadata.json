@@ -208,5 +208,10 @@
     "lastmod": "2026-11-05",
     "image": "appointment-reminder-preview.webp",
     "title": "Appointment Reminder HTML Email Template"
+  },
+  "policy-update.html": {
+    "lastmod": "2026-11-06",
+    "image": "policy-update-preview.webp",
+    "title": "Policy Update HTML Email Template"
   }
 }
