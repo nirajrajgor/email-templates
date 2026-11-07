@@ -1,0 +1,27 @@
+New terms take effect Dec 15, 2026.
+
+acme
+
+We're updating our terms
+
+Effective Dec 15, 2026
+
+What's changing
+
+- Data retention: 24 months
+- AI features: Opt-in only
+- Billing disputes: 60 days
+- Data sharing: Never sold
+
+Review the changes:
+[add policy changes URL]
+
+No action needed. Using Acme after Dec 15 means you accept the new terms.
+
+Privacy settings:
+[add privacy settings URL]
+
+This required service notice goes to all Acme account holders.
+
+Copyright 2026 Acme Inc.
+123 Market St, San Francisco, CA 94105
