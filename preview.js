@@ -185,6 +185,11 @@ const templates = {
     brand: "#1e2a4a",
     accent: "#2563eb",
   },
+  referral: {
+    title: "Referral Emailer",
+    background: "#f7f3ec",
+    brand: "#d9431c",
+  },
 };
 
 const params = new URLSearchParams(window.location.search);
