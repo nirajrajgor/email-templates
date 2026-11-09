@@ -213,5 +213,10 @@
     "lastmod": "2026-11-06",
     "image": "policy-update-preview.webp",
     "title": "Policy Update HTML Email Template"
+  },
+  "referral.html": {
+    "lastmod": "2026-11-08",
+    "image": "referral-preview.webp",
+    "title": "Referral HTML Email Template"
   }
 }
