@@ -22,17 +22,17 @@ test("catalog filtering, URL state, and template links work", async ({ page }) =
     );
   const lastmodDates = orderedTemplates.map(({ lastmod }) => lastmod);
 
-  expect(lastmodDates).toHaveLength(29);
+  expect(lastmodDates).toHaveLength(30);
   expect(lastmodDates.every(Boolean)).toBe(true);
   expect(lastmodDates).toEqual(
     [...lastmodDates].sort((a, b) => b.localeCompare(a)),
   );
   expect(orderedTemplates.slice(0, 5).map(({ title }) => title)).toEqual([
+    "Birthday Emailer",
     "Referral Emailer",
     "Policy Update Emailer",
     "Appointment Reminder Emailer",
     "Login Alert Emailer",
-    "Usage Limit Emailer",
   ]);
 
   await page.locator('.filter-pill[data-filter-value="auth"]').click();
@@ -61,7 +61,7 @@ test("catalog filtering, URL state, and template links work", async ({ page }) =
       })),
   );
 
-  expect(links).toHaveLength(29);
+  expect(links).toHaveLength(30);
   links.forEach(({ preview, download, filename }) => {
     expect(preview).toMatch(/^\.\/preview\.html\?template=/);
     expect(download).toBe(`./templates/${filename}`);

@@ -218,5 +218,10 @@
     "lastmod": "2026-11-08",
     "image": "referral-preview.webp",
     "title": "Referral HTML Email Template"
+  },
+  "birthday.html": {
+    "lastmod": "2026-11-10",
+    "image": "birthday-preview.webp",
+    "title": "Birthday HTML Email Template"
   }
 }

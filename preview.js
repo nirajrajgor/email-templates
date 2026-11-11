@@ -190,6 +190,12 @@ const templates = {
     background: "#f7f3ec",
     brand: "#d9431c",
   },
+  birthday: {
+    title: "Birthday Emailer",
+    background: "#f3f1ee",
+    brand: "#d6336c",
+    pinned: ["#f5a524"],
+  },
 };
 
 const params = new URLSearchParams(window.location.search);
