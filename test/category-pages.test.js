@@ -17,7 +17,7 @@ const CATEGORY_PAGES = {
   account: "account-email-templates.html",
   auth: "auth-email-templates.html",
 };
-const MAX_FEATURED_PER_SECTION = 6;
+const MAX_FEATURED_PER_SECTION = 4;
 
 const filesIn = (category) =>
   Object.keys(metadata).filter((file) =>
