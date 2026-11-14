@@ -1,5 +1,36 @@
 import { expect, test } from "@playwright/test";
 
+const LOCAL_HOSTS = new Set(["127.0.0.1", "localhost"]);
+
+// Templates load images from picsum.photos and other hosts, and the app pages
+// load Google Fonts. A slow or unreachable host stalls the load event that
+// page.goto waits for, so every external request is answered locally.
+test.beforeEach(async ({ context }) => {
+  await context.route(
+    (url) => /^https?:$/.test(url.protocol) && !LOCAL_HOSTS.has(url.hostname),
+    (route) => {
+      const request = route.request();
+      const type = request.resourceType();
+
+      if (type === "image") {
+        // Keep the size picsum encodes in its path, such as /seed/name/240/240.
+        const [, width = "1", height = "1"] =
+          new URL(request.url()).pathname.match(/\/(\d+)\/(\d+)\/?$/) ?? [];
+        return route.fulfill({
+          contentType: "image/svg+xml",
+          body: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><rect width="100%" height="100%" fill="#ccc"/></svg>`,
+        });
+      }
+
+      if (type === "stylesheet") {
+        return route.fulfill({ contentType: "text/css", body: "" });
+      }
+
+      return route.abort();
+    },
+  );
+});
+
 const selectOption = async (page, menuButton, option) => {
   await page.locator(menuButton).click();
   await page.locator(option).click();
