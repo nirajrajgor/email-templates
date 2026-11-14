@@ -51,66 +51,87 @@ const selectOption = async (page, menuButton, option) => {
   await page.locator(option).click();
 };
 
-test("catalog filtering, URL state, and template links work", async ({ page }) => {
-  await page.goto("index.html");
+const categoryPages = [
+  {
+    link: /^View all \d+ ecommerce templates/,
+    heading: "Ecommerce Email Templates",
+    file: "ecommerce-email-templates.html",
+  },
+  {
+    link: /^View all \d+ marketing templates/,
+    heading: "Marketing Email Templates",
+    file: "marketing-email-templates.html",
+  },
+  {
+    link: /^View all \d+ newsletter templates/,
+    heading: "Newsletter Email Templates",
+    file: "newsletter-email-templates.html",
+  },
+  {
+    link: /^View all \d+ account templates/,
+    heading: "Account Email Templates",
+    file: "account-email-templates.html",
+  },
+  {
+    link: /^View all \d+ auth templates/,
+    heading: "Authentication Email Templates",
+    file: "auth-email-templates.html",
+  },
+];
+
+test("homepage sections lead to category pages that list their templates", async ({
+  page,
+}) => {
+  const listed = new Set();
+
+  for (const { link, heading, file } of categoryPages) {
+    await page.goto("index.html");
+    await page.getByRole("link", { name: link }).click();
+
+    await expect(page).toHaveURL(new RegExp(`${file}$`));
+    await expect(
+      page.getByRole("heading", { level: 1, name: heading }),
+    ).toBeVisible();
+
+    const files = await page
+      .locator("article.wrapper a[download]")
+      .evaluateAll((links) => links.map((a) => a.getAttribute("download")));
+    files.forEach((name) => listed.add(name));
+
+    // The breadcrumb is the way back to the homepage.
+    await page
+      .getByRole("navigation", { name: "Breadcrumb" })
+      .getByRole("link", { name: "Templates" })
+      .click();
+    await expect(page).toHaveURL(/index\.html$/);
+  }
+
+  // Between them the category pages reach every template in the metadata.
+  expect([...listed].sort()).toEqual([...catalogFiles].sort());
 
   await expect(
     page.locator("#collection-grid > article[data-integration-card] h3"),
   ).toHaveText(["Supabase", "Better Auth"]);
+});
 
-  const orderedTemplates = await page
-    .locator("#template-grid > article.wrapper")
-    .evaluateAll((cards) =>
-      cards.map((card) => ({
-        file: card.querySelector("a[download]")?.getAttribute("download"),
-        lastmod: card.getAttribute("data-lastmod"),
-      })),
-    );
-  const lastmodDates = orderedTemplates.map(({ lastmod }) => lastmod);
+test("a category page opens a working template preview", async ({ page }) => {
+  await page.goto("ecommerce-email-templates.html");
+  await page.getByRole("link", { name: "Preview Order Delivered" }).click();
 
-  // The grid lists every template in the metadata, newest first, and each
-  // card carries the date the metadata records for its file.
-  expect(orderedTemplates.map(({ file }) => file).sort()).toEqual(
-    [...catalogFiles].sort(),
-  );
-  orderedTemplates.forEach(({ file, lastmod }) => {
-    expect(lastmod, file).toBe(templateMetadata[file].lastmod);
-  });
-  expect(lastmodDates).toEqual(
-    [...lastmodDates].sort((a, b) => b.localeCompare(a)),
-  );
-
-  await page.locator('.filter-pill[data-filter-value="auth"]').click();
+  await expect(page).toHaveURL(/preview\.html\?template=order-delivered$/);
   await expect(
-    page.locator("#template-grid article.wrapper:visible"),
-  ).toHaveCount(2);
-  await expect(page.locator("#collections-section")).toBeHidden();
+    page.frameLocator("#template-frame").getByText("Delivered.").first(),
+  ).toBeVisible();
+});
 
-  const search = page.getByRole("searchbox", { name: "Search templates" });
-  await search.fill("reset");
-  await expect(
-    page.locator("#template-grid article.wrapper:visible"),
-  ).toHaveCount(1);
-  await expect
-    .poll(() => new URL(page.url()).search)
-    .toBe("?category=auth&q=reset");
+test("old homepage filter links open the matching category page", async ({
+  page,
+}) => {
+  await page.goto("index.html?category=auth&q=reset");
+  await expect(page).toHaveURL(/auth-email-templates\.html$/);
 
-  const links = await page.locator("#template-grid article.wrapper").evaluateAll(
-    (cards) =>
-      cards.map((card) => ({
-        preview: card
-          .querySelector('a[href*="preview.html?template="]')
-          ?.getAttribute("href"),
-        download: card.querySelector("a[download]")?.getAttribute("href"),
-        filename: card.querySelector("a[download]")?.getAttribute("download"),
-      })),
-  );
-
-  expect(links).toHaveLength(catalogFiles.length);
-  links.forEach(({ preview, download, filename }) => {
-    expect(preview).toMatch(/^\.\/preview\.html\?template=/);
-    expect(download).toBe(`./templates/${filename}`);
-  });
+  await page.goto("index.html?category=supabase");
+  await expect(page).toHaveURL(/supabase\.html$/);
 });
 
 test("customization updates the preview and downloaded HTML", async ({ page }) => {
