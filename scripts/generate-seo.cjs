@@ -207,7 +207,7 @@ function injectSeo(htmlPath) {
   return { noindex, url: canonicalUrl };
 }
 
-function buildSitemap(urls, lastModifiedByUrl = MAIN_PAGE_LASTMOD) {
+function buildSitemap(urls) {
   const today = new Date().toISOString().split("T")[0];
 
   // Sort URLs to put main page first, then templates
@@ -233,7 +233,7 @@ function buildSitemap(urls, lastModifiedByUrl = MAIN_PAGE_LASTMOD) {
   const mainPageItems = mainPages
     .map((url) => {
       const isMainPage = url === BASE_URL;
-      const lastmod = lastModifiedByUrl.get(url);
+      const lastmod = MAIN_PAGE_LASTMOD.get(url);
       let urlXml = `  <url>
     <loc>${escapeXml(url)}</loc>`;
 
@@ -363,4 +363,4 @@ function run() {
 
 if (require.main === module) run();
 
-module.exports = { buildFaqJsonLd, buildSitemap };
+module.exports = { buildFaqJsonLd };
