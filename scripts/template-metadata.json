@@ -2,92 +2,155 @@
   "purchase-confirmation.html": {
     "lastmod": "2024-11-08",
     "image": "purchase-confirm-preview.png",
-    "title": "Purchase Confirmation Email Template"
+    "title": "Purchase Confirmation Email Template",
+    "categories": [
+      "ecommerce"
+    ]
   },
   "product-confirmation.html": {
     "lastmod": "2024-11-08",
     "image": "product-confirm-preview.png",
-    "title": "Product Confirmation Email Template"
+    "title": "Product Confirmation Email Template",
+    "categories": [
+      "ecommerce"
+    ]
   },
   "ecommerce-order.html": {
     "lastmod": "2024-11-18",
     "image": "ecommerce-order-emailer.jpg",
-    "title": "Ecommerce Order HTML Email Template"
+    "title": "Ecommerce Order HTML Email Template",
+    "categories": [
+      "ecommerce"
+    ]
   },
   "promotional-offer.html": {
     "lastmod": "2024-11-20",
     "image": "promotional-offer-preview.png",
-    "title": "Promotional Offer HTML Email Template"
+    "title": "Promotional Offer HTML Email Template",
+    "categories": [
+      "marketing",
+      "ecommerce"
+    ]
   },
   "shopping-deals.html": {
     "lastmod": "2024-12-09",
     "image": "shopping-deals-preview.png",
-    "title": "Shopping Deals HTML Email Template"
+    "title": "Shopping Deals HTML Email Template",
+    "categories": [
+      "marketing",
+      "ecommerce"
+    ]
   },
   "gift-decor.html": {
     "lastmod": "2025-01-06",
     "image": "gift-decor-preview.jpg",
-    "title": "Gift Decor HTML Email Template"
+    "title": "Gift Decor HTML Email Template",
+    "categories": [
+      "marketing",
+      "ecommerce"
+    ]
   },
   "product-announcements.html": {
     "lastmod": "2025-05-22",
     "image": "product-announcements-preview.png",
-    "title": "Product Announcements HTML Email Template"
+    "title": "Product Announcements HTML Email Template",
+    "categories": [
+      "newsletter",
+      "marketing"
+    ]
   },
   "ai-newsletter.html": {
     "lastmod": "2025-02-22",
     "image": "ai-newsletter-preview.jpg",
-    "title": "AI Newsletter HTML Email Template"
+    "title": "AI Newsletter HTML Email Template",
+    "categories": [
+      "newsletter"
+    ]
   },
   "music-event-promotion.html": {
     "lastmod": "2025-05-28",
     "image": "music-event-promotion-preview.png",
-    "title": "Music Event Promotion Email Template"
+    "title": "Music Event Promotion Email Template",
+    "categories": [
+      "marketing"
+    ]
   },
   "password-reset.html": {
     "lastmod": "2025-08-07",
     "image": "password-reset-preview.png",
-    "title": "Password Reset HTML Email Template"
+    "title": "Password Reset HTML Email Template",
+    "categories": [
+      "auth",
+      "account"
+    ]
   },
   "abandoned-cart.html": {
     "lastmod": "2025-08-11",
     "image": "abandoned-cart-preview.png",
-    "title": "Abandoned Cart HTML Email Template"
+    "title": "Abandoned Cart HTML Email Template",
+    "categories": [
+      "ecommerce",
+      "marketing"
+    ]
   },
   "account-verification.html": {
     "lastmod": "2025-09-08",
     "image": "account-verification-preview.png",
-    "title": "Account Verification HTML Email Template"
+    "title": "Account Verification HTML Email Template",
+    "categories": [
+      "auth",
+      "account"
+    ]
   },
   "account-billing-update.html": {
     "lastmod": "2026-03-04",
     "image": "account-billing-update-preview.png",
-    "title": "Account & Billing Update HTML Email Template"
+    "title": "Account & Billing Update HTML Email Template",
+    "categories": [
+      "account"
+    ]
   },
   "product-promotion.html": {
     "lastmod": "2026-05-30",
     "image": "product-promotion-preview.png",
-    "title": "Product Promotion HTML Email Template"
+    "title": "Product Promotion HTML Email Template",
+    "categories": [
+      "marketing",
+      "ecommerce"
+    ]
   },
   "welcome-onboarding.html": {
     "lastmod": "2025-09-19",
     "image": "welcome-onboarding-preview.png",
-    "title": "Welcome Onboarding HTML Email Template"
+    "title": "Welcome Onboarding HTML Email Template",
+    "categories": [
+      "account"
+    ]
   },
   "product-review.html": {
     "lastmod": "2025-10-22",
     "image": "product-review-preview.png",
-    "title": "Product Review HTML Email Template"
+    "title": "Product Review HTML Email Template",
+    "categories": [
+      "ecommerce",
+      "marketing"
+    ]
   },
   "reengagement.html": {
     "lastmod": "2026-01-19",
     "image": "reengagement-preview.png",
-    "title": "Re-engagement HTML Email Template"
+    "title": "Re-engagement HTML Email Template",
+    "categories": [
+      "marketing"
+    ]
   },
   "shipping-confirmation.html": {
     "lastmod": "2026-06-23",
     "image": "shipping-confirmation-preview.png",
-    "title": "Shipping Confirmation HTML Email Template"
+    "title": "Shipping Confirmation HTML Email Template",
+    "categories": [
+      "ecommerce"
+    ]
   },
   "supabase-confirm-signup.html": {
     "lastmod": "2026-07-17",
@@ -167,66 +230,107 @@
   "back-in-stock.html": {
     "lastmod": "2026-08-27",
     "image": "back-in-stock-preview.webp",
-    "title": "Back in Stock HTML Email Template"
+    "title": "Back in Stock HTML Email Template",
+    "categories": [
+      "ecommerce",
+      "marketing"
+    ]
   },
   "order-adjustment.html": {
     "lastmod": "2026-10-21",
     "image": "order-adjustment-preview.webp",
-    "title": "Order Adjustment HTML Email Template"
+    "title": "Order Adjustment HTML Email Template",
+    "categories": [
+      "ecommerce"
+    ]
   },
   "order-cancelled.html": {
     "lastmod": "2026-10-27",
     "image": "order-cancelled-preview.webp",
-    "title": "Order Cancelled HTML Email Template"
+    "title": "Order Cancelled HTML Email Template",
+    "categories": [
+      "ecommerce"
+    ]
   },
   "order-delivered.html": {
     "lastmod": "2026-10-27",
     "image": "order-delivered-preview.webp",
-    "title": "Order Delivered HTML Email Template"
+    "title": "Order Delivered HTML Email Template",
+    "categories": [
+      "ecommerce"
+    ]
   },
   "payment-failed.html": {
     "lastmod": "2026-11-02",
     "image": "payment-failed-preview.webp",
-    "title": "Payment Failed HTML Email Template"
+    "title": "Payment Failed HTML Email Template",
+    "categories": [
+      "account"
+    ]
   },
   "trial-ending.html": {
     "lastmod": "2026-11-03",
     "image": "trial-ending-preview.webp",
-    "title": "Trial Ending HTML Email Template"
+    "title": "Trial Ending HTML Email Template",
+    "categories": [
+      "account"
+    ]
   },
   "usage-limit.html": {
     "lastmod": "2026-11-04",
     "image": "usage-limit-preview.webp",
-    "title": "Usage Limit HTML Email Template"
+    "title": "Usage Limit HTML Email Template",
+    "categories": [
+      "account"
+    ]
   },
   "login-alert.html": {
     "lastmod": "2026-11-05",
     "image": "login-alert-preview.webp",
-    "title": "Login Alert HTML Email Template"
+    "title": "Login Alert HTML Email Template",
+    "categories": [
+      "account"
+    ]
   },
   "appointment-reminder.html": {
     "lastmod": "2026-11-05",
     "image": "appointment-reminder-preview.webp",
-    "title": "Appointment Reminder HTML Email Template"
+    "title": "Appointment Reminder HTML Email Template",
+    "categories": [
+      "account"
+    ]
   },
   "policy-update.html": {
     "lastmod": "2026-11-06",
     "image": "policy-update-preview.webp",
-    "title": "Policy Update HTML Email Template"
+    "title": "Policy Update HTML Email Template",
+    "categories": [
+      "account"
+    ]
   },
   "referral.html": {
     "lastmod": "2026-11-08",
     "image": "referral-preview.webp",
-    "title": "Referral HTML Email Template"
+    "title": "Referral HTML Email Template",
+    "categories": [
+      "marketing"
+    ]
   },
   "birthday.html": {
     "lastmod": "2026-11-10",
     "image": "birthday-preview.webp",
-    "title": "Birthday HTML Email Template"
+    "title": "Birthday HTML Email Template",
+    "categories": [
+      "marketing"
+    ]
   },
   "browse-abandonment.html": {
     "lastmod": "2026-11-13",
     "image": "browse-abandonment-preview.webp",
-    "title": "Browse Abandonment HTML Email Template"
+    "title": "Browse Abandonment HTML Email Template",
+    "categories": [
+      "ecommerce",
+      "marketing"
+    ]
   }
 }
