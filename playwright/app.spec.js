@@ -1,4 +1,19 @@
+import { readFileSync } from "node:fs";
+
 import { expect, test } from "@playwright/test";
+
+const templateMetadata = JSON.parse(
+  readFileSync(
+    new URL("../scripts/template-metadata.json", import.meta.url),
+    "utf8",
+  ),
+);
+
+// Supabase and Better Auth templates live on their own collection pages, so
+// the main grid shows every other template in the metadata.
+const catalogFiles = Object.keys(templateMetadata).filter(
+  (file) => !/^(supabase|better-auth)-/.test(file),
+);
 
 const LOCAL_HOSTS = new Set(["127.0.0.1", "localhost"]);
 
@@ -47,24 +62,23 @@ test("catalog filtering, URL state, and template links work", async ({ page }) =
     .locator("#template-grid > article.wrapper")
     .evaluateAll((cards) =>
       cards.map((card) => ({
-        title: card.querySelector("h3")?.textContent?.trim(),
+        file: card.querySelector("a[download]")?.getAttribute("download"),
         lastmod: card.getAttribute("data-lastmod"),
       })),
     );
   const lastmodDates = orderedTemplates.map(({ lastmod }) => lastmod);
 
-  expect(lastmodDates).toHaveLength(31);
-  expect(lastmodDates.every(Boolean)).toBe(true);
+  // The grid lists every template in the metadata, newest first, and each
+  // card carries the date the metadata records for its file.
+  expect(orderedTemplates.map(({ file }) => file).sort()).toEqual(
+    [...catalogFiles].sort(),
+  );
+  orderedTemplates.forEach(({ file, lastmod }) => {
+    expect(lastmod, file).toBe(templateMetadata[file].lastmod);
+  });
   expect(lastmodDates).toEqual(
     [...lastmodDates].sort((a, b) => b.localeCompare(a)),
   );
-  expect(orderedTemplates.slice(0, 5).map(({ title }) => title)).toEqual([
-    "Browse Abandonment Emailer",
-    "Birthday Emailer",
-    "Referral Emailer",
-    "Policy Update Emailer",
-    "Appointment Reminder Emailer",
-  ]);
 
   await page.locator('.filter-pill[data-filter-value="auth"]').click();
   await expect(
@@ -92,7 +106,7 @@ test("catalog filtering, URL state, and template links work", async ({ page }) =
       })),
   );
 
-  expect(links).toHaveLength(31);
+  expect(links).toHaveLength(catalogFiles.length);
   links.forEach(({ preview, download, filename }) => {
     expect(preview).toMatch(/^\.\/preview\.html\?template=/);
     expect(download).toBe(`./templates/${filename}`);
