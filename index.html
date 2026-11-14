@@ -357,7 +357,8 @@
     <link rel="modulepreload" crossorigin="" href="/email-templates/assets/modulepreload-polyfill-B5Qt9EMX.js">
     <link rel="modulepreload" crossorigin="" href="/email-templates/assets/card-preview-B43tn9cK.js">
     <link rel="stylesheet" crossorigin="" href="/email-templates/assets/card-preview-BW_yzQ_A.css">
-  </head>
+  
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are the templates mobile responsive?","acceptedAnswer":{"@type":"Answer","text":"Absolutely! Every template is fully responsive and optimized for mobile devices, ensuring perfect display on smartphones, tablets, and desktop computers."}},{"@type":"Question","name":"Is a plain-text version included?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every template comes with a hand-written plain-text version, not a stripped-down copy of the HTML. Open any template's preview and choose Copy → Copy plain text. Sending both parts is what keeps a message readable in clients that don't render HTML, and it helps your deliverability."}},{"@type":"Question","name":"How do I customize these email templates?","acceptedAnswer":{"@type":"Answer","text":"Our templates use simple HTML structure with inline CSS, making customization easy. You can modify colors, fonts, images, and content using any text editor to match your brand identity."}},{"@type":"Question","name":"What types of email templates are available?","acceptedAnswer":{"@type":"Answer","text":"We offer various categories including e-commerce templates (purchase confirmations, promotional offers, product announcements), business communication templates (newsletters, event invitations, welcome emails), and specialized templates for different industries."}},{"@type":"Question","name":"Are these templates free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes! All our email templates are completely free to use for both personal and commercial projects. No attribution required, though it's always appreciated."}},{"@type":"Question","name":"How do I use these email templates?","acceptedAnswer":{"@type":"Answer","text":"Follow these simple steps: 1. Browse our collection and choose your preferred template 2. Click the \"Download\" button to save the HTML file 3. Open the file in any text editor to customize content 4. Replace placeholder text with your actual content 5. Update colors and fonts to match your brand 6. Test the template in your email client before sending"}},{"@type":"Question","name":"Do you plan to add more templates?","acceptedAnswer":{"@type":"Answer","text":"Yes! We regularly add new email templates to our collection. Follow our GitHub repository or bookmark this page to stay updated with the latest additions."}}]}</script></head>
   <body class="dark:bg-gray-900">
     <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
       <symbol id="icon-chevron-down" viewBox="0 0 20 20" fill="currentColor">
@@ -1228,8 +1229,8 @@
         </p>
       </div>
 
-      <!-- FAQ Section -->
-      <section class="mt-16 mb-12 max-w-4xl mx-auto px-4">
+      <!-- FAQ Section. The build turns each item into FAQPage structured data. -->
+      <section id="faq" class="mt-16 mb-12 max-w-4xl mx-auto px-4">
         <h2 class="text-2xl font-bold text-center dark:text-white text-gray-800 mb-8">
           Frequently Asked Questions
         </h2>
