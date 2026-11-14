@@ -76,6 +76,7 @@ When you are finished, copy the customized HTML or download it as a file.
 - [Policy Update](https://nirajrajgor.github.io/email-templates/preview.html?template=policy-update)
 - [Referral](https://nirajrajgor.github.io/email-templates/preview.html?template=referral)
 - [Birthday](https://nirajrajgor.github.io/email-templates/preview.html?template=birthday)
+- [Browse Abandonment](https://nirajrajgor.github.io/email-templates/preview.html?template=browse-abandonment)
 
 ## Integration Collections
 
