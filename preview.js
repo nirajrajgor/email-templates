@@ -196,6 +196,11 @@ const templates = {
     brand: "#d6336c",
     pinned: ["#f5a524"],
   },
+  "browse-abandonment": {
+    title: "Browse Abandonment Emailer",
+    background: "#f2efea",
+    brand: "#552a5e",
+  },
 };
 
 const params = new URLSearchParams(window.location.search);
