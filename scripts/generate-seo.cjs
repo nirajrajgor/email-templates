@@ -14,6 +14,15 @@ const GOOGLE_VERIFICATION_FILE = /^google[a-z0-9]+\.html$/i;
 // Shared by sitemap generation and homepage catalog ordering.
 const TEMPLATE_METADATA = require("./template-metadata.json");
 
+// The date each main page last changed for a visitor or a crawler. Update it by
+// hand with the page. A lastmod that moves on every build teaches crawlers to
+// ignore it, so a page missing here gets no lastmod.
+const MAIN_PAGE_LASTMOD = new Map([
+  [BASE_URL, "2026-11-13"],
+  [`${BASE_URL}better-auth.html`, "2026-07-30"],
+  [`${BASE_URL}supabase.html`, "2026-11-03"],
+]);
+
 function toUrl(filePath) {
   const relative = path.relative(DIST_DIR, filePath).replace(/\\/g, "/");
   // Collapse any trailing "index.html" so sub-folders map to a clean URL.
@@ -36,6 +45,42 @@ function hasNoIndex($) {
     .split(",")
     .map((value) => value.trim())
     .includes("noindex");
+}
+
+function toPlainText(html) {
+  return cheerio.load(html).root().text().replace(/\s+/g, " ").trim();
+}
+
+// Built from the visible FAQ so the markup and the page cannot drift apart.
+function buildFaqJsonLd($) {
+  const mainEntity = $("#faq details")
+    .map((_, item) => {
+      const $answer = $(item).clone();
+      $answer.find("summary").remove();
+      $answer.find("ol > li").each((_, step) => {
+        $(step).prepend(`${$(step).index() + 1}. `);
+      });
+      // Keep words in adjacent blocks apart once the tags are stripped.
+      $answer.find("p, li, br").after(" ");
+
+      return {
+        "@type": "Question",
+        name: toPlainText($.html($(item).find("summary"))),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: toPlainText($.html($answer)),
+        },
+      };
+    })
+    .get();
+
+  if (mainEntity.length === 0) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity,
+  };
 }
 
 function injectSeo(htmlPath) {
@@ -96,6 +141,13 @@ function injectSeo(htmlPath) {
         jsonLd,
       )}</script>`,
     );
+  }
+
+  const faqJsonLd = noindex ? null : buildFaqJsonLd($);
+  if (faqJsonLd) {
+    // Escape "<" so answer text can never close the script element.
+    const json = JSON.stringify(faqJsonLd).replace(/</g, "\\u003c");
+    $("head").append(`\n    <script type="application/ld+json">${json}</script>`);
   }
 
   // Improve <img> tags: width, height, decoding="async"
@@ -181,9 +233,16 @@ function buildSitemap(urls) {
   const mainPageItems = mainPages
     .map((url) => {
       const isMainPage = url === BASE_URL;
+      const lastmod = MAIN_PAGE_LASTMOD.get(url);
       let urlXml = `  <url>
-    <loc>${escapeXml(url)}</loc>
-    <lastmod>${escapeXml(today)}</lastmod>
+    <loc>${escapeXml(url)}</loc>`;
+
+      if (lastmod) {
+        urlXml += `
+    <lastmod>${escapeXml(lastmod)}</lastmod>`;
+      }
+
+      urlXml += `
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>`;
 
@@ -302,4 +361,6 @@ function run() {
   );
 }
 
-run();
+if (require.main === module) run();
+
+module.exports = { buildFaqJsonLd };
