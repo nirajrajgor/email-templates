@@ -1,4 +1,3 @@
-const { execFileSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const glob = require("glob");
@@ -7,14 +6,22 @@ const sizeOf = require("image-size");
 
 // === CONFIG ===
 const BASE_URL = "https://nirajrajgor.github.io/email-templates/";
-const ROOT_DIR = path.resolve(__dirname, "..");
-const DIST_DIR = path.join(ROOT_DIR, "dist");
+const DIST_DIR = path.resolve(__dirname, "..", "dist");
 const CHANGE_FREQ = "weekly";
 const PUBLISHER_NAME = "Niraj Rajgor";
 const GOOGLE_VERIFICATION_FILE = /^google[a-z0-9]+\.html$/i;
 
 // Shared by sitemap generation and homepage catalog ordering.
 const TEMPLATE_METADATA = require("./template-metadata.json");
+
+// The date each main page last changed for a visitor or a crawler. Update it by
+// hand with the page. A lastmod that moves on every build teaches crawlers to
+// ignore it, so a page missing here gets no lastmod.
+const MAIN_PAGE_LASTMOD = new Map([
+  [BASE_URL, "2026-11-13"],
+  [`${BASE_URL}better-auth.html`, "2026-07-30"],
+  [`${BASE_URL}supabase.html`, "2026-11-03"],
+]);
 
 function toUrl(filePath) {
   const relative = path.relative(DIST_DIR, filePath).replace(/\\/g, "/");
@@ -38,25 +45,6 @@ function hasNoIndex($) {
     .split(",")
     .map((value) => value.trim())
     .includes("noindex");
-}
-
-function git(...args) {
-  return execFileSync("git", args, { cwd: ROOT_DIR, encoding: "utf8" }).trim();
-}
-
-// The date a page's source last changed. A lastmod that moves on every build
-// teaches crawlers to ignore it, so return nothing when git cannot tell.
-function getLastModified(relativePath) {
-  try {
-    if (git("status", "--porcelain", "--", relativePath)) {
-      return new Date().toISOString().split("T")[0];
-    }
-    // A shallow clone reports the latest commit for every file.
-    if (git("rev-parse", "--is-shallow-repository") === "true") return undefined;
-    return git("log", "-1", "--format=%cs", "--", relativePath) || undefined;
-  } catch (_) {
-    return undefined;
-  }
 }
 
 function toPlainText(html) {
@@ -219,7 +207,7 @@ function injectSeo(htmlPath) {
   return { noindex, url: canonicalUrl };
 }
 
-function buildSitemap(urls, lastModifiedByUrl = new Map()) {
+function buildSitemap(urls) {
   const today = new Date().toISOString().split("T")[0];
 
   // Sort URLs to put main page first, then templates
@@ -245,7 +233,7 @@ function buildSitemap(urls, lastModifiedByUrl = new Map()) {
   const mainPageItems = mainPages
     .map((url) => {
       const isMainPage = url === BASE_URL;
-      const lastmod = lastModifiedByUrl.get(url);
+      const lastmod = MAIN_PAGE_LASTMOD.get(url);
       let urlXml = `  <url>
     <loc>${escapeXml(url)}</loc>`;
 
@@ -353,19 +341,15 @@ function run() {
         !GOOGLE_VERIFICATION_FILE.test(path.basename(file)),
     );
   const urls = [];
-  const lastModifiedByUrl = new Map();
 
   htmlFiles.forEach((file) => {
     const fullPath = path.join(DIST_DIR, file);
     const { noindex, url } = injectSeo(fullPath);
-    if (noindex) return;
-    urls.push(url);
-    // Pages build to the same relative path as their source file.
-    lastModifiedByUrl.set(url, getLastModified(file));
+    if (!noindex) urls.push(url);
   });
 
   // Enhanced Sitemap with metadata
-  const sitemap = buildSitemap(urls, lastModifiedByUrl);
+  const sitemap = buildSitemap(urls);
   fs.writeFileSync(path.join(DIST_DIR, "sitemap.xml"), sitemap, "utf8");
 
   // Enhanced Robots.txt with detailed rules
@@ -379,4 +363,4 @@ function run() {
 
 if (require.main === module) run();
 
-module.exports = { buildFaqJsonLd, buildSitemap };
+module.exports = { buildFaqJsonLd };
