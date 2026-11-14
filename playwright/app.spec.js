@@ -124,6 +124,16 @@ test("a category page opens a working template preview", async ({ page }) => {
   ).toBeVisible();
 });
 
+test("old homepage filter links open the matching category page", async ({
+  page,
+}) => {
+  await page.goto("index.html?category=auth&q=reset");
+  await expect(page).toHaveURL(/auth-email-templates\.html$/);
+
+  await page.goto("index.html?category=supabase");
+  await expect(page).toHaveURL(/supabase\.html$/);
+});
+
 test("customization updates the preview and downloaded HTML", async ({ page }) => {
   await page.goto("preview.html?template=gift-decor");
 
