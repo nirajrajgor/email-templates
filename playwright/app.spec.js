@@ -53,27 +53,27 @@ const selectOption = async (page, menuButton, option) => {
 
 const categoryPages = [
   {
-    link: /^View all \d+ ecommerce templates/,
+    link: /^View all \d+ ecommerce email templates/,
     heading: "Ecommerce Email Templates",
     file: "ecommerce-email-templates.html",
   },
   {
-    link: /^View all \d+ marketing templates/,
+    link: /^View all \d+ marketing email templates/,
     heading: "Marketing Email Templates",
     file: "marketing-email-templates.html",
   },
   {
-    link: /^View all \d+ newsletter templates/,
+    link: /^View all \d+ newsletter email templates/,
     heading: "Newsletter Email Templates",
     file: "newsletter-email-templates.html",
   },
   {
-    link: /^View all \d+ account templates/,
+    link: /^View all \d+ account email templates/,
     heading: "Account Email Templates",
     file: "account-email-templates.html",
   },
   {
-    link: /^View all \d+ auth templates/,
+    link: /^View all \d+ auth email templates/,
     heading: "Authentication Email Templates",
     file: "auth-email-templates.html",
   },

@@ -17,7 +17,7 @@ const CATEGORY_PAGES = {
   account: "account-email-templates.html",
   auth: "auth-email-templates.html",
 };
-const MAX_FEATURED_PER_SECTION = 6;
+const MAX_FEATURED_PER_SECTION = 4;
 
 const filesIn = (category) =>
   Object.keys(metadata).filter((file) =>
@@ -88,7 +88,9 @@ for (const [category, page] of Object.entries(CATEGORY_PAGES)) {
     assert.equal(more.attr("href"), `./${page}`);
     assert.match(
       more.text().replace(/\s+/g, " "),
-      new RegExp(`^View all ${filesIn(category).length} ${category} templates`),
+      new RegExp(
+        `^View all ${filesIn(category).length} ${category} email templates`,
+      ),
     );
   });
 }
