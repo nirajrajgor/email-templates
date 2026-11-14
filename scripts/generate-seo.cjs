@@ -1,3 +1,4 @@
+const { execFileSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const glob = require("glob");
@@ -6,7 +7,8 @@ const sizeOf = require("image-size");
 
 // === CONFIG ===
 const BASE_URL = "https://nirajrajgor.github.io/email-templates/";
-const DIST_DIR = path.resolve(__dirname, "..", "dist");
+const ROOT_DIR = path.resolve(__dirname, "..");
+const DIST_DIR = path.join(ROOT_DIR, "dist");
 const CHANGE_FREQ = "weekly";
 const PUBLISHER_NAME = "Niraj Rajgor";
 const GOOGLE_VERIFICATION_FILE = /^google[a-z0-9]+\.html$/i;
@@ -36,6 +38,61 @@ function hasNoIndex($) {
     .split(",")
     .map((value) => value.trim())
     .includes("noindex");
+}
+
+function git(...args) {
+  return execFileSync("git", args, { cwd: ROOT_DIR, encoding: "utf8" }).trim();
+}
+
+// The date a page's source last changed. A lastmod that moves on every build
+// teaches crawlers to ignore it, so return nothing when git cannot tell.
+function getLastModified(relativePath) {
+  try {
+    if (git("status", "--porcelain", "--", relativePath)) {
+      return new Date().toISOString().split("T")[0];
+    }
+    // A shallow clone reports the latest commit for every file.
+    if (git("rev-parse", "--is-shallow-repository") === "true") return undefined;
+    return git("log", "-1", "--format=%cs", "--", relativePath) || undefined;
+  } catch (_) {
+    return undefined;
+  }
+}
+
+function toPlainText(html) {
+  return cheerio.load(html).root().text().replace(/\s+/g, " ").trim();
+}
+
+// Built from the visible FAQ so the markup and the page cannot drift apart.
+function buildFaqJsonLd($) {
+  const mainEntity = $("#faq details")
+    .map((_, item) => {
+      const $answer = $(item).clone();
+      $answer.find("summary").remove();
+      $answer.find("ol > li").each((_, step) => {
+        $(step).prepend(`${$(step).index() + 1}. `);
+      });
+      // Keep words in adjacent blocks apart once the tags are stripped.
+      $answer.find("p, li, br").after(" ");
+
+      return {
+        "@type": "Question",
+        name: toPlainText($.html($(item).find("summary"))),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: toPlainText($.html($answer)),
+        },
+      };
+    })
+    .get();
+
+  if (mainEntity.length === 0) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity,
+  };
 }
 
 function injectSeo(htmlPath) {
@@ -98,6 +155,13 @@ function injectSeo(htmlPath) {
     );
   }
 
+  const faqJsonLd = noindex ? null : buildFaqJsonLd($);
+  if (faqJsonLd) {
+    // Escape "<" so answer text can never close the script element.
+    const json = JSON.stringify(faqJsonLd).replace(/</g, "\\u003c");
+    $("head").append(`\n    <script type="application/ld+json">${json}</script>`);
+  }
+
   // Improve <img> tags: width, height, decoding="async"
   $("img").each((_, img) => {
     const $img = $(img);
@@ -155,7 +219,7 @@ function injectSeo(htmlPath) {
   return { noindex, url: canonicalUrl };
 }
 
-function buildSitemap(urls) {
+function buildSitemap(urls, lastModifiedByUrl = new Map()) {
   const today = new Date().toISOString().split("T")[0];
 
   // Sort URLs to put main page first, then templates
@@ -181,9 +245,16 @@ function buildSitemap(urls) {
   const mainPageItems = mainPages
     .map((url) => {
       const isMainPage = url === BASE_URL;
+      const lastmod = lastModifiedByUrl.get(url);
       let urlXml = `  <url>
-    <loc>${escapeXml(url)}</loc>
-    <lastmod>${escapeXml(today)}</lastmod>
+    <loc>${escapeXml(url)}</loc>`;
+
+      if (lastmod) {
+        urlXml += `
+    <lastmod>${escapeXml(lastmod)}</lastmod>`;
+      }
+
+      urlXml += `
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>`;
 
@@ -282,15 +353,19 @@ function run() {
         !GOOGLE_VERIFICATION_FILE.test(path.basename(file)),
     );
   const urls = [];
+  const lastModifiedByUrl = new Map();
 
   htmlFiles.forEach((file) => {
     const fullPath = path.join(DIST_DIR, file);
     const { noindex, url } = injectSeo(fullPath);
-    if (!noindex) urls.push(url);
+    if (noindex) return;
+    urls.push(url);
+    // Pages build to the same relative path as their source file.
+    lastModifiedByUrl.set(url, getLastModified(file));
   });
 
   // Enhanced Sitemap with metadata
-  const sitemap = buildSitemap(urls);
+  const sitemap = buildSitemap(urls, lastModifiedByUrl);
   fs.writeFileSync(path.join(DIST_DIR, "sitemap.xml"), sitemap, "utf8");
 
   // Enhanced Robots.txt with detailed rules
@@ -302,4 +377,6 @@ function run() {
   );
 }
 
-run();
+if (require.main === module) run();
+
+module.exports = { buildFaqJsonLd, buildSitemap };
