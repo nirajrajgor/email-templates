@@ -1,7 +1,7 @@
 .collection-main {
   margin: 0 auto;
-  max-width: 1240px;
-  padding: 7.5rem 1.5rem 5rem;
+  max-width: 1440px;
+  padding: 5.5rem 1.5rem 5rem;
 }
 
 .collection-breadcrumb {
@@ -11,7 +11,7 @@
   font-size: 0.875rem;
   font-weight: 600;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.625rem;
 }
 
 .collection-breadcrumb a {
@@ -23,34 +23,17 @@
   text-decoration: underline;
 }
 
-.collection-header {
-  border-bottom: 1px solid #e6e8ec;
-  padding-bottom: 2.5rem;
-}
-
 .collection-header h1 {
   color: #172033;
-  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-size: clamp(1.625rem, 2.4vw, 2.75rem);
   font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 1;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
   margin: 0;
 }
 
-.collection-header-copy > p {
-  color: #667085;
-  font-size: 1.0625rem;
-  line-height: 1.7;
-  margin: 1.25rem 0 0;
-  max-width: 720px;
-}
-
 .collection-templates {
-  margin-top: 2rem;
-}
-
-.collection-template-grid {
-  gap: 1.5rem !important;
+  margin-top: 1.5rem;
 }
 
 .collection-how-to {
@@ -65,6 +48,52 @@
   font-weight: 700;
   margin: 0 0 2rem;
   text-align: center;
+}
+
+.collection-links {
+  margin: 4rem auto 0;
+  max-width: 896px;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.collection-links h2 {
+  color: #172033;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+}
+
+.collection-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.collection-links a {
+  background: #ffffff;
+  border: 1px solid #e6e8ec;
+  border-radius: 999px;
+  color: #344054;
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem 0.875rem;
+  text-decoration: none;
+}
+
+.collection-links a:hover {
+  border-color: #bfdbfe;
+  color: #2563eb;
+}
+
+.collection-links a:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.35);
+  outline-offset: 2px;
 }
 
 .how-to-questions {
@@ -195,14 +224,11 @@ footer a:hover {
 
 @media (max-width: 640px) {
   .collection-main {
-    padding: 6.5rem 1rem 4rem;
+    padding: 5.5rem 1rem 4rem;
   }
 
-  .collection-header {
-    padding-bottom: 2rem;
-  }
-
-  .collection-how-to {
+  .collection-how-to,
+  .collection-links {
     margin: 3rem auto 0;
     padding: 0;
   }

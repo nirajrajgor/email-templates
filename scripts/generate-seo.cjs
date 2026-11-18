@@ -18,9 +18,14 @@ const TEMPLATE_METADATA = require("./template-metadata.json");
 // hand with the page. A lastmod that moves on every build teaches crawlers to
 // ignore it, so a page missing here gets no lastmod.
 const MAIN_PAGE_LASTMOD = new Map([
-  [BASE_URL, "2026-11-13"],
-  [`${BASE_URL}better-auth.html`, "2026-07-30"],
-  [`${BASE_URL}supabase.html`, "2026-11-03"],
+  [BASE_URL, "2026-11-14"],
+  [`${BASE_URL}account-email-templates.html`, "2026-11-17"],
+  [`${BASE_URL}auth-email-templates.html`, "2026-11-17"],
+  [`${BASE_URL}better-auth.html`, "2026-11-17"],
+  [`${BASE_URL}ecommerce-email-templates.html`, "2026-11-17"],
+  [`${BASE_URL}marketing-email-templates.html`, "2026-11-17"],
+  [`${BASE_URL}newsletter-email-templates.html`, "2026-11-17"],
+  [`${BASE_URL}supabase.html`, "2026-11-17"],
 ]);
 
 function toUrl(filePath) {

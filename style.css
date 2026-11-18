@@ -100,6 +100,219 @@ footer .container {
   outline-color: rgba(29, 78, 216, 0.55) !important;
 }
 
+/* Header search. Its script mounts it before the header buttons. */
+.site-search {
+  margin: 0 0.5rem 0 auto;
+  position: relative;
+}
+
+.site-search-toggle {
+  display: none;
+}
+
+.site-search-field {
+  align-items: center;
+  display: flex;
+  position: relative;
+  width: 17rem;
+}
+
+.site-search-field svg,
+.site-search-toggle svg {
+  height: 1.125rem;
+  width: 1.125rem;
+}
+
+.site-search-field svg {
+  color: var(--muted);
+  left: 0.75rem;
+  pointer-events: none;
+  position: absolute;
+}
+
+.site-search-input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: #162033;
+  font-size: 0.9375rem;
+  height: 2.5rem;
+  padding: 0 0.875rem 0 2.5rem;
+  width: 100%;
+}
+
+.site-search-input::placeholder {
+  color: #98a2b3;
+}
+
+.site-search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  outline: none;
+}
+
+.site-search-results {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
+  left: 0;
+  max-height: min(70vh, 32rem);
+  overflow-y: auto;
+  padding: 0.5rem;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  width: 24rem;
+}
+
+.site-search-label {
+  color: var(--muted);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 0;
+  padding: 0.5rem 0.5rem 0.25rem;
+  text-transform: uppercase;
+}
+
+.site-search-status {
+  color: #162033;
+  font-size: 0.875rem;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+/* Hidden from view but still read out by screen readers. */
+.site-search-quiet {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.site-search-option {
+  align-items: center;
+  border-radius: 8px;
+  color: #162033;
+  display: flex;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.site-search-option:hover,
+.site-search-option[aria-selected="true"] {
+  background: var(--surface-muted);
+}
+
+.site-search-option img {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  flex: none;
+  height: 2.75rem;
+  object-fit: cover;
+  object-position: top;
+  width: 2.75rem;
+}
+
+.site-search-name,
+.site-search-collection {
+  display: block;
+  font-size: 0.875rem;
+}
+
+.site-search-collection,
+.site-search-count {
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+.site-search-count {
+  margin-left: auto;
+}
+
+.site-search-hint {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin: 0.5rem 0 0;
+  padding: 0.625rem 0.5rem 0.25rem;
+}
+
+/* Too narrow for a field in the header, so a button opens it in a panel. */
+@media (max-width: 48rem) {
+  .site-search {
+    position: static;
+  }
+
+  .site-search-toggle {
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: #344054;
+    display: inline-flex;
+    height: 2.5rem;
+    justify-content: center;
+    width: 2.5rem;
+  }
+
+  .site-search-toggle:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* The header is the positioned ancestor, so the panel hangs below it. */
+  .site-search-panel {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
+    display: none;
+    left: 0;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    padding: 0.75rem 1rem;
+    position: absolute;
+    right: 0;
+    top: 100%;
+  }
+
+  .site-search[data-open="true"] .site-search-panel {
+    display: block;
+  }
+
+  .site-search-field {
+    width: auto;
+  }
+
+  /* 16px keeps iOS from zooming the page when the field is focused. */
+  .site-search-input {
+    font-size: 1rem;
+    height: 2.75rem;
+  }
+
+  .site-search-results {
+    border: 0;
+    box-shadow: none;
+    max-height: none;
+    overflow: visible;
+    padding: 0.5rem 0 0;
+    position: static;
+    width: auto;
+  }
+
+  .site-search-hint {
+    display: none;
+  }
+}
+
 /* Pair the small logo glyph with a legible text lockup. */
 .site-wordmark {
   align-items: center;
@@ -143,7 +356,7 @@ main.container {
 }
 
 main.container > section:first-of-type {
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 2.5rem !important;
   margin-top: 0.5rem !important;
   text-align: center;
 }
@@ -176,131 +389,48 @@ main.container > section:first-of-type h2 {
   max-width: 680px !important;
 }
 
-.catalog-toolbar {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  display: grid;
-  align-items: center;
-  gap: 0.75rem;
-  grid-template-columns: minmax(15rem, 18rem) minmax(0, 1fr) max-content;
-  margin-bottom: 1.5rem;
-  padding: 0.75rem;
-  position: sticky;
-  top: 4.0625rem;
-  z-index: 49;
-}
-
-.catalog-search {
-  min-width: 0;
-}
-
-.catalog-search input {
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: var(--text);
-  font-size: 0.9375rem;
-  height: 2.5rem;
-  outline: none;
-  padding: 0 0.875rem;
-  transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease;
-  width: 100%;
-}
-
-.catalog-search input:focus {
-  border-color: #93c5fd;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-}
-
-.catalog-search input::placeholder {
-  color: #98a2b3;
-}
-
-.filter-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.filter-pill {
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: #344054;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 600;
-  height: 2.25rem;
-  padding: 0 0.875rem;
-  transition:
-    background-color 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease;
-}
-
-.filter-pill:hover {
-  background: #f9fafb;
-  border-color: #d0d5dd;
-}
-
-.filter-pill:focus-visible {
-  outline: 3px solid rgba(37, 99, 235, 0.18);
-  outline-offset: 2px;
-}
-
-.filter-pill.is-active {
-  background: #eff6ff;
-  border-color: #93c5fd;
-  color: #1d4ed8;
-}
-
-.filter-pill-supabase.is-active {
-  background: #e9fbf3;
-  border-color: #53d59c;
-  color: #087554;
-}
-
-.filter-pill-supabase:focus-visible {
-  outline-color: rgba(16, 185, 129, 0.24);
-}
-
-.filter-pill-better-auth.is-active {
-  background: #f4f4f5;
-  border-color: #a1a1aa;
-  color: #18181b;
-}
-
-.filter-pill-better-auth:focus-visible {
-  outline-color: rgba(24, 24, 27, 0.18);
-}
-
-.catalog-summary {
-  align-items: center;
-  display: flex;
-  justify-content: flex-end;
-  white-space: nowrap;
-}
-
-.catalog-summary p {
-  color: #475467;
-  font-size: 0.9375rem;
-  font-weight: 700;
-}
-
 .catalog-section {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
-.catalog-section-title {
-  color: var(--muted);
-  font-size: 0.8125rem;
+.catalog-section-header {
+  align-items: baseline;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.catalog-section-heading {
+  color: var(--text);
+  font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  margin: 0 0 1rem;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0 0 1.25rem;
+}
+
+.catalog-section-header .catalog-section-heading {
+  margin: 0;
+}
+
+.catalog-section-more {
+  border-radius: 4px;
+  color: var(--accent);
+  flex: none;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.375rem 0;
+  text-decoration: none;
+}
+
+.catalog-section-more:hover {
+  text-decoration: underline;
+}
+
+.catalog-section-more:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
 }
 
 .collection-grid {
@@ -432,7 +562,7 @@ main.container > section:first-of-type h2 {
   transform: translateX(3px);
 }
 
-#template-grid {
+.template-grid {
   align-items: stretch;
   display: grid;
   gap: 2rem 1rem;
@@ -440,27 +570,16 @@ main.container > section:first-of-type h2 {
 }
 
 @media (min-width: 40rem) {
-  #template-grid {
+  .template-grid {
     gap: 2.5rem 1.5rem;
   }
 }
 
+/* Four cards a section fill one row here and two rows of two below. */
 @media (min-width: 64rem) {
-  #template-grid {
-    gap: 3rem 2rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .template-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-}
-
-#template-grid .wrapper {
-  background: none;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-}
-
-#template-grid .wrapper:hover {
-  transform: none;
 }
 
 .catalog-card-preview {
@@ -522,12 +641,6 @@ main.container > section:first-of-type h2 {
   margin: 1.25rem 0 0.375rem;
 }
 
-#template-grid .catalog-card-title {
-  font-size: 1rem;
-  margin: 0;
-  min-width: 0;
-}
-
 .catalog-card-title a {
   color: inherit;
   text-decoration: none;
@@ -553,11 +666,6 @@ main.container > section:first-of-type h2 {
   letter-spacing: 0.04em;
   padding: 0.1875rem 0.4375rem;
   text-transform: uppercase;
-}
-
-#template-grid .catalog-card-copy {
-  font-size: 0.875rem;
-  margin: 0 0 0.875rem;
 }
 
 .catalog-card-footer {
@@ -592,6 +700,8 @@ main.container > section:first-of-type h2 {
   font-weight: 600;
   gap: 0.375rem;
   height: 2rem;
+  /* Keeps the button on the right when a card has no tags. */
+  margin-left: auto;
   padding: 0 0.625rem;
   text-decoration: none;
   transition:
@@ -614,68 +724,6 @@ main.container > section:first-of-type h2 {
   outline-offset: 2px;
 }
 
-.catalog-empty {
-  background: var(--surface);
-  border: 1px dashed #cbd5e1;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  padding: 3rem 1.5rem;
-  text-align: center;
-}
-
-.catalog-empty h2 {
-  color: #1f2937;
-  font-size: 1.25rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-}
-
-.catalog-empty p {
-  color: var(--muted);
-  font-size: 0.9375rem;
-}
-
-.catalog-empty-reset {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: #344054;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-top: 1rem;
-  min-height: 2.5rem;
-  padding: 0 1rem;
-  transition:
-    background-color 180ms ease,
-    border-color 180ms ease;
-}
-
-.catalog-empty-reset:hover {
-  background: #f9fafb;
-  border-color: #d0d5dd;
-}
-
-.catalog-empty-reset:focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: 2px;
-}
-
-.wrapper {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.75rem;
-  transition:
-    border-color 180ms ease,
-    transform 180ms ease;
-}
-
-.wrapper:hover {
-  border-color: #d0d5dd;
-  transform: translateY(-2px);
-}
-
 .catalog-card {
   display: flex;
   flex-direction: column;
@@ -685,10 +733,11 @@ main.container > section:first-of-type h2 {
 
 .catalog-card-title {
   color: #162033;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.35;
-  margin: 0.75rem 0 0.5rem;
+  margin: 0;
+  min-width: 0;
 }
 
 .catalog-card-copy {
@@ -696,80 +745,16 @@ main.container > section:first-of-type h2 {
   -webkit-line-clamp: 2;
   color: var(--muted);
   display: -webkit-box;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   line-height: 1.55;
-  /* The actions create their own gap with margin-top: auto. */
-  margin: 0 0 0.625rem;
+  /* The footer creates its own gap with margin-top: auto. */
+  margin: 0 0 0.875rem;
   overflow: hidden;
-}
-
-.catalog-card-actions {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: auto;
-}
-
-.catalog-action {
-  align-items: center;
-  border-radius: 8px;
-  cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 0;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  gap: 0.375rem;
-  justify-content: center;
-  min-height: 2.5rem;
-  min-width: 0;
-  padding: 0 0.625rem;
-  text-decoration: none;
-  transition:
-    background-color 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease;
-  white-space: nowrap;
-}
-
-.catalog-action-icon {
-  flex: none;
-  height: 1rem;
-  width: 1rem;
-}
-
-.catalog-action-primary {
-  background: var(--accent);
-  border: 1px solid var(--accent);
-  color: #ffffff;
-}
-
-.catalog-action-primary:hover {
-  background: var(--accent-hover);
-  border-color: var(--accent-hover);
-}
-
-.catalog-action-secondary {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: #344054;
-}
-
-.catalog-action-secondary:hover {
-  background: #f9fafb;
-  border-color: #d0d5dd;
-}
-
-.catalog-action:focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: 2px;
-}
-
-#template-grid article.wrapper[hidden] {
-  display: none !important;
 }
 
 /* Skip rendering/decoding off-screen cards so only visible cards hold image
    bitmaps; intrinsic-size reserves layout space to avoid scrollbar jumps. */
-#template-grid article.wrapper {
+.template-grid article.wrapper {
   content-visibility: auto;
   contain-intrinsic-size: auto 540px;
 }
@@ -848,7 +833,15 @@ footer {
   }
 
   main.container > section:first-of-type {
-    margin-bottom: 1rem !important;
+    margin-bottom: 1.75rem !important;
+  }
+
+  .catalog-section {
+    margin-bottom: 3rem;
+  }
+
+  .catalog-section-heading {
+    font-size: 1.25rem;
   }
 
   .integration-card-link {
@@ -869,10 +862,6 @@ footer {
     margin-top: 1rem;
   }
 
-  #template-grid .catalog-card-title {
-    font-size: 0.875rem;
-  }
-
   .catalog-card-footer {
     gap: 0.5rem;
   }
@@ -890,50 +879,12 @@ footer {
     width: 1px;
   }
 
-  .catalog-toolbar {
-    grid-template-columns: 1fr;
-    padding: 0.875rem;
-    position: static;
-  }
-
-  /* Scroll sideways rather than wrapping into a tall stack on a phone. */
-  .filter-pills {
-    flex-wrap: nowrap;
-    gap: 0.375rem;
-    margin: 0 -0.875rem;
-    overflow-x: auto;
-    padding: 0 0.875rem;
-    scrollbar-width: none;
-  }
-
-  .filter-pills::-webkit-scrollbar {
-    display: none;
-  }
-
-  .filter-pill {
-    flex: 0 0 auto;
-  }
-
-  .catalog-summary {
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .wrapper {
-    padding: 0.5rem;
-  }
-
   .catalog-card-title {
     font-size: 0.875rem;
-    margin-top: 0.625rem;
   }
 
   .catalog-card-copy {
     display: none;
-  }
-
-  .catalog-card-actions {
-    flex-direction: column;
   }
 }
 
@@ -942,10 +893,8 @@ footer {
   .header-actions {
     --header-action-pad: 0.625rem;
   }
-}
 
-/* Visually hide the label when it no longer fits, preserving its accessible name. */
-@media (max-width: 23rem) {
+  /* Visually hide the label to fit the search button, preserving its accessible name. */
   .header-action-label {
     clip-path: inset(50%);
     height: 1px;
@@ -953,6 +902,13 @@ footer {
     position: absolute;
     white-space: nowrap;
     width: 1px;
+  }
+}
+
+/* No room left for the GitHub button. The footer links to GitHub too. */
+@media (max-width: 22rem) {
+  .header-actions a:first-child {
+    display: none;
   }
 }
 
@@ -966,7 +922,6 @@ footer {
     transition-duration: 0.01ms !important;
   }
 
-  .wrapper:hover,
   .integration-card-link:hover,
   .integration-card-link:hover .integration-card-action::after {
     transform: none;

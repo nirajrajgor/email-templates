@@ -13,24 +13,25 @@ const CHECK = process.argv.includes("--check");
 const ROOT = path.resolve(__dirname, "..");
 const PUBLIC_DIR = path.join(ROOT, "public");
 const INDEX_HTML = path.join(ROOT, "index.html");
-const SUPABASE_HTML = path.join(ROOT, "supabase.html");
-const BETTER_AUTH_HTML = path.join(ROOT, "better-auth.html");
+const COLLECTION_PAGES = [
+  "supabase.html",
+  "better-auth.html",
+  "ecommerce-email-templates.html",
+  "marketing-email-templates.html",
+  "newsletter-email-templates.html",
+  "account-email-templates.html",
+  "auth-email-templates.html",
+];
+const CARD_IMAGES = '.template-grid article.wrapper div[class*="aspect-"] img';
 const CARD_GRIDS = [
   {
     page: INDEX_HTML,
-    selector:
-      '#template-grid article.wrapper div[class*="aspect-"] img, #collection-grid [data-integration-card] .integration-card-preview img',
+    selector: `${CARD_IMAGES}, #collection-grid [data-integration-card] .integration-card-preview img`,
   },
-  {
-    page: SUPABASE_HTML,
-    selector:
-      '.collection-template-grid article.wrapper div[class*="aspect-"] img',
-  },
-  {
-    page: BETTER_AUTH_HTML,
-    selector:
-      '.collection-template-grid article.wrapper div[class*="aspect-"] img',
-  },
+  ...COLLECTION_PAGES.map((file) => ({
+    page: path.join(ROOT, file),
+    selector: CARD_IMAGES,
+  })),
 ];
 
 function getCardImageSources() {
