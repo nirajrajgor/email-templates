@@ -50,6 +50,52 @@
   text-align: center;
 }
 
+.collection-links {
+  margin: 4rem auto 0;
+  max-width: 896px;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.collection-links h2 {
+  color: #172033;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+}
+
+.collection-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.collection-links a {
+  background: #ffffff;
+  border: 1px solid #e6e8ec;
+  border-radius: 999px;
+  color: #344054;
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem 0.875rem;
+  text-decoration: none;
+}
+
+.collection-links a:hover {
+  border-color: #bfdbfe;
+  color: #2563eb;
+}
+
+.collection-links a:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.35);
+  outline-offset: 2px;
+}
+
 .how-to-questions {
   display: grid;
   gap: 1rem;
@@ -181,7 +227,8 @@ footer a:hover {
     padding: 5.5rem 1rem 4rem;
   }
 
-  .collection-how-to {
+  .collection-how-to,
+  .collection-links {
     margin: 3rem auto 0;
     padding: 0;
   }
