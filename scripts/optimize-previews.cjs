@@ -22,16 +22,15 @@ const COLLECTION_PAGES = [
   "account-email-templates.html",
   "auth-email-templates.html",
 ];
+const CARD_IMAGES = '.template-grid article.wrapper div[class*="aspect-"] img';
 const CARD_GRIDS = [
   {
     page: INDEX_HTML,
-    selector:
-      '.template-grid article.wrapper div[class*="aspect-"] img, #collection-grid [data-integration-card] .integration-card-preview img',
+    selector: `${CARD_IMAGES}, #collection-grid [data-integration-card] .integration-card-preview img`,
   },
   ...COLLECTION_PAGES.map((file) => ({
     page: path.join(ROOT, file),
-    selector:
-      '.collection-template-grid article.wrapper div[class*="aspect-"] img',
+    selector: CARD_IMAGES,
   })),
 ];
 

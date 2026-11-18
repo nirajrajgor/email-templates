@@ -116,7 +116,7 @@ test("homepage sections lead to category pages that list their templates", async
 
 test("a category page opens a working template preview", async ({ page }) => {
   await page.goto("ecommerce-email-templates.html");
-  await page.getByRole("link", { name: "Preview Order Delivered" }).click();
+  await page.getByRole("link", { name: "Order Delivered", exact: true }).click();
 
   await expect(page).toHaveURL(/preview\.html\?template=order-delivered$/);
   await expect(
@@ -330,7 +330,7 @@ test("the Supabase collection opens a working template preview", async ({
   ).toHaveAttribute("download", "supabase-password-changed.html");
 
   await reauthenticationCard
-    .getByRole("link", { name: "Preview Reauthentication" })
+    .getByRole("link", { name: "Reauthentication", exact: true })
     .click();
 
   await expect(
@@ -352,7 +352,7 @@ test("the Better Auth collection opens a working template preview", async ({
     })
     .click();
 
-  await page.getByRole("link", { name: "Preview Delete Account" }).click();
+  await page.getByRole("link", { name: "Delete Account", exact: true }).click();
 
   await expect(
     page

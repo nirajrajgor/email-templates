@@ -509,6 +509,8 @@ main.container > section:first-of-type h2 {
   font-weight: 600;
   gap: 0.375rem;
   height: 2rem;
+  /* Keeps the button on the right when a card has no tags. */
+  margin-left: auto;
   padding: 0 0.625rem;
   text-decoration: none;
   transition:
