@@ -104,6 +104,20 @@ test("homepage cards link to their template and none repeats", async () => {
   assertCardsLinkToTheirTemplate($, cards);
 });
 
+test("a template marked New on the homepage is marked New on its category pages", async () => {
+  const marked = ($) =>
+    downloads($, $("article.wrapper:has(.catalog-card-new)")).sort();
+  const onHomepage = marked(await readPage("index.html"));
+
+  for (const [category, page] of Object.entries(CATEGORY_PAGES)) {
+    assert.deepEqual(
+      marked(await readPage(page)),
+      onHomepage.filter((file) => metadata[file].categories.includes(category)),
+      page,
+    );
+  }
+});
+
 test("every catalog template belongs to a category page", () => {
   const uncategorized = Object.keys(metadata).filter(
     (file) =>
