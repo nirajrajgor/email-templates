@@ -1,7 +1,7 @@
 .collection-main {
   margin: 0 auto;
   max-width: 1440px;
-  padding: 7.5rem 1.5rem 5rem;
+  padding: 5.5rem 1.5rem 5rem;
 }
 
 .collection-breadcrumb {
@@ -11,7 +11,7 @@
   font-size: 0.875rem;
   font-weight: 600;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.625rem;
 }
 
 .collection-breadcrumb a {
@@ -23,22 +23,17 @@
   text-decoration: underline;
 }
 
-.collection-header {
-  border-bottom: 1px solid #e6e8ec;
-  padding-bottom: 2.5rem;
-}
-
 .collection-header h1 {
   color: #172033;
-  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-size: clamp(1.625rem, 2.4vw, 2.75rem);
   font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 1;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
   margin: 0;
 }
 
 .collection-templates {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .collection-how-to {
@@ -183,11 +178,7 @@ footer a:hover {
 
 @media (max-width: 640px) {
   .collection-main {
-    padding: 6.5rem 1rem 4rem;
-  }
-
-  .collection-header {
-    padding-bottom: 2rem;
+    padding: 5.5rem 1rem 4rem;
   }
 
   .collection-how-to {
