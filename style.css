@@ -100,6 +100,219 @@ footer .container {
   outline-color: rgba(29, 78, 216, 0.55) !important;
 }
 
+/* Header search. Its script mounts it before the header buttons. */
+.site-search {
+  margin: 0 0.5rem 0 auto;
+  position: relative;
+}
+
+.site-search-toggle {
+  display: none;
+}
+
+.site-search-field {
+  align-items: center;
+  display: flex;
+  position: relative;
+  width: 17rem;
+}
+
+.site-search-field svg,
+.site-search-toggle svg {
+  height: 1.125rem;
+  width: 1.125rem;
+}
+
+.site-search-field svg {
+  color: var(--muted);
+  left: 0.75rem;
+  pointer-events: none;
+  position: absolute;
+}
+
+.site-search-input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: #162033;
+  font-size: 0.9375rem;
+  height: 2.5rem;
+  padding: 0 0.875rem 0 2.5rem;
+  width: 100%;
+}
+
+.site-search-input::placeholder {
+  color: #98a2b3;
+}
+
+.site-search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  outline: none;
+}
+
+.site-search-results {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
+  left: 0;
+  max-height: min(70vh, 32rem);
+  overflow-y: auto;
+  padding: 0.5rem;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  width: 24rem;
+}
+
+.site-search-label {
+  color: var(--muted);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 0;
+  padding: 0.5rem 0.5rem 0.25rem;
+  text-transform: uppercase;
+}
+
+.site-search-status {
+  color: #162033;
+  font-size: 0.875rem;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+/* Hidden from view but still read out by screen readers. */
+.site-search-quiet {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.site-search-option {
+  align-items: center;
+  border-radius: 8px;
+  color: #162033;
+  display: flex;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.site-search-option:hover,
+.site-search-option[aria-selected="true"] {
+  background: var(--surface-muted);
+}
+
+.site-search-option img {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  flex: none;
+  height: 2.75rem;
+  object-fit: cover;
+  object-position: top;
+  width: 2.75rem;
+}
+
+.site-search-name,
+.site-search-collection {
+  display: block;
+  font-size: 0.875rem;
+}
+
+.site-search-collection,
+.site-search-count {
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+.site-search-count {
+  margin-left: auto;
+}
+
+.site-search-hint {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin: 0.5rem 0 0;
+  padding: 0.625rem 0.5rem 0.25rem;
+}
+
+/* Too narrow for a field in the header, so a button opens it in a panel. */
+@media (max-width: 48rem) {
+  .site-search {
+    position: static;
+  }
+
+  .site-search-toggle {
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: #344054;
+    display: inline-flex;
+    height: 2.5rem;
+    justify-content: center;
+    width: 2.5rem;
+  }
+
+  .site-search-toggle:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* The header is the positioned ancestor, so the panel hangs below it. */
+  .site-search-panel {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
+    display: none;
+    left: 0;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    padding: 0.75rem 1rem;
+    position: absolute;
+    right: 0;
+    top: 100%;
+  }
+
+  .site-search[data-open="true"] .site-search-panel {
+    display: block;
+  }
+
+  .site-search-field {
+    width: auto;
+  }
+
+  /* 16px keeps iOS from zooming the page when the field is focused. */
+  .site-search-input {
+    font-size: 1rem;
+    height: 2.75rem;
+  }
+
+  .site-search-results {
+    border: 0;
+    box-shadow: none;
+    max-height: none;
+    overflow: visible;
+    padding: 0.5rem 0 0;
+    position: static;
+    width: auto;
+  }
+
+  .site-search-hint {
+    display: none;
+  }
+}
+
 /* Pair the small logo glyph with a legible text lockup. */
 .site-wordmark {
   align-items: center;
@@ -680,10 +893,8 @@ footer {
   .header-actions {
     --header-action-pad: 0.625rem;
   }
-}
 
-/* Visually hide the label when it no longer fits, preserving its accessible name. */
-@media (max-width: 23rem) {
+  /* Visually hide the label to fit the search button, preserving its accessible name. */
   .header-action-label {
     clip-path: inset(50%);
     height: 1px;
@@ -691,6 +902,13 @@ footer {
     position: absolute;
     white-space: nowrap;
     width: 1px;
+  }
+}
+
+/* No room left for the GitHub button. The footer links to GitHub too. */
+@media (max-width: 22rem) {
+  .header-actions a:first-child {
+    display: none;
   }
 }
 
