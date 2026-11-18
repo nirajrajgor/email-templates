@@ -1,6 +1,6 @@
 .collection-main {
   margin: 0 auto;
-  max-width: 1240px;
+  max-width: 1440px;
   padding: 7.5rem 1.5rem 5rem;
 }
 
@@ -47,10 +47,6 @@
 
 .collection-templates {
   margin-top: 2rem;
-}
-
-.collection-template-grid {
-  gap: 1.5rem !important;
 }
 
 .collection-how-to {
