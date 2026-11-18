@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Better Auth HTML Email Templates — Verify Email, Magic Link, OTP &amp; More</title>
+    <title>Free Better Auth HTML Email Templates | Verify, Magic Link, OTP</title>
     <meta name="description" content="Customize and download free Better Auth email templates for authentication, with responsive HTML and JavaScript placeholders aligned with Better Auth callback data.">
     <meta name="keywords" content="Better Auth email templates, better-auth sendVerificationEmail template, verify email template, reset password email, magic link email, email OTP template, organization invitation email, change email template, delete account email, responsive HTML email">
     <meta property="og:type" content="website">
@@ -51,11 +51,12 @@
     <link rel="icon" type="image/svg+xml" href="./logo.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" preconnect="">
     <script type="module" crossorigin="" src="/email-templates/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-    <script type="module" crossorigin="" src="/email-templates/assets/card-preview-B43tn9cK.js"></script>
-    <link rel="stylesheet" crossorigin="" href="/email-templates/assets/card-preview-BW_yzQ_A.css">
-    <link rel="stylesheet" crossorigin="" href="/email-templates/assets/collection-3_xeP1vZ.css">
+    <script type="module" crossorigin="" src="/email-templates/assets/search-o84aYMMs.js"></script>
+    <link rel="stylesheet" crossorigin="" href="/email-templates/assets/search-jN1khjUe.css">
+    <link rel="stylesheet" crossorigin="" href="/email-templates/assets/collection-Ds33hpdE.css">
   
     <link rel="canonical" href="https://nirajrajgor.github.io/email-templates/better-auth.html">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I customize and copy a template?","acceptedAnswer":{"@type":"Answer","text":"Choose a template above, open its live preview, and select your brand color. When it is ready, choose Copy Better Auth HTML or download the HTML file."}},{"@type":"Question","name":"How do I use the HTML with Better Auth?","acceptedAnswer":{"@type":"Answer","text":"Better Auth provides callbacks for sending authentication emails. See the Better Auth email documentation to configure the appropriate callback. To use custom HTML, pass the copied template as the HTML body through your email provider; the exact setup depends on the provider you use."}},{"@type":"Question","name":"Which placeholders should I keep?","acceptedAnswer":{"@type":"Answer","text":"Keep ${url}, ${otp}, ${email}, ${newEmail}, ${inviteLink}, ${inviterName}, and ${organizationName} unchanged. They are plain JavaScript template-literal placeholders, so define matching variables from your callback’s arguments, for example const email = user.email. If you build the HTML without template literals, swap them out with .replace() instead."}}]}</script>
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Better Auth Email Templates">
     <meta name="twitter:description" content="A customizable collection of responsive authentication emails for Better Auth callbacks.">
@@ -89,152 +90,162 @@
       <section class="collection-header" aria-labelledby="collection-title">
         <div class="collection-header-copy">
           <h1 id="collection-title">Better Auth Email Templates</h1>
-          <p>
-            Custom-designed authentication emails for Better Auth. Preview,
-            customize, and export production-ready HTML with JavaScript
-            placeholders aligned with Better Auth callback data.
-          </p>
         </div>
       </section>
 
       <section class="collection-templates" aria-label="Auth email templates">
-        <div class="collection-template-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-8 lg:gap-x-6 lg:gap-y-10 items-stretch relative z-40">
+        <div class="template-grid">
           <article class="wrapper catalog-card">
-            <div class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]">
-              <img src="./better-auth-verify-email-preview.png" alt="Better Auth Verify Email preview" loading="lazy" class="blur-0 rounded-md w-full h-full object-cover object-top" style="color: transparent" width="700" height="700" decoding="async">
+            <a class="catalog-card-preview" href="./preview.html?template=better-auth-verify-email" tabindex="-1" aria-hidden="true">
+              <div class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]">
+                <img src="./better-auth-verify-email-preview.png" alt="Better Auth Verify Email preview" loading="lazy" class="blur-0 rounded-md w-full h-full object-cover object-top" style="color: transparent" width="700" height="700" decoding="async">
+              </div>
+            </a>
+            <div class="catalog-card-heading">
+              <h2 class="catalog-card-title">
+                <a href="./preview.html?template=better-auth-verify-email">Verify Email</a>
+              </h2>
             </div>
-
-            <h2 class="catalog-card-title">Verify Email</h2>
-
             <p class="catalog-card-copy">
               Ask new users to confirm their email address with a secure,
               single-use verification link.
             </p>
-
-            <div class="catalog-card-actions">
-              <a class="catalog-action catalog-action-primary" href="./preview.html?template=better-auth-verify-email"><svg aria-hidden="true" viewBox="0 0 24 24" class="catalog-action-icon">
-                  <use href="./icons.svg#icon-preview"></use></svg>Preview<span class="sr-only"> Verify Email</span></a><a class="catalog-action catalog-action-secondary" href="./templates/better-auth-verify-email.html" download="better-auth-verify-email.html"><svg aria-hidden="true" viewBox="0 0 24 24" class="catalog-action-icon">
-                  <use href="./icons.svg#icon-download"></use></svg>Download<span class="sr-only"> Verify Email</span></a>
+            <div class="catalog-card-footer">
+              <a class="catalog-card-download" href="./templates/better-auth-verify-email.html" download="better-auth-verify-email.html"><svg aria-hidden="true" viewBox="0 0 24 24">
+                  <use href="./icons.svg#icon-download"></use></svg><span class="catalog-card-download-label">Download</span><span class="sr-only"> Verify Email</span></a>
             </div>
           </article>
 
           <article class="wrapper catalog-card">
-            <div class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]">
-              <img src="./better-auth-reset-password-preview.png" alt="Better Auth Reset Password email preview" loading="lazy" class="blur-0 rounded-md w-full h-full object-cover object-top" style="color: transparent" width="700" height="700" decoding="async">
+            <a class="catalog-card-preview" href="./preview.html?template=better-auth-reset-password" tabindex="-1" aria-hidden="true">
+              <div class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]">
+                <img src="./better-auth-reset-password-preview.png" alt="Better Auth Reset Password email preview" loading="lazy" class="blur-0 rounded-md w-full h-full object-cover object-top" style="color: transparent" width="700" height="700" decoding="async">
+              </div>
+            </a>
+            <div class="catalog-card-heading">
+              <h2 class="catalog-card-title">
+                <a href="./preview.html?template=better-auth-reset-password">Reset Password</a>
+              </h2>
             </div>
-
-            <h2 class="catalog-card-title">Reset Password</h2>
-
             <p class="catalog-card-copy">
               Help users securely choose a new password after requesting account
               recovery.
             </p>
-
-            <div class="catalog-card-actions">
-              <a class="catalog-action catalog-action-primary" href="./preview.html?template=better-auth-reset-password"><svg aria-hidden="true" viewBox="0 0 24 24" class="catalog-action-icon">
-                  <use href="./icons.svg#icon-preview"></use></svg>Preview<span class="sr-only"> Reset Password</span></a><a class="catalog-action catalog-action-secondary" href="./templates/better-auth-reset-password.html" download="better-auth-reset-password.html"><svg aria-hidden="true" viewBox="0 0 24 24" class="catalog-action-icon">
-                  <use href="./icons.svg#icon-download"></use></svg>Download<span class="sr-only"> Reset Password</span></a>
+            <div class="catalog-card-footer">
+              <a class="catalog-card-download" href="./templates/better-auth-reset-password.html" download="better-auth-reset-password.html"><svg aria-hidden="true" viewBox="0 0 24 24">
+                  <use href="./icons.svg#icon-download"></use></svg><span class="catalog-card-download-label">Download</span><span class="sr-only"> Reset Password</span></a>
             </div>
           </article>
 
           <article class="wrapper catalog-card">
-            <div class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]">
-              <img src="./better-auth-magic-link-preview.png" alt="Better Auth Magic Link email preview" loading="lazy" class="blur-0 rounded-md w-full h-full object-cover object-top" style="color: transparent" width="700" height="700" decoding="async">
+            <a class="catalog-card-preview" href="./preview.html?template=better-auth-magic-link" tabindex="-1" aria-hidden="true">
+              <div class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]">
+                <img src="./better-auth-magic-link-preview.png" alt="Better Auth Magic Link email preview" loading="lazy" class="blur-0 rounded-md w-full h-full object-cover object-top" style="color: transparent" width="700" height="700" decoding="async">
+              </div>
+            </a>
+            <div class="catalog-card-heading">
+              <h2 class="catalog-card-title">
+                <a href="./preview.html?template=better-auth-magic-link">Magic Link</a>
+              </h2>
             </div>
-
-            <h2 class="catalog-card-title">Magic Link</h2>
-
             <p class="catalog-card-copy">
               Give users a quick, password-free way to sign in with a secure
               one-time link.
             </p>
-
-            <div class="catalog-card-actions">
-              <a class="catalog-action catalog-action-primary" href="./preview.html?template=better-auth-magic-link"><svg aria-hidden="true" viewBox="0 0 24 24" class="catalog-action-icon">
-                  <use href="./icons.svg#icon-preview"></use></svg>Preview<span class="sr-only"> Magic Link</span></a><a class="catalog-action catalog-action-secondary" href="./templates/better-auth-magic-link.html" download="better-auth-magic-link.html"><svg aria-hidden="true" viewBox="0 0 24 24" class="catalog-action-icon">
-                  <use href="./icons.svg#icon-download"></use></svg>Download<span class="sr-only"> Magic Link</span></a>
+            <div class="catalog-card-footer">
+              <a class="catalog-card-download" href="./templates/better-auth-magic-link.html" download="better-auth-magic-link.html"><svg aria-hidden="true" viewBox="0 0 24 24">
+                  <use href="./icons.svg#icon-download"></use></svg><span class="catalog-card-download-label">Download</span><span class="sr-only"> Magic Link</span></a>
             </div>
           </article>
 
           <article class="wrapper catalog-card">
-            <div class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]">
-              <img src="./better-auth-email-otp-preview.png" alt="Better Auth Email OTP preview" loading="lazy" class="blur-0 rounded-md w-full h-full object-cover object-top" style="color: transparent" width="700" height="700" decoding="async">
+            <a class="catalog-card-preview" href="./preview.html?template=better-auth-email-otp" tabindex="-1" aria-hidden="true">
+              <div class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]">
+                <img src="./better-auth-email-otp-preview.png" alt="Better Auth Email OTP preview" loading="lazy" class="blur-0 rounded-md w-full h-full object-cover object-top" style="color: transparent" width="700" height="700" decoding="async">
+              </div>
+            </a>
+            <div class="catalog-card-heading">
+              <h2 class="catalog-card-title">
+                <a href="./preview.html?template=better-auth-email-otp">Email OTP</a>
+              </h2>
             </div>
-
-            <h2 class="catalog-card-title">Email OTP</h2>
-
             <p class="catalog-card-copy">
               Let users sign in with a secure one-time code delivered to their
               inbox.
             </p>
-
-            <div class="catalog-card-actions">
-              <a class="catalog-action catalog-action-primary" href="./preview.html?template=better-auth-email-otp"><svg aria-hidden="true" viewBox="0 0 24 24" class="catalog-action-icon">
-                  <use href="./icons.svg#icon-preview"></use></svg>Preview<span class="sr-only"> Email OTP</span></a><a class="catalog-action catalog-action-secondary" href="./templates/better-auth-email-otp.html" download="better-auth-email-otp.html"><svg aria-hidden="true" viewBox="0 0 24 24" class="catalog-action-icon">
-                  <use href="./icons.svg#icon-download"></use></svg>Download<span class="sr-only"> Email OTP</span></a>
+            <div class="catalog-card-footer">
+              <a class="catalog-card-download" href="./templates/better-auth-email-otp.html" download="better-auth-email-otp.html"><svg aria-hidden="true" viewBox="0 0 24 24">
+                  <use href="./icons.svg#icon-download"></use></svg><span class="catalog-card-download-label">Download</span><span class="sr-only"> Email OTP</span></a>
             </div>
           </article>
 
           <article class="wrapper catalog-card">
-            <div class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]">
-              <img src="./better-auth-invite-member-preview.png" alt="Better Auth Organization Invite email preview" loading="lazy" class="blur-0 rounded-md w-full h-full object-cover object-top" style="color: transparent" width="700" height="700" decoding="async">
+            <a class="catalog-card-preview" href="./preview.html?template=better-auth-invite-member" tabindex="-1" aria-hidden="true">
+              <div class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]">
+                <img src="./better-auth-invite-member-preview.png" alt="Better Auth Organization Invite email preview" loading="lazy" class="blur-0 rounded-md w-full h-full object-cover object-top" style="color: transparent" width="700" height="700" decoding="async">
+              </div>
+            </a>
+            <div class="catalog-card-heading">
+              <h2 class="catalog-card-title">
+                <a href="./preview.html?template=better-auth-invite-member">Organization Invite</a>
+              </h2>
             </div>
-
-            <h2 class="catalog-card-title">Organization Invite</h2>
-
             <p class="catalog-card-copy">
               Invite people to join an organization with inviter and team
               context built in.
             </p>
-
-            <div class="catalog-card-actions">
-              <a class="catalog-action catalog-action-primary" href="./preview.html?template=better-auth-invite-member"><svg aria-hidden="true" viewBox="0 0 24 24" class="catalog-action-icon">
-                  <use href="./icons.svg#icon-preview"></use></svg>Preview<span class="sr-only"> Organization Invite</span></a><a class="catalog-action catalog-action-secondary" href="./templates/better-auth-invite-member.html" download="better-auth-invite-member.html"><svg aria-hidden="true" viewBox="0 0 24 24" class="catalog-action-icon">
-                  <use href="./icons.svg#icon-download"></use></svg>Download<span class="sr-only"> Organization Invite</span></a>
+            <div class="catalog-card-footer">
+              <a class="catalog-card-download" href="./templates/better-auth-invite-member.html" download="better-auth-invite-member.html"><svg aria-hidden="true" viewBox="0 0 24 24">
+                  <use href="./icons.svg#icon-download"></use></svg><span class="catalog-card-download-label">Download</span><span class="sr-only"> Organization Invite</span></a>
             </div>
           </article>
 
           <article class="wrapper catalog-card">
-            <div class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]">
-              <img src="./better-auth-change-email-preview.png" alt="Better Auth Change Email preview" loading="lazy" class="blur-0 rounded-md w-full h-full object-cover object-top" style="color: transparent" width="700" height="700" decoding="async">
+            <a class="catalog-card-preview" href="./preview.html?template=better-auth-change-email" tabindex="-1" aria-hidden="true">
+              <div class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]">
+                <img src="./better-auth-change-email-preview.png" alt="Better Auth Change Email preview" loading="lazy" class="blur-0 rounded-md w-full h-full object-cover object-top" style="color: transparent" width="700" height="700" decoding="async">
+              </div>
+            </a>
+            <div class="catalog-card-heading">
+              <h2 class="catalog-card-title">
+                <a href="./preview.html?template=better-auth-change-email">Change Email</a>
+              </h2>
             </div>
-
-            <h2 class="catalog-card-title">Change Email</h2>
-
             <p class="catalog-card-copy">
               Ask users to approve their new email address before Better Auth
               updates it.
             </p>
-
-            <div class="catalog-card-actions">
-              <a class="catalog-action catalog-action-primary" href="./preview.html?template=better-auth-change-email"><svg aria-hidden="true" viewBox="0 0 24 24" class="catalog-action-icon">
-                  <use href="./icons.svg#icon-preview"></use></svg>Preview<span class="sr-only"> Change Email</span></a><a class="catalog-action catalog-action-secondary" href="./templates/better-auth-change-email.html" download="better-auth-change-email.html"><svg aria-hidden="true" viewBox="0 0 24 24" class="catalog-action-icon">
-                  <use href="./icons.svg#icon-download"></use></svg>Download<span class="sr-only"> Change Email</span></a>
+            <div class="catalog-card-footer">
+              <a class="catalog-card-download" href="./templates/better-auth-change-email.html" download="better-auth-change-email.html"><svg aria-hidden="true" viewBox="0 0 24 24">
+                  <use href="./icons.svg#icon-download"></use></svg><span class="catalog-card-download-label">Download</span><span class="sr-only"> Change Email</span></a>
             </div>
           </article>
 
           <article class="wrapper catalog-card">
-            <div class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]">
-              <img src="./better-auth-delete-account-preview.png" alt="Better Auth Delete Account email preview" loading="lazy" class="blur-0 rounded-md w-full h-full object-cover object-top" style="color: transparent" width="700" height="700" decoding="async">
+            <a class="catalog-card-preview" href="./preview.html?template=better-auth-delete-account" tabindex="-1" aria-hidden="true">
+              <div class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]">
+                <img src="./better-auth-delete-account-preview.png" alt="Better Auth Delete Account email preview" loading="lazy" class="blur-0 rounded-md w-full h-full object-cover object-top" style="color: transparent" width="700" height="700" decoding="async">
+              </div>
+            </a>
+            <div class="catalog-card-heading">
+              <h2 class="catalog-card-title">
+                <a href="./preview.html?template=better-auth-delete-account">Delete Account</a>
+              </h2>
             </div>
-
-            <h2 class="catalog-card-title">Delete Account</h2>
-
             <p class="catalog-card-copy">
               Confirm a permanent account deletion request before it goes
               through.
             </p>
-
-            <div class="catalog-card-actions">
-              <a class="catalog-action catalog-action-primary" href="./preview.html?template=better-auth-delete-account"><svg aria-hidden="true" viewBox="0 0 24 24" class="catalog-action-icon">
-                  <use href="./icons.svg#icon-preview"></use></svg>Preview<span class="sr-only"> Delete Account</span></a><a class="catalog-action catalog-action-secondary" href="./templates/better-auth-delete-account.html" download="better-auth-delete-account.html"><svg aria-hidden="true" viewBox="0 0 24 24" class="catalog-action-icon">
-                  <use href="./icons.svg#icon-download"></use></svg>Download<span class="sr-only"> Delete Account</span></a>
+            <div class="catalog-card-footer">
+              <a class="catalog-card-download" href="./templates/better-auth-delete-account.html" download="better-auth-delete-account.html"><svg aria-hidden="true" viewBox="0 0 24 24">
+                  <use href="./icons.svg#icon-download"></use></svg><span class="catalog-card-download-label">Download</span><span class="sr-only"> Delete Account</span></a>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="collection-how-to" aria-labelledby="better-auth-template-guide-title">
+      <!-- The build turns each item into FAQPage structured data. -->
+      <section id="faq" class="collection-how-to" aria-labelledby="better-auth-template-guide-title">
         <h2 id="better-auth-template-guide-title">
           Using Better Auth email templates
         </h2>
@@ -299,6 +310,19 @@
           </details>
         </div>
       </section>
+
+      <nav class="collection-links" aria-labelledby="collection-links-title">
+        <h2 id="collection-links-title">Browse more email templates</h2>
+        <ul>
+          <li><a href="./ecommerce-email-templates.html">Ecommerce email templates</a></li>
+          <li><a href="./marketing-email-templates.html">Marketing email templates</a></li>
+          <li><a href="./newsletter-email-templates.html">Newsletter email templates</a></li>
+          <li><a href="./account-email-templates.html">Account email templates</a></li>
+          <li><a href="./auth-email-templates.html">Authentication email templates</a></li>
+          <li><a href="./supabase.html">Supabase email templates</a></li>
+          <li><a href="./better-auth.html">Better Auth email templates</a></li>
+        </ul>
+      </nav>
     </main>
 
     <footer>

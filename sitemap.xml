@@ -5,7 +5,7 @@
   <!-- Main Pages -->
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -14,14 +14,44 @@
     </image:image>
   </url>
   <url>
+    <loc>https://nirajrajgor.github.io/email-templates/account-email-templates.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/auth-email-templates.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://nirajrajgor.github.io/email-templates/better-auth.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/ecommerce-email-templates.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/marketing-email-templates.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://nirajrajgor.github.io/email-templates/newsletter-email-templates.html</loc>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://nirajrajgor.github.io/email-templates/supabase.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

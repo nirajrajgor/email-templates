@@ -1,0 +1,1 @@
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{C as n}from"./search-o84aYMMs.js";const c=new URLSearchParams(window.location.search).get("category");var a;const o=(a=n.find(({key:e})=>e===c))==null?void 0:a.page;o&&window.location.replace(new URL(o,window.location.href));
