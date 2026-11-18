@@ -362,3 +362,62 @@ test("the Better Auth collection opens a working template preview", async ({
   await page.locator("#copy-menu-button").click();
   await expect(page.getByText("Copy Better Auth HTML")).toBeVisible();
 });
+
+test("header search opens a template the homepage does not show", async ({
+  page,
+}) => {
+  await page.goto("index.html");
+  await expect(page.locator('article.wrapper a[download="gift-decor.html"]')).toHaveCount(0);
+
+  const search = page.getByRole("combobox", { name: "Search templates" });
+  await search.fill("gift");
+  await expect(page.getByRole("option")).toHaveText([/Gift Decor/]);
+  await search.press("Enter");
+
+  await expect(page).toHaveURL(/preview\.html\?template=gift-decor$/);
+});
+
+test("header search lists the collections until a query is typed", async ({
+  page,
+}) => {
+  await page.goto("ecommerce-email-templates.html");
+
+  const search = page.getByRole("combobox", { name: "Search templates" });
+  await search.focus();
+  await expect(page.getByRole("option")).toHaveCount(7);
+
+  // Nothing is selected yet, so Enter must not open a collection.
+  await search.press("Enter");
+  await expect(page).toHaveURL(/ecommerce-email-templates\.html$/);
+
+  await search.press("ArrowDown");
+  await search.press("ArrowDown");
+  await search.press("Enter");
+  await expect(page).toHaveURL(/marketing-email-templates\.html$/);
+});
+
+test("header search opens from a button on a phone", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("index.html");
+
+  const search = page.getByRole("combobox", { name: "Search templates" });
+  const toggle = page.getByRole("button", { name: "Search templates" });
+  await expect(search).toBeHidden();
+
+  await toggle.click();
+  await expect(search).toBeFocused();
+  await search.fill("zzzz");
+  await expect(page.getByText("No templates match “zzzz”")).toBeVisible();
+  await expect(page.getByRole("option")).toHaveCount(7);
+
+  // The panel must not push the page wider than the screen.
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth - window.innerWidth,
+    ),
+  ).toBe(0);
+
+  await search.press("Escape");
+  await expect(search).toBeHidden();
+  await expect(toggle).toBeFocused();
+});
