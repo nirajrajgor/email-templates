@@ -332,5 +332,14 @@
       "ecommerce",
       "marketing"
     ]
+  },
+  "replenishment-reminder.html": {
+    "lastmod": "2026-11-18",
+    "image": "replenishment-reminder-preview.webp",
+    "title": "Replenishment Reminder HTML Email Template",
+    "categories": [
+      "ecommerce",
+      "marketing"
+    ]
   }
 }
