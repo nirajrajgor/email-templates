@@ -201,6 +201,11 @@ const templates = {
     background: "#f2efea",
     brand: "#552a5e",
   },
+  "replenishment-reminder": {
+    title: "Replenishment Reminder Emailer",
+    background: "#f3f0ea",
+    brand: "#9a3412",
+  },
 };
 
 const params = new URLSearchParams(window.location.search);
