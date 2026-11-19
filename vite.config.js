@@ -1,10 +1,14 @@
 import { readFileSync } from "fs";
 import { resolve } from "path";
-import { defineConfig } from "vite";
+import { defineConfig, normalizePath } from "vite";
 import { sync } from "glob";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
+import { renderCards } from "./cards.js";
 
 const PARTIALS_DIR = resolve(__dirname, "partials");
+const TEMPLATE_METADATA = normalizePath(
+  resolve(__dirname, "scripts/template-metadata.json"),
+);
 
 // Replaces each `<!-- include partials/name.html -->` line with that file, at
 // the line's indentation. It runs in the dev server and in the build, so each
@@ -28,6 +32,33 @@ const includePartials = () => ({
   },
 });
 
+// Writes the template cards into each page from the metadata. Like the
+// partials, it runs before the build reads the page, so the cards ship as HTML.
+const templateCards = () => ({
+  name: "template-cards",
+  enforce: "pre",
+  transformIndexHtml: {
+    order: "pre",
+    handler: (html) =>
+      renderCards(html, JSON.parse(readFileSync(TEMPLATE_METADATA, "utf8"))),
+  },
+  // The search script imports the metadata too. It gets only the fields it
+  // reads, because the card text is already in the page.
+  transform(code, id) {
+    if (id !== TEMPLATE_METADATA) return null;
+    const entries = Object.entries(JSON.parse(code)).map(
+      ([file, { lastmod, image, title, categories }]) => [
+        file,
+        { lastmod, image, title, categories },
+      ],
+    );
+    return JSON.stringify(Object.fromEntries(entries));
+  },
+  handleHotUpdate({ file, server }) {
+    if (file === TEMPLATE_METADATA) server.hot.send({ type: "full-reload" });
+  },
+});
+
 export default defineConfig({
   base: "/email-templates/",
   build: {
@@ -48,6 +79,7 @@ export default defineConfig({
   },
   plugins: [
     includePartials(),
+    templateCards(),
     ViteImageOptimizer({
       // SVGO cannot see external <symbol> references and would empty this sprite.
       exclude: /icons\.svg$/,

@@ -16,11 +16,21 @@ const shortName = (title, integration) => {
   return name.startsWith(prefix) ? name.slice(prefix.length) : name;
 };
 
+// The short name and the collections of a template, which the search and the
+// cards both list.
+export const listingOf = (file, { title, categories }) => {
+  const collections = collectionsOf(file, categories);
+  return {
+    collections,
+    name: shortName(title, categories ? null : collections[0]),
+  };
+};
+
 export function buildSearchIndex(metadata) {
   const templates = Object.entries(metadata)
-    .map(([file, { title, image, categories, lastmod }]) => {
-      const collections = collectionsOf(file, categories);
-      const name = shortName(title, categories ? null : collections[0]);
+    .map(([file, entry]) => {
+      const { image, lastmod } = entry;
+      const { name, collections } = listingOf(file, entry);
       const labels = collections.map(({ label }) => label);
 
       return {
