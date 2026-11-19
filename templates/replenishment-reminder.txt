@@ -1,0 +1,37 @@
+About 4 days of beans left. Reorder in one tap.
+
+acme
+
+Running low?
+
+Your October order is nearly finished.
+
+- Dark roast beans, 340 g bag, $18.00: About 4 days left
+- Oat milk, barista, 6 x 1 L, $24.00: About 6 days left
+- Paper filters, 100 count, $7.00: About 9 days left
+
+Reorder all, $49.00:
+[add reorder URL]
+
+Order by Thu, Nov 19. Arrives Mon, Nov 23, before the beans run out.
+
+Still stocked?
+
+Remind me in 1 week:
+[add 1 week reminder URL]
+
+Remind me in 2 weeks:
+[add 2 week reminder URL]
+
+Never run out
+
+Subscribe and save 10%, delivered every 4 weeks:
+[add subscription URL]
+
+You get this because you ordered from Acme.
+
+Stop reorder reminders:
+[add unsubscribe URL]
+
+Copyright 2026 Acme Inc.
+123 Market St, San Francisco, CA 94105

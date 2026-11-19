@@ -364,8 +364,7 @@
     "homeDescription": "Announce a terms or privacy policy update with the effective date and what's changing, so users see the impact without reading the policy.",
     "categories": [
       "account"
-    ],
-    "new": true
+    ]
   },
   "referral.html": {
     "lastmod": "2026-11-08",
@@ -375,8 +374,7 @@
     "homeDescription": "Send a referral email with a give $20, get $20 offer and a ready-to-send message customers forward by WhatsApp, SMS or email.",
     "categories": [
       "marketing"
-    ],
-    "new": true
+    ]
   },
   "birthday.html": {
     "lastmod": "2026-11-10",
@@ -395,6 +393,18 @@
     "title": "Browse Abandonment HTML Email Template",
     "description": "Bring shoppers back to a product they viewed, with its rating and the other items they opened.",
     "homeDescription": "Send a browse abandonment email that brings shoppers back to the product they viewed, with its rating and the other items they opened.",
+    "categories": [
+      "ecommerce",
+      "marketing"
+    ],
+    "new": true
+  },
+  "replenishment-reminder.html": {
+    "lastmod": "2026-11-18",
+    "image": "replenishment-reminder-preview.webp",
+    "title": "Replenishment Reminder HTML Email Template",
+    "description": "Remind customers to reorder before they run out, with a supply gauge for each item.",
+    "homeDescription": "Send a replenishment reminder email that shows how much of each item is left, with one button to reorder everything.",
     "categories": [
       "ecommerce",
       "marketing"
