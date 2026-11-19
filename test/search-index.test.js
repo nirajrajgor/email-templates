@@ -66,6 +66,27 @@ test("a word in the description finds the template", () => {
   assert.deepEqual(search(index, "efund").templates, []);
 });
 
+test("punctuation in a description separates its words", () => {
+  const found = (query) => hrefs(search(index, query).templates);
+
+  assert.ok(found("label").includes("./preview.html?template=shopping-deals"));
+  for (const query of ["20", "$20"]) {
+    assert.ok(found(query).includes("./preview.html?template=referral"), query);
+  }
+  assert.deepEqual(found("$"), []);
+});
+
+test("a collection match is listed before a description match", () => {
+  const inAccount = search(index, "account").templates.map(({ text }) =>
+    text.includes("account"),
+  );
+  const firstMention = inAccount.indexOf(false);
+
+  // Some templates only mention an account in their description.
+  assert.notEqual(firstMention, -1);
+  assert.ok(inAccount.slice(firstMention).every((named) => !named));
+});
+
 test("a collection name finds its page and its templates", () => {
   const supabase = search(index, "supabase");
   assert.deepEqual(

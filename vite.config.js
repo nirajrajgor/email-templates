@@ -54,8 +54,12 @@ const templateCards = () => ({
     );
     return JSON.stringify(Object.fromEntries(entries));
   },
+  // The cards are not a module, so a change to them has to reload the page.
+  // Vite would reload it again for the search script, so that is turned off.
   handleHotUpdate({ file, server }) {
-    if (file === TEMPLATE_METADATA) server.hot.send({ type: "full-reload" });
+    if (file !== TEMPLATE_METADATA) return undefined;
+    server.hot.send({ type: "full-reload" });
+    return [];
   },
 });
 

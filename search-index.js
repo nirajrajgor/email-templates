@@ -26,6 +26,11 @@ export const listingOf = (file, { title, categories }) => {
   };
 };
 
+// Punctuation separates words, so "label" finds "shop-by-label" and "20" finds
+// "$20".
+const wordsOf = (text) =>
+  text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+
 export function buildSearchIndex(metadata) {
   const templates = Object.entries(metadata)
     .map(([file, entry]) => {
@@ -42,7 +47,7 @@ export function buildSearchIndex(metadata) {
         text: [name, ...labels].join(" ").toLowerCase(),
         // Matched from the start of a word, so "art" does not find every
         // description that says "cart" or "start".
-        description: ` ${description.toLowerCase()}`,
+        description: ` ${wordsOf(description)}`,
         keys: collections.map(({ key }) => key),
       };
     })
@@ -60,8 +65,10 @@ export function buildSearchIndex(metadata) {
 
 const termsOf = (query) => query.toLowerCase().split(/\s+/).filter(Boolean);
 
-const matches = ({ text, description }, term) =>
-  text.includes(term) || description.includes(` ${term}`);
+const matches = ({ text, description }, term) => {
+  const words = wordsOf(term);
+  return text.includes(term) || (words && description.includes(` ${words}`));
+};
 
 // A name that starts with the query beats one that contains it. Next comes a
 // template matched through its collection, and last one that only mentions

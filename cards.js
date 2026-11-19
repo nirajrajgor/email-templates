@@ -34,8 +34,11 @@ export const featuredIn = (metadata, key) =>
     .slice(0, FEATURED_PER_SECTION);
 
 const renderCard = ({ template, heading, title, description, alt, tags }) => {
-  const { file, image } = template;
-  const preview = `./preview.html?template=${file.replace(/\.html$/, "")}`;
+  const { image } = template;
+  // A name is escaped wherever it lands, so one with "&" or "#" still links.
+  const file = escapeHtml(template.file);
+  const slug = encodeURIComponent(template.file.replace(/\.html$/, ""));
+  const preview = `./preview.html?template=${slug}`;
   const badge = template.new
     ? `\n    <span class="catalog-card-new">New</span>`
     : "";
@@ -54,7 +57,7 @@ const renderCard = ({ template, heading, title, description, alt, tags }) => {
       class="catalog-card-frame relative w-full aspect-square overflow-hidden rounded-lg bg-[#f4f4f4] dark:bg-gray-800 dark:border dark:border-white/[0.1]"
     >
       <img
-        src="./${image}"
+        src="./${escapeHtml(image)}"
         alt="${escapeHtml(alt)}"
         loading="lazy"
         class="blur-0 rounded-md w-full h-full object-cover object-top"
@@ -73,7 +76,7 @@ const renderCard = ({ template, heading, title, description, alt, tags }) => {
   <div class="catalog-card-footer">${tagLine}
     <a
       class="catalog-card-download"
-      href="./templates/${file}"
+      href="./templates/${encodeURIComponent(template.file)}"
       download="${file}"
       ><svg aria-hidden="true" viewBox="0 0 24 24">
         <use href="./icons.svg#icon-download"></use></svg
@@ -122,6 +125,8 @@ const RENDERERS = {
   count: (metadata, key) => String(templatesIn(metadata, key).length),
 };
 
+const LEFTOVER_MARKER = /<!--\s*(?:cards|featured|count)\b[^>]*-->/;
+
 // Replaces each `<!-- cards key -->` or `<!-- featured key -->` line with cards
 // at the line's indentation, and each `<!-- count key -->` with the number of
 // templates in that collection.
@@ -134,13 +139,20 @@ export function renderCards(html, metadata) {
     return RENDERERS[marker](metadata, key);
   };
 
-  return html
+  const rendered = html
     .replace(
-      /^([ \t]*)<!-- (cards|featured) ([\w-]+) -->$/gm,
+      /^([ \t]*)<!-- (cards|featured) ([\w-]+) -->[ \t\r]*$/gm,
       (_, indent, marker, key) =>
         render(marker, key).replace(/^(?=.)/gm, indent),
     )
     .replace(/<!-- (count) ([\w-]+) -->/g, (_, marker, key) =>
       render(marker, key),
     );
+
+  // A marker that shares its line or is spaced differently is not replaced,
+  // and would build a page with an empty grid.
+  const [leftover] = rendered.match(LEFTOVER_MARKER) ?? [];
+  if (leftover) throw new Error(`${leftover} was not replaced`);
+
+  return rendered;
 }

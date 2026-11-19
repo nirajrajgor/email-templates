@@ -27,56 +27,45 @@ const filesIn = (key) =>
       : file.startsWith(`${key}-`),
   );
 
+// A category lists its newest template first and keeps templates of one date
+// in metadata order. An integration keeps metadata order throughout.
+const inPageOrder = (key) =>
+  CATEGORIES.some((category) => category.key === key)
+    ? filesIn(key).sort((a, b) =>
+        metadata[b].lastmod.localeCompare(metadata[a].lastmod),
+      )
+    : filesIn(key);
+
 const downloads = ($, cards) =>
   $(cards)
     .find("a[download]")
     .map((_, link) => $(link).attr("download"))
     .get();
 
-const lastmods = (files) => files.map((file) => metadata[file].lastmod);
-
 for (const { key, page } of COLLECTIONS) {
-  test(`${page} lists every ${key} template once`, async () => {
+  test(`${page} lists every ${key} template once, in order`, async () => {
     const $ = await readPage(page);
-    const shown = downloads($, $(".template-grid article.wrapper"));
 
     // A page whose marker is missing or names another collection fails here.
-    assert.deepEqual([...shown].sort(), filesIn(key).sort());
+    assert.deepEqual(
+      downloads($, $(".template-grid article.wrapper")),
+      inPageOrder(key),
+    );
   });
 }
 
 for (const { key, page } of CATEGORIES) {
-  test(`${page} lists its newest template first`, async () => {
-    const $ = await readPage(page);
-    const dates = lastmods(downloads($, $("article.wrapper")));
-
-    assert.deepEqual(dates, [...dates].sort().reverse());
-  });
-
   test(`the homepage ${key} section shows its newest templates`, async () => {
     const $ = await readPage("index.html");
     const section = $(`section[aria-labelledby="${key}-heading"]`);
-    const shown = downloads($, section.find("article.wrapper"));
-    const dates = lastmods(shown);
 
     // A template sits in the section of the first category it lists.
-    const candidates = Object.keys(metadata).filter(
-      (file) => metadata[file].categories?.[0] === key,
+    assert.deepEqual(
+      downloads($, section.find("article.wrapper")),
+      inPageOrder(key)
+        .filter((file) => metadata[file].categories[0] === key)
+        .slice(0, MAX_FEATURED_PER_SECTION),
     );
-    const hidden = candidates.filter((file) => !shown.includes(file));
-
-    assert.equal(
-      shown.length,
-      Math.min(candidates.length, MAX_FEATURED_PER_SECTION),
-    );
-    assert.deepEqual(shown.filter((file) => !candidates.includes(file)), []);
-    assert.deepEqual(dates, [...dates].sort().reverse(), "newest first");
-    for (const file of hidden) {
-      assert.ok(
-        metadata[file].lastmod <= dates.at(-1),
-        `${file} is newer than a template shown in its place`,
-      );
-    }
 
     const more = section.find("a.catalog-section-more");
     assert.equal(more.attr("href"), `./${page}`);
@@ -221,4 +210,31 @@ test("a count marker becomes the number of templates in the collection", () => {
 
 test("a marker that names no collection fails the build", () => {
   assert.throws(() => renderCards("<!-- cards marketting -->", sample), /marketting/);
+});
+
+test("a marker with trailing space is still replaced", () => {
+  const $ = load(renderCards("<!-- cards marketing --> \n", sample));
+
+  assert.equal($("article.wrapper").length, 2);
+});
+
+test("a marker that cannot be replaced fails the build", () => {
+  for (const html of ["<div><!-- cards marketing --></div>", "<!--featured marketing-->"]) {
+    assert.throws(() => renderCards(html, sample), /was not replaced/);
+  }
+});
+
+test("a file or image name with symbols still makes working links", () => {
+  const odd = {
+    "q&a#1.html": {
+      ...sample["plain.html"],
+      image: 'q"a.png',
+    },
+  };
+  const $ = load(renderCards("<!-- cards marketing -->", odd));
+
+  assert.equal($("img").attr("src"), './q"a.png');
+  assert.equal($("a[download]").attr("download"), "q&a#1.html");
+  assert.equal($("a[download]").attr("href"), "./templates/q%26a%231.html");
+  assert.equal($("h2 a").attr("href"), "./preview.html?template=q%26a%231");
 });
