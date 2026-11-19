@@ -77,6 +77,7 @@ When you are finished, copy the customized HTML or download it as a file.
 - [Referral](https://nirajrajgor.github.io/email-templates/preview.html?template=referral)
 - [Birthday](https://nirajrajgor.github.io/email-templates/preview.html?template=birthday)
 - [Browse Abandonment](https://nirajrajgor.github.io/email-templates/preview.html?template=browse-abandonment)
+- [Replenishment Reminder](https://nirajrajgor.github.io/email-templates/preview.html?template=replenishment-reminder)
 
 ## Integration Collections
 
