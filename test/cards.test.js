@@ -11,12 +11,81 @@ const readText = (file) => readFile(new URL(`../${file}`, import.meta.url), "utf
 
 const metadata = JSON.parse(await readText("scripts/template-metadata.json"));
 
+// A page as the build ships it, with its cards written in.
+const readPage = async (file) =>
+  load(renderCards(await readText(file), metadata));
+
+const MAX_FEATURED_PER_SECTION = 4;
+const CATEGORIES = COLLECTIONS.filter(({ key }) =>
+  Object.values(metadata).some(({ categories }) => categories?.includes(key)),
+);
+
 const filesIn = (key) =>
   Object.keys(metadata).filter((file) =>
     metadata[file].categories
       ? metadata[file].categories.includes(key)
       : file.startsWith(`${key}-`),
   );
+
+const downloads = ($, cards) =>
+  $(cards)
+    .find("a[download]")
+    .map((_, link) => $(link).attr("download"))
+    .get();
+
+const lastmods = (files) => files.map((file) => metadata[file].lastmod);
+
+for (const { key, page } of COLLECTIONS) {
+  test(`${page} lists every ${key} template once`, async () => {
+    const $ = await readPage(page);
+    const shown = downloads($, $(".template-grid article.wrapper"));
+
+    // A page whose marker is missing or names another collection fails here.
+    assert.deepEqual([...shown].sort(), filesIn(key).sort());
+  });
+}
+
+for (const { key, page } of CATEGORIES) {
+  test(`${page} lists its newest template first`, async () => {
+    const $ = await readPage(page);
+    const dates = lastmods(downloads($, $("article.wrapper")));
+
+    assert.deepEqual(dates, [...dates].sort().reverse());
+  });
+
+  test(`the homepage ${key} section shows its newest templates`, async () => {
+    const $ = await readPage("index.html");
+    const section = $(`section[aria-labelledby="${key}-heading"]`);
+    const shown = downloads($, section.find("article.wrapper"));
+    const dates = lastmods(shown);
+
+    // A template sits in the section of the first category it lists.
+    const candidates = Object.keys(metadata).filter(
+      (file) => metadata[file].categories?.[0] === key,
+    );
+    const hidden = candidates.filter((file) => !shown.includes(file));
+
+    assert.equal(
+      shown.length,
+      Math.min(candidates.length, MAX_FEATURED_PER_SECTION),
+    );
+    assert.deepEqual(shown.filter((file) => !candidates.includes(file)), []);
+    assert.deepEqual(dates, [...dates].sort().reverse(), "newest first");
+    for (const file of hidden) {
+      assert.ok(
+        metadata[file].lastmod <= dates.at(-1),
+        `${file} is newer than a template shown in its place`,
+      );
+    }
+
+    const more = section.find("a.catalog-section-more");
+    assert.equal(more.attr("href"), `./${page}`);
+    assert.match(
+      more.text().replace(/\s+/g, " "),
+      new RegExp(`^View all ${filesIn(key).length} ${key} email templates`),
+    );
+  });
+}
 
 test("every template is listed on a collection page", () => {
   const unlisted = Object.keys(metadata).filter((file) =>

@@ -2,8 +2,6 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-import { load } from "cheerio";
-
 import { COLLECTIONS } from "../collections.js";
 import { buildSearchIndex, search } from "../search-index.js";
 
@@ -23,14 +21,18 @@ test("search lists every template under a short name", () => {
   }
 });
 
-test("each collection counts the templates on its page", async () => {
-  for (const [position, { label, page }] of COLLECTIONS.entries()) {
-    const $ = load(await readText(page));
+test("each collection counts its templates", () => {
+  for (const [position, { key, label, page }] of COLLECTIONS.entries()) {
+    const files = Object.keys(metadata).filter((file) =>
+      metadata[file].categories
+        ? metadata[file].categories.includes(key)
+        : file.startsWith(`${key}-`),
+    );
 
     assert.deepEqual(index.collections[position], {
       label,
       href: `./${page}`,
-      count: $("article.wrapper").length,
+      count: files.length,
     });
   }
 });
