@@ -2,8 +2,6 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-import { load } from "cheerio";
-
 import { COLLECTIONS } from "../collections.js";
 import { buildSearchIndex, search } from "../search-index.js";
 
@@ -23,14 +21,18 @@ test("search lists every template under a short name", () => {
   }
 });
 
-test("each collection counts the templates on its page", async () => {
-  for (const [position, { label, page }] of COLLECTIONS.entries()) {
-    const $ = load(await readText(page));
+test("each collection counts its templates", () => {
+  for (const [position, { key, label, page }] of COLLECTIONS.entries()) {
+    const files = Object.keys(metadata).filter((file) =>
+      metadata[file].categories
+        ? metadata[file].categories.includes(key)
+        : file.startsWith(`${key}-`),
+    );
 
     assert.deepEqual(index.collections[position], {
       label,
       href: `./${page}`,
-      count: $("article.wrapper").length,
+      count: files.length,
     });
   }
 });
@@ -43,9 +45,61 @@ test("a template is found by its own name", () => {
 
 test("a name that starts with the query is listed first", () => {
   const names = search(index, "order").templates.map(({ name }) => name);
+  const named = names.filter((name) => name.includes("Order"));
 
-  assert.equal(names.at(-1), "Ecommerce Order");
-  assert.ok(names.slice(0, -1).every((name) => name.startsWith("Order")));
+  assert.equal(named.at(-1), "Ecommerce Order");
+  assert.ok(named.slice(0, -1).every((name) => name.startsWith("Order")));
+
+  // Templates that only describe an order follow the ones named for it.
+  assert.ok(names.length > named.length);
+  assert.deepEqual(names.slice(0, named.length), named);
+});
+
+test("a word in the description finds the template", () => {
+  assert.ok(
+    hrefs(search(index, "refund").templates).includes(
+      "./preview.html?template=order-cancelled",
+    ),
+  );
+
+  // A description is matched from the start of a word.
+  assert.deepEqual(search(index, "efund").templates, []);
+});
+
+test("punctuation in a description separates its words", () => {
+  const found = (query) => hrefs(search(index, query).templates);
+
+  assert.ok(found("label").includes("./preview.html?template=shopping-deals"));
+  for (const query of ["20", "$20"]) {
+    assert.ok(found(query).includes("./preview.html?template=referral"), query);
+  }
+  assert.deepEqual(found("$"), []);
+});
+
+test("an accented letter does not split a word in two", () => {
+  const accented = buildSearchIndex({
+    "city-guide.html": {
+      lastmod: "2026-01-01",
+      image: "city-guide-preview.webp",
+      title: "City Guide Email Template",
+      description: "Share a weekend in İstanbul.",
+      categories: ["newsletter"],
+    },
+  });
+
+  assert.equal(search(accented, "İstanbul").templates.length, 1);
+  assert.deepEqual(search(accented, "stanbul").templates, []);
+});
+
+test("a collection match is listed before a description match", () => {
+  const inAccount = search(index, "account").templates.map(({ text }) =>
+    text.includes("account"),
+  );
+  const firstMention = inAccount.indexOf(false);
+
+  // Some templates only mention an account in their description.
+  assert.notEqual(firstMention, -1);
+  assert.ok(inAccount.slice(firstMention).every((named) => !named));
 });
 
 test("a collection name finds its page and its templates", () => {

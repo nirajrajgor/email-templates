@@ -3,6 +3,7 @@
     "lastmod": "2024-11-08",
     "image": "purchase-confirm-preview.png",
     "title": "Purchase Confirmation Email Template",
+    "description": "Send a receipt for a subscription or digital purchase with the date and amount paid.",
     "categories": [
       "ecommerce"
     ]
@@ -11,6 +12,7 @@
     "lastmod": "2024-11-08",
     "image": "product-confirm-preview.png",
     "title": "Product Confirmation Email Template",
+    "description": "Confirm an order with the order number, an itemized summary, tax, and total.",
     "categories": [
       "ecommerce"
     ]
@@ -19,6 +21,7 @@
     "lastmod": "2024-11-18",
     "image": "ecommerce-order-emailer.jpg",
     "title": "Ecommerce Order HTML Email Template",
+    "description": "Confirm an order with a confirmed, shipped, delivered status tracker and the full order details.",
     "categories": [
       "ecommerce"
     ]
@@ -27,6 +30,7 @@
     "lastmod": "2024-11-20",
     "image": "promotional-offer-preview.png",
     "title": "Promotional Offer HTML Email Template",
+    "description": "Announce a sale with a promo code and a grid of featured deals.",
     "categories": [
       "marketing",
       "ecommerce"
@@ -36,6 +40,7 @@
     "lastmod": "2024-12-09",
     "image": "shopping-deals-preview.png",
     "title": "Shopping Deals HTML Email Template",
+    "description": "Run a seasonal sale with a headline discount, special offers, and shop-by-label links.",
     "categories": [
       "marketing",
       "ecommerce"
@@ -45,6 +50,7 @@
     "lastmod": "2025-01-06",
     "image": "gift-decor-preview.jpg",
     "title": "Gift Decor HTML Email Template",
+    "description": "Promote gift and decor products with a discount code and featured items.",
     "categories": [
       "marketing",
       "ecommerce"
@@ -54,6 +60,8 @@
     "lastmod": "2025-05-22",
     "image": "product-announcements-preview.png",
     "title": "Product Announcements HTML Email Template",
+    "description": "Share a monthly roundup of new features, platform improvements, and company news.",
+    "homeDescription": "Highlight your best product announcements with this stylish email template. Featuring a sleek design and a visually appealing layout, it's perfect for driving sales and engagement.",
     "categories": [
       "newsletter",
       "marketing"
@@ -63,6 +71,8 @@
     "lastmod": "2025-02-22",
     "image": "ai-newsletter-preview.jpg",
     "title": "AI Newsletter HTML Email Template",
+    "description": "Send a daily or weekly digest of articles, each with a summary and a read more link.",
+    "homeDescription": "An email template designed specifically for AI newsletter use cases. Features a clean, modern design optimized for delivering AI-related content and updates to subscribers.",
     "categories": [
       "newsletter"
     ]
@@ -71,6 +81,7 @@
     "lastmod": "2025-05-28",
     "image": "music-event-promotion-preview.png",
     "title": "Music Event Promotion Email Template",
+    "description": "Sell tickets to a live event, with the date, venue, directions, and VIP options.",
     "categories": [
       "marketing"
     ]
@@ -79,6 +90,8 @@
     "lastmod": "2025-08-07",
     "image": "password-reset-preview.png",
     "title": "Password Reset HTML Email Template",
+    "description": "Let a user set a new password, with a clear button, a fallback link, and a security note.",
+    "homeDescription": "A secure, accessible password reset html email template with a clear CTA, fallback link, and security note, built for broad client support.",
     "categories": [
       "auth",
       "account"
@@ -88,6 +101,7 @@
     "lastmod": "2025-08-11",
     "image": "abandoned-cart-preview.png",
     "title": "Abandoned Cart HTML Email Template",
+    "description": "Remind shoppers of the items left in their cart, with product details and a link back to checkout.",
     "categories": [
       "ecommerce",
       "marketing"
@@ -97,6 +111,8 @@
     "lastmod": "2025-09-08",
     "image": "account-verification-preview.png",
     "title": "Account Verification HTML Email Template",
+    "description": "Ask a new user to verify their email with a one-time link that expires in 24 hours.",
+    "homeDescription": "Professional account verification html email template with bulletproof design and cross-client compatibility. Features secure authentication flow and responsive layout.",
     "categories": [
       "auth",
       "account"
@@ -106,6 +122,7 @@
     "lastmod": "2026-03-04",
     "image": "account-billing-update-preview.png",
     "title": "Account & Billing Update HTML Email Template",
+    "description": "Cover plan changes, billing updates, renewal reminders, and payment notices in one layout.",
     "categories": [
       "account"
     ]
@@ -114,6 +131,9 @@
     "lastmod": "2026-05-30",
     "image": "product-promotion-preview.png",
     "title": "Product Promotion HTML Email Template",
+    "homeTitle": "Product Promotion HTML Email Template",
+    "description": "Launch a collection with pricing, benefits, imagery, and clear calls to action.",
+    "homeDescription": "Promote featured products with pricing, benefits, imagery, and clear calls to action.",
     "categories": [
       "marketing",
       "ecommerce"
@@ -123,6 +143,7 @@
     "lastmod": "2025-09-19",
     "image": "welcome-onboarding-preview.png",
     "title": "Welcome Onboarding HTML Email Template",
+    "description": "Welcome a new user with a ticket-style layout and a three-step setup checklist.",
     "categories": [
       "account"
     ]
@@ -131,6 +152,7 @@
     "lastmod": "2025-10-22",
     "image": "product-review-preview.png",
     "title": "Product Review HTML Email Template",
+    "description": "Ask for a rating after delivery, with the purchased items and a discount for reviewing.",
     "categories": [
       "ecommerce",
       "marketing"
@@ -140,6 +162,9 @@
     "lastmod": "2026-01-19",
     "image": "reengagement-preview.png",
     "title": "Re-engagement HTML Email Template",
+    "homeTitle": "Re-engagement HTML Email",
+    "description": "Win back an inactive user with what is new since their last visit and a welcome-back discount code.",
+    "homeDescription": "Reconnect with subscribers using this professionally designed re-engagement email template. Highlights new features, exclusive discounts, and personalized incentives to win back inactive users and boost retention rates.",
     "categories": [
       "marketing"
     ]
@@ -148,6 +173,7 @@
     "lastmod": "2026-06-23",
     "image": "shipping-confirmation-preview.png",
     "title": "Shipping Confirmation HTML Email Template",
+    "description": "Tell customers their order has shipped, with tracking, a progress tracker, and the estimated delivery date.",
     "categories": [
       "ecommerce"
     ]
@@ -155,82 +181,98 @@
   "supabase-confirm-signup.html": {
     "lastmod": "2026-07-17",
     "image": "supabase-confirm-signup-preview.png",
-    "title": "Supabase Confirm Signup HTML Email Template"
-  },
-  "supabase-change-email.html": {
-    "lastmod": "2026-11-03",
-    "image": "supabase-change-email-preview.png",
-    "title": "Supabase Change Email Address HTML Email Template"
-  },
-  "supabase-email-otp.html": {
-    "lastmod": "2026-07-19",
-    "image": "supabase-email-otp-preview.png",
-    "title": "Supabase Email OTP HTML Email Template"
-  },
-  "supabase-invite-user.html": {
-    "lastmod": "2026-07-22",
-    "image": "supabase-invite-user-preview.png",
-    "title": "Supabase Invite User HTML Email Template"
-  },
-  "supabase-magic-link.html": {
-    "lastmod": "2026-07-19",
-    "image": "supabase-magic-link-preview.png",
-    "title": "Supabase Magic Link HTML Email Template"
-  },
-  "supabase-reauthentication.html": {
-    "lastmod": "2026-07-28",
-    "image": "supabase-reauthentication-preview.png",
-    "title": "Supabase Reauthentication HTML Email Template"
+    "title": "Supabase Confirm Signup HTML Email Template",
+    "description": "Ask new users to confirm their email address with a secure, single-use confirmation link."
   },
   "supabase-reset-password.html": {
     "lastmod": "2026-07-18",
     "image": "supabase-reset-password-preview.png",
-    "title": "Supabase Reset Password HTML Email Template"
+    "title": "Supabase Reset Password HTML Email Template",
+    "description": "Help users securely choose a new password after requesting account recovery."
+  },
+  "supabase-magic-link.html": {
+    "lastmod": "2026-07-19",
+    "image": "supabase-magic-link-preview.png",
+    "title": "Supabase Magic Link HTML Email Template",
+    "description": "Give users a quick, password-free way to sign in with a secure one-time link."
+  },
+  "supabase-email-otp.html": {
+    "lastmod": "2026-07-19",
+    "image": "supabase-email-otp-preview.png",
+    "title": "Supabase Email OTP HTML Email Template",
+    "description": "Let users sign in with a secure one-time code delivered to their inbox."
+  },
+  "supabase-invite-user.html": {
+    "lastmod": "2026-07-22",
+    "image": "supabase-invite-user-preview.png",
+    "title": "Supabase Invite User HTML Email Template",
+    "description": "Send new users a polished invitation to create their account."
+  },
+  "supabase-change-email.html": {
+    "lastmod": "2026-11-03",
+    "image": "supabase-change-email-preview.png",
+    "title": "Supabase Change Email Address HTML Email Template",
+    "description": "Confirm a user's new email address before Supabase updates their account."
+  },
+  "supabase-reauthentication.html": {
+    "lastmod": "2026-07-28",
+    "image": "supabase-reauthentication-preview.png",
+    "title": "Supabase Reauthentication HTML Email Template",
+    "description": "Send a one-time verification code before users complete a sensitive account action."
   },
   "supabase-password-changed.html": {
     "lastmod": "2026-11-03",
     "image": "supabase-password-changed-preview.png",
-    "title": "Supabase Password Changed HTML Email Template"
+    "title": "Supabase Password Changed HTML Email Template",
+    "description": "Tell users their password changed and give them a fast way to reset it if it wasn't them."
   },
   "better-auth-verify-email.html": {
     "lastmod": "2026-07-28",
     "image": "better-auth-verify-email-preview.png",
-    "title": "Better Auth Verify Email HTML Template"
+    "title": "Better Auth Verify Email HTML Template",
+    "description": "Ask new users to confirm their email address with a secure, single-use verification link."
   },
   "better-auth-reset-password.html": {
     "lastmod": "2026-07-28",
     "image": "better-auth-reset-password-preview.png",
-    "title": "Better Auth Reset Password HTML Email Template"
+    "title": "Better Auth Reset Password HTML Email Template",
+    "description": "Help users securely choose a new password after requesting account recovery."
   },
   "better-auth-magic-link.html": {
     "lastmod": "2026-07-28",
     "image": "better-auth-magic-link-preview.png",
-    "title": "Better Auth Magic Link HTML Email Template"
+    "title": "Better Auth Magic Link HTML Email Template",
+    "description": "Give users a quick, password-free way to sign in with a secure one-time link."
   },
   "better-auth-email-otp.html": {
     "lastmod": "2026-07-28",
     "image": "better-auth-email-otp-preview.png",
-    "title": "Better Auth Email OTP HTML Template"
+    "title": "Better Auth Email OTP HTML Template",
+    "description": "Let users sign in with a secure one-time code delivered to their inbox."
   },
   "better-auth-invite-member.html": {
     "lastmod": "2026-07-28",
     "image": "better-auth-invite-member-preview.png",
-    "title": "Better Auth Organization Invite HTML Email Template"
+    "title": "Better Auth Organization Invite HTML Email Template",
+    "description": "Invite people to join an organization with inviter and team context built in."
   },
   "better-auth-change-email.html": {
     "lastmod": "2026-07-28",
     "image": "better-auth-change-email-preview.png",
-    "title": "Better Auth Change Email HTML Template"
+    "title": "Better Auth Change Email HTML Template",
+    "description": "Ask users to approve their new email address before Better Auth updates it."
   },
   "better-auth-delete-account.html": {
     "lastmod": "2026-07-28",
     "image": "better-auth-delete-account-preview.png",
-    "title": "Better Auth Delete Account HTML Email Template"
+    "title": "Better Auth Delete Account HTML Email Template",
+    "description": "Confirm a permanent account deletion request before it goes through."
   },
   "back-in-stock.html": {
     "lastmod": "2026-08-27",
     "image": "back-in-stock-preview.webp",
     "title": "Back in Stock HTML Email Template",
+    "description": "Tell waitlisted customers an item has returned, with the variant, stock count, and a buy button.",
     "categories": [
       "ecommerce",
       "marketing"
@@ -240,6 +282,8 @@
     "lastmod": "2026-10-21",
     "image": "order-adjustment-preview.webp",
     "title": "Order Adjustment HTML Email Template",
+    "description": "Show which items are still on the way and which sold out, with a revised total and refund summary.",
+    "homeDescription": "Tell customers which items are still on the way and which sold out, with a revised total and refund summary.",
     "categories": [
       "ecommerce"
     ]
@@ -248,6 +292,8 @@
     "lastmod": "2026-10-27",
     "image": "order-cancelled-preview.webp",
     "title": "Order Cancelled HTML Email Template",
+    "description": "Confirm a cancellation with a refund tracker, the cancelled items, and the refund total.",
+    "homeDescription": "Confirm a cancelled order with a refund tracker, the cancelled items, and the refund total.",
     "categories": [
       "ecommerce"
     ]
@@ -256,6 +302,8 @@
     "lastmod": "2026-10-27",
     "image": "order-delivered-preview.webp",
     "title": "Order Delivered HTML Email Template",
+    "description": "Confirm a delivery with the drop-off time, the recipient, and a rate link for each item.",
+    "homeDescription": "Confirm a delivered order with the drop-off time, the recipient, and a rate link for each item.",
     "categories": [
       "ecommerce"
     ]
@@ -264,6 +312,7 @@
     "lastmod": "2026-11-02",
     "image": "payment-failed-preview.webp",
     "title": "Payment Failed HTML Email Template",
+    "description": "Tell a customer a subscription payment failed, with the amount, card, retry dates, and common fixes.",
     "categories": [
       "account"
     ]
@@ -272,6 +321,7 @@
     "lastmod": "2026-11-03",
     "image": "trial-ending-preview.webp",
     "title": "Trial Ending HTML Email Template",
+    "description": "Warn a user before a trial converts to a paid plan, with days left, the plan price, and usage so far.",
     "categories": [
       "account"
     ]
@@ -280,6 +330,8 @@
     "lastmod": "2026-11-04",
     "image": "usage-limit-preview.webp",
     "title": "Usage Limit HTML Email Template",
+    "description": "Warn a user near their quota, with what is left, the date requests stop, and how to add more.",
+    "homeDescription": "Send a usage limit warning that shows quota left, the date requests stop, and how to add more.",
     "categories": [
       "account"
     ]
@@ -288,6 +340,8 @@
     "lastmod": "2026-11-05",
     "image": "login-alert-preview.webp",
     "title": "Login Alert HTML Email Template",
+    "description": "Alert a user when a new device signs in, with the device, location, and time.",
+    "homeDescription": "Send a login alert when a new device signs in, with the device, location and time so readers can spot a stranger.",
     "categories": [
       "account"
     ]
@@ -296,6 +350,8 @@
     "lastmod": "2026-11-05",
     "image": "appointment-reminder-preview.webp",
     "title": "Appointment Reminder HTML Email Template",
+    "description": "Remind a client the day before, with the time, address, and free-change deadline.",
+    "homeDescription": "Send an appointment reminder the day before, with the time, address and free-change deadline so fewer clients miss their slot.",
     "categories": [
       "account"
     ]
@@ -304,6 +360,8 @@
     "lastmod": "2026-11-06",
     "image": "policy-update-preview.webp",
     "title": "Policy Update HTML Email Template",
+    "description": "Announce a terms or privacy policy change, with the effective date and what is changing.",
+    "homeDescription": "Announce a terms or privacy policy update with the effective date and what's changing, so users see the impact without reading the policy.",
     "categories": [
       "account"
     ]
@@ -312,6 +370,8 @@
     "lastmod": "2026-11-08",
     "image": "referral-preview.webp",
     "title": "Referral HTML Email Template",
+    "description": "Offer give $20, get $20, with a ready-made message customers forward by WhatsApp, SMS, or email.",
+    "homeDescription": "Send a referral email with a give $20, get $20 offer and a ready-to-send message customers forward by WhatsApp, SMS or email.",
     "categories": [
       "marketing"
     ]
@@ -320,26 +380,35 @@
     "lastmod": "2026-11-10",
     "image": "birthday-preview.webp",
     "title": "Birthday HTML Email Template",
+    "description": "Send a birthday greeting with a 20% off gift code, its expiry date, and four discounted product picks.",
+    "homeDescription": "Send a happy birthday email with a 20% off gift code, its expiry date and four product picks priced with the discount.",
     "categories": [
       "marketing"
-    ]
+    ],
+    "new": true
   },
   "browse-abandonment.html": {
     "lastmod": "2026-11-13",
     "image": "browse-abandonment-preview.webp",
     "title": "Browse Abandonment HTML Email Template",
+    "description": "Bring shoppers back to a product they viewed, with its rating and the other items they opened.",
+    "homeDescription": "Send a browse abandonment email that brings shoppers back to the product they viewed, with its rating and the other items they opened.",
     "categories": [
       "ecommerce",
       "marketing"
-    ]
+    ],
+    "new": true
   },
   "replenishment-reminder.html": {
     "lastmod": "2026-11-18",
     "image": "replenishment-reminder-preview.webp",
     "title": "Replenishment Reminder HTML Email Template",
+    "description": "Remind customers to reorder before they run out, with a supply gauge for each item.",
+    "homeDescription": "Send a replenishment reminder email that shows how much of each item is left, with one button to reorder everything.",
     "categories": [
       "ecommerce",
       "marketing"
-    ]
+    ],
+    "new": true
   }
 }

@@ -13,37 +13,21 @@ const CHECK = process.argv.includes("--check");
 const ROOT = path.resolve(__dirname, "..");
 const PUBLIC_DIR = path.join(ROOT, "public");
 const INDEX_HTML = path.join(ROOT, "index.html");
-const COLLECTION_PAGES = [
-  "supabase.html",
-  "better-auth.html",
-  "ecommerce-email-templates.html",
-  "marketing-email-templates.html",
-  "newsletter-email-templates.html",
-  "account-email-templates.html",
-  "auth-email-templates.html",
-];
-const CARD_IMAGES = '.template-grid article.wrapper div[class*="aspect-"] img';
-const CARD_GRIDS = [
-  {
-    page: INDEX_HTML,
-    selector: `${CARD_IMAGES}, #collection-grid [data-integration-card] .integration-card-preview img`,
-  },
-  ...COLLECTION_PAGES.map((file) => ({
-    page: path.join(ROOT, file),
-    selector: CARD_IMAGES,
-  })),
-];
+// The template cards are generated from the metadata, so it lists their images.
+// The integration cards on the homepage are written by hand.
+const TEMPLATE_METADATA = require("./template-metadata.json");
+const INTEGRATION_CARD_IMAGES =
+  "#collection-grid [data-integration-card] .integration-card-preview img";
 
 function getCardImageSources() {
-  const sources = new Set();
-  for (const { page, selector } of CARD_GRIDS) {
-    const html = fs.readFileSync(page, "utf8");
-    const $ = cheerio.load(html);
-    $(selector).each((_, el) => {
-      const src = $(el).attr("src");
-      if (src) sources.add(src.replace(/^\//, ""));
-    });
-  }
+  const sources = new Set(
+    Object.values(TEMPLATE_METADATA).map(({ image }) => image),
+  );
+  const $ = cheerio.load(fs.readFileSync(INDEX_HTML, "utf8"));
+  $(INTEGRATION_CARD_IMAGES).each((_, el) => {
+    const src = $(el).attr("src");
+    if (src) sources.add(src.replace(/^\//, ""));
+  });
   return [...sources];
 }
 

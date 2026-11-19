@@ -16,11 +16,26 @@ const shortName = (title, integration) => {
   return name.startsWith(prefix) ? name.slice(prefix.length) : name;
 };
 
+// The short name and the collections of a template, which the search and the
+// cards both list.
+export const listingOf = (file, { title, categories }) => {
+  const collections = collectionsOf(file, categories);
+  return {
+    collections,
+    name: shortName(title, categories ? null : collections[0]),
+  };
+};
+
+// Punctuation separates words, so "label" finds "shop-by-label" and "20" finds
+// "$20". An accent stays with its letter.
+const wordsOf = (text) =>
+  text.toLowerCase().replace(/[^\p{L}\p{N}\p{M}]+/gu, " ").trim();
+
 export function buildSearchIndex(metadata) {
   const templates = Object.entries(metadata)
-    .map(([file, { title, image, categories, lastmod }]) => {
-      const collections = collectionsOf(file, categories);
-      const name = shortName(title, categories ? null : collections[0]);
+    .map(([file, entry]) => {
+      const { image, lastmod, description } = entry;
+      const { name, collections } = listingOf(file, entry);
       const labels = collections.map(({ label }) => label);
 
       return {
@@ -30,6 +45,9 @@ export function buildSearchIndex(metadata) {
         collection: labels[0],
         href: `./preview.html?template=${file.replace(/\.html$/, "")}`,
         text: [name, ...labels].join(" ").toLowerCase(),
+        // Matched from the start of a word, so "art" does not find every
+        // description that says "cart" or "start".
+        description: ` ${wordsOf(description)}`,
         keys: collections.map(({ key }) => key),
       };
     })
@@ -47,12 +65,19 @@ export function buildSearchIndex(metadata) {
 
 const termsOf = (query) => query.toLowerCase().split(/\s+/).filter(Boolean);
 
-// A name that starts with the query beats one that contains it, which beats a
-// template matched only through its collection.
-const rank = (template, query) => {
+const matches = ({ text, description }, term) => {
+  const words = wordsOf(term);
+  return text.includes(term) || (words && description.includes(` ${words}`));
+};
+
+// A name that starts with the query beats one that contains it. Next comes a
+// template matched through its collection, and last one that only mentions
+// the query in its description.
+const rank = (template, terms, phrase) => {
   const name = template.name.toLowerCase();
-  if (name.startsWith(query)) return 0;
-  return name.includes(query) ? 1 : 2;
+  if (name.startsWith(phrase)) return 0;
+  if (name.includes(phrase)) return 1;
+  return terms.every((term) => template.text.includes(term)) ? 2 : 3;
 };
 
 export function search(index, query) {
@@ -65,7 +90,7 @@ export function search(index, query) {
       label.toLowerCase().includes(phrase),
     ),
     templates: index.templates
-      .filter(({ text }) => terms.every((term) => text.includes(term)))
-      .sort((a, b) => rank(a, phrase) - rank(b, phrase)),
+      .filter((template) => terms.every((term) => matches(template, term)))
+      .sort((a, b) => rank(a, terms, phrase) - rank(b, terms, phrase)),
   };
 }
