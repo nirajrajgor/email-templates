@@ -45,9 +45,25 @@ test("a template is found by its own name", () => {
 
 test("a name that starts with the query is listed first", () => {
   const names = search(index, "order").templates.map(({ name }) => name);
+  const named = names.filter((name) => name.includes("Order"));
 
-  assert.equal(names.at(-1), "Ecommerce Order");
-  assert.ok(names.slice(0, -1).every((name) => name.startsWith("Order")));
+  assert.equal(named.at(-1), "Ecommerce Order");
+  assert.ok(named.slice(0, -1).every((name) => name.startsWith("Order")));
+
+  // Templates that only describe an order follow the ones named for it.
+  assert.ok(names.length > named.length);
+  assert.deepEqual(names.slice(0, named.length), named);
+});
+
+test("a word in the description finds the template", () => {
+  assert.ok(
+    hrefs(search(index, "refund").templates).includes(
+      "./preview.html?template=order-cancelled",
+    ),
+  );
+
+  // A description is matched from the start of a word.
+  assert.deepEqual(search(index, "efund").templates, []);
 });
 
 test("a collection name finds its page and its templates", () => {

@@ -43,13 +43,13 @@ const templateCards = () => ({
       renderCards(html, JSON.parse(readFileSync(TEMPLATE_METADATA, "utf8"))),
   },
   // The search script imports the metadata too. It gets only the fields it
-  // reads, because the card text is already in the page.
+  // reads, so the homepage wording is not downloaded a second time.
   transform(code, id) {
     if (id !== TEMPLATE_METADATA) return null;
     const entries = Object.entries(JSON.parse(code)).map(
-      ([file, { lastmod, image, title, categories }]) => [
+      ([file, { lastmod, image, title, description, categories }]) => [
         file,
-        { lastmod, image, title, categories },
+        { lastmod, image, title, description, categories },
       ],
     );
     return JSON.stringify(Object.fromEntries(entries));

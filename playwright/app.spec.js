@@ -371,7 +371,8 @@ test("header search opens a template the homepage does not show", async ({
 
   const search = page.getByRole("combobox", { name: "Search templates" });
   await search.fill("gift");
-  await expect(page.getByRole("option")).toHaveText([/Gift Decor/]);
+  // The birthday template mentions a gift code, so it is listed second.
+  await expect(page.getByRole("option")).toHaveText([/Gift Decor/, /Birthday/]);
   await search.press("Enter");
 
   await expect(page).toHaveURL(/preview\.html\?template=gift-decor$/);
