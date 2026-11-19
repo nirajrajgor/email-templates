@@ -224,6 +224,12 @@ test("a marker that cannot be replaced fails the build", () => {
   }
 });
 
+test("a comment that only starts like a marker is left alone", () => {
+  const comment = "<!-- cards are static HTML -->";
+
+  assert.equal(renderCards(comment, sample), comment);
+});
+
 test("a file or image name with symbols still makes working links", () => {
   const odd = {
     "q&a#1.html": {

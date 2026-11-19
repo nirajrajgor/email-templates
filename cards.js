@@ -125,7 +125,9 @@ const RENDERERS = {
   count: (metadata, key) => String(templatesIn(metadata, key).length),
 };
 
-const LEFTOVER_MARKER = /<!--\s*(?:cards|featured|count)\b[^>]*-->/;
+// Shaped like a marker, so a comment that only starts with one of the words
+// is left alone.
+const LEFTOVER_MARKER = /<!--\s*(?:cards|featured|count)\s+[\w-]+\s*-->/;
 
 // Replaces each `<!-- cards key -->` or `<!-- featured key -->` line with cards
 // at the line's indentation, and each `<!-- count key -->` with the number of

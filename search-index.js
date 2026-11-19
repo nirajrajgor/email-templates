@@ -27,9 +27,9 @@ export const listingOf = (file, { title, categories }) => {
 };
 
 // Punctuation separates words, so "label" finds "shop-by-label" and "20" finds
-// "$20".
+// "$20". An accent stays with its letter.
 const wordsOf = (text) =>
-  text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  text.toLowerCase().replace(/[^\p{L}\p{N}\p{M}]+/gu, " ").trim();
 
 export function buildSearchIndex(metadata) {
   const templates = Object.entries(metadata)

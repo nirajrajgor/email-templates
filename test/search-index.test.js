@@ -76,6 +76,21 @@ test("punctuation in a description separates its words", () => {
   assert.deepEqual(found("$"), []);
 });
 
+test("an accented letter does not split a word in two", () => {
+  const accented = buildSearchIndex({
+    "city-guide.html": {
+      lastmod: "2026-01-01",
+      image: "city-guide-preview.webp",
+      title: "City Guide Email Template",
+      description: "Share a weekend in İstanbul.",
+      categories: ["newsletter"],
+    },
+  });
+
+  assert.equal(search(accented, "İstanbul").templates.length, 1);
+  assert.deepEqual(search(accented, "stanbul").templates, []);
+});
+
 test("a collection match is listed before a description match", () => {
   const inAccount = search(index, "account").templates.map(({ text }) =>
     text.includes("account"),
