@@ -206,6 +206,11 @@ const templates = {
     background: "#f3f0ea",
     brand: "#9a3412",
   },
+  "gift-card": {
+    title: "Gift Card Emailer",
+    background: "#ebe8e1",
+    brand: "#14213d",
+  },
 };
 
 const params = new URLSearchParams(window.location.search);

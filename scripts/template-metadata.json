@@ -384,8 +384,7 @@
     "homeDescription": "Send a happy birthday email with a 20% off gift code, its expiry date and four product picks priced with the discount.",
     "categories": [
       "marketing"
-    ],
-    "new": true
+    ]
   },
   "browse-abandonment.html": {
     "lastmod": "2026-11-13",
@@ -408,6 +407,17 @@
     "categories": [
       "ecommerce",
       "marketing"
+    ],
+    "new": true
+  },
+  "gift-card.html": {
+    "lastmod": "2026-11-23",
+    "image": "gift-card-preview.webp",
+    "title": "Gift Card HTML Email Template",
+    "description": "Deliver a digital gift card with the amount, code, and sender's message, plus gift ideas under the balance.",
+    "homeDescription": "Send a gift card email that shows the amount and code on a card, with the sender's message and ideas to spend it on.",
+    "categories": [
+      "ecommerce"
     ],
     "new": true
   }
