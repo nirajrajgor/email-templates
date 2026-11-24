@@ -1,0 +1,38 @@
+$50.00 to spend on anything at Acme. It never expires.
+
+acme
+
+Maya sent you a gift card
+
+Acme gift card
+
+- Amount: $50.00
+- Code: 7K2M 9QXD 4T8P HN3V
+
+Start shopping:
+[add shop URL]
+
+Check balance:
+[add balance URL]
+
+Message from Maya Chen
+
+Happy housewarming, John. Get something nice for the new place.
+
+Ideas under $50
+
+- Cupcake gift box: $40.00
+- Scented candle: $32.00
+- Ceramic mug: $18.00
+
+- Use it: Online or in store
+- Expires: Never
+- Unspent balance: Stays on the card
+
+Maya Chen bought this gift card for you at Acme.
+
+Get help:
+[add help URL]
+
+Copyright 2026 Acme Inc.
+123 Market St, San Francisco, CA 94105
