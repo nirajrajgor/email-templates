@@ -384,8 +384,7 @@
     "homeDescription": "Send a happy birthday email with a 20% off gift code, its expiry date and four product picks priced with the discount.",
     "categories": [
       "marketing"
-    ],
-    "new": true
+    ]
   },
   "browse-abandonment.html": {
     "lastmod": "2026-11-13",
